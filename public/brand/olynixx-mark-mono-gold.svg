@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Olynixx mark">
+  <title>Olynixx mark</title>
+  <circle cx="120.0" cy="120.0" r="108.0" fill="none" stroke="#D9AC4A" stroke-width="1.5"/>
+  <path d="M 120.00 32.00 L 182.23 182.23 L 32.00 120.00 L 182.23 57.77 L 120.00 208.00 L 57.77 57.77 L 208.00 120.00 L 57.77 182.23 Z" fill="none" stroke="#D9AC4A" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M 120.00 83.50 L 145.81 145.81 L 83.50 120.00 L 145.81 94.19 L 120.00 156.50 L 94.19 94.19 L 156.50 120.00 L 94.19 145.81 Z" fill="none" stroke="#D9AC4A" stroke-width="1.6" opacity="0.55"/>
+  <circle cx="120.00" cy="32.00" r="7.0" fill="#D9AC4A"/>
+  <circle cx="182.23" cy="57.77" r="7.0" fill="#D9AC4A"/>
+  <circle cx="208.00" cy="120.00" r="7.0" fill="#D9AC4A"/>
+  <circle cx="182.23" cy="182.23" r="7.0" fill="#D9AC4A"/>
+  <circle cx="120.00" cy="208.00" r="7.0" fill="#D9AC4A"/>
+  <circle cx="57.77" cy="182.23" r="7.0" fill="#D9AC4A"/>
+  <circle cx="32.00" cy="120.00" r="7.0" fill="#D9AC4A"/>
+  <circle cx="57.77" cy="57.77" r="7.0" fill="#D9AC4A"/>
+  <circle cx="120.0" cy="120.0" r="10.5" fill="#D9AC4A"/>
+</svg>
