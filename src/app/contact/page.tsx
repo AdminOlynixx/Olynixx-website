@@ -10,12 +10,17 @@ export const metadata: Metadata = {
   description: CONTACT.lead,
 };
 
+function whatsappHref(value: string): string {
+  const digits = value.replace(/[^\d]/g, "");
+  return digits ? `https://wa.me/${digits}` : value;
+}
+
 export default function ContactPage() {
   const details = publicContact();
 
   return (
     <>
-      <Hero center compact>
+      <Hero compact>
         <Eyebrow>Contact</Eyebrow>
         <h1 className="ol-hero-title">{CONTACT.title}</h1>
         <p className="ol-lead">{CONTACT.lead}</p>
@@ -31,6 +36,7 @@ export default function ContactPage() {
           <aside className="ol-contact__direct">
             <Eyebrow>{CONTACT.directEyebrow}</Eyebrow>
             <p className="ol-contact__place">{details.location}</p>
+            {details.address ? <p>{details.address}</p> : null}
             {details.email ? (
               <p>
                 <a href={`mailto:${details.email}`}>{details.email}</a>
@@ -41,6 +47,21 @@ export default function ContactPage() {
                 <a href={`tel:${details.phone}`}>{details.phone}</a>
               </p>
             ) : null}
+            {details.whatsapp ? (
+              <p>
+                <a href={whatsappHref(details.whatsapp)} rel="noopener noreferrer">
+                  WhatsApp
+                </a>
+              </p>
+            ) : null}
+            {details.mapUrl ? (
+              <p>
+                <a href={details.mapUrl} rel="noopener noreferrer">
+                  Map
+                </a>
+              </p>
+            ) : null}
+            {details.sla ? <p className="ol-small">{details.sla}</p> : null}
             <p className="ol-small ol-muted">{CONTACT.directNote}</p>
           </aside>
         </div>

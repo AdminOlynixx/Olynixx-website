@@ -3,17 +3,20 @@ import { Hero, Section, Eyebrow, Title, Lead } from "@/components/site/Section";
 import { CtaBand } from "@/components/site/CtaBand";
 import { ABOUT } from "@/content/about";
 import { contactHref } from "@/lib/cta";
-import { IsoBlock } from "@/components/site/IsoBlock";
+import { IsoShort } from "@/components/site/IsoBlock";
+import { JsonLd } from "@/components/site/JsonLd";
+import { bookJsonLd } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: { absolute: "Twenty-two years of readiness testing | Olynixx" },
   description: ABOUT.heroLead,
 };
 
 export default function AboutPage() {
   return (
     <>
-      <Hero center compact>
+      <JsonLd data={bookJsonLd()} />
+      <Hero compact>
         <Eyebrow>About</Eyebrow>
         <h1 className="ol-hero-title">{ABOUT.heroTitle}</h1>
         <p className="ol-lead">{ABOUT.heroLead}</p>
@@ -33,13 +36,11 @@ export default function AboutPage() {
       </Section>
 
       <Section surface="dark" narrow>
-        <div className="ol-center">
-          <Eyebrow>One functional status</Eyebrow>
-          <Title>{ABOUT.methodTitle}</Title>
-          {ABOUT.methodBody.map((para) => (
-            <Lead key={para.slice(0, 24)}>{para}</Lead>
-          ))}
-        </div>
+        <Eyebrow>One functional status</Eyebrow>
+        <Title>{ABOUT.methodTitle}</Title>
+        {ABOUT.methodBody.map((para) => (
+          <Lead key={para.slice(0, 24)}>{para}</Lead>
+        ))}
       </Section>
 
       <Section>
@@ -71,16 +72,14 @@ export default function AboutPage() {
       </Section>
 
       <Section surface="dark" narrow>
-        <div className="ol-center">
-          <Eyebrow>The team</Eyebrow>
-          <Title>{ABOUT.behindTitle}</Title>
-          <Lead>{ABOUT.behindBody}</Lead>
-        </div>
+        <Eyebrow>The team</Eyebrow>
+        <Title>{ABOUT.behindTitle}</Title>
+        <Lead>{ABOUT.behindBody}</Lead>
         {/* Founder line is a removable fragment. Do not add personal names until Louis supplies written clearance. */}
       </Section>
 
       <Section narrow>
-        <IsoBlock />
+        <IsoShort />
       </Section>
 
       <CtaBand title={ABOUT.cta} href={contactHref("individual")} label={ABOUT.ctaButton} />

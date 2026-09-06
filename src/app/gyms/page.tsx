@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Hero, Section, Eyebrow, Title, Lead } from "@/components/site/Section";
 import { CtaBand } from "@/components/site/CtaBand";
-import { MediaSlot } from "@/components/site/MediaSlot";
 import { TrustBar } from "@/components/site/IsoBlock";
+import { ReadinessHub } from "@/components/site/ReadinessHub";
 import { GYMS } from "@/content/gyms";
 import { contactHref } from "@/lib/cta";
 
@@ -30,7 +30,12 @@ export default function GymsPage() {
         <TrustBar items={GYMS.trust} />
       </Hero>
 
-      <Section narrow>
+      <nav className="ol-switcher" aria-label="Gyms or spas">
+        <a href="#gyms-track">{GYMS.selectorGyms}</a>
+        <a href="#spa-track">{GYMS.selectorSpas}</a>
+      </nav>
+
+      <Section id="gyms-track" narrow>
         <Eyebrow>{GYMS.safetyEyebrow}</Eyebrow>
         <Title>{GYMS.safetyTitle}</Title>
         {GYMS.safety.map((para) => (
@@ -39,7 +44,7 @@ export default function GymsPage() {
         <p className="ol-small ol-muted">{GYMS.safetyNote}</p>
       </Section>
 
-      <Section surface="dark">
+      <Section>
         <Eyebrow>{GYMS.personalEyebrow}</Eyebrow>
         <Title>{GYMS.personalTitle}</Title>
         <Lead>{GYMS.personal}</Lead>
@@ -70,6 +75,20 @@ export default function GymsPage() {
         </div>
       </Section>
 
+      <Section id="spa-track">
+        <Eyebrow>{GYMS.spaEyebrow}</Eyebrow>
+        <Title>{GYMS.spaTitle}</Title>
+        <Lead>{GYMS.spa}</Lead>
+        <div className="ol-grid">
+          {GYMS.spaCards.map((item) => (
+            <article key={item.title} className="ol-card">
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </article>
+          ))}
+        </div>
+      </Section>
+
       <Section id="licence" surface="app">
         <Eyebrow>{GYMS.licenceEyebrow}</Eyebrow>
         <Title>{GYMS.licenceTitle}</Title>
@@ -88,6 +107,10 @@ export default function GymsPage() {
         </p>
       </Section>
 
+      <Section>
+        <ReadinessHub />
+      </Section>
+
       <Section narrow>
         <Eyebrow>{GYMS.coachesEyebrow}</Eyebrow>
         <Title>{GYMS.coachesTitle}</Title>
@@ -103,25 +126,10 @@ export default function GymsPage() {
         </p>
       </Section>
 
-      <Section surface="dark" narrow>
-        <Eyebrow>{GYMS.measuredEyebrow}</Eyebrow>
-        <Title>{GYMS.measuredTitle}</Title>
-        <Lead>{GYMS.measured}</Lead>
-      </Section>
-
-      <Section narrow>
-        <Eyebrow>{GYMS.labEyebrow}</Eyebrow>
-        <Title>{GYMS.labTitle}</Title>
-        <Lead>{GYMS.lab}</Lead>
-      </Section>
-
       <Section>
         <Eyebrow>{GYMS.firstClubEyebrow}</Eyebrow>
         <Title>{GYMS.firstClubTitle}</Title>
         <Lead>{GYMS.firstClub}</Lead>
-        <div style={{ marginTop: "var(--s5)", maxWidth: 720 }}>
-          <MediaSlot label={GYMS.karwanSlot} />
-        </div>
       </Section>
 
       <CtaBand

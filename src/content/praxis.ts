@@ -3,7 +3,7 @@
 export const PRAXIS = {
   heroTitle: "Renew your credentials. Upgrade your craft.",
   heroLead:
-    "Olynixx Praxis is continuing education for the UAE's health professionals — personal trainers, health coaches, nutritionists, mental coaches. Earn the credentials your renewal requires, and walk out with a skill your clients will pay for.",
+    "Olynixx Praxis is continuing education for the UAE's health professionals — personal trainers, health coaches, nutritionists, mental coaches. Collect CPD toward the credentials your renewal requires, and walk out with a skill your clients will pay for.",
   programmeName: "RiseUp Academy",
   programmeNote:
     "RiseUp Academy is the programme name inside Olynixx Praxis — the page title stays Olynixx Praxis.",
@@ -38,4 +38,18 @@ export const PRAXIS = {
   ],
   cta: "Reserve your seat. Renew smarter.",
   ctaButton: "Reserve your seat",
+  factsEyebrow: "Course facts",
+  factsTitle: "What you need to know before you book",
+  /* Empty strings stay unpublished. Louis fills them. */
+  facts: {
+    format: "",
+    duration: "",
+    location: "",
+    language: "",
+    cohort: "",
+    hours: "",
+    dates: "",
+    fee: "",
+    exam: "",
+  },
 } as const;

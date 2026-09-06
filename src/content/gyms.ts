@@ -73,11 +73,11 @@ export const GYMS = {
     },
     {
       title: "You provide",
-      body: "The floor space, the coaching hours, and a club that actually wants its members measured.",
+      body: "The floor space, the coaching hours, and a club that actually wants its members measured. We will say no to a marketing prop — a kiosk in the lobby with nobody trained to read it is not a testing club.",
     },
     {
       title: "You earn on",
-      body: "Paid readiness screens for walk-ins and members, readiness-steered personal training, structured twelve-week programmes, and recovery packages that finally have a reason behind them. Testing does not replace a membership line — it sits on top of one, and it gives your retention conversation a number instead of an opinion.",
+      body: "Paid readiness screens for walk-ins and members, readiness-steered personal training, structured twelve-week programmes, recovery packages that finally have a reason behind them, and guest or day-spa testing as a fourth line. Testing does not replace a membership — it sits on top of one.",
     },
   ],
   licenceCta: "Talk to us about a licence",
@@ -100,7 +100,30 @@ export const GYMS = {
   firstClubTitle: "Karwan Health Club, Ajman",
   firstClub:
     "The first Olynixx testing club: readiness kiosk on the floor, performance diagnostics, structured twelve-week programmes, run by certified coaches.",
-  karwanSlot: "Karwan testing floor — photo pending",
   closeTitle: "Turn your club into a testing club.",
   closeSecondary: "Certify your coaches through Praxis",
+  selectorGyms: "For gyms",
+  selectorSpas: "For spas",
+  spaEyebrow: "For spas",
+  spaTitle: "Give every guest a number no other spa can give them.",
+  spa:
+    "A spa sells recovery. Most of it is still guessed: heat because it is on the menu, cold because it is fashionable, a protocol written for a typical guest who does not exist. A one-minute readiness reading before the treatment steers the hour you already staffed — and turns a nice visit into a measured one.",
+  spaCards: [
+    {
+      title: "Guest screening",
+      body: "A quiet kiosk at arrival. One minute. The guest walks into the treatment with a status, not a preference card.",
+    },
+    {
+      title: "Steered recovery",
+      body: "Heat, cold, compression, rest — chosen for today's reading, not for the package that sold last month.",
+    },
+    {
+      title: "Membership, differentiated",
+      body: "The number is the thing they cannot get from a hotel spa down the road. Retest is why they come back.",
+    },
+    {
+      title: "Staff, briefed",
+      body: "Therapists work from the same status the guest sees. No new medical role — lifestyle guidance, on the treatment floor.",
+    },
+  ],
 } as const;

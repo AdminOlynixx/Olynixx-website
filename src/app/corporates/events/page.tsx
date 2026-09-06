@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Hero, Section, Eyebrow, Title, Lead } from "@/components/site/Section";
 import { SubNav } from "@/components/site/SubNav";
+import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { EVENTS } from "@/content/corporates";
 import { CORP_SUBNAV } from "@/lib/nav";
 import { contactHref } from "@/lib/cta";
 
 export const metadata: Metadata = {
-  title: "Corporate Events & Keynotes",
+  title: { absolute: "Event testing kiosk and keynote | Olynixx" },
   description: EVENTS.heroLead,
 };
 
@@ -19,6 +20,13 @@ export default function EventsPage() {
         <h1 className="ol-hero-title">{EVENTS.heroTitle}</h1>
         <p className="ol-lead">{EVENTS.heroLead}</p>
       </Hero>
+      <Breadcrumb
+        items={[
+          { href: "/", label: "Home" },
+          { href: "/corporates", label: "Corporates" },
+          { href: "/corporates/events", label: "Events & keynotes" },
+        ]}
+      />
       <SubNav items={CORP_SUBNAV} current="/corporates/events" />
 
       <Section narrow>
@@ -39,6 +47,19 @@ export default function EventsPage() {
         <Eyebrow>Teams</Eyebrow>
         <Title>{EVENTS.workshopsTitle}</Title>
         <Lead>{EVENTS.workshopsBody}</Lead>
+      </Section>
+
+      <Section>
+        <Eyebrow>{EVENTS.practicalEyebrow}</Eyebrow>
+        <Title>{EVENTS.practicalTitle}</Title>
+        <div className="ol-grid" style={{ marginTop: "var(--ol-sp-6)" }}>
+          {EVENTS.practical.map((item) => (
+            <article key={item.title} className="ol-card">
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </article>
+          ))}
+        </div>
       </Section>
 
       <Section surface="light">

@@ -21,6 +21,7 @@ NOINDEX=true
 PUBLISH_PUREHEALTH=false
 PUBLISH_ISO_BADGES=false
 PUBLISH_LONGEVITY=false
+PUBLISH_ENTITY=false
 STAGING_USER=...
 STAGING_PASSWORD=...
 SITE_URL=https://your-staging-host
@@ -40,5 +41,5 @@ Then add the env values in the Vercel project settings and redeploy. Basic auth 
 
 - Footer disclaimer is verbatim on every page.
 - PureHealth block compiles but stays unpublished (`PUBLISH_PUREHEALTH=false`).
-- Legal entity and public contact are env values, not hardcoded strings.
+- Legal entity and public contact are env values, not hardcoded strings. Entity stays off public pages until `PUBLISH_ENTITY=true`.
 - Nothing goes into a portfolio before written launch approval.

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Hero, Section, Eyebrow, Title, Lead } from "@/components/site/Section";
 import { TrustBar } from "@/components/site/IsoBlock";
 import { DoorSwitcher } from "@/components/site/DoorSwitcher";
+import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { SPORT_ATHLETE as COPY } from "@/content/individuals";
 import { contactHref } from "@/lib/cta";
 
@@ -28,6 +29,13 @@ export default function SportAthletePage() {
         </p>
         <TrustBar items={COPY.trust} />
       </Hero>
+      <Breadcrumb
+        items={[
+          { href: "/", label: "Home" },
+          { href: "/individuals", label: "Individuals" },
+          { href: "/individuals/sport-athlete", label: "Sport athlete" },
+        ]}
+      />
       <DoorSwitcher current="/individuals/sport-athlete" />
 
       <Section narrow>
@@ -73,7 +81,7 @@ export default function SportAthletePage() {
             <Link className="ol-btn ol-btn--primary" href={contactHref("sport-athlete")}>
               {COPY.primaryCta}
             </Link>
-            <Link className="ol-btn ol-btn--secondary" href="/gyms">
+            <Link className="ol-btn ol-btn--secondary" href={contactHref("athlete-referral")}>
               {COPY.clubCta}
             </Link>
           </div>

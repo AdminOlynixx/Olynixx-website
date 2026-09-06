@@ -1,4 +1,5 @@
-import { ISO_FOLLOW, ISO_LONG } from "@/lib/legal-copy";
+import Link from "next/link";
+import { ISO_FOLLOW, ISO_LONG, ISO_SHORT } from "@/lib/legal-copy";
 
 export function IsoBlock({ follow = false }: { follow?: boolean }) {
   return (
@@ -15,6 +16,15 @@ export function IsoBlock({ follow = false }: { follow?: boolean }) {
       <p>{ISO_LONG.close}</p>
       {follow ? <p>{ISO_FOLLOW}</p> : null}
     </div>
+  );
+}
+
+export function IsoShort() {
+  return (
+    <p className="ol-iso-short-block">
+      {ISO_SHORT}{" "}
+      <Link href="/governance">Full standards layer</Link>
+    </p>
   );
 }
 

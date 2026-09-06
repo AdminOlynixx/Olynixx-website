@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import { Hero, Section, Eyebrow, Title, Lead } from "@/components/site/Section";
 import { SubNav } from "@/components/site/SubNav";
 import { CtaBand } from "@/components/site/CtaBand";
+import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { GOVERNMENT } from "@/content/corporates";
 import { CORP_SUBNAV } from "@/lib/nav";
 import { contactHref } from "@/lib/cta";
 
 export const metadata: Metadata = {
-  title: "Government & Public Sector",
+  title: { absolute: "Government workforce readiness testing | Olynixx" },
   description: GOVERNMENT.heroLead,
 };
 
@@ -19,6 +20,13 @@ export default function GovernmentPage() {
         <h1 className="ol-hero-title">{GOVERNMENT.heroTitle}</h1>
         <p className="ol-lead">{GOVERNMENT.heroLead}</p>
       </Hero>
+      <Breadcrumb
+        items={[
+          { href: "/", label: "Home" },
+          { href: "/corporates", label: "Corporates" },
+          { href: "/corporates/government", label: "Government" },
+        ]}
+      />
       <SubNav items={CORP_SUBNAV} current="/corporates/government" />
 
       <Section>
@@ -63,6 +71,18 @@ export default function GovernmentPage() {
         <Eyebrow>Data handling</Eyebrow>
         <Title>{GOVERNMENT.governanceTitle}</Title>
         <Lead>{GOVERNMENT.governanceBody}</Lead>
+      </Section>
+
+      <Section>
+        <Eyebrow>{GOVERNMENT.contractEyebrow}</Eyebrow>
+        <Title>{GOVERNMENT.contractTitle}</Title>
+        <div className="ol-grid" style={{ marginTop: "var(--ol-sp-6)" }}>
+          {GOVERNMENT.contract.map((item) => (
+            <article key={item.slice(0, 32)} className="ol-card">
+              <p>{item}</p>
+            </article>
+          ))}
+        </div>
       </Section>
 
       <CtaBand title={GOVERNMENT.cta} href={contactHref("government")} label={GOVERNMENT.cta} />

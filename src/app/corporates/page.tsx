@@ -2,13 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Hero, Section, Eyebrow, Title, Lead } from "@/components/site/Section";
 import { SubNav } from "@/components/site/SubNav";
-import { MediaSlot } from "@/components/site/MediaSlot";
+import { Wireframe } from "@/components/site/Wireframe";
 import { PureHealthBlock } from "@/components/site/PureHealthBlock";
 import { CtaBand } from "@/components/site/CtaBand";
-import { IsoBlock, TrustBar } from "@/components/site/IsoBlock";
+import { IsoShort, TrustBar } from "@/components/site/IsoBlock";
+import { ReadinessHub } from "@/components/site/ReadinessHub";
+import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { CORPORATES } from "@/content/corporates";
 import { CORP_SUBNAV } from "@/lib/nav";
 import { contactHref } from "@/lib/cta";
+import { JsonLd } from "@/components/site/JsonLd";
+import { serviceJsonLd } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
   title: { absolute: CORPORATES.metaTitle },
@@ -18,6 +22,7 @@ export const metadata: Metadata = {
 export default function CorporatesPage() {
   return (
     <>
+      <JsonLd data={serviceJsonLd()} />
       <Hero>
         <Eyebrow>{CORPORATES.eyebrow}</Eyebrow>
         <h1 className="ol-hero-title">{CORPORATES.heroTitle}</h1>
@@ -32,7 +37,24 @@ export default function CorporatesPage() {
         </p>
         <TrustBar items={CORPORATES.trust} />
       </Hero>
+      <Breadcrumb
+        items={[
+          { href: "/", label: "Home" },
+          { href: "/corporates", label: "Corporates" },
+        ]}
+      />
       <SubNav items={CORP_SUBNAV} current="/corporates" />
+
+      <Section className="ol-tight-section">
+        <Eyebrow>{CORPORATES.eventBandEyebrow}</Eyebrow>
+        <Title>{CORPORATES.eventBandTitle}</Title>
+        <Lead>{CORPORATES.eventBandBody}</Lead>
+        <p className="ol-actions">
+          <Link className="ol-btn ol-btn--secondary" href={contactHref("event")}>
+            {CORPORATES.eventsCta}
+          </Link>
+        </p>
+      </Section>
 
       <Section narrow>
         <Eyebrow>{CORPORATES.gapEyebrow}</Eyebrow>
@@ -42,7 +64,7 @@ export default function CorporatesPage() {
         ))}
       </Section>
 
-      <Section id="pilot" surface="dark">
+      <Section id="pilot">
         <Eyebrow>{CORPORATES.pilotEyebrow}</Eyebrow>
         <Title>{CORPORATES.pilotTitle}</Title>
         <Lead>{CORPORATES.pilotIntro}</Lead>
@@ -59,6 +81,10 @@ export default function CorporatesPage() {
             {CORPORATES.primaryCta}
           </Link>
         </p>
+      </Section>
+
+      <Section>
+        <ReadinessHub />
       </Section>
 
       <Section>
@@ -82,8 +108,8 @@ export default function CorporatesPage() {
           <Lead key={para.slice(0, 28)}>{para}</Lead>
         ))}
         <div className="ol-grid">
-          <MediaSlot label={CORPORATES.personalSlot} />
-          <MediaSlot label={CORPORATES.boardroomSlot} />
+          <Wireframe title={CORPORATES.personalSlot} />
+          <Wireframe title={CORPORATES.boardroomSlot} />
         </div>
       </Section>
 
@@ -95,8 +121,8 @@ export default function CorporatesPage() {
         ))}
       </Section>
 
-      <Section surface="dark" narrow>
-        <IsoBlock follow />
+      <Section narrow>
+        <IsoShort />
       </Section>
 
       <Section>

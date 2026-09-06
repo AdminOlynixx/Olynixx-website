@@ -3,7 +3,9 @@ import type { ReactNode } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Motion } from "@/components/site/Motion";
-import { noIndexPublicSite, siteUrl } from "@/lib/site-config";
+import { JsonLd } from "@/components/site/JsonLd";
+import { organizationJsonLd } from "@/lib/json-ld";
+import { noIndexPublicSite, publishLongevity, siteUrl } from "@/lib/site-config";
 import "@/styles/olynixx-fonts.css";
 import "@/styles/olynixx-tokens.css";
 import "@/styles/olynixx-base.css";
@@ -33,7 +35,13 @@ export const metadata: Metadata = {
     siteName: "Olynixx",
     title,
     description,
-    images: [{ url: "/brand/olynixx-og-card.svg", width: 1200, height: 630, alt: "Olynixx" }],
+    images: [{ url: "/brand/olynixx-og-card.png", width: 1200, height: 630, alt: "Olynixx" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/brand/olynixx-og-card.png"],
   },
   robots: noIndexPublicSite()
     ? { index: false, follow: false, nocache: true }
@@ -66,7 +74,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <a className="ol-skip" href="#content">
           Skip to content
         </a>
-        <Header />
+        <Header longevityLive={publishLongevity()} />
+        <JsonLd data={organizationJsonLd()} />
         <main id="content" className="ol-main">
           {children}
         </main>

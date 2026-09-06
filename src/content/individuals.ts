@@ -5,7 +5,7 @@ export const HUB = {
   metaDescription:
     "A measured journey built on your own physiology. Choose your route — corporate athlete, sport athlete or longevity — and start with a free intake call. Non-medical.",
   eyebrow: "For individuals",
-  heroTitle: "Become the world champion of your own body.",
+  heroTitle: "A user guide to your own body.",
   standfirst:
     "Not a boot camp. Not a detox. Not another app. A measured journey built on your own physiology, guided by a team that reads your numbers instead of the trends. It starts with a free intake call, and nobody sells you anything until a coach has listened.",
   primaryCta: "Book your free intake call",
@@ -56,7 +56,7 @@ export const HUB = {
   method: [
     {
       title: "Test",
-      body: "A readiness test captures 108 physiological data points in about a minute and resolves them into one functional status: what your body can absorb today.",
+      body: "A readiness test in about a minute, four technologies, resolved into one functional status: what your body can absorb today.",
     },
     {
       title: "Act",
@@ -112,9 +112,9 @@ export const CORPORATE_ATHLETE = {
     "The bill arrives quietly: the afternoon that costs more than it used to, the sleep that no longer repairs the day, the weekend that goes on repair instead of life. None of that is a character flaw and none of it is fixed by another productivity system. It is capacity, and capacity is measurable.",
   ],
   readEyebrow: "What we read",
-  readTitle: "One minute, 108 data points, one answer",
+  readTitle: "One minute, four technologies, one answer",
   read: [
-    "A readiness test captures 108 physiological data points and resolves them into one functional status: how much your body can absorb today, and which system is the constraint — nervous, cardiovascular or metabolic.",
+    "A readiness test takes about a minute, across four technologies, and resolves into one functional status: how much your body can absorb today, and which system is the constraint — nervous, cardiovascular or metabolic.",
     "From there the coaching is specific rather than general. Not “sleep more”: this week, your constraint is recovery, so the 6am session comes out and the 9pm screen goes with it. Not “manage stress”: your load tolerance is down 14% on your baseline, so the difficult conversation moves to Tuesday morning.",
     "That is what changes: the decisions get made with a number in front of them.",
   ],
@@ -132,6 +132,12 @@ export const CORPORATE_ATHLETE = {
   privacyTitle: "Your results are yours",
   privacy:
     "If your company runs an Olynixx programme, this is the part worth being clear about: individual results belong to the individual. Leadership sees an anonymised workforce picture and nothing else — no names, no individual results, no exceptions, and it is written into the agreement before the first test. Executive results never enter a workforce aggregate at all.",
+  execEyebrow: "The executive layer",
+  execTitle: "Private by contract, not by promise",
+  exec: [
+    "Some leaders need a programme that never sits inside the workforce system at all: a private contract, a private dashboard, a coach who does not report to HR. That is the executive layer. It uses the same method. It does not share a database with the company programme.",
+    "Discretion is the product. Results stay with you. If you later want your organisation measured, that is a separate conversation — and a separate agreement.",
+  ],
   closeTitle: "Stop managing your energy by feel.",
   corpCta: "Running a company? See the corporate programme",
 } as const;
@@ -164,7 +170,7 @@ export const SPORT_ATHLETE = {
   measure: [
     {
       title: "Readiness",
-      body: "Daily or per session. 108 physiological data points resolved into one status: what your system can absorb today, and which system is the constraint. Green does not mean “go hard”; it means the load you planned is the load your body can convert.",
+      body: "Daily or per session. Four technologies resolved into one status: what your system can absorb today, and which system is the constraint. Green does not mean “go hard”; it means the load you planned is the load your body can convert.",
     },
     {
       title: "Performance diagnostics",
@@ -192,7 +198,7 @@ export const SPORT_ATHLETE = {
   runNote:
     "Whichever level, the sequence is the same: baseline, act on the weakest link, retest. We work with your existing coach where you have one — we are the measurement layer, not a replacement for the person who writes your programme.",
   closeTitle: "Find out what your body is actually absorbing.",
-  clubCta: "Train at a club? Send them to our testing-club page",
+  clubCta: "We'll talk to them",
 } as const;
 
 export const LONGEVITY = {
@@ -229,7 +235,11 @@ export const LONGEVITY = {
   method: [
     {
       title: "The baseline",
-      body: "A full readiness test — 108 physiological data points resolved into one functional status — plus the biochemical layer, so we can see what your body has to work with underneath.",
+      body: "A full readiness test — four technologies resolved into one functional status — plus the biochemical layer, so we can see what your body has to work with underneath.",
+    },
+    {
+      title: "The four-level reading",
+      body: "Physiological, biochemical, genetic and epigenetic layers, delivered entirely as lifestyle guidance in a non-medical setting. Not a diagnosis. Not a clinic. A picture of capacity and the habits that move it.",
     },
     {
       title: "The constraint",

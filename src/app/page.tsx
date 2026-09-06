@@ -7,32 +7,42 @@ import { Spine } from "@/components/brand/Spine";
 import { Divider } from "@/components/brand/Divider";
 import { HOME } from "@/content/home";
 import { contactHref } from "@/lib/cta";
+import { JsonLd } from "@/components/site/JsonLd";
+import { faqJsonLd } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
-  title: "Olynixx | Readiness + Recovery = Perform",
-  description: HOME.promise,
+  title: { absolute: "Workforce readiness testing in the UAE | Olynixx" },
+  description: HOME.standfirst,
 };
 
 export default function HomePage() {
   return (
     <>
-      <Hero center>
-        <Lockup product="master" layout="stacked" ground="dark" className="ol-hero-lockup" height={180} priority />
-        <Spine ground="dark" width={720} />
-        <h1 className="ol-visually-hidden">{HOME.spineAlt}</h1>
-        <p className="ol-lead" style={{ marginTop: "var(--ol-sp-6)" }}>
-          {HOME.promise}
-        </p>
-        <p className="ol-tagline">{HOME.proofLine}</p>
+      <JsonLd data={faqJsonLd()} />
+      <Hero>
+        <Lockup product="master" layout="horizontal" ground="dark" height={48} priority />
+        <div className="ol-hero-spine" aria-hidden>
+          <Spine ground="dark" width={420} />
+        </div>
+        <p className="ol-visually-hidden">{HOME.spineAlt}</p>
+        <h1 className="ol-hero-title">{HOME.heroTitle}</h1>
+        <p className="ol-lead">{HOME.standfirst}</p>
+        <p className="ol-tagline ol-tight">{HOME.proofLine}</p>
         <p className="ol-actions">
-          <Link className="ol-btn ol-btn--primary" href={contactHref("individual")}>
+          <Link className="ol-btn ol-btn--primary" href={contactHref("corporate-pilot")}>
             {HOME.primaryCta}
           </Link>
-          <Link className="ol-btn ol-btn--secondary" href="/corporates">
+          <Link className="ol-btn ol-btn--secondary" href="/individuals">
             {HOME.secondaryCta}
           </Link>
         </p>
       </Hero>
+
+      <Section narrow>
+        <Eyebrow>{HOME.actuallyEyebrow}</Eyebrow>
+        <Title>{HOME.actuallyTitle}</Title>
+        <Lead>{HOME.actually}</Lead>
+      </Section>
 
       <Section>
         <Eyebrow>{HOME.doorsEyebrow}</Eyebrow>
@@ -48,11 +58,16 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section surface="dark" narrow>
-        <div className="ol-center">
-          <Eyebrow>Capacity, not history</Eyebrow>
-          <Title>{HOME.monitoringTitle}</Title>
-          <Lead>{HOME.monitoringBody}</Lead>
+      <Section>
+        <Eyebrow>{HOME.runningEyebrow}</Eyebrow>
+        <Title>{HOME.runningTitle}</Title>
+        <div className="ol-grid">
+          {HOME.running.map((item) => (
+            <article key={item.title} className="ol-card">
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </article>
+          ))}
         </div>
       </Section>
 
@@ -65,8 +80,17 @@ export default function HomePage() {
             </div>
           ))}
         </div>
+      </Section>
+
+      <Section surface="dark" narrow>
+        <Eyebrow>Capacity, not history</Eyebrow>
+        <Title>{HOME.monitoringTitle}</Title>
+        <Lead>{HOME.monitoringBody}</Lead>
+      </Section>
+
+      <Section>
         <Divider />
-        <div className="ol-center ol-measure" style={{ marginInline: "auto" }}>
+        <div className="ol-measure">
           <Eyebrow>The book</Eyebrow>
           <Title>{HOME.bookTitle}</Title>
           <Lead>{HOME.bookBody}</Lead>
@@ -76,7 +100,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <CtaBand title={HOME.closing} href={contactHref("individual")} label={HOME.primaryCta} />
+      <CtaBand title={HOME.closing} href={contactHref("corporate-pilot")} label={HOME.primaryCta} />
     </>
   );
 }

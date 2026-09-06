@@ -22,26 +22,66 @@ export function publishIsoBadges(): boolean {
   return process.env.PUBLISH_ISO_BADGES === "true";
 }
 
+/** HOLD until Jef confirms the launch name (or this one) may go public. */
+export function publishEntity(): boolean {
+  return process.env.PUBLISH_ENTITY === "true";
+}
+
 export type EntityIdentity = {
   legalName: string;
   licence: string;
+  licenceIssuer: string;
   trn: string;
   address: string;
+  jurisdiction: string;
+  dataController: string;
 };
 
-export function entityIdentity(): EntityIdentity {
+const EMPTY_ENTITY: EntityIdentity = {
+  legalName: "",
+  licence: "",
+  licenceIssuer: "",
+  trn: "",
+  address: "",
+  jurisdiction: "",
+  dataController: "",
+};
+
+function readEntityIdentity(): EntityIdentity {
   return {
     legalName: process.env.SITE_ENTITY_NAME?.trim() || "",
     licence: process.env.SITE_ENTITY_LICENCE?.trim() || "",
+    licenceIssuer: process.env.SITE_ENTITY_LICENCE_ISSUER?.trim() || "",
     trn: process.env.SITE_ENTITY_TRN?.trim() || "",
     address: process.env.SITE_ENTITY_ADDRESS?.trim() || "",
+    jurisdiction: process.env.SITE_ENTITY_JURISDICTION?.trim() || "",
+    dataController: process.env.SITE_ENTITY_DATA_CONTROLLER?.trim() || "",
   };
 }
 
-export function publicContact(): { email: string; phone: string; location: string } {
+/** Public pages. Empty until PUBLISH_ENTITY=true. Never invent a registration status. */
+export function entityIdentity(): EntityIdentity {
+  return publishEntity() ? readEntityIdentity() : EMPTY_ENTITY;
+}
+
+export type PublicContact = {
+  email: string;
+  phone: string;
+  whatsapp: string;
+  address: string;
+  mapUrl: string;
+  sla: string;
+  location: string;
+};
+
+export function publicContact(): PublicContact {
   return {
     email: process.env.SITE_CONTACT_EMAIL?.trim() || "",
     phone: process.env.SITE_CONTACT_PHONE?.trim() || "",
+    whatsapp: process.env.SITE_CONTACT_WHATSAPP?.trim() || "",
+    address: process.env.SITE_CONTACT_ADDRESS?.trim() || "",
+    mapUrl: process.env.SITE_CONTACT_MAP?.trim() || "",
+    sla: process.env.SITE_CONTACT_SLA?.trim() || "",
     location: "Dubai, UAE",
   };
 }

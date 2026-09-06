@@ -2,17 +2,24 @@ import type { Metadata } from "next";
 import { Hero, Section, Eyebrow, Title, Lead } from "@/components/site/Section";
 import { CtaBand } from "@/components/site/CtaBand";
 import { Lockup } from "@/components/brand/Lockup";
+import { Breadcrumb } from "@/components/site/Breadcrumb";
+import { CourseFacts } from "@/components/site/CourseFacts";
+import { JsonLd } from "@/components/site/JsonLd";
 import { PRAXIS } from "@/content/praxis";
 import { contactHref } from "@/lib/cta";
+import { courseJsonLd } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
-  title: "Olynixx Praxis",
+  title: { absolute: "Olynixx Praxis" },
   description: PRAXIS.heroLead,
 };
 
 export default function PraxisPage() {
+  const hasFacts = Object.values(PRAXIS.facts).some((value) => value.trim().length > 0);
+
   return (
     <>
+      <JsonLd data={courseJsonLd()} />
       <Hero center>
         <Lockup product="praxis" ground="dark" className="ol-hero-lockup" height={180} priority />
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -20,6 +27,8 @@ export default function PraxisPage() {
           className="ol-hero-strapline"
           src="/brand/olynixx-praxis-strapline-on-dark.svg"
           alt="Learn + Certify + Deploy"
+          width={420}
+          height={48}
         />
         <h1 className="ol-hero-title" style={{ marginTop: "var(--s4)" }}>
           {PRAXIS.heroTitle}
@@ -29,6 +38,12 @@ export default function PraxisPage() {
           {PRAXIS.programmeName} is the programme delivered inside Olynixx Praxis.
         </p>
       </Hero>
+      <Breadcrumb
+        items={[
+          { href: "/", label: "Home" },
+          { href: "/praxis", label: "Certification" },
+        ]}
+      />
 
       <Section narrow>
         <Eyebrow>The clock</Eyebrow>
@@ -72,6 +87,14 @@ export default function PraxisPage() {
         <Title>{PRAXIS.whyTitle}</Title>
         <Lead>{PRAXIS.whyBody}</Lead>
       </Section>
+
+      {hasFacts ? (
+        <Section narrow>
+          <Eyebrow>{PRAXIS.factsEyebrow}</Eyebrow>
+          <Title>{PRAXIS.factsTitle}</Title>
+          <CourseFacts facts={PRAXIS.facts} />
+        </Section>
+      ) : null}
 
       <Section surface="dark">
         <Eyebrow>Four steps</Eyebrow>

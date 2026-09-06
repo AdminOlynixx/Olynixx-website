@@ -1,17 +1,26 @@
 export const PRIMARY_NAV = [
   { href: "/", label: "Home" },
-  { href: "/praxis", label: "Praxis" },
-  { href: "/gyms", label: "Gyms, Clubs & Spas" },
   {
     href: "/corporates",
     label: "Corporates",
     children: [
       { href: "/corporates", label: "Preventive health" },
       { href: "/corporates/events", label: "Events & keynotes" },
-      { href: "/corporates/government", label: "Government" },
+      { href: "/corporates/government", label: "Government & public sector" },
     ],
   },
-  { href: "/individuals", label: "Individuals" },
+  { href: "/gyms", label: "Gyms & Spas" },
+  {
+    href: "/individuals",
+    label: "Individuals",
+    children: [
+      { href: "/individuals", label: "Overview" },
+      { href: "/individuals/corporate-athlete", label: "Corporate athlete" },
+      { href: "/individuals/sport-athlete", label: "Sport athlete" },
+      { href: "/individuals/longevity", label: "Longevity" },
+    ],
+  },
+  { href: "/praxis", label: "Certification" },
   { href: "/technology", label: "Technology" },
   { href: "/about", label: "About" },
 ] as const;
@@ -25,15 +34,17 @@ export const SOCIAL_LINKS = [
 
 export const FOOTER_NAV = {
   doors: [
-    { href: "/gyms", label: "Gyms, clubs & spas" },
     { href: "/corporates", label: "Corporates" },
-    { href: "/praxis", label: "Praxis" },
+    { href: "/gyms", label: "Gyms, clubs & spas" },
+    { href: "/individuals", label: "Individuals" },
+    { href: "/praxis", label: "Certification" },
     { href: "/technology", label: "Technology" },
   ],
   individuals: [
     { href: "/individuals", label: "Overview" },
     { href: "/individuals/corporate-athlete", label: "Corporate athlete" },
     { href: "/individuals/sport-athlete", label: "Sport athlete" },
+    { href: "/individuals/longevity", label: "Longevity" },
   ],
   company: [
     { href: "/about", label: "About" },
@@ -48,7 +59,7 @@ export const FOOTER_NAV = {
 export const CORP_SUBNAV = [
   { href: "/corporates", label: "Preventive health" },
   { href: "/corporates/events", label: "Events & keynotes" },
-  { href: "/corporates/government", label: "Government" },
+  { href: "/corporates/government", label: "Government & public sector" },
 ] as const;
 
 export const INDIVIDUAL_DOORS = [

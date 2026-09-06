@@ -30,7 +30,13 @@ body {
   padding-inline: var(--gutter);
 }
 .ol-container { max-width: var(--container); margin-inline: auto; }
-.ol-container--narrow { max-width: var(--ol-container-narrow); margin-inline: auto; }
+.ol-container--narrow {
+  max-width: var(--container);
+  margin-inline: auto;
+}
+.ol-container--narrow > * {
+  max-width: var(--ol-container-narrow);
+}
 .ol-measure { max-width: 68ch; }
 .ol-center { text-align: center; margin-inline: auto; }
 .ol-stack > * + * { margin-block-start: var(--s3); }
@@ -38,6 +44,19 @@ body {
   display: grid;
   gap: var(--s4);
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.ol-grid:has(> :nth-child(4):last-child) {
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .ol-grid:has(> :nth-child(4):last-child) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1100px) {
+  .ol-grid:has(> :nth-child(4):last-child) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 .ol-container > .ol-grid,
 .ol-container > .ol-weeks,
@@ -120,7 +139,7 @@ a {
 a:hover { color: var(--ol-link-h, var(--ink)); }
 
 :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
-  outline: 2px solid var(--ol-focus, var(--gold-text));
+  outline: 3px solid var(--ol-focus, var(--gold-text));
   outline-offset: 2px;
 }
 
@@ -145,11 +164,11 @@ hr, .ol-rule {
   gap: var(--s1);
   min-height: 52px;
   padding: 0 28px;
-  font-family: var(--font-data);
-  font-size: 13px;
+  font-family: var(--font-text);
+  font-size: 15px;
   font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  text-transform: none;
   text-decoration: none;
   border: 1px solid transparent;
   border-radius: 0;
@@ -213,7 +232,7 @@ a.ol-card:focus-visible, a.ol-door:focus-visible {
   inset-inline: 0;
   inset-block-start: 0;
   height: 2px;
-  background: var(--gold-fill);
+  background: var(--gold-text);
   opacity: 0;
   transition: opacity var(--dur-hover) var(--ease);
 }
@@ -257,8 +276,8 @@ a.ol-card:focus-visible, a.ol-door:focus-visible {
   margin: 0;
   max-width: none;
 }
-@media (min-width: 800px) {
-  .ol-proof { grid-template-columns: repeat(4, 1fr); }
+@media (min-width: 900px) {
+  .ol-proof { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .ol-proof__item:nth-child(odd),
   .ol-proof__item:nth-child(-n+2) { border: 0; }
   .ol-proof__item {
@@ -298,40 +317,49 @@ a.ol-card:focus-visible, a.ol-door:focus-visible {
   font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--cream);
   text-decoration: none;
   border-bottom: 2px solid transparent;
   padding-bottom: 2px;
+  white-space: nowrap;
 }
-.ol-nav a:hover, .ol-dropdown__btn:hover { color: var(--gold-dark); }
-.ol-nav a[aria-current="page"],
+.ol-nav a:not(.ol-btn), .ol-dropdown__btn { color: var(--cream); }
+.ol-nav a:not(.ol-btn):hover, .ol-dropdown__btn:hover { color: var(--gold-dark); }
+.ol-nav a:not(.ol-btn)[aria-current="page"],
 .ol-dropdown__btn.is-active {
   color: var(--cream);
-  border-bottom-color: var(--gold-fill);
+  border-bottom-color: var(--gold-text);
 }
+.ol-nav .ol-btn--primary { color: var(--ink); }
 
-@media (max-width: 900px) {
-  .ol-nav a:not(.ol-btn) { display: none; }
+@media (max-width: 1100px) {
+  .ol-nav a:not(.ol-btn),
+  .ol-nav .ol-dropdown { display: none; }
   .ol-header__logo img, .ol-header__logo svg { height: 32px; }
 }
 
 .ol-footer {
   background: var(--green-deep);
   color: var(--cream);
-  padding-block: var(--s4);
+  padding-block: 20px 14px;
   padding-inline: var(--gutter);
 }
 .ol-footer a { color: var(--gold-dark); }
 .ol-disclaimer {
   font-family: var(--font-text);
-  font-size: var(--t-small);
-  line-height: 1.55;
-  color: color-mix(in srgb, var(--cream) 82%, var(--green-deep));
-  max-width: 78ch;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--cream) 70%, var(--green-deep));
+  max-width: 72ch;
   text-transform: none;
   letter-spacing: 0;
+  margin: 0;
 }
-.ol-legal-entity { font-size: var(--t-small); color: color-mix(in srgb, var(--cream) 70%, var(--green-deep)); }
+.ol-legal-entity {
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  color: color-mix(in srgb, var(--cream) 58%, var(--green-deep));
+  margin: 0;
+}
 
 .ol-field { display: grid; gap: 6px; margin-block-end: var(--s2); }
 .ol-label {
@@ -354,7 +382,7 @@ a.ol-card:focus-visible, a.ol-door:focus-visible {
   background: var(--paper);
   border: 1px solid var(--rule);
   border-radius: 0;
-  min-height: 48px;
+  min-height: 52px;
   padding: 10px 14px;
   width: 100%;
   transition: border-color var(--dur-hover) var(--ease),
@@ -374,9 +402,10 @@ a.ol-card:focus-visible, a.ol-door:focus-visible {
   border-color: color-mix(in srgb, var(--ink) 28%, var(--rule));
 }
 .ol-input:focus, .ol-select:focus, .ol-textarea:focus {
-  border-color: var(--gold-fill);
-  outline: none;
-  box-shadow: 0 0 0 1px var(--gold-fill);
+  border-color: var(--gold-text);
+  outline: 3px solid var(--gold-text);
+  outline-offset: 2px;
+  box-shadow: none;
 }
 .ol-error { color: var(--band-low); font-size: var(--t-small); margin: 8px 0 0; }
 .ol-success { color: var(--data); font-size: var(--t-small); }
@@ -388,9 +417,9 @@ a.ol-card:focus-visible, a.ol-door:focus-visible {
   max-width: 68ch;
 }
 .ol-check input {
-  margin-top: 3px;
-  width: 16px;
-  height: 16px;
+  margin-top: 0;
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
   accent-color: var(--gold-fill);
 }
@@ -409,6 +438,11 @@ th {
 
 img, svg, video { max-width: 100%; height: auto; }
 .ol-figure-img { border: 1px solid var(--rule); }
+
+.ol-tight {
+  max-width: 42ch;
+  margin-block-end: var(--s3);
+}
 
 .ol-statement {
   border-block: 1px solid var(--rule);

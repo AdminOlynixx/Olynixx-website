@@ -4,6 +4,7 @@ import { Hero, Section, Eyebrow, Title, Lead } from "@/components/site/Section";
 import { CtaBand } from "@/components/site/CtaBand";
 import { TrustBar } from "@/components/site/IsoBlock";
 import { DoorSwitcher } from "@/components/site/DoorSwitcher";
+import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { CORPORATE_ATHLETE as COPY } from "@/content/individuals";
 import { contactHref } from "@/lib/cta";
 
@@ -29,6 +30,13 @@ export default function CorporateAthletePage() {
         </p>
         <TrustBar items={COPY.trust} />
       </Hero>
+      <Breadcrumb
+        items={[
+          { href: "/", label: "Home" },
+          { href: "/individuals", label: "Individuals" },
+          { href: "/individuals/corporate-athlete", label: "Corporate athlete" },
+        ]}
+      />
       <DoorSwitcher current="/individuals/corporate-athlete" />
 
       <Section narrow>
@@ -64,6 +72,14 @@ export default function CorporateAthletePage() {
         <Eyebrow>{COPY.privacyEyebrow}</Eyebrow>
         <Title>{COPY.privacyTitle}</Title>
         <Lead>{COPY.privacy}</Lead>
+      </Section>
+
+      <Section narrow>
+        <Eyebrow>{COPY.execEyebrow}</Eyebrow>
+        <Title>{COPY.execTitle}</Title>
+        {COPY.exec.map((para) => (
+          <Lead key={para.slice(0, 28)}>{para}</Lead>
+        ))}
       </Section>
 
       <section className="ol-section ol-dark">

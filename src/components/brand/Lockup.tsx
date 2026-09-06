@@ -28,8 +28,9 @@ export function Lockup({
       src={src}
       alt={alt}
       height={height}
+      width={height * 4}
       className={className}
-      style={className ? { width: "auto" } : { height, width: "auto" }}
+      style={className ? { width: "auto", height } : { height, width: "auto" }}
       decoding="async"
       fetchPriority={priority ? "high" : "auto"}
     />

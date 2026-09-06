@@ -1,4 +1,4 @@
-/** Staging legal copy. Entity, email and phone stay empty until Louis confirms them. */
+/** Staging legal copy. Entity stays unpublished until PUBLISH_ENTITY=true. Email and phone stay empty until confirmed. */
 
 export const PRIVACY = {
   title: "Privacy",
@@ -53,7 +53,7 @@ export const TERMS = {
     {
       title: "Non-medical",
       body: [
-        "All testing devices used by Olynixx are non-medical. Guidance is lifestyle guidance based on non-medical data. If a result suggests medical attention is needed, we say exactly that: see a doctor.",
+        "We operate our instruments in non-medical settings only and make no diagnostic claims from them. Guidance is lifestyle guidance based on non-medical data. If a result suggests medical attention is needed, we say exactly that: see a doctor.",
       ],
     },
     {

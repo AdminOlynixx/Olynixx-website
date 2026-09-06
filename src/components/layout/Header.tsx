@@ -8,14 +8,14 @@ import { Lockup } from "@/components/brand/Lockup";
 import { PRIMARY_NAV } from "@/lib/nav";
 import { contactHref } from "@/lib/cta";
 
-export function Header() {
+export function Header({ longevityLive = false }: { longevityLive?: boolean }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [corpOpen, setCorpOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
 
   useEffect(() => {
     setOpen(false);
-    setCorpOpen(false);
+    setOpenMenu(null);
   }, [pathname]);
 
   useEffect(() => {
@@ -25,8 +25,21 @@ export function Header() {
     };
   }, [open]);
 
+  useEffect(() => {
+    if (!openMenu) return;
+    const close = (event: MouseEvent) => {
+      if (!(event.target instanceof Element)) return;
+      if (!event.target.closest(".ol-dropdown")) setOpenMenu(null);
+    };
+    document.addEventListener("mousedown", close);
+    return () => document.removeEventListener("mousedown", close);
+  }, [openMenu]);
+
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
+
+  const visibleChildren = (children: readonly { href: string; label: string }[]) =>
+    children.filter((child) => (child.href === "/individuals/longevity" ? longevityLive : true));
 
   return (
     <header className="ol-header">
@@ -41,15 +54,15 @@ export function Header() {
               <button
                 type="button"
                 className={isActive(item.href) ? "ol-dropdown__btn is-active" : "ol-dropdown__btn"}
-                aria-expanded={corpOpen}
+                aria-expanded={openMenu === item.href}
                 aria-haspopup="true"
-                onClick={() => setCorpOpen((value) => !value)}
+                onClick={() => setOpenMenu((value) => (value === item.href ? null : item.href))}
               >
                 {item.label}
-                <ChevronDown size={12} strokeWidth={1.6} aria-hidden />
+                <ChevronDown size={12} strokeWidth={1.6} aria-hidden className="ol-dropdown__chevron" />
               </button>
-              <div className={corpOpen ? "ol-dropdown__menu is-open" : "ol-dropdown__menu"}>
-                {item.children.map((child) => (
+              <div className={openMenu === item.href ? "ol-dropdown__menu is-open" : "ol-dropdown__menu"}>
+                {visibleChildren(item.children).map((child) => (
                   <Link
                     key={child.href}
                     href={child.href}
@@ -66,8 +79,8 @@ export function Header() {
             </Link>
           ),
         )}
-        <Link className="ol-btn ol-btn--primary" href={contactHref("individual-intake")}>
-          Book your free intake call
+        <Link className="ol-btn ol-btn--primary" href={contactHref("corporate-pilot")}>
+          Book a pilot conversation
         </Link>
       </nav>
 
@@ -88,7 +101,7 @@ export function Header() {
             "children" in item && item.children ? (
               <div key={item.href} className="ol-drawer__group">
                 <p className="ol-drawer__label">{item.label}</p>
-                {item.children.map((child) => (
+                {visibleChildren(item.children).map((child) => (
                   <Link
                     key={child.href}
                     href={child.href}
@@ -106,8 +119,8 @@ export function Header() {
           )}
         </nav>
         <div className="ol-drawer__cta">
-          <Link className="ol-btn ol-btn--primary" href={contactHref("individual-intake")}>
-            Book your free intake call
+          <Link className="ol-btn ol-btn--primary" href={contactHref("corporate-pilot")}>
+            Book a pilot conversation
           </Link>
         </div>
       </div>

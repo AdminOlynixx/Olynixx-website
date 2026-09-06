@@ -5,6 +5,7 @@ import { Hero, Section, Eyebrow, Title, Lead } from "@/components/site/Section";
 import { CtaBand } from "@/components/site/CtaBand";
 import { TrustBar } from "@/components/site/IsoBlock";
 import { DoorSwitcher } from "@/components/site/DoorSwitcher";
+import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { LONGEVITY as COPY } from "@/content/individuals";
 import { contactHref } from "@/lib/cta";
 import { publishLongevity } from "@/lib/site-config";
@@ -34,6 +35,13 @@ export default function LongevityPage() {
         </p>
         <TrustBar items={COPY.trust} />
       </Hero>
+      <Breadcrumb
+        items={[
+          { href: "/", label: "Home" },
+          { href: "/individuals", label: "Individuals" },
+          { href: "/individuals/longevity", label: "Longevity" },
+        ]}
+      />
       <DoorSwitcher current="/individuals/longevity" />
 
       <Section narrow>

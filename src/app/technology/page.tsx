@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Hero, Section, Eyebrow, Title, Lead } from "@/components/site/Section";
-import { MediaSlot } from "@/components/site/MediaSlot";
-import { IsoBlock } from "@/components/site/IsoBlock";
+import { IsoShort } from "@/components/site/IsoBlock";
 import { TECHNOLOGY } from "@/content/technology";
 import { NON_MEDICAL_STATEMENT } from "@/lib/legal-copy";
 
@@ -20,6 +19,12 @@ export default function TechnologyPage() {
       </Hero>
 
       <Section narrow>
+        <Eyebrow>{TECHNOLOGY.reservedEyebrow}</Eyebrow>
+        <Title>{TECHNOLOGY.reservedTitle}</Title>
+        <Lead>{TECHNOLOGY.reserved}</Lead>
+      </Section>
+
+      <Section narrow>
         <Eyebrow>{TECHNOLOGY.measureEyebrow}</Eyebrow>
         <Title>{TECHNOLOGY.measureTitle}</Title>
         {TECHNOLOGY.measure.map((para) => (
@@ -27,7 +32,7 @@ export default function TechnologyPage() {
         ))}
       </Section>
 
-      <Section surface="dark" narrow>
+      <Section narrow>
         <Eyebrow>{TECHNOLOGY.principleEyebrow}</Eyebrow>
         <Title>{TECHNOLOGY.principleTitle}</Title>
         <Lead>{TECHNOLOGY.principle}</Lead>
@@ -46,13 +51,9 @@ export default function TechnologyPage() {
                 ))}
               </ul>
               <p className="ol-small ol-muted">{device.where}</p>
-              <MediaSlot label={device.imageLabel} />
             </article>
           ))}
         </div>
-        <p className="ol-muted" style={{ marginTop: "var(--s4)" }}>
-          {TECHNOLOGY.reserved}
-        </p>
       </Section>
 
       <Section surface="app" narrow>
@@ -69,8 +70,8 @@ export default function TechnologyPage() {
         ))}
       </Section>
 
-      <Section surface="dark" narrow>
-        <IsoBlock />
+      <Section narrow>
+        <IsoShort />
       </Section>
 
       <Section>

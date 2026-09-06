@@ -1,9 +1,9 @@
 /** Verbatim footer line. Sentence case. Never tracked uppercase. */
 export const NON_MEDICAL_DISCLAIMER =
-  "Olynixx provides lifestyle guidance based on non-medical data. No diagnosis, no treatment, no clinical claims. All testing devices used are non-medical. If a result suggests medical attention is needed, we say exactly that: see a doctor.";
+  "Olynixx provides lifestyle guidance based on non-medical data. No diagnosis, no treatment, no clinical claims. We operate our instruments in non-medical settings only and make no diagnostic claims from them. If a result suggests medical attention is needed, we say exactly that: see a doctor.";
 
 export const NON_MEDICAL_STATEMENT =
-  "All devices used by Olynixx are non-medical. Olynixx provides lifestyle guidance based on non-medical data — no diagnosis, no treatment, no clinical claims. If testing surfaces something that needs medical attention, we say exactly that: see a doctor.";
+  "The manufacturer of our readiness kiosk has confirmed that MS FIT is classified as General Wellness, not a medical device under EU Regulation 2017/745, and that declaration is on file. We operate accordingly: the kiosk is used for readiness and lifestyle guidance, never for diagnosis.";
 
 /** Approved ISO block — long form. Status line is never separated from the names. */
 export const ISO_LONG = {
@@ -22,7 +22,7 @@ export const ISO_LONG = {
 } as const;
 
 export const ISO_SHORT =
-  "ISO 27001 · 45001 · 45003 — certification in progress with an accredited body. Not yet certified.";
+  "ISO 27001 · 45001 · 45003 — certification in progress with an accredited body. Not yet certified. Scope: workforce readiness testing and reporting.";
 
 export const ISO_FOLLOW =
   "We built the system to survive an audit, because that is what your compliance team should demand of anyone touching workforce health.";

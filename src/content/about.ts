@@ -46,7 +46,7 @@ export const ABOUT = {
   methodTitle: "The method",
   methodBody: [
     "The body pays for every performance. Our method — sharpened in the field since 2004 — reads a full physiological picture and resolves it into one functional status, then strengthens the weakest link, because the weakest link sets the ceiling. The same result can be delivered at a high or a low internal price; we train people to deliver it at the low one. That is biological cost, and lowering it is the entire job.",
-    "Today that reading runs on four levels — physiological, biochemical, genetic and epigenetic — the most advanced holistic test analysis available outside a laboratory, delivered entirely non-medically.",
+    "Today that reading runs on four levels — physiological, biochemical, genetic and epigenetic — delivered entirely non-medically.",
   ],
   standTitle: "What we stand for",
   stand: [
@@ -56,7 +56,7 @@ export const ABOUT = {
     },
     {
       title: "The standard",
-      body: "We work only with the best equipment available on the market, and we prove that choice with the numbers it produces.",
+      body: "We select equipment against the method, not the other way round, and we replace it when something measures better. Every choice has to earn its place with the numbers it produces.",
     },
     {
       title: "The roots",
@@ -68,11 +68,9 @@ export const ABOUT = {
   bookYear: "2015",
   bookBody:
     "Rest Is the New Sport puts the whole argument in your hands: why recovery is the source of performance, not its reward. It anchors every keynote, every programme, and every page of this site.",
-  bookSlot: "Book cover — file pending",
-  timelineNote: "Photographs for this record are pending clearance.",
   behindTitle: "Behind Olynixx",
   behindBody:
-    "Olynixx is carried by a team: certified health coaches, mental coaches, nutritionists and trainers — every one of them certified through Olynixx Praxis, every one of them working from the same method and the same numbers. The founders lived both sides of the question — elite sport and its price. The team makes sure the answer scales.",
+    "Olynixx is carried by a team: health coaches, mental coaches, nutritionists and trainers, working from the same method and the same numbers. The people who started this lived both sides of the question — elite sport and its price. The team makes sure the answer scales.",
   cta: "The method is in the book. The proof is in the test.",
   ctaButton: "Test your readiness",
 } as const;

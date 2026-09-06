@@ -1,6 +1,6 @@
-/** Build Pack V2 §9. Six-field device module. No partner named until the agreement allows it. */
+/** Capability-first hardware. Status labels only. No partner named until signed. */
 
-export type DeviceStatus = "Operating" | "In pilot" | "In evaluation";
+export type DeviceStatus = "Operating" | "In evaluation" | "In development";
 
 export type Device = {
   name: string;
@@ -8,22 +8,25 @@ export type Device = {
   bullets: readonly string[];
   where: string;
   status: DeviceStatus;
-  imageLabel: string;
 };
 
 export const TECHNOLOGY = {
-  metaTitle: "Technology & devices — the hardware behind the numbers — Olynixx",
+  metaTitle: "Readiness testing technology | Olynixx",
   metaDescription:
-    "108 physiological data points resolved into one readiness status. Professional, field-proven, entirely non-medical. Hosted in the UAE.",
+    "Professional testing and recovery systems resolved into one readiness status. Operated in non-medical settings. Hosted in the UAE.",
   eyebrow: "Technology & devices",
   heroTitle: "The hardware behind the numbers.",
   standfirst:
-    "Every Olynixx programme — a club, a company, an individual — runs on the same measurement layer. Professional, field-proven, entirely non-medical. The method is ours; the hardware serves it, and it changes when something better arrives.",
+    "Every Olynixx programme — a club, a company, an individual — runs on the same measurement layer. Professional, field-proven, operated in non-medical settings. The method is ours; the hardware serves it, and it changes when something better arrives.",
+  reservedEyebrow: "The stack",
+  reservedTitle: "Nothing appears before the agreement permits it",
+  reserved:
+    "New partners are added here as they sign, using the same fields and the correct status label: operating, in evaluation, or in development.",
   measureEyebrow: "The measurement",
-  measureTitle: "108 data points. One status.",
+  measureTitle: "Four technologies. One status.",
   measure: [
-    "A readiness test captures 108 physiological data points in about a minute. Our own multi-factor model resolves them into one functional readiness status — a single answer to a single question: what can this body absorb today?",
-    "That number is what a coach acts on, what an employee sees in their report, and what a leadership dashboard aggregates. Everything else on this page exists to produce it reliably.",
+    "A kiosk test takes about a minute. Four technologies — multi-frequency bioimpedance, heart-rate variability, galvanic skin response and digital pulse wave — produce 52 indicators from more than a hundred raw measurements. Our model resolves that into one functional status: which system is the constraint today — nervous, cardiovascular or metabolic.",
+    "That status is what a coach acts on, what an employee sees in their report, and what a leadership dashboard aggregates. Everything else on this page exists to produce it reliably.",
   ],
   principleEyebrow: "The principle",
   principleTitle: "We are not a device company",
@@ -40,7 +43,6 @@ export const TECHNOLOGY = {
       ],
       where: "Clubs, corporate floors, events",
       status: "Operating",
-      imageLabel: "MS Fit kiosk — photograph pending",
     },
     {
       name: "Oxyterra altitude training (IHT)",
@@ -52,7 +54,6 @@ export const TECHNOLOGY = {
       ],
       where: "Testing clubs and individual programmes",
       status: "Operating",
-      imageLabel: "Oxyterra session — photograph pending",
     },
     {
       name: "MuscleLab performance diagnostics",
@@ -64,11 +65,41 @@ export const TECHNOLOGY = {
       ],
       where: "Testing clubs and athlete programmes",
       status: "Operating",
-      imageLabel: "MuscleLab diagnostics — photograph pending",
+    },
+    {
+      name: "Cognitive modules",
+      role: "Reaction speed, working memory and decision speed under fatigue — measured on the same floor as the body.",
+      bullets: [
+        "Short modules, not a lab day.",
+        "Read against the same readiness status.",
+        "Used where the last minutes of a shift or a match are decided.",
+      ],
+      where: "Testing clubs, athlete programmes, selected corporate roles",
+      status: "Operating",
+    },
+    {
+      name: "Microcurrent",
+      role: "In evaluation against the method. Recovery and readiness support only — no condition names, no therapy claims.",
+      bullets: [
+        "Trialled where the method asks for a recovery input we can retest.",
+        "Status stays in evaluation until it earns its place with numbers.",
+        "Not offered as a medical treatment.",
+      ],
+      where: "Evaluation sites only",
+      status: "In evaluation",
+    },
+    {
+      name: "CNS sensor",
+      role: "A nervous-system reading layer in development. The partner is unnamed until the agreement permits it.",
+      bullets: [
+        "Built to sit inside the same one-status model.",
+        "In development — not a live product line.",
+        "Named here, not sold here, until it is operating.",
+      ],
+      where: "Development",
+      status: "In development",
     },
   ] satisfies readonly Device[],
-  reserved:
-    "New partners are added here as they sign, using the same six fields and the correct status label. Nothing appears before the agreement permits it.",
   dataEyebrow: "Data",
   dataTitle: "Hosted in the UAE, separated by design",
   data: "Test data is processed and hosted in the UAE. Individual results belong to the individual; corporate reporting is anonymised at the point of aggregation, not by a promise afterwards. Access is governed, logged and reviewed, and the environment sits inside our ISO 27001 certification track.",

@@ -13,7 +13,7 @@ export const CORPORATES = {
   trust: [
     "22 years in the field, since 2004",
     "~8,000 individual assessments",
-    "Non-medical throughout",
+    "300-participant workforce programme delivered",
     "Data hosted in the UAE",
     "ISO 27001 / 45001 / 45003 certification in progress",
   ],
@@ -34,7 +34,7 @@ export const CORPORATES = {
     },
     {
       title: "Weeks 2–11 — Act",
-      body: "Workshops, floor coaching and individual sessions aimed at the weakest link, per person. Every participant can book a session with a trained health coach to turn their numbers into daily choices.",
+      body: "Workshops, floor coaching and individual sessions aimed at the weakest link, per person. Every participant can book a session with a trained health coach to turn their numbers into daily choices. Enrolment rate is a KPI, agreed before week one, because a programme nobody takes is not a programme.",
     },
     {
       title: "Weeks 4, 8, 12 — Retest",
@@ -72,8 +72,9 @@ export const CORPORATES = {
     "Leadership gets the other view: an anonymised workforce picture — readiness bands, where load is concentrating, direction of travel. No individual is identifiable in it, by design and by architecture, and that is written into the agreement before the first test is taken.",
     "That separation is not a feature we added for comfort. It is the reason people participate honestly, and honest participation is the only thing that makes the leadership view worth reading.",
   ],
-  personalSlot: "Personal dashboard: cleared still pending",
-  boardroomSlot: "Boardroom dashboard: cleared still pending",
+  personalSlot: "Personal decision dashboard: your readiness, your trend, your next decision",
+  boardroomSlot:
+    "Leadership view: readiness bands, load concentration, direction of travel — no individual identifiable.",
   rohEyebrow: "Return on Health",
   rohTitle: "The numbers that move first",
   roh: [
@@ -87,6 +88,10 @@ export const CORPORATES = {
     "Test 25 people or more at the event and we build your company's Load and Risk dashboards free of charge — the anonymised readiness picture of your workforce, yours to keep, and the base document for whatever you decide to do next.",
   ],
   eventsCta: "Bring Olynixx to your next event",
+  eventBandEyebrow: "Start with an event",
+  eventBandTitle: "25 tests. Complimentary Load & Risk dashboards.",
+  eventBandBody:
+    "Not ready for a twelve-week pilot? Bring the kiosk to your next company event. Test 25 people or more and we build your anonymised Load and Risk dashboards free of charge — yours to keep.",
   /* HOLD: do not render until PUBLISH_PUREHEALTH=true. */
   pureHealthTitle: "Rollout at national scale",
   pureHealthBody:
@@ -105,7 +110,7 @@ export const EVENTS = {
     "Two ways to bring readiness into the room: a testing station your people queue for, and a keynote they talk about afterwards.",
   kioskTitle: "The Health Kiosk Station",
   kioskBody:
-    "A readiness testing kiosk at your event. Each participant tests in minutes and walks away with a personal snapshot — energy, stress load, recovery. It is the busiest corner of any event we attend, and every result is a conversation your people start themselves.",
+    "A readiness testing kiosk at your event. Each participant tests in minutes and walks away with a personal snapshot — energy, stress load, recovery. Every result is a conversation your people start themselves.",
   keynoteTitle: "Keynote: Rest is the New Sport",
   keynoteBody: [
     "Built on the book and 22 years in the field — from special forces units to elite sport to the boardroom. Why identical twins with identical talent end up in different places. What fatigue actually is, and the four types your team is cycling through. What burnout costs, in days and in money. And why recovery is not the reward for performance — it is the source of it.",
@@ -127,6 +132,14 @@ export const EVENTS = {
   cta: "Book the station. Book the keynote. Or both.",
   ctaStation: "Book the station",
   ctaKeynote: "Book the keynote",
+  practicalEyebrow: "Practicalities",
+  practicalTitle: "What to plan for",
+  practical: [
+    { title: "Footprint", body: "One self-contained kiosk station. Power and a quiet corner. We bring the rest." },
+    { title: "Throughput", body: "About a minute per person at the kiosk, report in the inbox within ten minutes." },
+    { title: "Languages", body: "Reports in English and Arabic." },
+    { title: "Lead time", body: "Booked as an event, not a walk-up. Confirm the date, the room, and the headcount with us first." },
+  ],
 } as const;
 
 export const GOVERNMENT = {
@@ -164,6 +177,14 @@ export const GOVERNMENT = {
   close: "Twelve weeks to prove it. Twelve months to change it.",
   governanceTitle: "Governance & data",
   governanceBody:
-    "Individual results belong to the individual. Cohort reporting is de-identified by reference code — no names, no ages, no personal identifiers. All devices are non-medical and all reporting is lifestyle guidance, not a diagnosis.",
+    "Individual results belong to the individual. Cohort reporting is de-identified by reference code — no names, no ages, no personal identifiers. We operate every instrument in a non-medical setting, and all reporting is lifestyle guidance, not a diagnosis.",
   cta: "Request a briefing",
+  contractEyebrow: "How we contract",
+  contractTitle: "Pilot first. Procurement after the numbers.",
+  contract: [
+    "The trading entity for a UAE contract is confirmed in writing before any statement of work. Until that confirmation, this page does not name one.",
+    "We are completing registration under the Abu Dhabi Public Health Centre occupational-health practitioner framework.",
+    "ISO 27001, 45001 and 45003 are a certification track in progress with an accredited body. Not yet certified.",
+    "Programmes start as a 12-week, KPI-gated pilot. An annual plan is a procurement decision after the readout, not a clause we bury in week one.",
+  ],
 } as const;
