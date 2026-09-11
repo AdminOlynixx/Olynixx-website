@@ -6,6 +6,7 @@ const projectRoot = path.dirname(fileURLToPath(import.meta.url));
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  agentRules: false,
   turbopack: { root: projectRoot },
   async headers() {
     return [

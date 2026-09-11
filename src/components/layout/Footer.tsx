@@ -90,7 +90,7 @@ export function Footer() {
             <p className="ol-legal-entity">
               {entity.legalName
                 ? `© ${year} ${entity.legalName.replace(/\.$/, "")}. All rights reserved.`
-                : `© ${year} Olynixx. All rights reserved.`}
+                : `© ${year} 2026 Rise Up Lifestyle Coaching L.L.C.`}
             </p>
           </div>
         </div>
