@@ -60,6 +60,7 @@
   overflow: visible;
 }
 .ol-header__cta { margin-inline-start: auto; }
+.ol-header__logo { min-width: 0; flex-shrink: 0; }
 .ol-nav-toggle {
   display: none;
   background: transparent;
@@ -69,6 +70,8 @@
   border-radius: var(--ol-radius-1);
   cursor: pointer;
   margin-inline-start: auto;
+  flex-shrink: 0;
+  z-index: 2;
 }
 .ol-dropdown { position: relative; }
 .ol-dropdown__btn {
@@ -222,6 +225,36 @@
   .ol-nav a:not(.ol-btn),
   .ol-nav .ol-dropdown { display: none; }
   .ol-nav-toggle { display: inline-flex; }
+  .ol-header__cta {
+    min-height: 44px;
+    padding-inline: 16px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .ol-nav { display: none; }
+  .ol-drawer {
+    justify-content: flex-start;
+    padding-block-end: max(var(--s4), env(safe-area-inset-bottom, 0px));
+  }
+  .ol-drawer__nav {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+  }
+  .ol-drawer__cta {
+    flex-shrink: 0;
+    margin-block-start: var(--s3);
+  }
+  .ol-drawer__cta .ol-btn {
+    width: 100%;
+    max-width: 280px;
+    min-height: 48px;
+    padding-inline: 16px;
+    white-space: normal;
+    text-align: center;
+  }
 }
 
 /* Secondary nav on Corporates and Individuals. Matches header type, cream bar. */

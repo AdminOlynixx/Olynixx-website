@@ -343,6 +343,10 @@ a.ol-card:focus-visible, a.ol-door:focus-visible {
   .ol-header__logo img, .ol-header__logo svg { height: 32px; }
 }
 
+@media (max-width: 1023px) {
+  .ol-nav { display: none; }
+}
+
 .ol-footer {
   background: var(--green-deep);
   color: var(--cream);
