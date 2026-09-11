@@ -26,7 +26,7 @@ export function Motion() {
           io.unobserve(entry.target);
         }
       },
-      { threshold: 0.01, rootMargin: "0px 0px -32px 0px" },
+      { threshold: 0.01, rootMargin: "0px 0px 20% 0px" },
     );
 
     for (const el of nodes) {

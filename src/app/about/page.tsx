@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Hero, Section, Eyebrow, Title, Lead } from "@/components/site/Section";
 import { CtaBand } from "@/components/site/CtaBand";
 import { ABOUT } from "@/content/about";
@@ -63,6 +64,11 @@ export default function AboutPage() {
             <Eyebrow>In print</Eyebrow>
             <Title>{ABOUT.bookTitle}</Title>
             <Lead>{ABOUT.bookBody}</Lead>
+            <p className="ol-actions">
+              <Link className="ol-btn ol-btn--secondary" href={contactHref("chapter-download", "about-book")}>
+                Request chapter one
+              </Link>
+            </p>
           </div>
           <aside className="ol-about-cover" aria-label={`${ABOUT.bookName}, ${ABOUT.bookYear}`}>
             <p className="ol-eyebrow">{ABOUT.bookYear}</p>
@@ -82,7 +88,7 @@ export default function AboutPage() {
         <IsoShort />
       </Section>
 
-      <CtaBand title={ABOUT.cta} href={contactHref("individual")} label={ABOUT.ctaButton} />
+      <CtaBand title={ABOUT.cta} href={contactHref("individual-intake", "about-cta")} label={ABOUT.ctaButton} />
     </>
   );
 }

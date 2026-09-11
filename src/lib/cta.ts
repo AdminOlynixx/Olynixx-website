@@ -11,6 +11,9 @@ export const CTA_SOURCES = [
   "corporate-pilot",
   "event",
   "government",
+  "systems",
+  "sean",
+  "chapter-download",
 ] as const;
 
 export type CtaSource = (typeof CTA_SOURCES)[number];
@@ -22,6 +25,7 @@ export const CONTACT_AUDIENCES = [
   { value: "government", label: "Government" },
   { value: "praxis-certification", label: "Coach–certification" },
   { value: "event", label: "Event" },
+  { value: "systems", label: "Systems" },
 ] as const;
 
 export type ContactAudience = (typeof CONTACT_AUDIENCES)[number]["value"];
@@ -38,6 +42,9 @@ const SOURCE_TO_AUDIENCE: Record<CtaSource, ContactAudience> = {
   "corporate-pilot": "corporate-pilot",
   event: "event",
   government: "government",
+  systems: "systems",
+  sean: "individual",
+  "chapter-download": "individual",
 };
 
 export function isCtaSource(value: string | null | undefined): value is CtaSource {
@@ -52,6 +59,12 @@ export function audienceFromSource(source: string | null): ContactAudience {
   return "individual";
 }
 
-export function contactHref(source: CtaSource): string {
-  return `/contact?source=${source}`;
+export function contactHref(source: CtaSource, position = "primary"): string {
+  return `/contact?source=${source}&pos=${encodeURIComponent(position)}`;
+}
+
+export function trackCta(event: string, payload: Record<string, string>) {
+  if (typeof window === "undefined") return;
+  const dataLayer = (window as Window & { dataLayer?: Record<string, unknown>[] }).dataLayer;
+  dataLayer?.push({ event, ...payload });
 }

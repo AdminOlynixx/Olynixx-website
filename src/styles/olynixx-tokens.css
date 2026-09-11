@@ -46,7 +46,7 @@
   --header-h: 72px;
 
   --ease: cubic-bezier(.2, .6, .2, 1);
-  --dur-enter: 320ms;
+  --dur-enter: 160ms;
   --dur-hover: 120ms;
 
   --z-header: 100;

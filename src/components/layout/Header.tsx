@@ -8,7 +8,13 @@ import { Lockup } from "@/components/brand/Lockup";
 import { PRIMARY_NAV } from "@/lib/nav";
 import { contactHref } from "@/lib/cta";
 
-export function Header({ longevityLive = false }: { longevityLive?: boolean }) {
+export function Header({
+  longevityLive = false,
+  shopLive = false,
+}: {
+  longevityLive?: boolean;
+  shopLive?: boolean;
+}) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
@@ -79,7 +85,15 @@ export function Header({ longevityLive = false }: { longevityLive?: boolean }) {
             </Link>
           ),
         )}
-        <Link className="ol-btn ol-btn--primary" href={contactHref("corporate-pilot")}>
+        {shopLive ? (
+          <Link
+            className="ol-nav-shop"
+            href="/shop?utm_source=olynixx-site&utm_medium=referral&utm_campaign=header&utm_content=nav"
+          >
+            Shop
+          </Link>
+        ) : null}
+        <Link className="ol-btn ol-btn--primary ol-header__cta" href={contactHref("corporate-pilot", "header")}>
           Book a pilot conversation
         </Link>
       </nav>
@@ -119,7 +133,15 @@ export function Header({ longevityLive = false }: { longevityLive?: boolean }) {
           )}
         </nav>
         <div className="ol-drawer__cta">
-          <Link className="ol-btn ol-btn--primary" href={contactHref("corporate-pilot")}>
+          {shopLive ? (
+            <Link
+              className="ol-nav-shop"
+              href="/shop?utm_source=olynixx-site&utm_medium=referral&utm_campaign=header&utm_content=drawer"
+            >
+              Shop
+            </Link>
+          ) : null}
+          <Link className="ol-btn ol-btn--primary" href={contactHref("corporate-pilot", "header-drawer")}>
             Book a pilot conversation
           </Link>
         </div>

@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Hero, Section, Eyebrow, Title, Lead } from "@/components/site/Section";
 import { IsoShort } from "@/components/site/IsoBlock";
 import { TECHNOLOGY } from "@/content/technology";
 import { NON_MEDICAL_STATEMENT } from "@/lib/legal-copy";
+import { contactHref } from "@/lib/cta";
+import { publishBest, publishDc } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: { absolute: TECHNOLOGY.metaTitle },
@@ -10,6 +13,10 @@ export const metadata: Metadata = {
 };
 
 export default function TechnologyPage() {
+  const msFit = TECHNOLOGY.devices[0];
+  const oxyterra = TECHNOLOGY.devices[1];
+  const rest = TECHNOLOGY.devices.slice(2).filter((device) => !(publishBest() && device.name === "Microcurrent"));
+
   return (
     <>
       <Hero>
@@ -19,12 +26,6 @@ export default function TechnologyPage() {
       </Hero>
 
       <Section narrow>
-        <Eyebrow>{TECHNOLOGY.reservedEyebrow}</Eyebrow>
-        <Title>{TECHNOLOGY.reservedTitle}</Title>
-        <Lead>{TECHNOLOGY.reserved}</Lead>
-      </Section>
-
-      <Section narrow>
         <Eyebrow>{TECHNOLOGY.measureEyebrow}</Eyebrow>
         <Title>{TECHNOLOGY.measureTitle}</Title>
         {TECHNOLOGY.measure.map((para) => (
@@ -32,15 +33,62 @@ export default function TechnologyPage() {
         ))}
       </Section>
 
-      <Section narrow>
-        <Eyebrow>{TECHNOLOGY.principleEyebrow}</Eyebrow>
-        <Title>{TECHNOLOGY.principleTitle}</Title>
-        <Lead>{TECHNOLOGY.principle}</Lead>
+      <Section>
+        <article className="ol-device ol-card">
+          <p className="ol-status">{msFit.status}</p>
+          <h3>{msFit.name}</h3>
+          <p>{msFit.role}</p>
+          <ul>
+            {msFit.bullets.map((bullet) => (
+              <li key={bullet}>{bullet}</li>
+            ))}
+          </ul>
+          <p className="ol-small ol-muted">{msFit.where}</p>
+        </article>
       </Section>
 
       <Section>
+        <article className="ol-device ol-card">
+          <p className="ol-status">{TECHNOLOGY.sensorStatus}</p>
+          <h3>{TECHNOLOGY.sensorName}</h3>
+          <Lead>{TECHNOLOGY.sensorBody}</Lead>
+        </article>
+        {publishDc() ? (
+          <div className="ol-measure" style={{ marginBlockStart: "var(--s4)" }}>
+            <Title>{TECHNOLOGY.firstGulfTitle}</Title>
+            <Lead>{TECHNOLOGY.firstGulfBody}</Lead>
+            {TECHNOLOGY.poweredBy ? <p className="ol-small ol-muted">{TECHNOLOGY.poweredBy}</p> : null}
+          </div>
+        ) : null}
+      </Section>
+
+      <Section>
+        <article className="ol-device ol-card">
+          <p className="ol-status">{oxyterra.status}</p>
+          <h3>{oxyterra.name}</h3>
+          <p>{oxyterra.role}</p>
+          <ul>
+            {oxyterra.bullets.map((bullet) => (
+              <li key={bullet}>{bullet}</li>
+            ))}
+          </ul>
+          <p className="ol-small ol-muted">{oxyterra.where}</p>
+        </article>
+      </Section>
+
+      {publishBest() ? (
+        <Section>
+          <article className="ol-device ol-card">
+            <p className="ol-status">{TECHNOLOGY.bestStatus}</p>
+            <h3>{TECHNOLOGY.bestName}</h3>
+            <Lead>{TECHNOLOGY.bestBody}</Lead>
+          </article>
+        </Section>
+      ) : null}
+
+      <Section>
         <div className="ol-device-grid">
-          {TECHNOLOGY.devices.map((device) => (
+          {rest.map((device) => (
             <article key={device.name} className="ol-device ol-card">
               <p className="ol-status">{device.status}</p>
               <h3>{device.name}</h3>
@@ -54,6 +102,27 @@ export default function TechnologyPage() {
             </article>
           ))}
         </div>
+      </Section>
+
+      <Section narrow>
+        <Eyebrow>{TECHNOLOGY.principleEyebrow}</Eyebrow>
+        <Title>{TECHNOLOGY.principleTitle}</Title>
+        <Lead>{TECHNOLOGY.principle}</Lead>
+        <p className="ol-actions">
+          <Link className="ol-btn ol-btn--primary" href={contactHref("systems", "tech-moat")}>
+            {TECHNOLOGY.systemsCta}
+          </Link>
+        </p>
+      </Section>
+
+      <Section surface="app" narrow>
+        <Title>{TECHNOLOGY.ownTitle}</Title>
+        <Lead>{TECHNOLOGY.ownBody}</Lead>
+        <p className="ol-actions">
+          <Link className="ol-btn ol-btn--primary" href={contactHref("systems", "tech-own")}>
+            {TECHNOLOGY.systemsCta}
+          </Link>
+        </p>
       </Section>
 
       <Section surface="app" narrow>

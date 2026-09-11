@@ -3,7 +3,7 @@
 export const HUB = {
   metaTitle: "Personal readiness testing and coaching, Dubai — Olynixx",
   metaDescription:
-    "A measured journey built on your own physiology. Choose your route — corporate athlete, sport athlete or longevity — and start with a free intake call. Non-medical.",
+    "A measured journey built on your own physiology. Choose your route and start with a free intake call. Non-medical.",
   eyebrow: "For individuals",
   heroTitle: "A user guide to your own body.",
   standfirst:
@@ -73,14 +73,17 @@ export const HUB = {
     {
       title: "Level I — Test & Guide",
       body: "Minimum 12 weeks. Monthly or bi-monthly testing, with online coaching between tests, adjusted to what your last test actually showed.",
+      price: "",
     },
     {
       title: "Level II — Daily Readiness",
-      body: "Built for 24 weeks. Measurement moves into your morning, across three layers — neurological, cardiovascular and metabolic — with a full team around you: health coach, mental coach, nutritionist, trainer.",
+      body: "This is where measurement moves into your morning. The Olynixx Sensor — a three-minute daily measurement of brain, heart and recovery state — starts every day with one number: what your body can adapt to today. Built for people with higher goals, professional or leisure, where readiness is a decisive piece of the puzzle.",
+      price: "",
     },
     {
       title: "Level III — The Full Year",
       body: "Twelve months, the complete testing arsenal and our training systems, including altitude, in one integrated protocol.",
+      price: "",
     },
   ],
   levelsNote: "Which level fits is decided in the intake call, not on this page.",
@@ -198,7 +201,7 @@ export const SPORT_ATHLETE = {
   runNote:
     "Whichever level, the sequence is the same: baseline, act on the weakest link, retest. We work with your existing coach where you have one — we are the measurement layer, not a replacement for the person who writes your programme.",
   closeTitle: "Find out what your body is actually absorbing.",
-  clubCta: "We'll talk to them",
+  clubCta: "Talk to the club",
 } as const;
 
 export const LONGEVITY = {

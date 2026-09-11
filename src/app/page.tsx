@@ -8,7 +8,10 @@ import { Divider } from "@/components/brand/Divider";
 import { HOME } from "@/content/home";
 import { contactHref } from "@/lib/cta";
 import { JsonLd } from "@/components/site/JsonLd";
+import { ProofStrip } from "@/components/site/ProofStrip";
 import { faqJsonLd } from "@/lib/json-ld";
+import { phaseShop, publishDc, publishLongevity, publishSean } from "@/lib/site-config";
+import { shopHref } from "@/lib/shop";
 
 export const metadata: Metadata = {
   title: { absolute: "Workforce readiness testing in the UAE | Olynixx" },
@@ -16,6 +19,13 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
+  const doors = HOME.doors.map((door) =>
+    door.href === "/individuals" && publishLongevity()
+      ? { ...door, body: "Corporate athlete, sport athlete or longevity. A user guide to your body, built on your data." }
+      : door,
+  );
+  const bookHref = phaseShop() ? shopHref("/shop/book", "home", "book") ?? "/about#book" : "/about#book";
+
   return (
     <>
       <JsonLd data={faqJsonLd()} />
@@ -29,7 +39,7 @@ export default function HomePage() {
         <p className="ol-lead">{HOME.standfirst}</p>
         <p className="ol-tagline ol-tight">{HOME.proofLine}</p>
         <p className="ol-actions">
-          <Link className="ol-btn ol-btn--primary" href={contactHref("corporate-pilot")}>
+          <Link className="ol-btn ol-btn--primary" href={contactHref("corporate-pilot", "home-hero")}>
             {HOME.primaryCta}
           </Link>
           <Link className="ol-btn ol-btn--secondary" href="/individuals">
@@ -37,6 +47,17 @@ export default function HomePage() {
           </Link>
         </p>
       </Hero>
+
+      <Section className="ol-tight-section" id="offer">
+        <Eyebrow>{HOME.offerEyebrow}</Eyebrow>
+        <Title>{HOME.offerTitle}</Title>
+        <Lead>{HOME.offerBody}</Lead>
+        <p className="ol-actions">
+          <Link className="ol-btn ol-btn--primary" href={contactHref("event", "home-25-test")}>
+            {HOME.offerCta}
+          </Link>
+        </p>
+      </Section>
 
       <Section narrow>
         <Eyebrow>{HOME.actuallyEyebrow}</Eyebrow>
@@ -48,7 +69,7 @@ export default function HomePage() {
         <Eyebrow>{HOME.doorsEyebrow}</Eyebrow>
         <Title>{HOME.doorsIntro}</Title>
         <div className="ol-grid">
-          {HOME.doors.map((door) => (
+          {doors.map((door) => (
             <Link key={door.title} href={door.href} className="ol-card ol-door">
               <h3>{door.title}</h3>
               <p>{door.body}</p>
@@ -72,20 +93,41 @@ export default function HomePage() {
       </Section>
 
       <Section>
-        <div className="ol-proof" role="list">
-          {HOME.proof.map((item) => (
-            <div key={item.label} className="ol-proof__item" role="listitem">
-              <p className="ol-proof__value">{item.value}</p>
-              <p className="ol-proof__label">{item.label}</p>
-            </div>
-          ))}
-        </div>
+        <ProofStrip items={HOME.proof} />
       </Section>
+
+      <Section narrow>
+        <Eyebrow>{HOME.proofEyebrow}</Eyebrow>
+        <Title>{HOME.proofTitle}</Title>
+        <Lead>{HOME.proofBody}</Lead>
+      </Section>
+
+      {publishSean() ? (
+        <Section surface="app">
+          <div className="ol-sean-band">
+            <div>
+              <Eyebrow>{HOME.seanEyebrow}</Eyebrow>
+              <Title>{HOME.seanTitle}</Title>
+              <Lead>{HOME.seanBody}</Lead>
+              <p className="ol-actions">
+                <Link className="ol-btn ol-btn--primary" href="/sean">
+                  {HOME.seanFollow}
+                </Link>
+                <Link className="ol-btn ol-btn--secondary" href={contactHref("sean", "home-ambassador")}>
+                  {HOME.seanTrain}
+                </Link>
+              </p>
+            </div>
+          </div>
+        </Section>
+      ) : null}
 
       <Section surface="dark" narrow>
         <Eyebrow>Capacity, not history</Eyebrow>
         <Title>{HOME.monitoringTitle}</Title>
+        <p className="ol-claim">{HOME.firstClaim}</p>
         <Lead>{HOME.monitoringBody}</Lead>
+        <Lead>{publishDc() ? HOME.monitoringLineDc : HOME.monitoringLine}</Lead>
       </Section>
 
       <Section>
@@ -94,13 +136,13 @@ export default function HomePage() {
           <Eyebrow>The book</Eyebrow>
           <Title>{HOME.bookTitle}</Title>
           <Lead>{HOME.bookBody}</Lead>
-          <Link className="ol-btn ol-btn--text" href="/about#book">
+          <Link className="ol-btn ol-btn--text" href={bookHref}>
             Read the argument
           </Link>
         </div>
       </Section>
 
-      <CtaBand title={HOME.closing} href={contactHref("corporate-pilot")} label={HOME.primaryCta} />
+      <CtaBand title={HOME.closing} href={contactHref("corporate-pilot", "home-close")} label={HOME.primaryCta} />
     </>
   );
 }

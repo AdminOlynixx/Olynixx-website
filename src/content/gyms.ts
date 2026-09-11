@@ -40,12 +40,21 @@ export const GYMS = {
       body: "Volume, intensity and recovery matched to what the body can adapt to today.",
     },
   ],
-  recoveryEyebrow: "Precision recovery",
-  recoveryTitle: "Recovery, finally efficient",
+  recoveryEyebrow: "The loop",
+  recoveryTitle: "Test before. Train. Recover, guided. Test after.",
   recovery: [
-    "You have already invested in recovery: sauna, ice, massage, compression, nutrition. The tools are not the problem — the guesswork is. The same session can leave one body better served by heat and another by cold. Used blind, even a well-built recovery zone underperforms.",
-    "With a readiness check before recovery, each member is steered toward the method their body is most likely to respond to right now, and the zone you already paid for stops being a perk and starts producing a measurable effect.",
+    "The kiosk on your floor tells every member what their body can adapt to before the session — that is safety, and training that fits the day. But the result is decided after the session: adaptability after training is the difference between getting better and just getting tired. So we take care of that part too. Olynixx recovery systems on your floor, dosed per member from their numbers — and a check that shows the session landed. The loop closes: readiness before, recovery after, progress you can prove.",
   ],
+  recoveryZoneEyebrow: "Your recovery zone",
+  recoveryZoneTitle: "Your recovery zone, finally earning.",
+  recoveryZone:
+    "You have probably already invested in recovery: sauna, ice bath, compression, massage. The tools are not the problem — the guesswork is. With a physiological check before and after, each member is steered to the method their body will respond to right now, and the retest shows it worked. The recovery zone you already paid for stops being a perk and becomes a service — and where the zone needs real hardware, Olynixx supplies the systems, as their agent, installed and protocolled.",
+  incomeEyebrow: "A second income stream",
+  incomeTitle: "A second income stream, measured.",
+  income:
+    "Readiness testing and guided recovery become services your members book and pay for — on top of memberships, delivered by coaches trained to read the numbers. The kiosk starts the loop; the recovery systems close it; the retest proves it. That is a subscription line no whiteboard programme can copy.",
+  recoveryBest: "Olynixx recovery systems",
+  recoveryBestNamed: "B-E-St",
   steered: [
     {
       title: "Infrared heat",
@@ -100,6 +109,12 @@ export const GYMS = {
   firstClubTitle: "Karwan Health Club, Ajman",
   firstClub:
     "The first Olynixx testing club: readiness kiosk on the floor, performance diagnostics, structured twelve-week programmes, run by certified coaches.",
+  proof: [
+    { value: "1st", label: "Testing club live in Ajman" },
+    { value: "2", label: "Income streams on one loop" },
+    { value: "1 min", label: "Readiness check before the session" },
+    { value: "22 yrs", label: "In the field since 2004" },
+  ],
   closeTitle: "Turn your club into a testing club.",
   closeSecondary: "Certify your coaches through Praxis",
   selectorGyms: "For gyms",

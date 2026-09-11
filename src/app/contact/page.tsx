@@ -62,6 +62,11 @@ export default function ContactPage() {
               </p>
             ) : null}
             {details.sla ? <p className="ol-small">{details.sla}</p> : null}
+            {details.calendar ? (
+              <div className="ol-calendar">
+                <iframe title="Book a conversation" src={details.calendar} loading="lazy" />
+              </div>
+            ) : null}
             <p className="ol-small ol-muted">{CONTACT.directNote}</p>
           </aside>
         </div>

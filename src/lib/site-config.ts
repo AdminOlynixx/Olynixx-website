@@ -22,9 +22,29 @@ export function publishIsoBadges(): boolean {
   return process.env.PUBLISH_ISO_BADGES === "true";
 }
 
-/** HOLD until Jef confirms the launch name (or this one) may go public. */
+/** Rise Up Lifestyle Coaching L.L.C. fronts the site until the Olynixx entity at rebrand. */
 export function publishEntity(): boolean {
   return process.env.PUBLISH_ENTITY === "true";
+}
+
+/** SW-DC — partner name and first-in-the-Gulf DC-potential claim. */
+export function publishDc(): boolean {
+  return process.env.PUBLISH_DC === "true";
+}
+
+/** SW-BEST — B-E-St name and branded recovery. */
+export function publishBest(): boolean {
+  return process.env.PUBLISH_BEST === "true";
+}
+
+/** SW-SEAN — ambassador band and /sean. */
+export function publishSean(): boolean {
+  return process.env.PUBLISH_SEAN === "true";
+}
+
+/** PHASE-SHOP — no live shop links until flipped. */
+export function phaseShop(): boolean {
+  return process.env.PHASE_SHOP === "true";
 }
 
 export type EntityIdentity = {
@@ -71,6 +91,7 @@ export type PublicContact = {
   address: string;
   mapUrl: string;
   sla: string;
+  calendar: string;
   location: string;
 };
 
@@ -82,6 +103,7 @@ export function publicContact(): PublicContact {
     address: process.env.SITE_CONTACT_ADDRESS?.trim() || "",
     mapUrl: process.env.SITE_CONTACT_MAP?.trim() || "",
     sla: process.env.SITE_CONTACT_SLA?.trim() || "",
+    calendar: process.env.SITE_CONTACT_CALENDAR?.trim() || "",
     location: "Dubai, UAE",
   };
 }

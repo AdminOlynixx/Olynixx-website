@@ -6,7 +6,8 @@ import { TrustBar } from "@/components/site/IsoBlock";
 import { DoorSwitcher } from "@/components/site/DoorSwitcher";
 import { HUB } from "@/content/individuals";
 import { contactHref } from "@/lib/cta";
-import { publishLongevity } from "@/lib/site-config";
+import { phaseShop, publishLongevity } from "@/lib/site-config";
+import { shopHref } from "@/lib/shop";
 
 export const metadata: Metadata = {
   title: { absolute: HUB.metaTitle },
@@ -25,7 +26,7 @@ export default function IndividualsHub() {
         <h1 className="ol-hero-title">{HUB.heroTitle}</h1>
         <p className="ol-lead">{HUB.standfirst}</p>
         <p className="ol-actions">
-          <Link className="ol-btn ol-btn--primary" href={contactHref("individual-intake")}>
+          <Link className="ol-btn ol-btn--primary" href={contactHref("individual-intake", "individuals-hero")}>
             {HUB.primaryCta}
           </Link>
           <a className="ol-btn ol-btn--secondary" href="#routes">
@@ -86,6 +87,9 @@ export default function IndividualsHub() {
           {HUB.levels.map((level) => (
             <article key={level.title} className="ol-card ol-level">
               <h3>{level.title}</h3>
+              {"price" in level && level.price ? (
+                <p className="ol-small">from AED {level.price} /month</p>
+              ) : null}
               <p>{level.body}</p>
             </article>
           ))}
@@ -95,10 +99,29 @@ export default function IndividualsHub() {
         </p>
       </Section>
 
+      {phaseShop() ? (
+        <Section narrow>
+          <Title>Start tonight, or start with a conversation.</Title>
+          <Lead>
+            Some journeys need an intake talk first — the three levels above all do. Some you can start tonight: defined readiness programmes — device, protocol and guidance in one — are in the Olynixx shop. The book is there too. Either way, the first step is measured.
+          </Lead>
+          <p className="ol-actions">
+            {shopHref("/shop", "individuals", "bridge") ? (
+              <Link className="ol-btn ol-btn--secondary" href={shopHref("/shop", "individuals", "bridge") ?? "/contact"}>
+                Browse readiness programmes
+              </Link>
+            ) : null}
+            <Link className="ol-btn ol-btn--primary" href={contactHref("individual-intake", "individuals-bridge")}>
+              Book your free intake talk
+            </Link>
+          </p>
+        </Section>
+      ) : null}
+
       <CtaBand
         title={HUB.closeTitle}
         standfirst={HUB.closeStandfirst}
-        href={contactHref("individual-intake")}
+        href={contactHref("individual-intake", "individuals-close")}
         label={HUB.primaryCta}
       />
     </>

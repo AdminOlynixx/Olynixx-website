@@ -23,6 +23,7 @@ export const PRAXIS = {
     "Coaching the decision: turning a readiness score into today's training, recovery and lifestyle choices.",
     "Retest discipline: one test is a snapshot, two is a direction.",
   ],
+  learnBest: "including a certified module on microcurrent recovery technology.",
   whoTitle: "Who it's for",
   whoBody:
     "Personal trainers · health coaches · nutritionists · mental coaches · recovery specialists — any certified health professional in the UAE whose credentials need renewing, and who would rather grow than just comply. (UAE first; further regions to follow.)",
@@ -52,4 +53,10 @@ export const PRAXIS = {
     fee: "",
     exam: "",
   },
+  proof: [
+    { value: "22 yrs", label: "Field record behind the course" },
+    { value: "CPD", label: "Hours toward credential renewal" },
+    { value: "Exam", label: "Earned, not attended" },
+    { value: "UAE", label: "First market" },
+  ],
 } as const;

@@ -4,8 +4,10 @@ import { Hero, Section, Eyebrow, Title, Lead } from "@/components/site/Section";
 import { CtaBand } from "@/components/site/CtaBand";
 import { TrustBar } from "@/components/site/IsoBlock";
 import { ReadinessHub } from "@/components/site/ReadinessHub";
+import { ProofStrip } from "@/components/site/ProofStrip";
 import { GYMS } from "@/content/gyms";
 import { contactHref } from "@/lib/cta";
+import { publishBest } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: { absolute: GYMS.metaTitle },
@@ -13,6 +15,9 @@ export const metadata: Metadata = {
 };
 
 export default function GymsPage() {
+  const named = (text: string) =>
+    publishBest() ? text.replaceAll("Olynixx recovery systems", "B-E-St microcurrent recovery") : text;
+
   return (
     <>
       <Hero>
@@ -20,7 +25,7 @@ export default function GymsPage() {
         <h1 className="ol-hero-title">{GYMS.heroTitle}</h1>
         <p className="ol-lead">{GYMS.standfirst}</p>
         <p className="ol-actions">
-          <Link className="ol-btn ol-btn--primary" href={contactHref("club-licence")}>
+          <Link className="ol-btn ol-btn--primary" href={contactHref("club-licence", "gyms-hero")}>
             {GYMS.primaryCta}
           </Link>
           <Link className="ol-btn ol-btn--secondary" href="/praxis">
@@ -63,8 +68,23 @@ export default function GymsPage() {
         <Eyebrow>{GYMS.recoveryEyebrow}</Eyebrow>
         <Title>{GYMS.recoveryTitle}</Title>
         {GYMS.recovery.map((para) => (
-          <Lead key={para.slice(0, 24)}>{para}</Lead>
+          <Lead key={para.slice(0, 24)}>{named(para)}</Lead>
         ))}
+      </Section>
+
+      <Section>
+        <Title>{GYMS.recoveryZoneTitle}</Title>
+        <Lead>{named(GYMS.recoveryZone)}</Lead>
+      </Section>
+
+      <Section>
+        <Title>{GYMS.incomeTitle}</Title>
+        <Lead>{named(GYMS.income)}</Lead>
+        <p className="ol-actions">
+          <Link className="ol-btn ol-btn--secondary" href={contactHref("systems", "gyms-systems")}>
+            Ask about systems
+          </Link>
+        </p>
         <div className="ol-grid">
           {GYMS.steered.map((item) => (
             <article key={item.title} className="ol-card">
@@ -101,7 +121,7 @@ export default function GymsPage() {
           ))}
         </div>
         <p className="ol-actions">
-          <Link className="ol-btn ol-btn--primary" href={contactHref("club-licence")}>
+          <Link className="ol-btn ol-btn--primary" href={contactHref("club-licence", "gyms-licence")}>
             {GYMS.licenceCta}
           </Link>
         </p>
@@ -117,13 +137,17 @@ export default function GymsPage() {
         <Lead>{GYMS.coaches}</Lead>
         <Lead>{GYMS.coachesClose}</Lead>
         <p className="ol-actions">
-          <Link className="ol-btn ol-btn--secondary" href={contactHref("club-licence")}>
+          <Link className="ol-btn ol-btn--secondary" href={contactHref("club-licence", "gyms-network")}>
             {GYMS.networkCta}
           </Link>
           <Link className="ol-btn ol-btn--secondary" href="/praxis">
             {GYMS.praxisCta}
           </Link>
         </p>
+      </Section>
+
+      <Section>
+        <ProofStrip items={GYMS.proof} />
       </Section>
 
       <Section>
@@ -134,7 +158,7 @@ export default function GymsPage() {
 
       <CtaBand
         title={GYMS.closeTitle}
-        href={contactHref("club-licence")}
+        href={contactHref("club-licence", "gyms-close")}
         label={GYMS.primaryCta}
         secondaryHref="/praxis"
         secondaryLabel={GYMS.closeSecondary}

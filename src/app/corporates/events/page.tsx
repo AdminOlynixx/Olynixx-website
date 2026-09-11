@@ -6,6 +6,7 @@ import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { EVENTS } from "@/content/corporates";
 import { CORP_SUBNAV } from "@/lib/nav";
 import { contactHref } from "@/lib/cta";
+import { publishSean } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: { absolute: "Event testing kiosk and keynote | Olynixx" },
@@ -33,11 +34,13 @@ export default function EventsPage() {
         <Eyebrow>On the floor</Eyebrow>
         <Title>{EVENTS.kioskTitle}</Title>
         <Lead>{EVENTS.kioskBody}</Lead>
+        {publishSean() ? <p className="ol-small">{EVENTS.seanStation}</p> : null}
       </Section>
 
       <Section surface="dark" narrow>
         <Eyebrow>The talk</Eyebrow>
         <Title>{EVENTS.keynoteTitle}</Title>
+        <p className="ol-small">{EVENTS.speakerLine}</p>
         {EVENTS.keynoteBody.map((para) => (
           <Lead key={para.slice(0, 24)}>{para}</Lead>
         ))}
@@ -79,10 +82,10 @@ export default function EventsPage() {
         <div className="ol-container ol-cta-band">
           <h2>{EVENTS.cta}</h2>
           <div className="ol-actions">
-            <Link className="ol-btn ol-btn--primary" href={contactHref("event")}>
+            <Link className="ol-btn ol-btn--primary" href={contactHref("event", "events-station")}>
               {EVENTS.ctaStation}
             </Link>
-            <Link className="ol-btn ol-btn--secondary" href={contactHref("event")}>
+            <Link className="ol-btn ol-btn--secondary" href={contactHref("event", "events-keynote")}>
               {EVENTS.ctaKeynote}
             </Link>
           </div>

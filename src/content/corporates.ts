@@ -18,6 +18,8 @@ export const CORPORATES = {
     "ISO 27001 / 45001 / 45003 certification in progress",
   ],
   gapEyebrow: "The gap",
+  firstClaim:
+    "This is the UAE's first complete prevention system on the corporate floor — not a screening day, not an app: a system that runs continuously where your people work, and proves what it changes.",
   gapTitle: "The silent slide",
   gap: [
     "Between a healthy employee and a patient there is a long, quiet stretch: energy falling, stress load rising, recovery shortening. An annual medical is not built to see it, because there is nothing yet to see — it is not a condition, it is a trajectory. And a trajectory is something you can measure.",
@@ -47,6 +49,23 @@ export const CORPORATES = {
   ],
   systemEyebrow: "The system",
   systemTitle: "Four steps. One cycle.",
+  tiersEyebrow: "The floor system",
+  tiersTitle: "Three tiers. One loop.",
+  tiers: [
+    {
+      title: "Tier 1 — The floor system. The backbone of prevention, on your work floor.",
+      body: "The MS Fit kiosk stands where your people work. Each employee tests in minutes and gets a personal readiness report — where they stand today, and the concrete actionables that move it. From the same test moment, leadership's Load & Risk dashboards update: where the workforce is carrying load, where risk is building, where to act first. Fully anonymised, by design. Tier 1 runs continuously — it is the system; everything above it is added when the numbers ask for it.",
+    },
+    {
+      title: "Tier 2 — Deeper diagnostics.",
+      body: "Cognitive testing (reaction speed, memory, decision speed) and MuscleLab performance diagnostics, for the teams and roles that need deeper insight.",
+    },
+    {
+      title: "Tier 3 — Intervention.",
+      body: "Coaching on the personal decision dashboard, Olynixx recovery systems, and Oxyterra altitude training — steered by the test results, to actually move the numbers.",
+    },
+  ],
+  tier3Best: "Coaching on the personal decision dashboard, B-E-St microcurrent recovery, and Oxyterra altitude training — steered by the test results, to actually move the numbers.",
   system: [
     {
       title: "Measure",
@@ -102,6 +121,12 @@ export const CORPORATES = {
     "146 employees tested in a 300-participant programme. Every result banded, reported to the individual within ten minutes, and rolled into an anonymised leadership view. Where readiness sat on day one, and where it sat at the retest.",
   closeTitle: "Ready to see your workforce differently?",
   closeStandfirst: "Twelve weeks, KPIs agreed up front, and a straight answer at the end.",
+  proof: [
+    { value: "146", label: "Employees tested in one cycle" },
+    { value: "12 wks", label: "Test–coach–retest" },
+    { value: "300", label: "Participant programme delivered" },
+    { value: "UAE", label: "Data hosted" },
+  ],
 } as const;
 
 export const EVENTS = {
@@ -132,6 +157,10 @@ export const EVENTS = {
   cta: "Book the station. Book the keynote. Or both.",
   ctaStation: "Book the station",
   ctaKeynote: "Book the keynote",
+  speakerLine:
+    "The keynote is built on the book and twenty-two years in the field — from special forces units to elite sport to the boardroom.",
+  seanStation:
+    "For launches and flagship events, the station can come with the ambassador — ask.",
   practicalEyebrow: "Practicalities",
   practicalTitle: "What to plan for",
   practical: [
@@ -158,20 +187,20 @@ export const GOVERNMENT = {
   steps: [
     { title: "Pilot", body: "12 weeks, KPI-gated." },
     { title: "Annual plan", body: "When the numbers earn it." },
-    { title: "Full system", body: "Base, advanced, and training layers." },
+    { title: "Full system", body: "Tier 1, 2 and 3." },
   ],
   layers: [
     {
-      title: "The base",
-      body: "MS Fit readiness testing across the workforce: the measurement backbone of every programme.",
+      title: "Tier 1 — The floor system. The backbone of prevention, on your work floor.",
+      body: "The MS Fit kiosk stands where your people work. Each employee tests in minutes and gets a personal readiness report — where they stand today, and the concrete actionables that move it. From the same test moment, leadership's Load & Risk dashboards update: where the workforce is carrying load, where risk is building, where to act first. Fully anonymised, by design. Tier 1 runs continuously — it is the system; everything above it is added when the numbers ask for it.",
     },
     {
-      title: "The advanced layer",
+      title: "Tier 2 — Deeper diagnostics.",
       body: "Cognitive testing (reaction speed, memory, decision speed) and MuscleLab performance diagnostics, for the teams and roles that need deeper insight.",
     },
     {
-      title: "The training layer",
-      body: "Because measuring is only half the work: Oxyterra IHHT altitude training and other effective, non-medical training and recovery systems, steered by the test results, to actually move the numbers.",
+      title: "Tier 3 — Intervention.",
+      body: "Coaching on the personal decision dashboard, Olynixx recovery systems, and Oxyterra altitude training — steered by the test results, to actually move the numbers.",
     },
   ],
   close: "Twelve weeks to prove it. Twelve months to change it.",

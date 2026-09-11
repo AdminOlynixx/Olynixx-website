@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Motion } from "@/components/site/Motion";
 import { JsonLd } from "@/components/site/JsonLd";
 import { organizationJsonLd } from "@/lib/json-ld";
-import { noIndexPublicSite, publishLongevity, siteUrl } from "@/lib/site-config";
+import { noIndexPublicSite, phaseShop, publishLongevity, siteUrl } from "@/lib/site-config";
 import "@/styles/olynixx-fonts.css";
 import "@/styles/olynixx-tokens.css";
 import "@/styles/olynixx-base.css";
@@ -74,7 +74,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <a className="ol-skip" href="#content">
           Skip to content
         </a>
-        <Header longevityLive={publishLongevity()} />
+        <Header longevityLive={publishLongevity()} shopLive={phaseShop()} />
         <JsonLd data={organizationJsonLd()} />
         <main id="content" className="ol-main">
           {children}

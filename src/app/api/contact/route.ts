@@ -29,7 +29,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: "invalid_json" }, { status: 400 });
   }
 
-  if (typeof body.company === "string" && body.company.trim()) {
+  if (typeof body.website === "string" && body.website.trim()) {
     return NextResponse.json({ ok: true });
   }
 

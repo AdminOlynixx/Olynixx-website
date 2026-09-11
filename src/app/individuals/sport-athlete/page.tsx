@@ -20,7 +20,7 @@ export default function SportAthletePage() {
         <h1 className="ol-hero-title">{COPY.heroTitle}</h1>
         <p className="ol-lead">{COPY.standfirst}</p>
         <p className="ol-actions">
-          <Link className="ol-btn ol-btn--primary" href={contactHref("sport-athlete")}>
+          <Link className="ol-btn ol-btn--primary" href={contactHref("sport-athlete", "sport-athlete-hero")}>
             {COPY.primaryCta}
           </Link>
           <Link className="ol-btn ol-btn--secondary" href="/technology">
@@ -78,10 +78,10 @@ export default function SportAthletePage() {
         <div className="ol-container ol-cta-band">
           <h2>{COPY.closeTitle}</h2>
           <div className="ol-actions">
-            <Link className="ol-btn ol-btn--primary" href={contactHref("sport-athlete")}>
+            <Link className="ol-btn ol-btn--primary" href={contactHref("sport-athlete", "sport-athlete-close")}>
               {COPY.primaryCta}
             </Link>
-            <Link className="ol-btn ol-btn--secondary" href={contactHref("athlete-referral")}>
+            <Link className="ol-btn ol-btn--secondary" href={contactHref("athlete-referral", "sport-athlete-club")}>
               {COPY.clubCta}
             </Link>
           </div>

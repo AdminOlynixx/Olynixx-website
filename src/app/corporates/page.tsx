@@ -6,13 +6,14 @@ import { Wireframe } from "@/components/site/Wireframe";
 import { PureHealthBlock } from "@/components/site/PureHealthBlock";
 import { CtaBand } from "@/components/site/CtaBand";
 import { IsoShort, TrustBar } from "@/components/site/IsoBlock";
-import { ReadinessHub } from "@/components/site/ReadinessHub";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
+import { ProofStrip } from "@/components/site/ProofStrip";
 import { CORPORATES } from "@/content/corporates";
 import { CORP_SUBNAV } from "@/lib/nav";
 import { contactHref } from "@/lib/cta";
 import { JsonLd } from "@/components/site/JsonLd";
 import { serviceJsonLd } from "@/lib/json-ld";
+import { publishBest } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: { absolute: CORPORATES.metaTitle },
@@ -28,7 +29,7 @@ export default function CorporatesPage() {
         <h1 className="ol-hero-title">{CORPORATES.heroTitle}</h1>
         <p className="ol-lead">{CORPORATES.standfirst}</p>
         <p className="ol-actions">
-          <Link className="ol-btn ol-btn--primary" href={contactHref("corporate-pilot")}>
+          <Link className="ol-btn ol-btn--primary" href={contactHref("corporate-pilot", "corporates-hero")}>
             {CORPORATES.primaryCta}
           </Link>
           <a className="ol-btn ol-btn--secondary" href="#pilot">
@@ -45,12 +46,16 @@ export default function CorporatesPage() {
       />
       <SubNav items={CORP_SUBNAV} current="/corporates" />
 
+      <Section narrow>
+        <p className="ol-claim">{CORPORATES.firstClaim}</p>
+      </Section>
+
       <Section className="ol-tight-section">
         <Eyebrow>{CORPORATES.eventBandEyebrow}</Eyebrow>
         <Title>{CORPORATES.eventBandTitle}</Title>
         <Lead>{CORPORATES.eventBandBody}</Lead>
         <p className="ol-actions">
-          <Link className="ol-btn ol-btn--secondary" href={contactHref("event")}>
+          <Link className="ol-btn ol-btn--secondary" href={contactHref("event", "corporates-event-band")}>
             {CORPORATES.eventsCta}
           </Link>
         </p>
@@ -77,14 +82,10 @@ export default function CorporatesPage() {
           ))}
         </div>
         <p className="ol-actions">
-          <Link className="ol-btn ol-btn--primary" href={contactHref("corporate-pilot")}>
+          <Link className="ol-btn ol-btn--primary" href={contactHref("corporate-pilot", "corporates-pilot")}>
             {CORPORATES.primaryCta}
           </Link>
         </p>
-      </Section>
-
-      <Section>
-        <ReadinessHub />
       </Section>
 
       <Section>
@@ -101,16 +102,41 @@ export default function CorporatesPage() {
         </div>
       </Section>
 
+      <Section>
+        <Eyebrow>{CORPORATES.tiersEyebrow}</Eyebrow>
+        <Title>{CORPORATES.tiersTitle}</Title>
+        <div className="ol-tiers">
+          {CORPORATES.tiers.map((tier, index) => (
+            <article key={tier.title} className={index === 0 ? "ol-card ol-tier ol-tier--dominant" : "ol-card ol-tier"}>
+              <p className="ol-eyebrow">{String(index + 1).padStart(2, "0")}</p>
+              <h3>{tier.title}</h3>
+              <p>{index === 2 && publishBest() ? CORPORATES.tier3Best : tier.body}</p>
+              {index === 0 ? (
+                <div className="ol-grid" style={{ marginBlockStart: "var(--s3)" }}>
+                  <Wireframe title={CORPORATES.personalSlot} />
+                  <Wireframe title={CORPORATES.boardroomSlot} />
+                </div>
+              ) : null}
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      <Section>
+        <ProofStrip items={CORPORATES.proof} />
+      </Section>
+
+      <Section narrow>
+        <Eyebrow>{CORPORATES.resultsTitle}</Eyebrow>
+        <Lead>{CORPORATES.resultsBody}</Lead>
+      </Section>
+
       <Section surface="app">
         <Eyebrow>{CORPORATES.dashEyebrow}</Eyebrow>
         <Title>{CORPORATES.dashTitle}</Title>
         {CORPORATES.dash.map((para) => (
           <Lead key={para.slice(0, 28)}>{para}</Lead>
         ))}
-        <div className="ol-grid">
-          <Wireframe title={CORPORATES.personalSlot} />
-          <Wireframe title={CORPORATES.boardroomSlot} />
-        </div>
       </Section>
 
       <Section narrow>
@@ -132,7 +158,7 @@ export default function CorporatesPage() {
           <Lead key={para.slice(0, 28)}>{para}</Lead>
         ))}
         <p className="ol-actions">
-          <Link className="ol-btn ol-btn--secondary" href={contactHref("event")}>
+          <Link className="ol-btn ol-btn--secondary" href={contactHref("event", "corporates-events")}>
             {CORPORATES.eventsCta}
           </Link>
         </p>
@@ -142,9 +168,9 @@ export default function CorporatesPage() {
       <CtaBand
         title={CORPORATES.closeTitle}
         standfirst={CORPORATES.closeStandfirst}
-        href={contactHref("corporate-pilot")}
+        href={contactHref("corporate-pilot", "corporates-close")}
         label={CORPORATES.primaryCta}
-        secondaryHref={contactHref("event")}
+        secondaryHref={contactHref("event", "corporates-close-event")}
         secondaryLabel={CORPORATES.eventsCta}
       />
     </>

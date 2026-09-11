@@ -3,9 +3,10 @@ import { Hero, Section, Eyebrow, Title, Lead } from "@/components/site/Section";
 import { SubNav } from "@/components/site/SubNav";
 import { CtaBand } from "@/components/site/CtaBand";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
-import { GOVERNMENT } from "@/content/corporates";
+import { CORPORATES, GOVERNMENT } from "@/content/corporates";
 import { CORP_SUBNAV } from "@/lib/nav";
 import { contactHref } from "@/lib/cta";
+import { entityIdentity, publishBest } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: { absolute: "Government workforce readiness testing | Olynixx" },
@@ -13,6 +14,12 @@ export const metadata: Metadata = {
 };
 
 export default function GovernmentPage() {
+  const entity = entityIdentity();
+  const contract = GOVERNMENT.contract.map((item, index) =>
+    index === 0 && entity.legalName
+      ? `The trading entity for a UAE contract is ${entity.legalName.replace(/\.$/, "")}.`
+      : item,
+  );
   return (
     <>
       <Hero>
@@ -54,11 +61,11 @@ export default function GovernmentPage() {
             </article>
           ))}
         </div>
-        <div className="ol-layers">
-          {GOVERNMENT.layers.map((layer) => (
-            <article key={layer.title} className="ol-card">
+        <div className="ol-tiers">
+          {GOVERNMENT.layers.map((layer, index) => (
+            <article key={layer.title} className={index === 0 ? "ol-card ol-tier ol-tier--dominant" : "ol-card ol-tier"}>
               <h3>{layer.title}</h3>
-              <p>{layer.body}</p>
+              <p>{index === 2 && publishBest() ? CORPORATES.tier3Best : layer.body}</p>
             </article>
           ))}
         </div>
@@ -77,7 +84,7 @@ export default function GovernmentPage() {
         <Eyebrow>{GOVERNMENT.contractEyebrow}</Eyebrow>
         <Title>{GOVERNMENT.contractTitle}</Title>
         <div className="ol-grid" style={{ marginTop: "var(--ol-sp-6)" }}>
-          {GOVERNMENT.contract.map((item) => (
+          {contract.map((item) => (
             <article key={item.slice(0, 32)} className="ol-card">
               <p>{item}</p>
             </article>
@@ -85,7 +92,7 @@ export default function GovernmentPage() {
         </div>
       </Section>
 
-      <CtaBand title={GOVERNMENT.cta} href={contactHref("government")} label={GOVERNMENT.cta} />
+      <CtaBand title={GOVERNMENT.cta} href={contactHref("government", "government-close")} label={GOVERNMENT.cta} />
     </>
   );
 }

@@ -7,7 +7,6 @@ export function ReadinessHub() {
       <Eyebrow>{READINESS_HUB.eyebrow}</Eyebrow>
       <Title>{READINESS_HUB.title}</Title>
       <Lead>{READINESS_HUB.intro}</Lead>
-      <p className="ol-tagline ol-tight">{READINESS_HUB.qualify}</p>
       <div className="ol-grid">
         {READINESS_HUB.tiers.map((tier, index) => (
           <article key={tier.title} className="ol-card">

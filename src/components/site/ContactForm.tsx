@@ -9,6 +9,7 @@ import {
   CONTACT_AUDIENCES,
   audienceFromSource,
   isCtaSource,
+  trackCta,
   type ContactAudience,
 } from "@/lib/cta";
 
@@ -23,7 +24,7 @@ export function ContactForm() {
     phone: "",
     audience: audienceFromSource(incoming) as ContactAudience,
     message: "",
-    company: "",
+    website: "",
     consent: false,
   });
   const [status, setStatus] = useState<"idle" | "sending" | "error">("idle");
@@ -46,7 +47,9 @@ export function ContactForm() {
     setConsentError(false);
     setStatus("sending");
     const source = isCtaSource(incoming) ? incoming : form.audience;
+    const pos = searchParams.get("pos") || "form";
     try {
+      trackCta("contact_submit", { source, audience: form.audience, pos });
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -57,7 +60,7 @@ export function ContactForm() {
           phone: form.phone || undefined,
           message: form.message || undefined,
           source,
-          company: form.company,
+          website: form.website,
           consent: true,
         }),
       });
@@ -71,15 +74,15 @@ export function ContactForm() {
   return (
     <form className="ol-form" onSubmit={onSubmit} noValidate>
       <div className="ol-honeypot" aria-hidden="true">
-        <label htmlFor="company">Company</label>
+        <label htmlFor="website">Website</label>
         <input
-          id="company"
-          name="company"
+          id="website"
+          name="website"
           tabIndex={-1}
           autoComplete="off"
           hidden
-          value={form.company}
-          onChange={(e) => setForm((prev) => ({ ...prev, company: e.target.value }))}
+          value={form.website}
+          onChange={(e) => setForm((prev) => ({ ...prev, website: e.target.value }))}
         />
       </div>
 
@@ -157,7 +160,11 @@ export function ContactForm() {
           id="audience"
           name="audience"
           value={form.audience}
-          onChange={(e) => setForm((prev) => ({ ...prev, audience: e.target.value as ContactAudience }))}
+          onChange={(e) => {
+            const audience = e.target.value as ContactAudience;
+            setForm((prev) => ({ ...prev, audience }));
+            trackCta("contact_route", { audience });
+          }}
         >
           {CONTACT_AUDIENCES.map((item) => (
             <option key={item.value} value={item.value}>

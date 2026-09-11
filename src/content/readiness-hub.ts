@@ -4,8 +4,7 @@ export const READINESS_HUB = {
   eyebrow: "The Readiness Hub",
   title: "Base, Advanced, Complete.",
   intro:
-    "A hub is the installed system: the kiosk, the protocol, the reporting, and the people who can read it. You qualify for a hub if you will actually run the cycle — not if you want a machine in the lobby for a photograph.",
-  qualify: "You qualify for a hub.",
+    "A hub is the installed system: the kiosk, the protocol, the reporting, and the people who can read it. A hub is for operators who will actually run the cycle — not a machine in the lobby for a photograph.",
   tiers: [
     {
       title: "Base",

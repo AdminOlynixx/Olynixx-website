@@ -3,7 +3,8 @@ import { BookOpen, Instagram, Linkedin, Twitter, Youtube } from "react-feather";
 import { Lockup } from "@/components/brand/Lockup";
 import { Spine } from "@/components/brand/Spine";
 import { ISO_SHORT, NON_MEDICAL_DISCLAIMER } from "@/lib/legal-copy";
-import { entityIdentity, publishLongevity } from "@/lib/site-config";
+import { entityIdentity, phaseShop, publishLongevity } from "@/lib/site-config";
+import { shopHref } from "@/lib/shop";
 import { FOOTER_NAV, SOCIAL_LINKS } from "@/lib/nav";
 
 const SOCIAL_ICONS = {
@@ -16,9 +17,15 @@ const SOCIAL_ICONS = {
 export function Footer() {
   const entity = entityIdentity();
   const year = new Date().getFullYear();
+  const shopLive = phaseShop();
+  const bookHref = shopLive ? shopHref("/shop/book", "footer", "book") : "/about#book";
+  const shopLink = shopLive ? shopHref("/shop", "footer", "nav") : null;
   const individualLinks = publishLongevity()
     ? FOOTER_NAV.individuals
     : FOOTER_NAV.individuals.filter((link) => link.href !== "/individuals/longevity");
+  const companyLinks = shopLink
+    ? [...FOOTER_NAV.company, { href: shopLink, label: "Shop" }]
+    : FOOTER_NAV.company;
 
   return (
     <footer className="ol-footer ol-app">
@@ -29,7 +36,7 @@ export function Footer() {
             <div className="ol-footer__spine">
               <Spine ground="dark" width={220} />
             </div>
-            <Link href="/about#book" className="ol-book">
+            <Link href={bookHref ?? "/about#book"} className="ol-book">
               <span className="ol-book__cover" aria-hidden>
                 <BookOpen size={14} strokeWidth={1.6} />
               </span>
@@ -60,11 +67,11 @@ export function Footer() {
             [
               { title: "Doors", links: FOOTER_NAV.doors },
               { title: "For individuals", links: individualLinks },
-              { title: "Company", links: FOOTER_NAV.company },
+              { title: "Company", links: companyLinks },
             ] as { title: string; links: readonly { href: string; label: string }[] }[]
           ).map((col) => (
             <nav key={col.title} className="ol-footer__col" aria-label={col.title}>
-              <p className="ol-eyebrow">{col.title}</p>
+              <h2 className="ol-eyebrow">{col.title}</h2>
               <ul className="ol-footer__list">
                 {col.links.map((link) => (
                   <li key={`${col.title}-${link.label}`}>
@@ -83,8 +90,7 @@ export function Footer() {
             <p className="ol-legal-entity">
               {entity.legalName
                 ? `© ${year} ${entity.legalName.replace(/\.$/, "")}. All rights reserved.`
-                : `© ${year} Olynixx. Legal entity — pending confirmation.`}
-              {entity.address ? ` ${entity.address}` : ""}
+                : `© ${year} Olynixx. All rights reserved.`}
             </p>
           </div>
         </div>

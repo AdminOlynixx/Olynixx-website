@@ -5,9 +5,11 @@ import { Lockup } from "@/components/brand/Lockup";
 import { Breadcrumb } from "@/components/site/Breadcrumb";
 import { CourseFacts } from "@/components/site/CourseFacts";
 import { JsonLd } from "@/components/site/JsonLd";
-import { PRAXIS } from "@/content/praxis";
+import { ProofStrip } from "@/components/site/ProofStrip";
 import { contactHref } from "@/lib/cta";
+import { PRAXIS } from "@/content/praxis";
 import { courseJsonLd } from "@/lib/json-ld";
+import { publishBest } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: { absolute: "Olynixx Praxis" },
@@ -73,6 +75,12 @@ export default function PraxisPage() {
               <p>{item}</p>
             </article>
           ))}
+          {publishBest() ? (
+            <article className="ol-card">
+              <p className="ol-eyebrow">{String(PRAXIS.learn.length + 1).padStart(2, "0")}</p>
+              <p>{PRAXIS.learnBest}</p>
+            </article>
+          ) : null}
         </div>
       </Section>
 
@@ -86,6 +94,10 @@ export default function PraxisPage() {
         <Eyebrow>Why Praxis</Eyebrow>
         <Title>{PRAXIS.whyTitle}</Title>
         <Lead>{PRAXIS.whyBody}</Lead>
+      </Section>
+
+      <Section>
+        <ProofStrip items={PRAXIS.proof} />
       </Section>
 
       {hasFacts ? (
@@ -110,7 +122,7 @@ export default function PraxisPage() {
         </div>
       </Section>
 
-      <CtaBand title={PRAXIS.cta} href={contactHref("praxis-certification")} label={PRAXIS.ctaButton} />
+      <CtaBand title={PRAXIS.cta} href={contactHref("praxis-certification", "praxis-close")} label={PRAXIS.ctaButton} />
     </>
   );
 }
