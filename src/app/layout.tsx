@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Motion } from "@/components/site/Motion";
 import { JsonLd } from "@/components/site/JsonLd";
 import { organizationJsonLd } from "@/lib/json-ld";
-import { noIndexPublicSite, phaseShop, publishLongevity, siteUrl } from "@/lib/site-config";
+import { noIndexPublicSite, phaseShop, publishLongevity, publishPraxis, siteUrl } from "@/lib/site-config";
 import "@/styles/olynixx-fonts.css";
 import "@/styles/olynixx-tokens.css";
 import "@/styles/olynixx-base.css";
@@ -14,7 +14,7 @@ import "@/styles/site.css";
 const url = siteUrl();
 const title = "Olynixx | Readiness + Recovery = Perform";
 const description =
-  "Olynixx measures what your body can actually deliver today — and coaches the decisions that change it. Tested, not guessed. Verified by retest.";
+  "Olynixx measures what your body can actually deliver today. Then it coaches the decisions that change it. Tested, not guessed. Verified by retest.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(url),
@@ -74,7 +74,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <a className="ol-skip" href="#content">
           Skip to content
         </a>
-        <Header longevityLive={publishLongevity()} shopLive={phaseShop()} />
+        <Header longevityLive={publishLongevity()} praxisLive={publishPraxis()} shopLive={phaseShop()} />
         <JsonLd data={organizationJsonLd()} />
         <main id="content" className="ol-main">
           {children}

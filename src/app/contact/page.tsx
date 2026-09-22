@@ -3,17 +3,12 @@ import { Suspense } from "react";
 import { Hero, Section, Eyebrow } from "@/components/site/Section";
 import { ContactForm } from "@/components/site/ContactForm";
 import { CONTACT } from "@/content/contact";
-import { publicContact } from "@/lib/site-config";
+import { publicContact, telHref, whatsappHref } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Contact",
   description: CONTACT.lead,
 };
-
-function whatsappHref(value: string): string {
-  const digits = value.replace(/[^\d]/g, "");
-  return digits ? `https://wa.me/${digits}` : value;
-}
 
 export default function ContactPage() {
   const details = publicContact();
@@ -44,13 +39,13 @@ export default function ContactPage() {
             ) : null}
             {details.phone ? (
               <p>
-                <a href={`tel:${details.phone}`}>{details.phone}</a>
+                <a href={telHref(details.phone)}>{details.phone}</a>
               </p>
             ) : null}
             {details.whatsapp ? (
               <p>
                 <a href={whatsappHref(details.whatsapp)} rel="noopener noreferrer">
-                  WhatsApp
+                  WhatsApp {details.whatsapp}
                 </a>
               </p>
             ) : null}

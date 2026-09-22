@@ -479,6 +479,13 @@
   .ol-levels { grid-template-columns: repeat(3, 1fr); align-items: stretch; }
 }
 .ol-level { display: flex; flex-direction: column; }
+.ol-price-anchor { margin: 0 0 var(--s2); }
+.ol-price-slot {
+  display: inline-block;
+  min-width: 2.4em;
+  min-height: 1em;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 35%, transparent);
+}
 .ol-level--featured {
   border-color: var(--gold-text);
 }

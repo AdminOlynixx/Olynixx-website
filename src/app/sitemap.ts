@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { publishLongevity, publishSean, siteUrl } from "@/lib/site-config";
+import { publishLongevity, publishPraxis, publishSean, siteUrl } from "@/lib/site-config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteUrl();
@@ -14,7 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/individuals/sport-athlete",
     ...(publishLongevity() ? ["/individuals/longevity"] : []),
     ...(publishSean() ? ["/sean"] : []),
-    "/praxis",
+    ...(publishPraxis() ? ["/praxis"] : []),
     "/technology",
     "/about",
     "/contact",

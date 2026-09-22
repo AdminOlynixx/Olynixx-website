@@ -3,7 +3,7 @@ import { BookOpen, Instagram, Linkedin, Twitter, Youtube } from "react-feather";
 import { Lockup } from "@/components/brand/Lockup";
 import { Spine } from "@/components/brand/Spine";
 import { ISO_SHORT, NON_MEDICAL_DISCLAIMER } from "@/lib/legal-copy";
-import { entityIdentity, phaseShop, publishLongevity } from "@/lib/site-config";
+import { entityIdentity, phaseShop, publishLongevity, publishPraxis } from "@/lib/site-config";
 import { shopHref } from "@/lib/shop";
 import { FOOTER_NAV, SOCIAL_LINKS } from "@/lib/nav";
 
@@ -23,6 +23,9 @@ export function Footer() {
   const individualLinks = publishLongevity()
     ? FOOTER_NAV.individuals
     : FOOTER_NAV.individuals.filter((link) => link.href !== "/individuals/longevity");
+  const doorLinks = publishPraxis()
+    ? FOOTER_NAV.doors
+    : FOOTER_NAV.doors.filter((link) => link.href !== "/praxis");
   const companyLinks = shopLink
     ? [...FOOTER_NAV.company, { href: shopLink, label: "Shop" }]
     : FOOTER_NAV.company;
@@ -65,7 +68,7 @@ export function Footer() {
 
           {(
             [
-              { title: "Doors", links: FOOTER_NAV.doors },
+              { title: "Doors", links: doorLinks },
               { title: "For individuals", links: individualLinks },
               { title: "Company", links: companyLinks },
             ] as { title: string; links: readonly { href: string; label: string }[] }[]
@@ -90,7 +93,7 @@ export function Footer() {
             <p className="ol-legal-entity">
               {entity.legalName
                 ? `© ${year} ${entity.legalName.replace(/\.$/, "")}. All rights reserved.`
-                : `© ${year} 2026 Rise Up Lifestyle Coaching L.L.C.`}
+                : `© ${year} Olynixx. All rights reserved.`}
             </p>
           </div>
         </div>

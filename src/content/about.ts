@@ -3,7 +3,7 @@
 export const ABOUT = {
   heroTitle: "Twenty-two years in the field. One question the whole way.",
   heroLead:
-    "What does performance really cost the body? Olynixx is the answer to that question — built through elite sport, science and the field: from first-division football to special forces, from world champions to boardrooms. Not one person's story. A method — proven, taught, and carried by a team.",
+    "What does performance really cost the body? Olynixx is the answer to that question. Built through elite sport, science and the field: from first-division football to special forces, from world champions to boardrooms. Not one person's story. A method. Proven, taught, and carried by a team.",
   timelineTitle: "The road here",
   timeline: [
     {
@@ -24,7 +24,7 @@ export const ABOUT = {
     },
     {
       era: "2011–2022",
-      body: "The science kept deepening: osteopathy, certified health coaching, then genomics and nutrigenomics — the layers that turned testing into a complete picture.",
+      body: "The science kept deepening: osteopathy, certified health coaching, then genomics and nutrigenomics. The layers that turned testing into a complete picture.",
     },
     {
       era: "2015",
@@ -40,13 +40,13 @@ export const ABOUT = {
     },
     {
       era: "Since 2019",
-      body: "Active in the UAE: Red Bull athletes, professional cricket, government entities, corporates and clubs — one method, now at scale.",
+      body: "Active in the UAE: Red Bull athletes, professional cricket, government entities, corporates and clubs. One method, now at scale.",
     },
   ],
   methodTitle: "The method",
   methodBody: [
-    "The body pays for every performance. Our method — sharpened in the field since 2004 — reads a full physiological picture and resolves it into one functional status, then strengthens the weakest link, because the weakest link sets the ceiling. The same result can be delivered at a high or a low internal price; we train people to deliver it at the low one. That is biological cost, and lowering it is the entire job.",
-    "Today that reading runs on four levels — physiological, biochemical, genetic and epigenetic — delivered entirely non-medically.",
+    "The body pays for every performance. Our method. Sharpened in the field since 2004. Reads a full physiological picture and resolves it into one functional status, then strengthens the weakest link, because the weakest link sets the ceiling. The same result can be delivered at a high or a low internal price; we train people to deliver it at the low one. That is biological cost, and lowering it is the entire job.",
+    "Today that reading runs on four levels. Physiological, biochemical, genetic and epigenetic. Delivered entirely non-medically.",
   ],
   standTitle: "What we stand for",
   stand: [
@@ -70,7 +70,7 @@ export const ABOUT = {
     "Rest Is the New Sport puts the whole argument in your hands: why recovery is the source of performance, not its reward. It anchors every keynote, every programme, and every page of this site.",
   behindTitle: "Behind Olynixx",
   behindBody:
-    "Olynixx is carried by a team: health coaches, mental coaches, nutritionists and trainers, working from the same method and the same numbers. The people who started this lived both sides of the question — elite sport and its price. The team makes sure the answer scales.",
+    "Olynixx is carried by a team: health coaches, mental coaches, nutritionists and trainers, working from the same method and the same numbers. The people who started this lived both sides of the question. Elite sport and its price. The team makes sure the answer scales.",
   cta: "The method is in the book. The proof is in the test.",
   ctaButton: "Test your readiness",
 } as const;

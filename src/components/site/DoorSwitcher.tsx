@@ -3,9 +3,11 @@ import { INDIVIDUAL_DOORS } from "@/lib/nav";
 import { publishLongevity } from "@/lib/site-config";
 
 export function DoorSwitcher({ current }: { current: string }) {
-  const doors = publishLongevity()
-    ? INDIVIDUAL_DOORS
-    : INDIVIDUAL_DOORS.filter((item) => item.href !== "/individuals/longevity");
+  const longevityOnThisPage = current === "/individuals/longevity";
+  const doors =
+    publishLongevity() || longevityOnThisPage
+      ? INDIVIDUAL_DOORS
+      : INDIVIDUAL_DOORS.filter((item) => item.href !== "/individuals/longevity");
 
   return (
     <nav className="ol-switcher" aria-label="Individual routes">

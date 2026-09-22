@@ -1,10 +1,10 @@
-/** Shared Readiness Hub — Corporates and Gyms. */
+/** Shared Readiness Hub. Corporates and Gyms. */
 
 export const READINESS_HUB = {
   eyebrow: "The Readiness Hub",
   title: "Base, Advanced, Complete.",
   intro:
-    "A hub is the installed system: the kiosk, the protocol, the reporting, and the people who can read it. A hub is for operators who will actually run the cycle — not a machine in the lobby for a photograph.",
+    "A hub is the installed system: the kiosk, the protocol, the reporting, and the people who can read it. A hub is for operators who will actually run the cycle, not a machine in the lobby for a photograph.",
   tiers: [
     {
       title: "Base",
@@ -12,7 +12,7 @@ export const READINESS_HUB = {
     },
     {
       title: "Advanced",
-      body: "Base, plus MuscleLab performance diagnostics and cognitive modules — reaction, working memory, decision speed under fatigue.",
+      body: "Base, plus MuscleLab performance diagnostics and cognitive modules: reaction, working memory, decision speed under fatigue.",
     },
     {
       title: "Complete",

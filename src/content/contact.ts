@@ -1,8 +1,8 @@
-/** Part 2 teal copy. Email and phone stay empty until Louis confirms them. */
+/** Public contact. One central set. Interim until licence renewal. */
 
 export const CONTACT = {
   title: "Talk to us.",
-  lead: "Tell us who you are — a club, a company, a public entity, a coach, or someone who wants their own numbers — and we route you to the right conversation.",
+  lead: "Tell us who you are. A club, a company, a public entity, a coach, or someone who wants their own numbers. We route you to the right conversation.",
   location: "Dubai, UAE",
   directEyebrow: "Direct",
   directNote: "The form is the way in. We route it to the right conversation.",
@@ -18,7 +18,7 @@ export const CONTACT = {
     submit: "Send",
     sending: "Sending",
     sent: "Received. We will route this to the right conversation.",
-    error: "Something did not send. Please try again, or write to us directly when contact details are published.",
+    error: "Something did not send. Please try again, or write to us using the details on this page.",
     consentError: "Please confirm the privacy notice before sending.",
   },
 } as const;

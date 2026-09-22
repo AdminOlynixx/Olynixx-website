@@ -8,7 +8,7 @@ import { publishBest, publishDc, publishSean } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: { absolute: "Sean Garnier × Olynixx | Readiness Ambassador" },
-  description: "Sean Garnier — world freestyle football champion — is the Olynixx Readiness Ambassador.",
+  description: "Sean Garnier, world freestyle football champion, is the Olynixx Readiness Ambassador.",
 };
 
 export default function SeanPage() {
@@ -20,7 +20,7 @@ export default function SeanPage() {
         <Eyebrow>Sean Garnier × Olynixx</Eyebrow>
         <h1 className="ol-hero-title">Readiness Ambassador of the Gulf.</h1>
         <p className="ol-lead">
-          The full Olynixx system in one body: complete physiological testing, a daily nervous-system read, guided recovery technology, altitude blocks. His real data as the story. Recover like a world champion — measured.
+          The full Olynixx system in one body: complete physiological testing, a daily nervous-system read, guided recovery technology, altitude blocks. His real data as the story. Recover like a world champion. Measured.
         </p>
         <p className="ol-actions">
           <Link className="ol-btn ol-btn--primary" href={contactHref("sean", "sean-hero")}>
@@ -46,7 +46,7 @@ export default function SeanPage() {
       <Section surface="dark" narrow>
         <Eyebrow>Follow the numbers</Eyebrow>
         <Title>The morning number. The recovery session. The altitude diary.</Title>
-        <Lead>His data writes the story — follow it, then train on the same protocols.</Lead>
+        <Lead>His data writes the story. Follow it, then train on the same protocols.</Lead>
       </Section>
 
       <CtaBand

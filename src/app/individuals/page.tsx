@@ -4,6 +4,7 @@ import { Hero, Section, Eyebrow, Title, Lead } from "@/components/site/Section";
 import { CtaBand } from "@/components/site/CtaBand";
 import { TrustBar } from "@/components/site/IsoBlock";
 import { DoorSwitcher } from "@/components/site/DoorSwitcher";
+import { LevelCards } from "@/components/site/LevelCards";
 import { HUB } from "@/content/individuals";
 import { contactHref } from "@/lib/cta";
 import { phaseShop, publishLongevity } from "@/lib/site-config";
@@ -83,27 +84,14 @@ export default function IndividualsHub() {
       <Section surface="app">
         <Eyebrow>{HUB.levelsEyebrow}</Eyebrow>
         <Title>{HUB.levelsTitle}</Title>
-        <div className="ol-levels">
-          {HUB.levels.map((level) => (
-            <article key={level.title} className="ol-card ol-level">
-              <h3>{level.title}</h3>
-              {"price" in level && level.price ? (
-                <p className="ol-small">from AED {level.price} /month</p>
-              ) : null}
-              <p>{level.body}</p>
-            </article>
-          ))}
-        </div>
-        <p className="ol-muted" style={{ marginTop: "var(--s3)" }}>
-          {HUB.levelsNote}
-        </p>
+        <LevelCards note={HUB.levelsNote} />
       </Section>
 
       {phaseShop() ? (
         <Section narrow>
           <Title>Start tonight, or start with a conversation.</Title>
           <Lead>
-            Some journeys need an intake talk first — the three levels above all do. Some you can start tonight: defined readiness programmes — device, protocol and guidance in one — are in the Olynixx shop. The book is there too. Either way, the first step is measured.
+            Some journeys need an intake talk first. The three levels above all do. Some you can start tonight: defined readiness programmes (device, protocol and guidance in one) are in the Olynixx shop. The book is there too. Either way, the first step is measured.
           </Lead>
           <p className="ol-actions">
             {shopHref("/shop", "individuals", "bridge") ? (

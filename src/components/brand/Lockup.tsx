@@ -7,7 +7,7 @@ type LockupProps = {
   className?: string;
 };
 
-/** Never re-typeset the wordmark — use the kit file. */
+/** Never re-typeset the wordmark. Use the kit file. */
 export function Lockup({
   product = "master",
   layout = "horizontal",

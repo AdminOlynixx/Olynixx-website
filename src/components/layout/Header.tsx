@@ -10,9 +10,11 @@ import { contactHref } from "@/lib/cta";
 
 export function Header({
   longevityLive = false,
+  praxisLive = false,
   shopLive = false,
 }: {
   longevityLive?: boolean;
+  praxisLive?: boolean;
   shopLive?: boolean;
 }) {
   const pathname = usePathname();
@@ -44,6 +46,8 @@ export function Header({
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`);
 
+  const visibleNav = PRIMARY_NAV.filter((item) => (item.href === "/praxis" ? praxisLive : true));
+
   const visibleChildren = (children: readonly { href: string; label: string }[]) =>
     children.filter((child) => (child.href === "/individuals/longevity" ? longevityLive : true));
 
@@ -54,7 +58,7 @@ export function Header({
       </Link>
 
       <nav className="ol-nav" aria-label="Primary">
-        {PRIMARY_NAV.map((item) =>
+        {visibleNav.map((item) =>
           "children" in item && item.children ? (
             <div key={item.href} className="ol-dropdown">
               <button
@@ -111,7 +115,7 @@ export function Header({
 
       <div id="mobile-nav" className={open ? "ol-drawer is-open" : "ol-drawer"}>
         <nav className="ol-drawer__nav" aria-label="Mobile">
-          {PRIMARY_NAV.map((item) =>
+          {visibleNav.map((item) =>
             "children" in item && item.children ? (
               <div key={item.href} className="ol-drawer__group">
                 <p className="ol-drawer__label">{item.label}</p>

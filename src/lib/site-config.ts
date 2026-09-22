@@ -27,22 +27,32 @@ export function publishEntity(): boolean {
   return process.env.PUBLISH_ENTITY === "true";
 }
 
-/** SW-DC — partner name and first-in-the-Gulf DC-potential claim. */
+/** SW-DC. Partner name and first-in-the-Gulf DC-potential claim. */
 export function publishDc(): boolean {
   return process.env.PUBLISH_DC === "true";
 }
 
-/** SW-BEST — B-E-St name and branded recovery. */
+/** SW-BEST. B-E-St name and branded recovery. */
 export function publishBest(): boolean {
   return process.env.PUBLISH_BEST === "true";
 }
 
-/** SW-SEAN — ambassador band and /sean. */
+/** SW-PEMF. PEMF recovery system. No copy until the agreement signs. */
+export function publishPemf(): boolean {
+  return process.env.PUBLISH_PEMF === "true";
+}
+
+/** Praxis in header and footer. Stay false until CPD recognition is signed. */
+export function publishPraxis(): boolean {
+  return process.env.PUBLISH_PRAXIS === "true";
+}
+
+/** SW-SEAN. Ambassador band and /sean. */
 export function publishSean(): boolean {
   return process.env.PUBLISH_SEAN === "true";
 }
 
-/** PHASE-SHOP — no live shop links until flipped. */
+/** PHASE-SHOP. No live shop links until flipped. */
 export function phaseShop(): boolean {
   return process.env.PHASE_SHOP === "true";
 }
@@ -106,4 +116,21 @@ export function publicContact(): PublicContact {
     calendar: process.env.SITE_CONTACT_CALENDAR?.trim() || "",
     location: "Dubai, UAE",
   };
+}
+
+function contactDigits(value: string): string {
+  return value.replace(/[^\d]/g, "");
+}
+
+/** Same stored number. wa.me needs the country code when the public value is a UAE 0-number. */
+export function whatsappHref(value: string): string {
+  let digits = contactDigits(value);
+  if (!digits) return value;
+  if (digits.startsWith("0")) digits = `971${digits.slice(1)}`;
+  return `https://wa.me/${digits}`;
+}
+
+export function telHref(value: string): string {
+  const digits = contactDigits(value);
+  return digits ? `tel:${digits}` : value;
 }
