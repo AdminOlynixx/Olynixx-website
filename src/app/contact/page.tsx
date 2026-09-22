@@ -44,7 +44,7 @@ export default function ContactPage() {
             ) : null}
             {details.whatsapp ? (
               <p>
-                <a href={whatsappHref(details.whatsapp)} rel="noopener noreferrer">
+                <a href={whatsappHref(details.whatsapp)} target="_blank" rel="noopener noreferrer">
                   WhatsApp {details.whatsapp}
                 </a>
               </p>

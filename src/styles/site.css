@@ -646,7 +646,14 @@
   grid-column: 1 / -1;
   display: grid;
   gap: 4px;
-  max-width: 240px;
+  max-width: 280px;
+}
+.ol-footer__direct {
+  margin-block-start: 8px;
+}
+.ol-footer__direct .ol-eyebrow {
+  margin: 0 0 2px;
+  color: var(--gold-dark);
 }
 .ol-footer .ol-book {
   color: var(--cream);

@@ -3,7 +3,15 @@ import { BookOpen, Instagram, Linkedin, Twitter, Youtube } from "react-feather";
 import { Lockup } from "@/components/brand/Lockup";
 import { Spine } from "@/components/brand/Spine";
 import { ISO_SHORT, NON_MEDICAL_DISCLAIMER } from "@/lib/legal-copy";
-import { entityIdentity, phaseShop, publishLongevity, publishPraxis } from "@/lib/site-config";
+import {
+  entityIdentity,
+  phaseShop,
+  publicContact,
+  publishLongevity,
+  publishPraxis,
+  telHref,
+  whatsappHref,
+} from "@/lib/site-config";
 import { shopHref } from "@/lib/shop";
 import { FOOTER_NAV, SOCIAL_LINKS } from "@/lib/nav";
 
@@ -29,6 +37,22 @@ export function Footer() {
   const companyLinks = shopLink
     ? [...FOOTER_NAV.company, { href: shopLink, label: "Shop" }]
     : FOOTER_NAV.company;
+  const contact = publicContact();
+  const directLinks = [
+    contact.email
+      ? { href: `mailto:${contact.email}`, label: contact.email, external: false }
+      : null,
+    contact.phone
+      ? { href: telHref(contact.phone), label: contact.phone, external: false }
+      : null,
+    contact.whatsapp
+      ? {
+          href: whatsappHref(contact.whatsapp),
+          label: `WhatsApp ${contact.whatsapp}`,
+          external: true,
+        }
+      : null,
+  ].filter((item): item is { href: string; label: string; external: boolean } => item !== null);
 
   return (
     <footer className="ol-footer ol-app">
@@ -64,6 +88,25 @@ export function Footer() {
                 );
               })}
             </nav>
+            {directLinks.length ? (
+              <nav className="ol-footer__direct" aria-label="Direct">
+                <h2 className="ol-eyebrow">Direct</h2>
+                <ul className="ol-footer__list">
+                  {directLinks.map((link) => (
+                    <li key={link.href}>
+                      <a
+                        href={link.href}
+                        {...(link.external
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            ) : null}
           </div>
 
           {(
