@@ -1,4 +1,8 @@
-/** Server-only site configuration. Empty strings ship as placeholders, never invented names. */
+/** Server-only site configuration. Signed public contact and entity have defaults so staging matches local. */
+
+function envOr(key: string, fallback = ""): string {
+  return process.env[key]?.trim() || fallback;
+}
 
 export function siteUrl(): string {
   return process.env.SITE_URL?.replace(/\/$/, "") || "http://localhost:3000";
@@ -22,9 +26,9 @@ export function publishIsoBadges(): boolean {
   return process.env.PUBLISH_ISO_BADGES === "true";
 }
 
-/** Rise Up Lifestyle Coaching L.L.C. fronts the site until the Olynixx entity at rebrand. */
+/** Rise Up Lifestyle Coaching L.L.C. fronts the site until the Olynixx entity at rebrand. Off only when set false. */
 export function publishEntity(): boolean {
-  return process.env.PUBLISH_ENTITY === "true";
+  return process.env.PUBLISH_ENTITY !== "false";
 }
 
 /** SW-DC. Partner name and first-in-the-Gulf DC-potential claim. */
@@ -79,17 +83,20 @@ const EMPTY_ENTITY: EntityIdentity = {
 
 function readEntityIdentity(): EntityIdentity {
   return {
-    legalName: process.env.SITE_ENTITY_NAME?.trim() || "",
-    licence: process.env.SITE_ENTITY_LICENCE?.trim() || "",
-    licenceIssuer: process.env.SITE_ENTITY_LICENCE_ISSUER?.trim() || "",
-    trn: process.env.SITE_ENTITY_TRN?.trim() || "",
-    address: process.env.SITE_ENTITY_ADDRESS?.trim() || "",
-    jurisdiction: process.env.SITE_ENTITY_JURISDICTION?.trim() || "",
-    dataController: process.env.SITE_ENTITY_DATA_CONTROLLER?.trim() || "",
+    legalName: envOr("SITE_ENTITY_NAME", "Rise Up Lifestyle Coaching L.L.C."),
+    licence: envOr("SITE_ENTITY_LICENCE", "860518"),
+    licenceIssuer: envOr("SITE_ENTITY_LICENCE_ISSUER", "DED-Dubai"),
+    trn: envOr("SITE_ENTITY_TRN", "100547489300003"),
+    address: envOr(
+      "SITE_ENTITY_ADDRESS",
+      "Office F28, Commercial-8, Saih Shuaib 2, Dubai Industrial City, Dubai, United Arab Emirates",
+    ),
+    jurisdiction: envOr("SITE_ENTITY_JURISDICTION", "Dubai, United Arab Emirates"),
+    dataController: envOr("SITE_ENTITY_DATA_CONTROLLER", "Rise Up Lifestyle Coaching L.L.C."),
   };
 }
 
-/** Public pages. Empty until PUBLISH_ENTITY=true. Never invent a registration status. */
+/** Public pages. Hidden only when PUBLISH_ENTITY=false. */
 export function entityIdentity(): EntityIdentity {
   return publishEntity() ? readEntityIdentity() : EMPTY_ENTITY;
 }
@@ -107,13 +114,13 @@ export type PublicContact = {
 
 export function publicContact(): PublicContact {
   return {
-    email: process.env.SITE_CONTACT_EMAIL?.trim() || "",
-    phone: process.env.SITE_CONTACT_PHONE?.trim() || "",
-    whatsapp: process.env.SITE_CONTACT_WHATSAPP?.trim() || "",
-    address: process.env.SITE_CONTACT_ADDRESS?.trim() || "",
-    mapUrl: process.env.SITE_CONTACT_MAP?.trim() || "",
-    sla: process.env.SITE_CONTACT_SLA?.trim() || "",
-    calendar: process.env.SITE_CONTACT_CALENDAR?.trim() || "",
+    email: envOr("SITE_CONTACT_EMAIL", "olynixx@outlook.com"),
+    phone: envOr("SITE_CONTACT_PHONE", "058 599 7620"),
+    whatsapp: envOr("SITE_CONTACT_WHATSAPP", "058 599 7620"),
+    address: envOr("SITE_CONTACT_ADDRESS"),
+    mapUrl: envOr("SITE_CONTACT_MAP"),
+    sla: envOr("SITE_CONTACT_SLA"),
+    calendar: envOr("SITE_CONTACT_CALENDAR"),
     location: "Dubai, UAE",
   };
 }
