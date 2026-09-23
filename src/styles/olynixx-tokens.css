@@ -115,7 +115,7 @@
   --ol-sp-9: var(--s7);
   --ol-sp-10: var(--s8);
   --ol-sp-11: 160px;
-  --ol-section-y: calc(var(--s8) * 0.5625);
+  --ol-section-y: var(--s4);
   --ol-gutter: var(--gutter);
   --ol-measure: 68ch;
   --ol-container: var(--container);
@@ -169,5 +169,5 @@ html { scroll-padding-top: var(--header-h); }
 }
 
 @media (max-width: 640px) {
-  :root { --ol-section-y: calc(54px * 0.75); }
+  :root { --ol-section-y: var(--s3); }
 }
