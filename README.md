@@ -2,12 +2,20 @@
 
 Public marketing site for Olynixx. Staging is `https://olynixwebsite.vercel.app`. The site stays `noindex` and unpublished as a public domain until written launch approval.
 
-This folder is the GitHub project (`Olynixx/olynixwebsite`). Push from here, not from a parent directory.
+Repo: `Olynixx/olynixwebsite`.
 
 ## Run locally
 
 ```bash
 cp .env.example .env.local
+npm install
+npm run dev
+```
+
+On Windows PowerShell:
+
+```powershell
+Copy-Item .env.example .env.local
 npm install
 npm run dev
 ```
@@ -40,7 +48,7 @@ Copy names from `.env.example`. Public contact and entity values below are the s
 
 ### Switches
 
-Defaults below are the current staging intent. A switch is off unless noted.
+Defaults below are the current staging intent. Most switches are off until set to `true`. `NOINDEX` and `PUBLISH_ENTITY` stay on unless set to `false`.
 
 | Variable | On when | Current staging | Notes |
 |---|---|---|---|
@@ -60,7 +68,7 @@ Defaults below are the current staging intent. A switch is off unless noted.
 
 | Variable | Staging value |
 |---|---|
-| `SITE_URL` | `https://olynixwebsite.vercel.app` locally use `http://localhost:3000` |
+| `SITE_URL` | Staging: `https://olynixwebsite.vercel.app`. Local: `http://localhost:3000`. |
 | `SITE_CONTACT_EMAIL` | `olynixx@outlook.com` |
 | `SITE_CONTACT_PHONE` | `058 599 7620` |
 | `SITE_CONTACT_WHATSAPP` | `058 599 7620` |
