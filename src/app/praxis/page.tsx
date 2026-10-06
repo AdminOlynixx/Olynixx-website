@@ -1,125 +1,89 @@
 import type { Metadata } from "next";
-import { Hero, Section, Eyebrow, Title, Lead } from "@/components/site/Section";
-import { CtaBand } from "@/components/site/CtaBand";
-import { Lockup } from "@/components/brand/Lockup";
-import { Breadcrumb } from "@/components/site/Breadcrumb";
-import { CourseFacts } from "@/components/site/CourseFacts";
-import { JsonLd } from "@/components/site/JsonLd";
-import { ProofStrip } from "@/components/site/ProofStrip";
-import { contactHref } from "@/lib/cta";
 import { PRAXIS } from "@/content/praxis";
-import { courseJsonLd } from "@/lib/json-ld";
+import { contactHref } from "@/lib/cta";
+import { courseJsonLd, breadcrumbJsonLd } from "@/lib/json-ld";
 import { publishBest } from "@/lib/site-config";
+import { PageHero } from "@/components/sections/PageHero";
+import { Section, Prose } from "@/components/sections/Section";
+import { CtaBand } from "@/components/sections/CtaBand";
+import { CardGrid } from "@/components/sections/CardGrid";
+import { ProofStrip } from "@/components/sections/ProofStrip";
+import { PraxisCourseFacts } from "@/components/sections/PraxisCourseFacts";
+import { ScrubSteps } from "@/components/sections/ScrubSteps";
 
 export const metadata: Metadata = {
   title: { absolute: "Olynixx Praxis" },
   description: PRAXIS.heroLead,
 };
 
+const CRUMBS = [
+  { href: "/", label: "Home" },
+  { href: "/praxis", label: "Certification" },
+];
+
 export default function PraxisPage() {
-  const hasFacts = Object.values(PRAXIS.facts).some((value) => value.trim().length > 0);
+  const hasFacts = Object.values(PRAXIS.facts).some((v) => v.trim().length > 0);
+  const learn = [...PRAXIS.learn, ...(publishBest() ? [PRAXIS.learnBest] : [])];
 
   return (
     <>
-      <JsonLd data={courseJsonLd()} />
-      <Hero center>
-        <Lockup product="praxis" ground="dark" className="ol-hero-lockup" height={180} priority />
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          className="ol-hero-strapline"
-          src="/brand/olynixx-praxis-strapline-on-dark.svg"
-          alt="Learn + Certify + Deploy"
-          width={420}
-          height={48}
-        />
-        <h1 className="ol-hero-title" style={{ marginTop: "var(--s4)" }}>
-          {PRAXIS.heroTitle}
-        </h1>
-        <p className="ol-lead">{PRAXIS.heroLead}</p>
-        <p className="ol-small ol-muted" style={{ marginTop: "var(--ol-sp-4)" }}>
-          {PRAXIS.programmeName} is the programme delivered inside Olynixx Praxis.
-        </p>
-      </Hero>
-      <Breadcrumb
-        items={[
-          { href: "/", label: "Home" },
-          { href: "/praxis", label: "Certification" },
-        ]}
-      />
-
-      <Section narrow>
-        <Eyebrow>The clock</Eyebrow>
-        <Title>{PRAXIS.renewalTitle}</Title>
-        <Lead>{PRAXIS.renewalBody}</Lead>
-      </Section>
-
-      <Section surface="dark">
-        <Eyebrow>The outcome</Eyebrow>
-        <Title>{PRAXIS.walkAwayTitle}</Title>
-        <div className="ol-grid" style={{ marginTop: "var(--ol-sp-6)" }}>
-          {PRAXIS.walkAway.map((item) => (
-            <article key={item} className="ol-card">
-              <p>{item}</p>
-            </article>
-          ))}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseJsonLd()) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(CRUMBS)) }} />
+      <PageHero breadcrumb={CRUMBS} title={PRAXIS.heroTitle} lead={PRAXIS.heroLead}>
+        <div className="mt-12 flex flex-col items-start gap-4">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/brand/olynixx-praxis-lockup-on-dark.svg" alt="Olynixx Praxis" height={96} className="h-20 w-auto max-w-full md:h-24" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/brand/olynixx-praxis-strapline-on-dark.svg"
+            alt="Learn + Certify + Deploy"
+            width={420}
+            height={48}
+            className="h-auto w-[min(420px,100%)]"
+          />
+          <p className="text-sm text-cream/65">{PRAXIS.programmeName} is the programme delivered inside Olynixx Praxis.</p>
         </div>
+      </PageHero>
+
+      <Section theme="light" narrow eyebrow="The clock" title={PRAXIS.renewalTitle}>
+        <Prose>
+          <p>{PRAXIS.renewalBody}</p>
+        </Prose>
       </Section>
 
-      <Section>
-        <Eyebrow>The craft</Eyebrow>
-        <Title>{PRAXIS.learnTitle}</Title>
-        <div className="ol-grid" style={{ marginTop: "var(--ol-sp-6)" }}>
-          {PRAXIS.learn.map((item, index) => (
-            <article key={item} className="ol-card">
-              <p className="ol-eyebrow">{String(index + 1).padStart(2, "0")}</p>
-              <p>{item}</p>
-            </article>
-          ))}
-          {publishBest() ? (
-            <article className="ol-card">
-              <p className="ol-eyebrow">{String(PRAXIS.learn.length + 1).padStart(2, "0")}</p>
-              <p>{PRAXIS.learnBest}</p>
-            </article>
-          ) : null}
-        </div>
+      <Section theme="dark" eyebrow="The outcome" title={PRAXIS.walkAwayTitle}>
+        <CardGrid theme="dark" numbered items={PRAXIS.walkAway.map((t) => ({ title: t }))} />
       </Section>
 
-      <Section surface="app" narrow>
-        <Eyebrow>UAE first</Eyebrow>
-        <Title>{PRAXIS.whoTitle}</Title>
-        <Lead>{PRAXIS.whoBody}</Lead>
+      <Section theme="light" eyebrow="The craft" title={PRAXIS.learnTitle}>
+        <CardGrid cols={2} numbered items={learn.map((t) => ({ title: t }))} />
       </Section>
 
-      <Section narrow>
-        <Eyebrow>Why Praxis</Eyebrow>
-        <Title>{PRAXIS.whyTitle}</Title>
-        <Lead>{PRAXIS.whyBody}</Lead>
+      <Section theme="dark" narrow eyebrow="UAE first" title={PRAXIS.whoTitle}>
+        <Prose theme="dark">
+          <p>{PRAXIS.whoBody}</p>
+        </Prose>
       </Section>
 
-      <Section>
-        <ProofStrip items={PRAXIS.proof} />
+      <Section theme="light" narrow eyebrow="Why Praxis" title={PRAXIS.whyTitle}>
+        <Prose>
+          <p>{PRAXIS.whyBody}</p>
+        </Prose>
       </Section>
+
+      <ProofStrip items={PRAXIS.proof} />
 
       {hasFacts ? (
-        <Section narrow>
-          <Eyebrow>{PRAXIS.factsEyebrow}</Eyebrow>
-          <Title>{PRAXIS.factsTitle}</Title>
-          <CourseFacts facts={PRAXIS.facts} />
+        <Section theme="light" narrow eyebrow={PRAXIS.factsEyebrow} title={PRAXIS.factsTitle}>
+          <PraxisCourseFacts facts={PRAXIS.facts} />
         </Section>
       ) : null}
 
-      <Section surface="dark">
-        <Eyebrow>Four steps</Eyebrow>
-        <Title>{PRAXIS.pathwayTitle}</Title>
-        <div className="ol-system" style={{ marginTop: "var(--ol-sp-7)" }}>
-          {PRAXIS.pathway.map((step) => (
-            <article key={step.title} className="ol-system__item">
-              <p className="ol-eyebrow">{step.step}</p>
-              <h3>{step.title}</h3>
-              <p>{step.body}</p>
-            </article>
-          ))}
-        </div>
+      <Section theme="dark" eyebrow="Four steps" title={PRAXIS.pathwayTitle}>
+        <ScrubSteps
+          theme="dark"
+          steps={PRAXIS.pathway.map((s) => ({ label: `Step ${s.step}`, title: s.title, body: s.body }))}
+        />
       </Section>
 
       <CtaBand title={PRAXIS.cta} href={contactHref("praxis-certification", "praxis-close")} label={PRAXIS.ctaButton} />

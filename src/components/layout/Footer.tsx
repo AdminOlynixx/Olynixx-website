@@ -1,144 +1,82 @@
 import Link from "next/link";
-import { BookOpen, Instagram, Linkedin, Twitter, Youtube } from "react-feather";
-import { Lockup } from "@/components/brand/Lockup";
-import { Spine } from "@/components/brand/Spine";
-import { ISO_SHORT, NON_MEDICAL_DISCLAIMER } from "@/lib/legal-copy";
-import {
-  entityIdentity,
-  phaseShop,
-  publicContact,
-  publishLongevity,
-  publishPraxis,
-  telHref,
-  whatsappHref,
-} from "@/lib/site-config";
-import { shopHref } from "@/lib/shop";
+import Image from "next/image";
 import { FOOTER_NAV, SOCIAL_LINKS } from "@/lib/nav";
-
-const SOCIAL_ICONS = {
-  LinkedIn: Linkedin,
-  Instagram: Instagram,
-  X: Twitter,
-  YouTube: Youtube,
-} as const;
+import { ISO_SHORT, NON_MEDICAL_DISCLAIMER } from "@/lib/legal-copy";
+import { publicContact, publishLongevity, publishPraxis, telHref, whatsappHref } from "@/lib/site-config";
 
 export function Footer() {
-  const entity = entityIdentity();
-  const year = new Date().getFullYear();
-  const shopLive = phaseShop();
-  const bookHref = shopLive ? shopHref("/shop/book", "footer", "book") : "/about#book";
-  const shopLink = shopLive ? shopHref("/shop", "footer", "nav") : null;
-  const individualLinks = publishLongevity()
-    ? FOOTER_NAV.individuals
-    : FOOTER_NAV.individuals.filter((link) => link.href !== "/individuals/longevity");
-  const doorLinks = publishPraxis()
-    ? FOOTER_NAV.doors
-    : FOOTER_NAV.doors.filter((link) => link.href !== "/praxis");
-  const companyLinks = shopLink
-    ? [...FOOTER_NAV.company, { href: shopLink, label: "Shop" }]
-    : FOOTER_NAV.company;
-  const contact = publicContact();
-  const directLinks = [
-    contact.email
-      ? { href: `mailto:${contact.email}`, label: contact.email, external: false }
-      : null,
-    contact.phone
-      ? { href: telHref(contact.phone), label: contact.phone, external: false }
-      : null,
-    contact.whatsapp
-      ? {
-          href: whatsappHref(contact.whatsapp),
-          label: `WhatsApp ${contact.whatsapp}`,
-          external: true,
-        }
-      : null,
-  ].filter((item): item is { href: string; label: string; external: boolean } => item !== null);
+  const c = publicContact();
+  const longevity = publishLongevity();
+  const individuals = FOOTER_NAV.individuals.filter(
+    (l) => l.href !== "/individuals/longevity" || longevity,
+  );
+  const col = (title: string, links: readonly { href: string; label: string }[]) => (
+    <div>
+      <h2 className="eyebrow !font-mono">{title}</h2>
+      <ul className="mt-4 space-y-2 text-sm">
+        {links.map((l) => (
+          <li key={l.href + l.label}>
+            <Link href={l.href} className="hover:text-gold-dark">
+              {l.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 
   return (
-    <footer className="ol-footer ol-app">
-      <div className="ol-container">
-        <div className="ol-footer__grid">
-          <div className="ol-footer__brand">
-            <Lockup product="master" layout="horizontal" ground="dark" height={32} />
-            <div className="ol-footer__spine">
-              <Spine ground="dark" width={220} />
-            </div>
-            <Link href={bookHref ?? "/about#book"} className="ol-book">
-              <span className="ol-book__cover" aria-hidden>
-                <BookOpen size={14} strokeWidth={1.6} />
-              </span>
-              <span>
-                Rest Is the New Sport
-                  <span className="ol-book__caption">The book behind the system</span>
-              </span>
+    <footer data-theme="dark" className="surface-dark">
+      <div className="container-ol grid gap-12 py-20 md:grid-cols-2 lg:grid-cols-5">
+        <div className="lg:col-span-2">
+          <Image
+            src="/brand/olynixx-lockup-horizontal-on-dark.svg"
+            alt="Olynixx"
+            width={102}
+            height={32}
+            className="h-8 w-auto"
+          />
+          <Image
+            src="/brand/olynixx-spine-on-dark.svg"
+            alt=""
+            width={220}
+            height={60}
+            className="mt-6 w-[220px]"
+          />
+          <p className="mt-6 text-sm text-cream/80">
+            <Link href="/about#book" className="font-display text-lg italic hover:text-gold-dark">
+              Rest Is the New Sport
             </Link>
-            <nav className="ol-social" aria-label="Social media">
-              {SOCIAL_LINKS.map((item) => {
-                const Icon = SOCIAL_ICONS[item.label];
-                return (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={item.label}
-                  >
-                    <Icon size={14} strokeWidth={1.6} aria-hidden />
-                  </a>
-                );
-              })}
-            </nav>
-            {directLinks.length ? (
-              <nav className="ol-footer__direct" aria-label="Direct">
-                <h2 className="ol-eyebrow">Direct</h2>
-                <ul className="ol-footer__list">
-                  {directLinks.map((link) => (
-                    <li key={link.href}>
-                      <a
-                        href={link.href}
-                        {...(link.external
-                          ? { target: "_blank", rel: "noopener noreferrer" }
-                          : {})}
-                      >
-                        {link.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            ) : null}
-          </div>
-
-          {(
-            [
-              { title: "Doors", links: doorLinks },
-              { title: "For individuals", links: individualLinks },
-              { title: "Company", links: companyLinks },
-            ] as { title: string; links: readonly { href: string; label: string }[] }[]
-          ).map((col) => (
-            <nav key={col.title} className="ol-footer__col" aria-label={col.title}>
-              <h2 className="ol-eyebrow">{col.title}</h2>
-              <ul className="ol-footer__list">
-                {col.links.map((link) => (
-                  <li key={`${col.title}-${link.label}`}>
-                    <Link href={link.href}>{link.label}</Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          ))}
-        </div>
-
-        <div className="ol-footer__meta">
-          <p className="ol-disclaimer">{NON_MEDICAL_DISCLAIMER}</p>
-          <div className="ol-footer__meta-row">
-            <p className="ol-iso-short">{ISO_SHORT}</p>
-            <p className="ol-legal-entity">
-              {entity.legalName
-                ? `© ${year} ${entity.legalName.replace(/\.$/, "")}. All rights reserved.`
-                : `© ${year} Olynixx. All rights reserved.`}
+            <br />
+            The book behind the system
+          </p>
+          <ul className="mt-6 flex flex-wrap gap-5 text-sm">
+            {SOCIAL_LINKS.map((s) => (
+              <li key={s.label}>
+                <a href={s.href} target="_blank" rel="noopener noreferrer" className="hover:text-gold-dark">
+                  {s.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-6 space-y-1 text-sm">
+            <p className="eyebrow">Direct</p>
+            <p><a href={`mailto:${c.email}`} className="hover:text-gold-dark">{c.email}</a></p>
+            <p><a href={telHref(c.phone)} className="hover:text-gold-dark">{c.phone}</a></p>
+            <p>
+              <a href={whatsappHref(c.whatsapp)} className="hover:text-gold-dark">WhatsApp</a>
             </p>
           </div>
+        </div>
+        {col("Doors", FOOTER_NAV.doors.filter((l) => l.href !== "/praxis" || publishPraxis()))}
+        {col("For individuals", individuals)}
+        {col("Company", FOOTER_NAV.company)}
+      </div>
+      <div className="border-t border-cream/15">
+        <div className="container-ol space-y-3 py-8 text-xs text-cream/70">
+          <p>{NON_MEDICAL_DISCLAIMER}</p>
+          <p>{ISO_SHORT}</p>
+          <p>© {new Date().getFullYear()} Rise Up Lifestyle Coaching L.L.C. All rights reserved.</p>
         </div>
       </div>
     </footer>

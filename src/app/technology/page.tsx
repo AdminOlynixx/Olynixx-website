@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { Hero, Section, Eyebrow, Title, Lead } from "@/components/site/Section";
-import { IsoShort } from "@/components/site/IsoBlock";
+import { PageHero } from "@/components/sections/PageHero";
+import { Section } from "@/components/sections/Section";
+import { Reveal } from "@/components/motion/Reveal";
+import { Button } from "@/components/ui/Button";
+import { DeviceCard } from "@/components/sections/DeviceCard";
+import { TechConvergence } from "@/components/sections/TechConvergence";
+import { DashboardSplit } from "@/components/sections/DashboardSplit";
+import { IsoShort } from "@/components/sections/IsoBlock";
+import { JsonLd } from "@/components/sections/JsonLd";
 import { TECHNOLOGY } from "@/content/technology";
 import { NON_MEDICAL_STATEMENT } from "@/lib/legal-copy";
 import { contactHref } from "@/lib/cta";
+import { breadcrumbJsonLd } from "@/lib/json-ld";
 import { publishBest, publishDc } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -15,136 +22,98 @@ export const metadata: Metadata = {
 export default function TechnologyPage() {
   const msFit = TECHNOLOGY.devices[0];
   const oxyterra = TECHNOLOGY.devices[1];
-  const rest = TECHNOLOGY.devices.slice(2).filter((device) => !(publishBest() && device.name === "Microcurrent"));
+  const rest = TECHNOLOGY.devices.slice(2).filter((d) => !(publishBest() && d.name === "Microcurrent"));
 
   return (
     <>
-      <Hero>
-        <Eyebrow>{TECHNOLOGY.eyebrow}</Eyebrow>
-        <h1 className="ol-hero-title">{TECHNOLOGY.heroTitle}</h1>
-        <p className="ol-lead">{TECHNOLOGY.standfirst}</p>
-      </Hero>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { href: "/", label: "Home" },
+          { href: "/technology", label: "Technology" },
+        ])}
+      />
+      <PageHero
+        eyebrow={TECHNOLOGY.eyebrow}
+        title={TECHNOLOGY.heroTitle}
+        lead={TECHNOLOGY.standfirst}
+        breadcrumb={[
+          { href: "/", label: "Home" },
+          { href: "/technology", label: "Technology" },
+        ]}
+      />
 
-      <Section narrow>
-        <Eyebrow>{TECHNOLOGY.measureEyebrow}</Eyebrow>
-        <Title>{TECHNOLOGY.measureTitle}</Title>
-        {TECHNOLOGY.measure.map((para) => (
-          <Lead key={para.slice(0, 28)}>{para}</Lead>
-        ))}
-      </Section>
-
-      <Section>
-        <article className="ol-device ol-card">
-          <p className="ol-status">{msFit.status}</p>
-          <h3>{msFit.name}</h3>
-          <p>{msFit.role}</p>
-          <ul>
-            {msFit.bullets.map((bullet) => (
-              <li key={bullet}>{bullet}</li>
+      <Section theme="light" eyebrow={TECHNOLOGY.measureEyebrow} title={TECHNOLOGY.measureTitle}>
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
+          <Reveal stagger={0.1} className="space-y-5 text-ink-muted">
+            {TECHNOLOGY.measure.map((para) => (
+              <p key={para.slice(0, 28)}>{para}</p>
             ))}
-          </ul>
-          <p className="ol-small ol-muted">{msFit.where}</p>
-        </article>
-      </Section>
-
-      <Section>
-        <article className="ol-device ol-card">
-          <p className="ol-status">{TECHNOLOGY.sensorStatus}</p>
-          <h3>{TECHNOLOGY.sensorName}</h3>
-          <Lead>{TECHNOLOGY.sensorBody}</Lead>
-        </article>
-        {publishDc() ? (
-          <div className="ol-measure" style={{ marginBlockStart: "var(--s4)" }}>
-            <Title>{TECHNOLOGY.firstGulfTitle}</Title>
-            <Lead>{TECHNOLOGY.firstGulfBody}</Lead>
-            {TECHNOLOGY.poweredBy ? <p className="ol-small ol-muted">{TECHNOLOGY.poweredBy}</p> : null}
-          </div>
-        ) : null}
-      </Section>
-
-      <Section>
-        <article className="ol-device ol-card">
-          <p className="ol-status">{oxyterra.status}</p>
-          <h3>{oxyterra.name}</h3>
-          <p>{oxyterra.role}</p>
-          <ul>
-            {oxyterra.bullets.map((bullet) => (
-              <li key={bullet}>{bullet}</li>
-            ))}
-          </ul>
-          <p className="ol-small ol-muted">{oxyterra.where}</p>
-        </article>
-      </Section>
-
-      {publishBest() ? (
-        <Section>
-          <article className="ol-device ol-card">
-            <p className="ol-status">{TECHNOLOGY.bestStatus}</p>
-            <h3>{TECHNOLOGY.bestName}</h3>
-            <Lead>{TECHNOLOGY.bestBody}</Lead>
-          </article>
-        </Section>
-      ) : null}
-
-      <Section>
-        <div className="ol-device-grid">
-          {rest.map((device) => (
-            <article key={device.name} className="ol-device ol-card">
-              <p className="ol-status">{device.status}</p>
-              <h3>{device.name}</h3>
-              <p>{device.role}</p>
-              <ul>
-                {device.bullets.map((bullet) => (
-                  <li key={bullet}>{bullet}</li>
-                ))}
-              </ul>
-              <p className="ol-small ol-muted">{device.where}</p>
-            </article>
-          ))}
+            <p className="font-mono text-xs uppercase tracking-[0.08em] text-ink-muted">
+              Nervous · Cardiovascular · Metabolic
+            </p>
+          </Reveal>
+          <TechConvergence />
         </div>
       </Section>
 
-      <Section narrow>
-        <Eyebrow>{TECHNOLOGY.principleEyebrow}</Eyebrow>
-        <Title>{TECHNOLOGY.principleTitle}</Title>
-        <Lead>{TECHNOLOGY.principle}</Lead>
-        <p className="ol-actions">
-          <Link className="ol-btn ol-btn--primary" href={contactHref("systems", "tech-moat")}>
-            {TECHNOLOGY.systemsCta}
-          </Link>
-        </p>
+      <Section theme="dark">
+        <Reveal stagger={0.12} className="grid gap-5 md:grid-cols-2">
+          <DeviceCard theme="dark" status={msFit.status} name={msFit.name} role={msFit.role} bullets={msFit.bullets} where={msFit.where} />
+          <DeviceCard theme="dark" status={TECHNOLOGY.sensorStatus} name={TECHNOLOGY.sensorName} role={TECHNOLOGY.sensorBody} />
+        </Reveal>
+        {publishDc() ? (
+          <Reveal stagger={0.1} className="mt-14 max-w-[68ch] space-y-4">
+            <h2 className="text-[clamp(1.8125rem,3.4vw,2.5rem)] leading-[1.1]">{TECHNOLOGY.firstGulfTitle}</h2>
+            <p className="text-cream/80">{TECHNOLOGY.firstGulfBody}</p>
+            {TECHNOLOGY.poweredBy ? <p className="font-mono text-xs text-cream/60">{TECHNOLOGY.poweredBy}</p> : null}
+          </Reveal>
+        ) : null}
       </Section>
 
-      <Section surface="app" narrow>
-        <Title>{TECHNOLOGY.ownTitle}</Title>
-        <Lead>{TECHNOLOGY.ownBody}</Lead>
-        <p className="ol-actions">
-          <Link className="ol-btn ol-btn--primary" href={contactHref("systems", "tech-own")}>
-            {TECHNOLOGY.systemsCta}
-          </Link>
-        </p>
+      <Section theme="light">
+        <Reveal stagger={0.12} className="grid gap-5 md:grid-cols-2">
+          <div className="md:col-span-2">
+            <DeviceCard status={oxyterra.status} name={oxyterra.name} role={oxyterra.role} bullets={oxyterra.bullets} where={oxyterra.where} />
+          </div>
+          {publishBest() ? (
+            <div className="md:col-span-2">
+              <DeviceCard status={TECHNOLOGY.bestStatus} name={TECHNOLOGY.bestName} role={TECHNOLOGY.bestBody} />
+            </div>
+          ) : null}
+          {rest.map((d) => (
+            <DeviceCard key={d.name} status={d.status} name={d.name} role={d.role} bullets={d.bullets} where={d.where} />
+          ))}
+        </Reveal>
       </Section>
 
-      <Section surface="app" narrow>
-        <Eyebrow>{TECHNOLOGY.dataEyebrow}</Eyebrow>
-        <Title>{TECHNOLOGY.dataTitle}</Title>
-        <Lead>{TECHNOLOGY.data}</Lead>
+      <Section theme="dark" narrow eyebrow={TECHNOLOGY.principleEyebrow} title={TECHNOLOGY.principleTitle}>
+        <Reveal stagger={0.1} className="space-y-8">
+          <p className="text-cream/85">{TECHNOLOGY.principle}</p>
+          <Button href={contactHref("systems", "tech-moat")}>{TECHNOLOGY.systemsCta}</Button>
+        </Reveal>
       </Section>
 
-      <Section narrow>
-        <Eyebrow>{TECHNOLOGY.dashEyebrow}</Eyebrow>
-        <Title>{TECHNOLOGY.dashTitle}</Title>
-        {TECHNOLOGY.dash.map((para) => (
-          <Lead key={para.slice(0, 24)}>{para}</Lead>
-        ))}
+      <Section theme="light" narrow title={TECHNOLOGY.ownTitle}>
+        <Reveal stagger={0.1} className="space-y-8">
+          <p className="text-ink-muted">{TECHNOLOGY.ownBody}</p>
+          <Button href={contactHref("systems", "tech-own")}>{TECHNOLOGY.systemsCta}</Button>
+        </Reveal>
       </Section>
 
-      <Section narrow>
-        <IsoShort />
+      <Section theme="dark" narrow eyebrow={TECHNOLOGY.dataEyebrow} title={TECHNOLOGY.dataTitle}>
+        <p className="text-cream/85">{TECHNOLOGY.data}</p>
       </Section>
 
-      <Section>
-        <p className="ol-statement">{NON_MEDICAL_STATEMENT}</p>
+      <Section theme="light" eyebrow={TECHNOLOGY.dashEyebrow} title={TECHNOLOGY.dashTitle}>
+        <DashboardSplit personal={TECHNOLOGY.dash[0]} corporate={TECHNOLOGY.dash[1]} note={TECHNOLOGY.dash[2]} />
+      </Section>
+
+      <Section theme="dark" narrow>
+        <IsoShort theme="dark" />
+      </Section>
+
+      <Section theme="light" narrow>
+        <p className="border-y border-rule py-8 font-display text-xl leading-snug text-ink">{NON_MEDICAL_STATEMENT}</p>
       </Section>
     </>
   );

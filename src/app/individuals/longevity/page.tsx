@@ -1,101 +1,95 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { Hero, Section, Eyebrow, Title, Lead } from "@/components/site/Section";
-import { CtaBand } from "@/components/site/CtaBand";
-import { DoorSwitcher } from "@/components/site/DoorSwitcher";
-import { Breadcrumb } from "@/components/site/Breadcrumb";
-import { LevelCards } from "@/components/site/LevelCards";
-import { LONGEVITY as COPY } from "@/content/individuals";
+import { notFound } from "next/navigation";
+import { LONGEVITY as COPY, HUB } from "@/content/individuals";
 import { contactHref } from "@/lib/cta";
-import { publishBest, publishDc } from "@/lib/site-config";
+import { breadcrumbJsonLd } from "@/lib/json-ld";
+import { publishBest, publishDc, publishLongevity } from "@/lib/site-config";
+import { PageHero } from "@/components/sections/PageHero";
+import { Section, Prose } from "@/components/sections/Section";
+import { CtaBand } from "@/components/sections/CtaBand";
+import { CardGrid } from "@/components/sections/CardGrid";
+import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/motion/Reveal";
+import { IndividualRouteSwitcher } from "@/components/sections/IndividualRouteSwitcher";
+import { LayerStack } from "@/components/sections/LayerStack";
+import { LevelLadder } from "@/components/sections/LevelLadder";
 
 export const metadata: Metadata = {
   title: { absolute: COPY.metaTitle },
   description: COPY.metaDescription,
 };
 
+const CRUMBS = [
+  { href: "/", label: "Home" },
+  { href: "/individuals", label: "Individuals" },
+  { href: "/individuals/longevity", label: "Longevity" },
+];
+
 export default function LongevityPage() {
+  if (!publishLongevity()) notFound();
+
   return (
     <>
-      <Hero>
-        <h1 className="ol-hero-title">{COPY.heroTitle}</h1>
-        <p className="ol-lead">{COPY.standfirst}</p>
-        <p className="ol-actions">
-          <Link className="ol-btn ol-btn--primary" href={contactHref("longevity", "longevity-hero")}>
-            {COPY.primaryCta}
-          </Link>
-        </p>
-      </Hero>
-      <Breadcrumb
-        items={[
-          { href: "/", label: "Home" },
-          { href: "/individuals", label: "Individuals" },
-          { href: "/individuals/longevity", label: "Longevity" },
-        ]}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(CRUMBS)) }} />
+      <PageHero
+        breadcrumb={CRUMBS}
+        title={COPY.heroTitle}
+        lead={COPY.standfirst}
+        primary={{ href: contactHref("longevity", "longevity-hero"), label: COPY.primaryCta }}
       />
-      <DoorSwitcher current="/individuals/longevity" />
+      <IndividualRouteSwitcher current="/individuals/longevity" />
 
-      <Section narrow>
-        <Title>{COPY.problemEyebrow}</Title>
-        {COPY.problem.map((para) => (
-          <Lead key={para.slice(0, 28)}>{para}</Lead>
-        ))}
-      </Section>
-
-      <Section surface="dark" narrow>
-        <Title>{COPY.clinicEyebrow}</Title>
-        {COPY.clinic.map((para) => (
-          <Lead key={para.slice(0, 28)}>{para}</Lead>
-        ))}
-      </Section>
-
-      <Section>
-        <Eyebrow>{COPY.layersEyebrow}</Eyebrow>
-        <Title>{COPY.layersTitle}</Title>
-        <div className="ol-grid">
-          {COPY.layers.map((item) => (
-            <article key={item.title} className="ol-card">
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
-            </article>
+      <Section theme="light" narrow title={COPY.problemEyebrow}>
+        <Prose>
+          {COPY.problem.map((p) => (
+            <p key={p.slice(0, 28)}>{p}</p>
           ))}
-        </div>
+        </Prose>
       </Section>
 
-      <Section>
-        <Eyebrow>{COPY.sensorEyebrow}</Eyebrow>
-        <Title>{COPY.sensorTitle}</Title>
-        <Lead>{COPY.sensorBody}</Lead>
-        {publishDc() ? <Lead>{COPY.sensorDc}</Lead> : null}
+      <Section theme="dark" narrow title={COPY.clinicEyebrow}>
+        <Prose theme="dark">
+          {COPY.clinic.map((p) => (
+            <p key={p.slice(0, 28)}>{p}</p>
+          ))}
+        </Prose>
       </Section>
 
-      <Section surface="app" narrow>
-        <Eyebrow>{COPY.systemsEyebrow}</Eyebrow>
-        <Title>{COPY.systemsTitle}</Title>
-        <Lead>{publishBest() ? COPY.systemsBodyBest : COPY.systemsBody}</Lead>
-        <p className="ol-actions">
-          <Link className="ol-btn ol-btn--secondary" href={contactHref("systems", "longevity-systems")}>
+      <Section theme="light" eyebrow={COPY.layersEyebrow} title={COPY.layersTitle}>
+        <CardGrid items={COPY.layers} numbered />
+        <LayerStack labels={COPY.layers.map((l) => l.title)} />
+      </Section>
+
+      <Section theme="dark" eyebrow={COPY.sensorEyebrow} title={COPY.sensorTitle}>
+        <Prose theme="dark">
+          <p>{COPY.sensorBody}</p>
+          {publishDc() ? <p>{COPY.sensorDc}</p> : null}
+        </Prose>
+      </Section>
+
+      <Section theme="light" narrow eyebrow={COPY.systemsEyebrow} title={COPY.systemsTitle}>
+        <Prose>
+          <p>{publishBest() ? COPY.systemsBodyBest : COPY.systemsBody}</p>
+        </Prose>
+        <Reveal className="mt-8">
+          <Button href={contactHref("systems", "longevity-systems")} variant="secondary">
             {COPY.systemsCta}
-          </Link>
-        </p>
+          </Button>
+        </Reveal>
       </Section>
 
-      <Section>
-        <Eyebrow>{COPY.ladderEyebrow}</Eyebrow>
-        <Title>{COPY.ladderTitle}</Title>
-        {COPY.ladder.map((para) => (
-          <Lead key={para.slice(0, 28)}>{para}</Lead>
-        ))}
-        <div style={{ marginTop: "var(--s4)" }}>
-          <LevelCards />
+      <Section theme="dark" eyebrow={COPY.ladderEyebrow} title={COPY.ladderTitle}>
+        <Prose theme="dark">
+          {COPY.ladder.map((p) => (
+            <p key={p.slice(0, 28)}>{p}</p>
+          ))}
+        </Prose>
+        <div className="mt-12">
+          <LevelLadder levels={HUB.levels} priceNote={HUB.levelsPriceNote} theme="dark" />
         </div>
       </Section>
 
-      <CtaBand
-        title={COPY.closeTitle}
-        href={contactHref("longevity", "longevity-close")}
-        label={COPY.primaryCta}
-      />
+      <CtaBand title={COPY.closeTitle} href={contactHref("longevity", "longevity-close")} label={COPY.primaryCta} />
     </>
   );
 }

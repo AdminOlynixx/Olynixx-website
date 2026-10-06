@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #f2ede3;
+  --color-paper: #ffffff;
+  --color-ink: #0b100e;
+  --color-ink-muted: #4a524e;
+  --color-green-deep: #0b3a33;
+  --color-rule: #c2bbae;
+  --color-gold: #c5a33e;
+  --color-gold-text: #7c6118;
+  --color-gold-dark: #d9b75a;
+  --color-data: #146b58;
+  --color-data-dark: #4fc0a6;
+  --color-band-low: #a8412f;
+  --color-band-mid: #875d12;
+  --color-band-good: #186752;
+  --color-band-high: #14554b;
+
+  --font-display: var(--font-newsreader), Georgia, serif;
+  --font-sans: var(--font-plex-sans), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+
+  --ease-ol: cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+:root {
+  --gutter: clamp(20px, 4vw, 40px);
+  --header-h: 72px;
+}
+
+html {
+  scroll-padding-top: var(--header-h);
+}
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+.surface-dark {
+  background: var(--color-green-deep);
+  color: var(--color-cream);
+}
+
+.container-ol {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold-text);
+}
+.surface-dark .eyebrow {
+  color: var(--color-gold-dark);
+}
+
+@media (pointer: fine) {
+  html.has-cursor,
+  html.has-cursor a,
+  html.has-cursor button {
+    cursor: none;
+  }
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* Hidden only once JS is confirmed running; no-JS and reduced motion see everything. */
+html.js .js-reveal {
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  html.js .js-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}

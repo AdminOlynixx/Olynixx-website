@@ -1,54 +1,57 @@
 import type { Metadata } from "next";
-import { Hero, Section, Eyebrow } from "@/components/site/Section";
-import { IsoBlock } from "@/components/site/IsoBlock";
-import { LegalAlso } from "@/components/site/LegalDoc";
+import { PageHero } from "@/components/sections/PageHero";
+import { Section } from "@/components/sections/Section";
+import { IsoBlock } from "@/components/sections/IsoBlock";
+import { LegalAlso } from "@/components/sections/LegalDoc";
+import { JsonLd } from "@/components/sections/JsonLd";
+import { Reveal } from "@/components/motion/Reveal";
 import { GOVERNANCE } from "@/content/legal";
 import { ISO_LONG } from "@/lib/legal-copy";
+import { breadcrumbJsonLd } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
-  title: "Governance",
+  title: { absolute: "Governance | Olynixx" },
   description: GOVERNANCE.lead,
 };
+
+const crumbs = [
+  { href: "/", label: "Home" },
+  { href: "/governance", label: "Governance" },
+];
 
 export default function GovernancePage() {
   return (
     <>
-      <Hero compact>
-        <Eyebrow>Governance</Eyebrow>
-        <h1 className="ol-hero-title">{GOVERNANCE.title}</h1>
-        <p className="ol-lead">{GOVERNANCE.lead}</p>
-      </Hero>
-      <Section>
-        <div className="ol-legal">
-          <p className="ol-legal__status">{GOVERNANCE.status}</p>
-          <p className="ol-legal__body">{GOVERNANCE.body}</p>
-          <ul className="ol-legal__certs">
+      <JsonLd data={breadcrumbJsonLd(crumbs)} />
+      <PageHero eyebrow="Governance" title={GOVERNANCE.title} lead={GOVERNANCE.lead} breadcrumb={crumbs} />
+
+      <Section theme="light" narrow>
+        <Reveal stagger={0.1} className="space-y-6">
+          <p className="border-l-2 border-gold pl-5 font-display text-xl text-ink">{GOVERNANCE.status}</p>
+          <p className="text-ink-muted">{GOVERNANCE.body}</p>
+          <ul className="divide-y divide-rule border-y border-rule">
             {ISO_LONG.items.map((item) => (
-              <li key={item}>
+              <li key={item} className="flex flex-wrap items-center justify-between gap-2 py-4 text-[15px]">
                 <span>{item}</span>
-                <span>Not yet issued</span>
+                <span className="font-mono text-xs uppercase tracking-[0.08em] text-ink-muted">Not yet issued</span>
               </li>
             ))}
           </ul>
-          <p className="ol-small ol-muted">
-            Certificate numbers, scope and issue dates: not yet issued.
-          </p>
-        </div>
+          <p className="text-sm text-ink-muted">Certificate numbers, scope and issue dates: not yet issued.</p>
+        </Reveal>
       </Section>
-      <Section surface="dark">
-        <div className="ol-legal ol-legal--on-dark">
-          <IsoBlock />
-        </div>
+
+      <Section theme="dark" narrow>
+        <IsoBlock />
       </Section>
-      <Section>
-        <div className="ol-legal">
-          <LegalAlso
-            links={[
-              { href: "/privacy", label: "Privacy" },
-              { href: "/terms", label: "Terms of use" },
-            ]}
-          />
-        </div>
+
+      <Section theme="light" narrow className="!py-14">
+        <LegalAlso
+          links={[
+            { href: "/privacy", label: "Privacy" },
+            { href: "/terms", label: "Terms of use" },
+          ]}
+        />
       </Section>
     </>
   );

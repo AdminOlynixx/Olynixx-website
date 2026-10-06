@@ -1,69 +1,81 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { Hero, Section, Eyebrow } from "@/components/site/Section";
-import { ContactForm } from "@/components/site/ContactForm";
+import { PageHero } from "@/components/sections/PageHero";
+import { Section } from "@/components/sections/Section";
+import { ContactForm } from "@/components/sections/ContactForm";
+import { JsonLd } from "@/components/sections/JsonLd";
+import { Reveal } from "@/components/motion/Reveal";
 import { CONTACT } from "@/content/contact";
+import { breadcrumbJsonLd } from "@/lib/json-ld";
 import { publicContact, telHref, whatsappHref } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: { absolute: "Contact | Olynixx" },
   description: CONTACT.lead,
 };
+
+const crumbs = [
+  { href: "/", label: "Home" },
+  { href: "/contact", label: "Contact" },
+];
+
+const link = "underline underline-offset-4 hover:text-gold-text";
 
 export default function ContactPage() {
   const details = publicContact();
 
   return (
     <>
-      <Hero compact>
-        <Eyebrow>Contact</Eyebrow>
-        <h1 className="ol-hero-title">{CONTACT.title}</h1>
-        <p className="ol-lead">{CONTACT.lead}</p>
-      </Hero>
+      <JsonLd data={breadcrumbJsonLd(crumbs)} />
+      <PageHero eyebrow="Contact" title={CONTACT.title} lead={CONTACT.lead} breadcrumb={crumbs} />
 
-      <Section>
-        <div className="ol-contact">
-          <div className="ol-contact__form">
-            <Suspense fallback={<p className="ol-muted">Loading form…</p>}>
+      <Section theme="light">
+        <div className="grid gap-14 lg:grid-cols-[1.4fr_1fr]">
+          <Reveal>
+            <Suspense fallback={<p className="text-ink-muted">Loading form…</p>}>
               <ContactForm />
             </Suspense>
-          </div>
-          <aside className="ol-contact__direct">
-            <Eyebrow>{CONTACT.directEyebrow}</Eyebrow>
-            <p className="ol-contact__place">{details.location}</p>
+          </Reveal>
+          <Reveal as="aside" stagger={0.08} className="space-y-3 border-t border-rule pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+            <p className="eyebrow">{CONTACT.directEyebrow}</p>
+            <p className="font-display text-2xl">{details.location}</p>
             {details.address ? <p>{details.address}</p> : null}
             {details.email ? (
               <p>
-                <a href={`mailto:${details.email}`}>{details.email}</a>
+                <a className={link} href={`mailto:${details.email}`}>
+                  {details.email}
+                </a>
               </p>
             ) : null}
             {details.phone ? (
               <p>
-                <a href={telHref(details.phone)}>{details.phone}</a>
+                <a className={link} href={telHref(details.phone)}>
+                  {details.phone}
+                </a>
               </p>
             ) : null}
             {details.whatsapp ? (
               <p>
-                <a href={whatsappHref(details.whatsapp)} target="_blank" rel="noopener noreferrer">
+                <a className={link} href={whatsappHref(details.whatsapp)} target="_blank" rel="noopener noreferrer">
                   WhatsApp {details.whatsapp}
                 </a>
               </p>
             ) : null}
             {details.mapUrl ? (
               <p>
-                <a href={details.mapUrl} rel="noopener noreferrer">
+                <a className={link} href={details.mapUrl} rel="noopener noreferrer">
                   Map
                 </a>
               </p>
             ) : null}
-            {details.sla ? <p className="ol-small">{details.sla}</p> : null}
+            {details.sla ? <p className="text-sm">{details.sla}</p> : null}
             {details.calendar ? (
-              <div className="ol-calendar">
-                <iframe title="Book a conversation" src={details.calendar} loading="lazy" />
+              <div className="aspect-[4/5] w-full border border-rule">
+                <iframe title="Book a conversation" src={details.calendar} loading="lazy" className="h-full w-full" />
               </div>
             ) : null}
-            <p className="ol-small ol-muted">{CONTACT.directNote}</p>
-          </aside>
+            <p className="pt-2 text-sm text-ink-muted">{CONTACT.directNote}</p>
+          </Reveal>
         </div>
       </Section>
     </>

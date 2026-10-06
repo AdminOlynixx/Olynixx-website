@@ -1,85 +1,62 @@
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
+import localFont from "next/font/local";
+import "./globals.css";
+import { SmoothScroll } from "@/components/motion/SmoothScroll";
+import { Cursor } from "@/components/motion/Cursor";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Motion } from "@/components/site/Motion";
-import { JsonLd } from "@/components/site/JsonLd";
-import { organizationJsonLd } from "@/lib/json-ld";
-import { noIndexPublicSite, phaseShop, publishLongevity, publishPraxis, siteUrl } from "@/lib/site-config";
-import "@/styles/olynixx-fonts.css";
-import "@/styles/olynixx-tokens.css";
-import "@/styles/olynixx-base.css";
-import "@/styles/site.css";
+import { SceneBackdrop } from "@/components/three/SceneBackdrop";
+import { PageTransition } from "@/components/motion/PageTransition";
+import { OrgJsonLd } from "@/components/layout/OrgJsonLd";
 
-const url = siteUrl();
-const title = "Olynixx | Readiness + Recovery = Perform";
-const description =
-  "Olynixx measures what your body can actually deliver today. Then it coaches the decisions that change it. Tested, not guessed. Verified by retest.";
+const newsreader = localFont({
+  src: [
+    { path: "../../public/fonts/Newsreader-Variable.woff2", style: "normal" },
+    { path: "../../public/fonts/Newsreader-Italic-Variable.woff2", style: "italic" },
+  ],
+  variable: "--font-newsreader",
+  display: "swap",
+});
+
+const plexSans = localFont({
+  src: [
+    { path: "../../public/fonts/IBMPlexSans-Regular.woff2", weight: "400" },
+    { path: "../../public/fonts/IBMPlexSans-Medium.woff2", weight: "500" },
+    { path: "../../public/fonts/IBMPlexSans-SemiBold.woff2", weight: "600" },
+  ],
+  variable: "--font-plex-sans",
+  display: "swap",
+});
+
+const plexMono = localFont({
+  src: [
+    { path: "../../public/fonts/IBMPlexMono-Regular.woff2", weight: "400" },
+    { path: "../../public/fonts/IBMPlexMono-Medium.woff2", weight: "500" },
+  ],
+  variable: "--font-plex-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  metadataBase: new URL(url),
-  title: {
-    default: title,
-    template: "%s | Olynixx",
-  },
-  description,
-  applicationName: "Olynixx",
-  icons: {
-    icon: [{ url: "/brand/olynixx-favicon.svg", type: "image/svg+xml" }],
-    apple: [{ url: "/brand/olynixx-appicon.svg", type: "image/svg+xml" }],
-  },
-  openGraph: {
-    type: "website",
-    locale: "en_AE",
-    url,
-    siteName: "Olynixx",
-    title,
-    description,
-    images: [{ url: "/brand/olynixx-og-card.png", width: 1200, height: 630, alt: "Olynixx" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title,
-    description,
-    images: ["/brand/olynixx-og-card.png"],
-  },
-  robots: noIndexPublicSite()
-    ? { index: false, follow: false, nocache: true }
-    : { index: true, follow: true },
+  title: "Olynixx | Readiness + Recovery = Perform",
+  description:
+    "Olynixx measures what your body can actually deliver today. Then it coaches the decisions that change it. Tested, not guessed. Verified by retest.",
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className="ol-motion">
-      <head>
-        <link
-          rel="preload"
-          href="/fonts/Newsreader-Variable.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/IBMPlexSans-Regular.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-      </head>
+    <html
+      lang="en"
+      className={`${newsreader.variable} ${plexSans.variable} ${plexMono.variable}`}
+    >
       <body>
-        <noscript>
-          <style>{`.ol-section > .ol-container { opacity: 1 !important; transform: none !important; animation: none !important; pointer-events: auto !important; }`}</style>
-        </noscript>
-        <a className="ol-skip" href="#content">
-          Skip to content
-        </a>
-        <Header longevityLive={publishLongevity()} praxisLive={publishPraxis()} shopLive={phaseShop()} />
-        <JsonLd data={organizationJsonLd()} />
-        <main id="content" className="ol-main">
-          {children}
-        </main>
-        <Motion />
+        <OrgJsonLd />
+        <SmoothScroll />
+        <Cursor />
+        <SceneBackdrop />
+        <PageTransition />
+        <Header />
+        <main id="content">{children}</main>
         <Footer />
       </body>
     </html>

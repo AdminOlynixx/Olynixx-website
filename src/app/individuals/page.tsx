@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { Hero, Section, Eyebrow, Title, Lead } from "@/components/site/Section";
-import { CtaBand } from "@/components/site/CtaBand";
-import { TrustBar } from "@/components/site/IsoBlock";
-import { DoorSwitcher } from "@/components/site/DoorSwitcher";
-import { LevelCards } from "@/components/site/LevelCards";
 import { HUB } from "@/content/individuals";
 import { contactHref } from "@/lib/cta";
 import { phaseShop, publishLongevity } from "@/lib/site-config";
 import { shopHref } from "@/lib/shop";
+import { PageHero } from "@/components/sections/PageHero";
+import { Section, Prose } from "@/components/sections/Section";
+import { CtaBand } from "@/components/sections/CtaBand";
+import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/motion/Reveal";
+import { IndividualRouteSwitcher } from "@/components/sections/IndividualRouteSwitcher";
+import { RouteCards } from "@/components/sections/RouteCards";
+import { ScrubSteps } from "@/components/sections/ScrubSteps";
+import { LevelLadder } from "@/components/sections/LevelLadder";
 
 export const metadata: Metadata = {
   title: { absolute: HUB.metaTitle },
@@ -19,90 +22,63 @@ export default function IndividualsHub() {
   const longevityLive = publishLongevity();
   const doors = longevityLive ? HUB.doors : HUB.doors.filter((d) => d.href !== "/individuals/longevity");
   const doorsTitle = longevityLive ? HUB.doorsTitle : "Two routes. One method.";
+  const shop = shopHref("/shop", "individuals", "bridge");
 
   return (
     <>
-      <Hero>
-        <Eyebrow>{HUB.eyebrow}</Eyebrow>
-        <h1 className="ol-hero-title">{HUB.heroTitle}</h1>
-        <p className="ol-lead">{HUB.standfirst}</p>
-        <p className="ol-actions">
-          <Link className="ol-btn ol-btn--primary" href={contactHref("individual-intake", "individuals-hero")}>
-            {HUB.primaryCta}
-          </Link>
-          <a className="ol-btn ol-btn--secondary" href="#routes">
-            {HUB.secondaryCta}
-          </a>
-        </p>
-        <TrustBar items={HUB.trust} />
-      </Hero>
-      <DoorSwitcher current="/individuals" />
+      <PageHero
+        eyebrow={HUB.eyebrow}
+        title={HUB.heroTitle}
+        lead={HUB.standfirst}
+        primary={{ href: contactHref("individual-intake", "individuals-hero"), label: HUB.primaryCta }}
+        secondary={{ href: "#routes", label: HUB.secondaryCta }}
+        trust={HUB.trust}
+      />
+      <IndividualRouteSwitcher current="/individuals" />
 
-      <Section narrow>
-        <Eyebrow>{HUB.argumentEyebrow}</Eyebrow>
-        <Title>{HUB.argumentTitle}</Title>
-        {HUB.argument.map((para) => (
-          <Lead key={para.slice(0, 24)}>{para}</Lead>
-        ))}
-      </Section>
-
-      <Section id="routes">
-        <Eyebrow>{HUB.doorsEyebrow}</Eyebrow>
-        <Title>{doorsTitle}</Title>
-        <div className="ol-grid">
-          {doors.map((door) => (
-            <Link key={door.href} href={door.href} className="ol-card ol-door">
-              <h3>{door.title}</h3>
-              <p>{door.body}</p>
-              <span className="ol-btn ol-btn--text">{door.cta}</span>
-            </Link>
+      <Section theme="light" narrow eyebrow={HUB.argumentEyebrow} title={HUB.argumentTitle}>
+        <Prose>
+          {HUB.argument.map((p) => (
+            <p key={p.slice(0, 24)}>{p}</p>
           ))}
-        </div>
+        </Prose>
       </Section>
 
-      <Section surface="dark" narrow>
-        <Eyebrow>{HUB.lineEyebrow}</Eyebrow>
-        <Title>{HUB.lineTitle}</Title>
-        {HUB.lineBody.map((para) => (
-          <Lead key={para.slice(0, 24)}>{para}</Lead>
-        ))}
+      <Section theme="light" id="routes" eyebrow={HUB.doorsEyebrow} title={doorsTitle} className="border-t border-rule">
+        <RouteCards doors={doors} />
       </Section>
 
-      <Section>
-        <Eyebrow>{HUB.methodEyebrow}</Eyebrow>
-        <Title>{HUB.methodTitle}</Title>
-        <div className="ol-grid">
-          {HUB.method.map((step) => (
-            <article key={step.title} className="ol-card">
-              <h3>{step.title}</h3>
-              <p>{step.body}</p>
-            </article>
+      <Section theme="dark" narrow eyebrow={HUB.lineEyebrow} title={HUB.lineTitle}>
+        <Prose theme="dark">
+          {HUB.lineBody.map((p) => (
+            <p key={p.slice(0, 24)}>{p}</p>
           ))}
-        </div>
+        </Prose>
       </Section>
 
-      <Section surface="app">
-        <Eyebrow>{HUB.levelsEyebrow}</Eyebrow>
-        <Title>{HUB.levelsTitle}</Title>
-        <LevelCards note={HUB.levelsNote} />
+      <Section theme="light" eyebrow={HUB.methodEyebrow} title={HUB.methodTitle}>
+        <ScrubSteps steps={HUB.method.map((s, i) => ({ label: `0${i + 1}`, title: s.title, body: s.body }))} />
+      </Section>
+
+      <Section theme="dark" eyebrow={HUB.levelsEyebrow} title={HUB.levelsTitle}>
+        <LevelLadder levels={HUB.levels} priceNote={HUB.levelsPriceNote} note={HUB.levelsNote} theme="dark" />
       </Section>
 
       {phaseShop() ? (
-        <Section narrow>
-          <Title>Start tonight, or start with a conversation.</Title>
-          <Lead>
-            Some journeys need an intake talk first. The three levels above all do. Some you can start tonight: defined readiness programmes (device, protocol and guidance in one) are in the Olynixx shop. The book is there too. Either way, the first step is measured.
-          </Lead>
-          <p className="ol-actions">
-            {shopHref("/shop", "individuals", "bridge") ? (
-              <Link className="ol-btn ol-btn--secondary" href={shopHref("/shop", "individuals", "bridge") ?? "/contact"}>
+        <Section theme="light" narrow title="Start tonight, or start with a conversation.">
+          <Prose>
+            <p>
+              Some journeys need an intake talk first. The three levels above all do. Some you can start tonight: defined readiness programmes (device, protocol and guidance in one) are in the Olynixx shop. The book is there too. Either way, the first step is measured.
+            </p>
+          </Prose>
+          <Reveal className="mt-8 flex flex-wrap gap-4">
+            {shop ? (
+              <Button href={shop} variant="secondary">
                 Browse readiness programmes
-              </Link>
+              </Button>
             ) : null}
-            <Link className="ol-btn ol-btn--primary" href={contactHref("individual-intake", "individuals-bridge")}>
-              Book your free intake talk
-            </Link>
-          </p>
+            <Button href={contactHref("individual-intake", "individuals-bridge")}>Book your free intake talk</Button>
+          </Reveal>
         </Section>
       ) : null}
 

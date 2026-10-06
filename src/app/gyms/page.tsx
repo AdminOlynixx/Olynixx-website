@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { Hero, Section, Eyebrow, Title, Lead } from "@/components/site/Section";
-import { CtaBand } from "@/components/site/CtaBand";
-import { TrustBar } from "@/components/site/IsoBlock";
-import { ReadinessHub } from "@/components/site/ReadinessHub";
-import { ProofStrip } from "@/components/site/ProofStrip";
+import { PageHero } from "@/components/sections/PageHero";
+import { Section, Prose } from "@/components/sections/Section";
+import { CardGrid } from "@/components/sections/CardGrid";
+import { CtaBand } from "@/components/sections/CtaBand";
+import { ProofStrip } from "@/components/sections/ProofStrip";
+import { CycleLoop } from "@/components/sections/CycleLoop";
+import { TiltCard } from "@/components/sections/TiltCard";
+import { ReadinessHubSection } from "@/components/sections/ReadinessHubSection";
+import { LoadCapacityMock } from "@/components/sections/DashboardMocks";
+import { Reveal } from "@/components/motion/Reveal";
+import { Button } from "@/components/ui/Button";
 import { GYMS } from "@/content/gyms";
 import { contactHref } from "@/lib/cta";
 import { publishBest } from "@/lib/site-config";
@@ -17,151 +22,142 @@ export const metadata: Metadata = {
 export default function GymsPage() {
   const named = (text: string) =>
     publishBest() ? text.replaceAll("Olynixx recovery systems", "B-E-St microcurrent recovery") : text;
+  const loopLabels = GYMS.recoveryTitle.split(/\.\s*/).filter(Boolean);
 
   return (
     <>
-      <Hero>
-        <Eyebrow>{GYMS.eyebrow}</Eyebrow>
-        <h1 className="ol-hero-title">{GYMS.heroTitle}</h1>
-        <p className="ol-lead">{GYMS.standfirst}</p>
-        <p className="ol-actions">
-          <Link className="ol-btn ol-btn--primary" href={contactHref("club-licence", "gyms-hero")}>
-            {GYMS.primaryCta}
-          </Link>
-          <Link className="ol-btn ol-btn--secondary" href="/praxis">
-            {GYMS.secondaryCta}
-          </Link>
-        </p>
-        <TrustBar items={GYMS.trust} />
-      </Hero>
+      <PageHero
+        eyebrow={GYMS.eyebrow}
+        title={GYMS.heroTitle}
+        lead={GYMS.standfirst}
+        primary={{ href: contactHref("club-licence", "gyms-hero"), label: GYMS.primaryCta }}
+        secondary={{ href: "/praxis", label: GYMS.secondaryCta }}
+        trust={GYMS.trust}
+      />
 
-      <nav className="ol-switcher" aria-label="Gyms or spas">
-        <a href="#gyms-track">{GYMS.selectorGyms}</a>
-        <a href="#spa-track">{GYMS.selectorSpas}</a>
+      <nav aria-label="Gyms or spas" data-theme="light" className="relative z-10 border-b border-rule bg-cream/90 backdrop-blur">
+        <ul className="container-ol flex gap-2 py-2">
+          {[
+            { href: "#gyms-track", label: GYMS.selectorGyms },
+            { href: "#spa-track", label: GYMS.selectorSpas },
+          ].map((l) => (
+            <li key={l.href}>
+              <a
+                href={l.href}
+                className="inline-flex min-h-[44px] items-center border-b-2 border-transparent px-4 text-sm text-ink-muted hover:border-gold hover:text-ink"
+              >
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
       </nav>
 
-      <Section id="gyms-track" narrow>
-        <Eyebrow>{GYMS.safetyEyebrow}</Eyebrow>
-        <Title>{GYMS.safetyTitle}</Title>
-        {GYMS.safety.map((para) => (
-          <Lead key={para.slice(0, 24)}>{para}</Lead>
-        ))}
-        <p className="ol-small ol-muted">{GYMS.safetyNote}</p>
-      </Section>
-
-      <Section>
-        <Eyebrow>{GYMS.personalEyebrow}</Eyebrow>
-        <Title>{GYMS.personalTitle}</Title>
-        <Lead>{GYMS.personal}</Lead>
-        <Lead>{GYMS.personalClose}</Lead>
-        <div className="ol-grid">
-          {GYMS.models.map((model) => (
-            <article key={model.title} className="ol-card">
-              <h3>{model.title}</h3>
-              <p>{model.body}</p>
-            </article>
-          ))}
+      <Section theme="light" id="gyms-track" eyebrow={GYMS.safetyEyebrow} title={GYMS.safetyTitle}>
+        <div className="grid items-start gap-12 lg:grid-cols-[1.2fr_1fr]">
+          <div className="space-y-6">
+            <Prose>
+              {GYMS.safety.map((p) => (
+                <p key={p.slice(0, 24)}>{p}</p>
+              ))}
+            </Prose>
+            <Reveal>
+              <p className="max-w-[68ch] border-l-2 border-gold pl-5 text-sm text-ink-muted">{GYMS.safetyNote}</p>
+            </Reveal>
+          </div>
+          <LoadCapacityMock caption={GYMS.safetyTitle} />
         </div>
       </Section>
 
-      <Section>
-        <Eyebrow>{GYMS.recoveryEyebrow}</Eyebrow>
-        <Title>{GYMS.recoveryTitle}</Title>
-        {GYMS.recovery.map((para) => (
-          <Lead key={para.slice(0, 24)}>{named(para)}</Lead>
-        ))}
+      <Section theme="dark" eyebrow={GYMS.personalEyebrow} title={GYMS.personalTitle}>
+        <Prose theme="dark">
+          <p>{GYMS.personal}</p>
+          <p>{GYMS.personalClose}</p>
+        </Prose>
+        <Reveal stagger={0.12} className="mt-12 grid gap-5 md:grid-cols-2">
+          {GYMS.models.map((m, i) => (
+            <TiltCard
+              key={m.title}
+              className={`border p-7 ${i === 1 ? "border-gold-dark bg-cream/[0.06]" : "border-cream/15 bg-cream/[0.03]"}`}
+            >
+              <p className="eyebrow mb-4">{String(i + 1).padStart(2, "0")}</p>
+              <h3 className="font-display text-2xl leading-tight">{m.title}</h3>
+              <p className="mt-3 text-[15px] text-cream/75">{m.body}</p>
+            </TiltCard>
+          ))}
+        </Reveal>
       </Section>
 
-      <Section>
-        <Title>{GYMS.recoveryZoneTitle}</Title>
-        <Lead>{named(GYMS.recoveryZone)}</Lead>
+      <Section theme="light" eyebrow={GYMS.recoveryEyebrow} title={GYMS.recoveryTitle}>
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+          <Prose>
+            {GYMS.recovery.map((p) => (
+              <p key={p.slice(0, 24)}>{named(p)}</p>
+            ))}
+          </Prose>
+          <CycleLoop theme="light" labels={loopLabels} />
+        </div>
       </Section>
 
-      <Section>
-        <Title>{GYMS.incomeTitle}</Title>
-        <Lead>{named(GYMS.income)}</Lead>
-        <p className="ol-actions">
-          <Link className="ol-btn ol-btn--secondary" href={contactHref("systems", "gyms-systems")}>
+      <Section theme="dark" narrow eyebrow={GYMS.recoveryZoneEyebrow} title={GYMS.recoveryZoneTitle}>
+        <Prose theme="dark">
+          <p>{named(GYMS.recoveryZone)}</p>
+        </Prose>
+      </Section>
+
+      <Section theme="light" eyebrow={GYMS.incomeEyebrow} title={GYMS.incomeTitle}>
+        <Prose>
+          <p>{named(GYMS.income)}</p>
+        </Prose>
+        <Reveal className="mt-8 mb-12">
+          <Button href={contactHref("systems", "gyms-systems")} variant="secondary">
             Ask about systems
-          </Link>
-        </p>
-        <div className="ol-grid">
-          {GYMS.steered.map((item) => (
-            <article key={item.title} className="ol-card">
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
-            </article>
-          ))}
-        </div>
+          </Button>
+        </Reveal>
+        <CardGrid items={GYMS.steered} cols={4} numbered />
       </Section>
 
-      <Section id="spa-track">
-        <Eyebrow>{GYMS.spaEyebrow}</Eyebrow>
-        <Title>{GYMS.spaTitle}</Title>
-        <Lead>{GYMS.spa}</Lead>
-        <div className="ol-grid">
-          {GYMS.spaCards.map((item) => (
-            <article key={item.title} className="ol-card">
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
-            </article>
-          ))}
-        </div>
+      <Section theme="dark" id="spa-track" eyebrow={GYMS.spaEyebrow} title={GYMS.spaTitle} lead={GYMS.spa}>
+        <CardGrid items={GYMS.spaCards} theme="dark" cols={4} numbered />
       </Section>
 
-      <Section id="licence" surface="app">
-        <Eyebrow>{GYMS.licenceEyebrow}</Eyebrow>
-        <Title>{GYMS.licenceTitle}</Title>
-        <div className="ol-grid">
-          {GYMS.licence.map((item) => (
-            <article key={item.title} className="ol-card">
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
-            </article>
-          ))}
-        </div>
-        <p className="ol-actions">
-          <Link className="ol-btn ol-btn--primary" href={contactHref("club-licence", "gyms-licence")}>
-            {GYMS.licenceCta}
-          </Link>
-        </p>
+      <Section theme="light" id="licence" eyebrow={GYMS.licenceEyebrow} title={GYMS.licenceTitle}>
+        <CardGrid items={GYMS.licence} cols={3} numbered />
+        <Reveal className="mt-10">
+          <Button href={contactHref("club-licence", "gyms-licence")}>{GYMS.licenceCta}</Button>
+        </Reveal>
       </Section>
 
-      <Section>
-        <ReadinessHub />
-      </Section>
+      <ReadinessHubSection theme="dark" />
 
-      <Section narrow>
-        <Eyebrow>{GYMS.coachesEyebrow}</Eyebrow>
-        <Title>{GYMS.coachesTitle}</Title>
-        <Lead>{GYMS.coaches}</Lead>
-        <Lead>{GYMS.coachesClose}</Lead>
-        <p className="ol-actions">
-          <Link className="ol-btn ol-btn--secondary" href={contactHref("club-licence", "gyms-network")}>
+      <Section theme="light" narrow eyebrow={GYMS.coachesEyebrow} title={GYMS.coachesTitle}>
+        <Prose>
+          <p>{GYMS.coaches}</p>
+          <p>{GYMS.coachesClose}</p>
+        </Prose>
+        <Reveal className="mt-8 flex flex-wrap gap-4">
+          <Button href={contactHref("club-licence", "gyms-network")} variant="secondary">
             {GYMS.networkCta}
-          </Link>
-          <Link className="ol-btn ol-btn--secondary" href="/praxis">
+          </Button>
+          <Button href="/praxis" variant="secondary">
             {GYMS.praxisCta}
-          </Link>
-        </p>
+          </Button>
+        </Reveal>
       </Section>
 
-      <Section>
-        <ProofStrip items={GYMS.proof} />
-      </Section>
+      <ProofStrip items={GYMS.proof} />
 
-      <Section>
-        <Eyebrow>{GYMS.firstClubEyebrow}</Eyebrow>
-        <Title>{GYMS.firstClubTitle}</Title>
-        <Lead>{GYMS.firstClub}</Lead>
+      <Section theme="light" eyebrow={GYMS.firstClubEyebrow} title={GYMS.firstClubTitle}>
+        <Prose>
+          <p className="text-lg">{GYMS.firstClub}</p>
+        </Prose>
       </Section>
 
       <CtaBand
         title={GYMS.closeTitle}
         href={contactHref("club-licence", "gyms-close")}
         label={GYMS.primaryCta}
-        secondaryHref="/praxis"
-        secondaryLabel={GYMS.closeSecondary}
+        secondary={{ href: "/praxis", label: GYMS.closeSecondary }}
       />
     </>
   );

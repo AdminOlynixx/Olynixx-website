@@ -9,8 +9,11 @@ export function proxy(request: NextRequest) {
   const auth = request.headers.get("authorization");
   if (auth) {
     const [, encoded] = auth.split(" ");
-    const [givenUser, givenPassword] = Buffer.from(encoded || "", "base64").toString().split(":");
-    if (givenUser === user && givenPassword === password) {
+    const decoded = atob(encoded || "");
+    const idx = decoded.indexOf(":");
+    const givenUser = decoded.slice(0, idx);
+    const givenPassword = decoded.slice(idx + 1);
+    if (idx >= 0 && givenUser === user && givenPassword === password) {
       return NextResponse.next();
     }
   }

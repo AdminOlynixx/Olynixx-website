@@ -1,90 +1,72 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { Hero, Section, Eyebrow, Title, Lead } from "@/components/site/Section";
-import { CtaBand } from "@/components/site/CtaBand";
+import { PageHero } from "@/components/sections/PageHero";
+import { Section } from "@/components/sections/Section";
+import { CardGrid } from "@/components/sections/CardGrid";
+import { CtaBand } from "@/components/sections/CtaBand";
+import { AboutTimeline } from "@/components/sections/AboutTimeline";
+import { BookCover } from "@/components/sections/BookCover";
+import { IsoShort } from "@/components/sections/IsoBlock";
+import { JsonLd } from "@/components/sections/JsonLd";
+import { Reveal } from "@/components/motion/Reveal";
+import { Button } from "@/components/ui/Button";
 import { ABOUT } from "@/content/about";
 import { contactHref } from "@/lib/cta";
-import { IsoShort } from "@/components/site/IsoBlock";
-import { JsonLd } from "@/components/site/JsonLd";
-import { bookJsonLd } from "@/lib/json-ld";
+import { bookJsonLd, breadcrumbJsonLd } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
   title: { absolute: "Twenty-two years of readiness testing | Olynixx" },
   description: ABOUT.heroLead,
 };
 
+const crumbs = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+];
+
 export default function AboutPage() {
   return (
     <>
-      <JsonLd data={bookJsonLd()} />
-      <Hero compact>
-        <Eyebrow>About</Eyebrow>
-        <h1 className="ol-hero-title">{ABOUT.heroTitle}</h1>
-        <p className="ol-lead">{ABOUT.heroLead}</p>
-      </Hero>
+      <JsonLd data={[bookJsonLd(), breadcrumbJsonLd(crumbs)]} />
+      <PageHero eyebrow="About" title={ABOUT.heroTitle} lead={ABOUT.heroLead} breadcrumb={crumbs} />
 
-      <Section>
-        <Eyebrow>Field record</Eyebrow>
-        <Title>{ABOUT.timelineTitle}</Title>
-        <div className="ol-timeline">
-          {ABOUT.timeline.map((entry) => (
-            <article key={entry.era} className="ol-timeline__item">
-              <p className="ol-timeline__era">{entry.era}</p>
-              <p>{entry.body}</p>
-            </article>
+      <Section theme="light" eyebrow="Field record" title={ABOUT.timelineTitle}>
+        <AboutTimeline entries={ABOUT.timeline} />
+      </Section>
+
+      <Section theme="dark" narrow eyebrow="One functional status" title={ABOUT.methodTitle}>
+        <Reveal stagger={0.1} className="space-y-5 text-cream/85">
+          {ABOUT.methodBody.map((para) => (
+            <p key={para.slice(0, 24)}>{para}</p>
           ))}
-        </div>
+        </Reveal>
       </Section>
 
-      <Section surface="dark" narrow>
-        <Eyebrow>One functional status</Eyebrow>
-        <Title>{ABOUT.methodTitle}</Title>
-        {ABOUT.methodBody.map((para) => (
-          <Lead key={para.slice(0, 24)}>{para}</Lead>
-        ))}
+      <Section theme="light" eyebrow="Three commitments" title={ABOUT.standTitle}>
+        <CardGrid items={ABOUT.stand} numbered cols={3} />
       </Section>
 
-      <Section>
-        <Eyebrow>Three commitments</Eyebrow>
-        <Title>{ABOUT.standTitle}</Title>
-        <div className="ol-about-stand">
-          {ABOUT.stand.map((item, index) => (
-            <article key={item.title} className="ol-about-stand__item">
-              <p className="ol-eyebrow">{String(index + 1).padStart(2, "0")}</p>
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
-            </article>
-          ))}
-        </div>
-      </Section>
-
-      <Section id="book">
-        <div className="ol-about-book">
-          <div>
-            <Eyebrow>In print</Eyebrow>
-            <Title>{ABOUT.bookTitle}</Title>
-            <Lead>{ABOUT.bookBody}</Lead>
-            <p className="ol-actions">
-              <Link className="ol-btn ol-btn--secondary" href={contactHref("chapter-download", "about-book")}>
+      <Section theme="dark" id="book">
+        <div className="grid items-center gap-12 md:grid-cols-[1.4fr_1fr]">
+          <Reveal stagger={0.1} className="space-y-5">
+            <p className="eyebrow">In print</p>
+            <h2 className="text-[clamp(1.8125rem,3.4vw,2.5rem)] leading-[1.1]">{ABOUT.bookTitle}</h2>
+            <p className="max-w-[60ch] text-cream/85">{ABOUT.bookBody}</p>
+            <div className="pt-3">
+              <Button href={contactHref("chapter-download", "about-book")} variant="secondary">
                 Request chapter one
-              </Link>
-            </p>
-          </div>
-          <aside className="ol-about-cover" aria-label={`${ABOUT.bookName}, ${ABOUT.bookYear}`}>
-            <p className="ol-eyebrow">{ABOUT.bookYear}</p>
-            <p className="ol-about-cover__title">{ABOUT.bookName}</p>
-          </aside>
+              </Button>
+            </div>
+          </Reveal>
+          <BookCover name={ABOUT.bookName} year={ABOUT.bookYear} />
         </div>
       </Section>
 
-      <Section surface="dark" narrow>
-        <Eyebrow>The team</Eyebrow>
-        <Title>{ABOUT.behindTitle}</Title>
-        <Lead>{ABOUT.behindBody}</Lead>
-        {/* Founder line is a removable fragment. Do not add personal names until Louis supplies written clearance. */}
+      <Section theme="light" narrow eyebrow="The team" title={ABOUT.behindTitle}>
+        <p className="text-ink-muted">{ABOUT.behindBody}</p>
+        {/* Founder line is a removable fragment. Do not add personal names until written clearance. */}
       </Section>
 
-      <Section narrow>
+      <Section theme="light" narrow className="!pt-0">
         <IsoShort />
       </Section>
 
