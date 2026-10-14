@@ -87,7 +87,7 @@ export function PinnedCycle({
               <div
                 key={s.title}
                 data-big
-                className="absolute inset-0 flex items-center justify-end font-display text-[clamp(5rem,13vw,11rem)] italic leading-none text-gold-dark/90"
+                className="absolute inset-0 flex items-center justify-end whitespace-nowrap pl-16 font-display text-[clamp(4rem,9.5vw,9rem)] italic leading-none text-gold-dark/90"
               >
                 {s.title}
                 <span className="sr-only">{i + 1}</span>

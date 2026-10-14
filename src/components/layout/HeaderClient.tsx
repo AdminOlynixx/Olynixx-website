@@ -183,18 +183,18 @@ export function HeaderClient({ items, ctaHref, contact, socials }: Props) {
         aria-label="Site menu"
         aria-hidden={!open}
         data-lenis-prevent
-        className="surface-dark invisible fixed inset-0 z-[49] overflow-y-auto pt-[72px]"
+        className="surface-dark invisible fixed inset-0 z-[49] overflow-y-auto pt-[72px] lg:overflow-y-hidden"
         style={{ clipPath: "circle(0px at 100% 0)" }}
       >
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_20%,rgba(79,192,166,0.14),transparent_55%)]" />
-        <div className="container-ol relative grid min-h-[calc(100svh-72px)] gap-12 py-10 lg:grid-cols-[1.5fr_1fr] lg:py-14">
+        <div className="container-ol relative grid min-h-[calc(100svh-72px)] gap-12 py-10 lg:h-[calc(100svh-72px)] lg:grid-cols-[1.5fr_1fr] lg:gap-8 lg:py-[3vh]">
           <nav aria-label="Site" className="self-center">
             <ul onMouseLeave={() => setHover(null)}>
               {items.map((item, i) => (
                 <li
                   key={item.label}
                   onMouseEnter={() => setHover(i)}
-                  className={`border-b border-cream/10 py-3 transition-opacity duration-300 sm:py-4 ${
+                  className={`border-b border-cream/10 py-3 transition-opacity duration-300 sm:py-4 lg:py-[1.3vh] ${
                     hover !== null && hover !== i ? "opacity-35" : "opacity-100"
                   }`}
                 >
@@ -205,7 +205,7 @@ export function HeaderClient({ items, ctaHref, contact, socials }: Props) {
                         data-line
                         href={item.href}
                         tabIndex={open ? 0 : -1}
-                        className="group/link inline-flex items-center gap-3 font-display text-[clamp(2.1rem,6vw,4.5rem)] leading-[1.05] tracking-[-0.02em] transition-colors duration-300 hover:text-gold-dark"
+                        className="group/link inline-flex items-center gap-3 font-display text-[clamp(2.1rem,6vw,4.5rem)] lg:text-[clamp(1.75rem,min(5vw,7.2vh),4.5rem)] leading-[1.05] tracking-[-0.02em] transition-colors duration-300 hover:text-gold-dark"
                       >
                         {item.label}
                         <ArrowUpRight className="h-[0.5em] w-[0.5em] -translate-x-2 opacity-0 transition-all duration-300 group-hover/link:translate-x-0 group-hover/link:opacity-100" />
@@ -232,7 +232,7 @@ export function HeaderClient({ items, ctaHref, contact, socials }: Props) {
             </ul>
           </nav>
 
-          <aside className="flex flex-col justify-end gap-10 self-end pb-2">
+          <aside className="flex flex-col justify-end gap-10 self-end pb-2 lg:gap-[3.5vh]">
             <div data-side>
               <p className="eyebrow">Start here</p>
               <Link
