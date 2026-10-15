@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/seo";
 import { PageHero } from "@/components/sections/PageHero";
 import { Section } from "@/components/sections/Section";
 import { IsoBlock } from "@/components/sections/IsoBlock";
@@ -9,10 +10,10 @@ import { GOVERNANCE } from "@/content/legal";
 import { ISO_LONG } from "@/lib/legal-copy";
 import { breadcrumbJsonLd } from "@/lib/json-ld";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: "Governance | Olynixx" },
   description: GOVERNANCE.lead,
-};
+}, "/governance");
 
 const crumbs = [
   { href: "/", label: "Home" },
@@ -23,7 +24,7 @@ export default function GovernancePage() {
   return (
     <>
       <JsonLd data={breadcrumbJsonLd(crumbs)} />
-      <PageHero eyebrow="Governance" title={GOVERNANCE.title} lead={GOVERNANCE.lead} breadcrumb={crumbs} />
+      <PageHero title={GOVERNANCE.title} lead={GOVERNANCE.lead} breadcrumb={crumbs} />
 
       <Section theme="light" narrow>
         <Reveal stagger={0.1} className="space-y-6">

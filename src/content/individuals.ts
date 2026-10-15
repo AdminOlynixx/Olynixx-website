@@ -14,7 +14,7 @@ export const HUB = {
     "22 years in the field, since 2004",
     "~8,000 individual assessments",
     "Non-medical. We do not treat patients",
-    "WADA-compliant protocols",
+    "Nothing on the WADA Prohibited List",
     "Testing in Dubai and Ajman",
   ],
   argumentEyebrow: "Why this is different",
@@ -35,7 +35,7 @@ export const HUB = {
     {
       title: "The Sport Athlete",
       href: "/individuals/sport-athlete",
-      body: "You already train hard. The question is whether your body is absorbing it. Readiness before the session, performance diagnostics behind the programme, and every protocol WADA-compliant.",
+      body: "You already train hard. The question is whether your body is absorbing it. Readiness before the session, performance diagnostics behind the programme, and nothing we use is on the WADA Prohibited List.",
       cta: "See the sport athlete route",
     },
     {
@@ -77,7 +77,7 @@ export const HUB = {
     },
     {
       title: "Level II. Daily Readiness",
-      body: "This is where measurement moves into your morning. The Olynixx Sensor. A three-minute daily measurement of brain, heart and recovery state. Starts every day with one number: what your body can adapt to today. Built for people with higher goals, professional or leisure, where readiness is a decisive piece of the puzzle.",
+      body: "Around 24 weeks. This is where measurement moves into your morning: a three-minute daily reading of brain, heart and recovery state with the Olynixx Sensor, and the full team behind it: health coach, mental coach, nutritionist and trainer. Built for people with higher goals, professional or leisure, where readiness is a decisive piece of the puzzle. Opens with the sensor launch.",
       price: "",
     },
     {
@@ -149,18 +149,18 @@ export const CORPORATE_ATHLETE = {
 export const SPORT_ATHLETE = {
   metaTitle: "Readiness and performance testing for athletes, UAE. Olynixx",
   metaDescription:
-    "Training only counts if your body absorbs it. Readiness before the session, performance diagnostics behind the programme, WADA-compliant throughout. Free intake call.",
+    "Training only counts if your body absorbs it. Readiness before the session, performance diagnostics behind the programme, nothing on the WADA Prohibited List. Free intake call.",
   eyebrow: "The Sport Athlete",
   heroTitle: "Training you do not absorb is training you did not do.",
   standfirst:
-    "You already train hard. The open question is whether your body is converting the work into adaptation, or spending it on recovery it never finishes. We measure that before the session, not after the season. And every protocol is WADA-compliant.",
+    "You already train hard. The open question is whether your body is converting the work into adaptation, or spending it on recovery it never finishes. We measure that before the session, not after the season. And nothing we use is on the WADA Prohibited List.",
   primaryCta: "Book your free intake call",
   secondaryCta: "See the performance lab",
   trust: [
     "22 years in the field",
     "World champions in three sports",
     "~8,000 individual assessments",
-    "WADA-compliant protocols",
+    "Nothing on the WADA Prohibited List",
     "Non-medical",
   ],
   gapEyebrow: "The gap in your programme",
@@ -191,12 +191,12 @@ export const SPORT_ATHLETE = {
   ],
   wadaEyebrow: "Clean by construction",
   wadaTitle: "Nothing here puts your licence at risk",
-  wada: "Everything we do is measurement, training and recovery. Every protocol we run is WADA-compliant, and we do not supply, recommend or advise on any substance. If you compete under an anti-doping code, that is not a reassurance we add at the end. It is a constraint the whole method was built inside.",
+  wada: "Everything we do is measurement, training and recovery. No method we use appears on the WADA Prohibited List, and we do not supply, recommend or advise on any substance. We recheck the list every January, when it is updated. If you compete under an anti-doping code, that is not a reassurance we add at the end. It is a constraint the whole method was built inside.",
   runEyebrow: "How it runs",
   runTitle: "Around your season, not around ours",
   run: [
     "Level I suits an athlete in a stable block: testing monthly or bi-monthly, coaching between tests, load adjusted to what the last test showed.",
-    "Level II is the competitive default. Daily readiness across three layers, a 24-week horizon, and the full team: health coach, mental coach, nutritionist, trainer.",
+    "Level II is the competitive default: around 24 weeks, a three-minute daily reading with the Olynixx Sensor, and the full team: health coach, mental coach, nutritionist, trainer. Opens with the sensor launch.",
     "Level III is the full year, everything integrated, for an athlete building toward something specific.",
   ],
   runNote:

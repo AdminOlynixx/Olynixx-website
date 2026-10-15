@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { contactHref } from "@/lib/cta";
 import { publishBest, publishDc, publishSean } from "@/lib/site-config";
@@ -7,10 +8,10 @@ import { Section, Prose } from "@/components/sections/Section";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { ReadinessGauge } from "@/components/sections/ReadinessDiagram";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: "Sean Garnier × Olynixx | Readiness Ambassador" },
   description: "Sean Garnier, world freestyle football champion, is the Olynixx Readiness Ambassador.",
-};
+}, "/sean");
 
 export default function SeanPage() {
   if (!publishSean()) notFound();

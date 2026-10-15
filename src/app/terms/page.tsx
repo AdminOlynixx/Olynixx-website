@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/seo";
 import { LegalDoc } from "@/components/sections/LegalDoc";
 import { JsonLd } from "@/components/sections/JsonLd";
 import { TERMS } from "@/content/legal";
 import { breadcrumbJsonLd } from "@/lib/json-ld";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: "Terms of use | Olynixx" },
   description: TERMS.lead,
-};
+}, "/terms");
 
 const crumbs = [
   { href: "/", label: "Home" },

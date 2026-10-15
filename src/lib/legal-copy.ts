@@ -18,7 +18,7 @@ export const ISO_LONG = {
   ],
   status: "Status: certification in progress. Not yet certified. We will say so on this page until the certificates are issued.",
   close:
-    "Alongside it we are completing registration under the Abu Dhabi Public Health Centre's occupational-health practitioner framework. Individual results belong to the individual, leadership reporting is anonymised by architecture, data is hosted in the UAE, and every change is governed and logged.",
+    "Alongside it we are completing registration under the Abu Dhabi Public Health Centre's occupational-health practitioner framework. Individual results belong to the individual, leadership reporting is anonymised by architecture, and data is hosted in the UAE.",
 } as const;
 
 export const ISO_SHORT =

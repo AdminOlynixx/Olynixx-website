@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/seo";
+import Link from "next/link";
 import { PageHero } from "@/components/sections/PageHero";
 import { Section, Prose } from "@/components/sections/Section";
 import { TextCards } from "@/components/sections/TextCards";
@@ -7,18 +9,17 @@ import { SectionSubNav } from "@/components/sections/SectionSubNav";
 import { PageJsonLd } from "@/components/sections/PageJsonLd";
 import { ScrollTimeline } from "@/components/sections/ScrollTimeline";
 import { TimelineItem } from "@/components/sections/TimelineItem";
-import { TiltCard } from "@/components/sections/TiltCard";
 import { Reveal } from "@/components/motion/Reveal";
-import { CORPORATES, GOVERNMENT } from "@/content/corporates";
+import { GOVERNMENT } from "@/content/corporates";
 import { CORP_SUBNAV } from "@/lib/nav";
 import { contactHref } from "@/lib/cta";
 import { breadcrumbJsonLd } from "@/lib/json-ld";
-import { entityIdentity, publishBest } from "@/lib/site-config";
+import { entityIdentity } from "@/lib/site-config";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: "Government workforce readiness testing | Olynixx" },
   description: GOVERNMENT.heroLead,
-};
+}, "/corporates/government");
 
 const crumbs = [
   { href: "/", label: "Home" },
@@ -51,21 +52,12 @@ export default function GovernmentPage() {
             </TimelineItem>
           ))}
         </ScrollTimeline>
-        <div className="mt-14 grid gap-5 lg:grid-cols-2">
-          {GOVERNMENT.layers.map((layer, i) => (
-            <TiltCard
-              key={layer.title}
-              className={`border p-7 ${
-                i === 0 ? "border-gold-dark bg-cream/[0.06] lg:col-span-2" : "border-cream/15 bg-cream/[0.04]"
-              }`}
-            >
-              <h3 className="font-display text-2xl leading-tight">{layer.title}</h3>
-              <p className="mt-3 max-w-[75ch] text-[15px] text-cream/75">
-                {i === 2 && publishBest() ? CORPORATES.tier3Best : layer.body}
-              </p>
-            </TiltCard>
-          ))}
-        </div>
+        <Reveal className="mt-14 max-w-[68ch] space-y-4">
+          <p className="text-cream/85">{GOVERNMENT.tiersSummary}</p>
+          <Link href="/corporates#system" className="inline-block underline decoration-gold underline-offset-4 hover:text-gold-dark">
+            {GOVERNMENT.tiersLink}
+          </Link>
+        </Reveal>
         <Reveal className="mt-12">
           <p className="font-display text-[clamp(1.5rem,3vw,2.25rem)] italic text-gold-dark">{GOVERNMENT.close}</p>
         </Reveal>

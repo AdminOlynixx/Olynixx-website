@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/seo";
 import { PRAXIS } from "@/content/praxis";
 import { contactHref } from "@/lib/cta";
 import { courseJsonLd, breadcrumbJsonLd } from "@/lib/json-ld";
@@ -11,14 +12,14 @@ import { ProofStrip } from "@/components/sections/ProofStrip";
 import { PraxisCourseFacts } from "@/components/sections/PraxisCourseFacts";
 import { ScrubSteps } from "@/components/sections/ScrubSteps";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: "Olynixx Praxis" },
   description: PRAXIS.heroLead,
-};
+}, "/praxis");
 
 const CRUMBS = [
   { href: "/", label: "Home" },
-  { href: "/praxis", label: "Certification" },
+  { href: "/praxis", label: "Praxis" },
 ];
 
 export default function PraxisPage() {

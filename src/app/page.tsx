@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/seo";
 import Image from "next/image";
 import { HOME } from "@/content/home";
 import { contactHref } from "@/lib/cta";
@@ -11,12 +12,13 @@ import { ProofStrip } from "@/components/sections/ProofStrip";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { PinnedCycle } from "@/components/sections/PinnedCycle";
 import { Marquee } from "@/components/sections/Marquee";
+import { CycleResults } from "@/components/sections/CycleResults";
 import { CORPORATES } from "@/content/corporates";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: "Workforce readiness testing in the UAE | Olynixx" },
   description: HOME.standfirst,
-};
+}, "/");
 
 export default function Home() {
   // Certification card stays visible on the home page even while Praxis is hidden from nav (matches old site).
@@ -114,11 +116,12 @@ export default function Home() {
 
       {/* First cycle */}
       <section data-theme="light" className="py-24">
-        <Reveal stagger={0.1} className="container-ol max-w-[780px]">
-          <p className="eyebrow">{HOME.proofEyebrow}</p>
-          <h2 className="mt-3 text-[clamp(1.8125rem,3.4vw,2.5rem)]">{HOME.proofTitle}</h2>
-          <p className="mt-5 text-ink-muted">{HOME.proofBody}</p>
-        </Reveal>
+        <div className="container-ol">
+          <Reveal stagger={0.1} className="mb-10">
+            <p className="eyebrow">{HOME.proofEyebrow}</p>
+          </Reveal>
+          <CycleResults />
+        </div>
       </section>
 
       {publishSean() && (

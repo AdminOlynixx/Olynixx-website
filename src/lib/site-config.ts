@@ -5,11 +5,18 @@ function envOr(key: string, fallback = ""): string {
 }
 
 export function siteUrl(): string {
-  return process.env.SITE_URL?.replace(/\/$/, "") || "http://localhost:3000";
+  const fallback = process.env.VERCEL_ENV === "production" ? "https://www.olynixx.com" : "http://localhost:3000";
+  return process.env.SITE_URL?.replace(/\/$/, "") || fallback;
 }
 
+/**
+ * Only the production deployment is indexed. Staging, previews and local stay blocked.
+ * NOINDEX=false forces indexing (hosts that are not Vercel), NOINDEX=true forces blocking.
+ */
 export function noIndexPublicSite(): boolean {
-  return process.env.NOINDEX !== "false";
+  if (process.env.NOINDEX === "true") return true;
+  if (process.env.NOINDEX === "false") return false;
+  return process.env.VERCEL_ENV !== "production";
 }
 
 /** HOLD until Louis confirms the partnership in writing. Default: unpublished. */
@@ -46,9 +53,9 @@ export function publishPemf(): boolean {
   return process.env.PUBLISH_PEMF === "true";
 }
 
-/** Praxis in header and footer. Stay false until CPD recognition is signed. */
+/** Praxis in header, footer and sitemap. Live. PUBLISH_PRAXIS=false hides it again. */
 export function publishPraxis(): boolean {
-  return process.env.PUBLISH_PRAXIS === "true";
+  return process.env.PUBLISH_PRAXIS !== "false";
 }
 
 /** SW-SEAN. Ambassador band and /sean. */

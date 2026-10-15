@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/seo";
 import { SPORT_ATHLETE as COPY } from "@/content/individuals";
 import { contactHref } from "@/lib/cta";
 import { breadcrumbJsonLd } from "@/lib/json-ld";
@@ -10,10 +11,10 @@ import { IndividualRouteSwitcher } from "@/components/sections/IndividualRouteSw
 import { ReadinessTrace } from "@/components/sections/ReadinessTrace";
 import { ScrubSteps } from "@/components/sections/ScrubSteps";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: COPY.metaTitle },
   description: COPY.metaDescription,
-};
+}, "/individuals/sport-athlete");
 
 const CRUMBS = [
   { href: "/", label: "Home" },

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/seo";
 import { Suspense } from "react";
 import { PageHero } from "@/components/sections/PageHero";
 import { Section } from "@/components/sections/Section";
@@ -9,10 +10,10 @@ import { CONTACT } from "@/content/contact";
 import { breadcrumbJsonLd } from "@/lib/json-ld";
 import { publicContact, telHref, whatsappHref } from "@/lib/site-config";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: "Contact | Olynixx" },
   description: CONTACT.lead,
-};
+}, "/contact");
 
 const crumbs = [
   { href: "/", label: "Home" },

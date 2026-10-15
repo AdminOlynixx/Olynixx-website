@@ -9,7 +9,7 @@ export const PRIMARY_NAV = [
       { href: "/corporates/government", label: "Government & public sector" },
     ],
   },
-  { href: "/gyms", label: "Gyms & Spas" },
+  { href: "/gyms", label: "Gyms, clubs & spas" },
   {
     href: "/individuals",
     label: "Individuals",
@@ -20,7 +20,7 @@ export const PRIMARY_NAV = [
       { href: "/individuals/longevity", label: "Longevity" },
     ],
   },
-  { href: "/praxis", label: "Certification" },
+  { href: "/praxis", label: "Praxis" },
   { href: "/technology", label: "Technology" },
   { href: "/about", label: "About" },
 ] as const;
@@ -37,7 +37,7 @@ export const FOOTER_NAV = {
     { href: "/corporates", label: "Corporates" },
     { href: "/gyms", label: "Gyms, clubs & spas" },
     { href: "/individuals", label: "Individuals" },
-    { href: "/praxis", label: "Certification" },
+    { href: "/praxis", label: "Praxis" },
     { href: "/technology", label: "Technology" },
   ],
   individuals: [

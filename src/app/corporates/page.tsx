@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/seo";
+import Image from "next/image";
 import { PageHero } from "@/components/sections/PageHero";
 import { Section, Prose } from "@/components/sections/Section";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { CardGrid } from "@/components/sections/CardGrid";
 import { ProofStrip } from "@/components/sections/ProofStrip";
+import { CycleResults } from "@/components/sections/CycleResults";
 import { SectionSubNav } from "@/components/sections/SectionSubNav";
 import { IsoShortLine } from "@/components/sections/IsoShortLine";
 import { PageJsonLd } from "@/components/sections/PageJsonLd";
@@ -16,14 +19,15 @@ import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { CORPORATES } from "@/content/corporates";
 import { CORP_SUBNAV } from "@/lib/nav";
+import { FOUNDER_PHOTOS } from "@/content/photos";
 import { contactHref } from "@/lib/cta";
 import { breadcrumbJsonLd, serviceJsonLd } from "@/lib/json-ld";
 import { publishBest, publishPureHealth } from "@/lib/site-config";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: CORPORATES.metaTitle },
   description: CORPORATES.metaDescription,
-};
+}, "/corporates");
 
 const crumbs = [
   { href: "/", label: "Home" },
@@ -88,15 +92,22 @@ export default function CorporatesPage() {
         </div>
       </Section>
 
-      <Section theme="dark" eyebrow={CORPORATES.tiersEyebrow} title={CORPORATES.tiersTitle}>
+      <Section theme="dark" id="system" eyebrow={CORPORATES.tiersEyebrow} title={CORPORATES.tiersTitle}>
         <div className="grid gap-5 lg:grid-cols-2">
           <TiltCard className="border border-gold-dark bg-cream/[0.06] p-7 lg:col-span-2">
             <p className="eyebrow mb-4">01</p>
             <h3 className="font-display text-2xl leading-tight">{CORPORATES.tiers[0].title}</h3>
-            <p className="mt-3 max-w-[75ch] text-[15px] text-cream/75">{tiers[0]}</p>
-            <div className="mt-8 grid gap-6 md:grid-cols-2">
-              <PersonalDashMock caption={CORPORATES.personalSlot} />
-              <LeadershipDashMock caption={CORPORATES.boardroomSlot} />
+            <div className="mt-3 grid items-start gap-8 md:grid-cols-[1fr_280px]">
+              <p className="max-w-[75ch] text-[15px] text-cream/75">{tiers[0]}</p>
+              <Image
+                src={FOUNDER_PHOTOS.msfit.src}
+                alt={FOUNDER_PHOTOS.msfit.alt}
+                width={FOUNDER_PHOTOS.msfit.width}
+                height={FOUNDER_PHOTOS.msfit.height}
+                sizes="(min-width: 768px) 280px, 100vw"
+                loading="lazy"
+                className="h-auto w-full max-w-[280px]"
+              />
             </div>
           </TiltCard>
           {CORPORATES.tiers.slice(1).map((t, i) => (
@@ -111,10 +122,8 @@ export default function CorporatesPage() {
 
       <ProofStrip items={CORPORATES.proof} />
 
-      <Section theme="light" narrow eyebrow={CORPORATES.resultsTitle}>
-        <Prose>
-          <p className="text-lg">{CORPORATES.resultsBody}</p>
-        </Prose>
+      <Section theme="light" id="cycle-1" eyebrow={CORPORATES.resultsTitle}>
+        <CycleResults />
       </Section>
 
       <Section theme="dark" eyebrow={CORPORATES.dashEyebrow} title={CORPORATES.dashTitle}>

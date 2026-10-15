@@ -31,15 +31,15 @@ export const TECHNOLOGY = {
   principleEyebrow: "The principle",
   principleTitle: "Systems, not boxes.",
   principle:
-    "Olynixx is the regional agent for the systems on this page. And still, nobody here will sell you a box. Every system we sell or rent arrives inside a measured protocol: readiness tested before, adaptability verified after, people trained to read the numbers. A box changes nothing. A system, measured, does. That is the difference between a device catalogue and this page.",
+    "Olynixx is the UAE agent for Oxyterra, and operates every other system on this page inside its own programmes. Whatever the system, nobody here will sell you a box. Every system we sell or rent arrives inside a measured protocol: readiness tested before, adaptability verified after, people trained to read the numbers. A box changes nothing. A system, measured, does. That is the difference between a device catalogue and this page.",
   systemsCta: "Ask about systems",
   ownTitle: "Own the system.",
   ownBody:
-    "The testing, training and recovery systems on this page are available through Olynixx. For clubs, companies and private homes. Always with installation, training and a measurement protocol around them. Tell us the floor it is for, and we bring the numbers that prove it earns its place.",
+    "Oxyterra altitude systems are available through Olynixx for clubs, companies and private homes. Further systems join this page as their agreements are signed. Always with installation, training and a measurement protocol around them. Tell us the floor it is for, and we bring the numbers that prove it earns its place.",
   sensorName: "The Olynixx Sensor: daily readiness",
-  sensorStatus: "in deployment",
+  sensorStatus: "Launching",
   sensorBody:
-    "A three-minute morning measurement of the two command systems of performance: brain and heart. The sensor reads the central nervous system directly, DC potential, the deep electrical baseline of readiness, alongside heart-rate variability. Not steps, not sleep scores: the state of the systems that decide what today's training, work and recovery should be. First cohorts run from the end of September, inside Olynixx programmes.",
+    "A three-minute morning measurement of the two command systems of performance: brain and heart. The sensor reads the central nervous system directly, DC potential, the deep electrical baseline of readiness, alongside heart-rate variability. Not steps, not sleep scores: the state of the systems that decide what today's training, work and recovery should be. Launching inside Olynixx programmes. Ask about the first cohort.",
   firstGulfTitle: "First in the Gulf.",
   firstGulfBody:
     "Direct measurement of the nervous system, DC potential, has guided Olympic sport and special forces preparation for decades. It has never been offered in the Gulf. Olynixx brings it here first, as exclusive agent for the region, not to sell boxes, but to put deeper numbers under every programme and system we deliver.",
@@ -107,7 +107,7 @@ export const TECHNOLOGY = {
   ] satisfies readonly Device[],
   dataEyebrow: "Data",
   dataTitle: "Hosted in the UAE, separated by design",
-  data: "Test data is processed and hosted in the UAE. Individual results belong to the individual; corporate reporting is anonymised at the point of aggregation, not by a promise afterwards. Access is governed, logged and reviewed, and the environment sits inside our ISO 27001 certification track.",
+  data: "Test data is processed and hosted in the UAE. Individual results belong to the individual; corporate reporting is anonymised at the point of aggregation, not by a promise afterwards. The environment sits inside our ISO 27001 certification track, which is where its access controls are audited.",
   dashEyebrow: "Dashboards",
   dashTitle: "Two views, strictly separated",
   dash: [

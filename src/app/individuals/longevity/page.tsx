@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { LONGEVITY as COPY, HUB } from "@/content/individuals";
 import { contactHref } from "@/lib/cta";
@@ -14,10 +15,10 @@ import { IndividualRouteSwitcher } from "@/components/sections/IndividualRouteSw
 import { LayerStack } from "@/components/sections/LayerStack";
 import { LevelLadder } from "@/components/sections/LevelLadder";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: COPY.metaTitle },
   description: COPY.metaDescription,
-};
+}, "/individuals/longevity");
 
 const CRUMBS = [
   { href: "/", label: "Home" },

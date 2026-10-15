@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/seo";
 import { HUB } from "@/content/individuals";
 import { contactHref } from "@/lib/cta";
 import { phaseShop, publishLongevity } from "@/lib/site-config";
@@ -13,10 +14,10 @@ import { RouteCards } from "@/components/sections/RouteCards";
 import { ScrubSteps } from "@/components/sections/ScrubSteps";
 import { LevelLadder } from "@/components/sections/LevelLadder";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: HUB.metaTitle },
   description: HUB.metaDescription,
-};
+}, "/individuals");
 
 export default function IndividualsHub() {
   const longevityLive = publishLongevity();

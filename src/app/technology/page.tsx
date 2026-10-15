@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/seo";
 import { PageHero } from "@/components/sections/PageHero";
 import { Section } from "@/components/sections/Section";
 import { Reveal } from "@/components/motion/Reveal";
@@ -13,11 +14,12 @@ import { NON_MEDICAL_STATEMENT } from "@/lib/legal-copy";
 import { contactHref } from "@/lib/cta";
 import { breadcrumbJsonLd } from "@/lib/json-ld";
 import { publishBest, publishDc } from "@/lib/site-config";
+import { FOUNDER_PHOTOS } from "@/content/photos";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: TECHNOLOGY.metaTitle },
   description: TECHNOLOGY.metaDescription,
-};
+}, "/technology");
 
 export default function TechnologyPage() {
   const msFit = TECHNOLOGY.devices[0];
@@ -58,7 +60,7 @@ export default function TechnologyPage() {
 
       <Section theme="dark">
         <Reveal stagger={0.12} className="grid gap-5 md:grid-cols-2">
-          <DeviceCard theme="dark" status={msFit.status} name={msFit.name} role={msFit.role} bullets={msFit.bullets} where={msFit.where} />
+          <DeviceCard theme="dark" status={msFit.status} name={msFit.name} role={msFit.role} bullets={msFit.bullets} where={msFit.where} image={FOUNDER_PHOTOS.msfit} />
           <DeviceCard theme="dark" status={TECHNOLOGY.sensorStatus} name={TECHNOLOGY.sensorName} role={TECHNOLOGY.sensorBody} />
         </Reveal>
         {publishDc() ? (
@@ -73,7 +75,7 @@ export default function TechnologyPage() {
       <Section theme="light">
         <Reveal stagger={0.12} className="grid gap-5 md:grid-cols-2">
           <div className="md:col-span-2">
-            <DeviceCard status={oxyterra.status} name={oxyterra.name} role={oxyterra.role} bullets={oxyterra.bullets} where={oxyterra.where} />
+            <DeviceCard status={oxyterra.status} name={oxyterra.name} role={oxyterra.role} bullets={oxyterra.bullets} where={oxyterra.where} image={FOUNDER_PHOTOS.oxyterra} imageSide />
           </div>
           {publishBest() ? (
             <div className="md:col-span-2">

@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { prefersReducedMotion } from "@/lib/gsap";
 
@@ -14,15 +15,18 @@ const GlobeCanvas = dynamic(() => import("./GlobeCanvas"), { ssr: false });
 export function SceneBackdrop() {
   const [mode, setMode] = useState<"off" | "low" | "full">("off");
   const box = useRef<HTMLDivElement>(null);
+  const onContact = usePathname() === "/contact";
 
   useEffect(() => {
     if (prefersReducedMotion()) return;
     const probe = document.createElement("canvas");
     if (!(probe.getContext("webgl2") || probe.getContext("webgl"))) return;
     const small = window.matchMedia("(max-width: 768px)").matches;
-    const id = requestAnimationFrame(() => setMode(small ? "low" : "full"));
+    // Contact page: no globe on phones, it only gets in the way of the form.
+    const next = small ? (onContact ? "off" : "low") : "full";
+    const id = requestAnimationFrame(() => setMode(next));
     return () => cancelAnimationFrame(id);
-  }, []);
+  }, [onContact]);
 
   useEffect(() => {
     if (mode === "off") return;
@@ -32,7 +36,8 @@ export function SceneBackdrop() {
       const el = box.current;
       if (!el) return;
       const f = Math.min(1, window.scrollY / (window.innerHeight * 0.8));
-      el.style.opacity = String(1 - f * (mode === "low" ? 0.7 : 0.45));
+      // On /contact the globe stays in the hero and drops to 15% once the form is in view.
+      el.style.opacity = String(onContact ? 1 - f * 0.85 : 1 - f * (mode === "low" ? 0.7 : 0.45));
     };
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(update);
@@ -43,7 +48,7 @@ export function SceneBackdrop() {
       window.removeEventListener("scroll", onScroll);
       cancelAnimationFrame(raf);
     };
-  }, [mode]);
+  }, [mode, onContact]);
 
   if (mode === "off") return null;
   return (

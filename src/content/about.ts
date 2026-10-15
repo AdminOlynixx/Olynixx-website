@@ -1,4 +1,4 @@
-/** Part 2 teal copy. Speaks as “we”. No personal names. Founder line is a removable fragment. */
+/** About copy. Speaks as “we”. The founder name appears only on the book card and the headshot caption. */
 
 export const ABOUT = {
   heroTitle: "Twenty-two years in the field. One question the whole way.",
@@ -66,11 +66,13 @@ export const ABOUT = {
   bookTitle: "The book",
   bookName: "Rest Is the New Sport",
   bookYear: "2015",
+  bookAuthorLine: "Rest Is the New Sport — Jef Louis Geys",
+  founderCaption: "Jef Louis Geys, founder of Olynixx and author of Rest Is the New Sport.",
   bookBody:
     "Rest Is the New Sport puts the whole argument in your hands: why recovery is the source of performance, not its reward. It anchors every keynote, every programme, and every page of this site.",
   behindTitle: "Behind Olynixx",
   behindBody:
-    "Olynixx is carried by a team: health coaches, mental coaches, nutritionists and trainers, working from the same method and the same numbers. The people who started this lived both sides of the question. Elite sport and its price. The team makes sure the answer scales.",
+    "Olynixx is carried by a team: health coaches, mental coaches, nutritionists and trainers, working from the same method and the same numbers. The method was built by a former elite endurance athlete and sport physiotherapist, through first-division football, world-class athletes and Belgian special forces, and brought to the UAE in 2019. The team makes sure it scales beyond any one person.",
   cta: "The method is in the book. The proof is in the test.",
   ctaButton: "Test your readiness",
 } as const;

@@ -8,6 +8,8 @@ import { Footer } from "@/components/layout/Footer";
 import { SceneBackdrop } from "@/components/three/SceneBackdrop";
 import { PageTransition } from "@/components/motion/PageTransition";
 import { OrgJsonLd } from "@/components/layout/OrgJsonLd";
+import { noIndexPublicSite, siteUrl } from "@/lib/site-config";
+import { OG_IMAGE } from "@/lib/seo";
 
 const newsreader = localFont({
   src: [
@@ -37,10 +39,31 @@ const plexMono = localFont({
   display: "swap",
 });
 
+const DEFAULT_TITLE = "Olynixx | Readiness + Recovery = Perform";
+const DEFAULT_DESCRIPTION =
+  "Olynixx measures what your body can actually deliver today. Then it coaches the decisions that change it. Tested, not guessed. Verified by retest.";
+
 export const metadata: Metadata = {
-  title: "Olynixx | Readiness + Recovery = Perform",
-  description:
-    "Olynixx measures what your body can actually deliver today. Then it coaches the decisions that change it. Tested, not guessed. Verified by retest.",
+  metadataBase: new URL(siteUrl()),
+  title: DEFAULT_TITLE,
+  description: DEFAULT_DESCRIPTION,
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    url: "/",
+    type: "website",
+    siteName: "Olynixx",
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    images: [OG_IMAGE.url],
+  },
+  // Belt and braces: preview and staging deployments also say noindex in the page head.
+  robots: noIndexPublicSite() ? { index: false, follow: false } : { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

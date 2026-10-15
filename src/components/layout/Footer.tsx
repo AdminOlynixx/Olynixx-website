@@ -76,7 +76,11 @@ export function Footer() {
         <div className="container-ol space-y-3 py-8 text-xs text-cream/70">
           <p>{NON_MEDICAL_DISCLAIMER}</p>
           <p>{ISO_SHORT}</p>
-          <p>© {new Date().getFullYear()} Rise Up Lifestyle Coaching L.L.C. All rights reserved.</p>
+          <p className="flex flex-wrap items-center gap-x-5 gap-y-1">
+            <span>© {new Date().getFullYear()} Olynixx. All rights reserved.</span>
+            <Link href="/privacy" className="hover:text-gold-dark">Privacy</Link>
+            <Link href="/terms" className="hover:text-gold-dark">Terms</Link>
+          </p>
         </div>
       </div>
     </footer>

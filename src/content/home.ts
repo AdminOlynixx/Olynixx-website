@@ -55,11 +55,11 @@ export const HOME = {
   ],
   monitoringTitle: "Monitoring is not testing",
   firstClaim:
-    "Everyone in this market sells a piece. A screening, a wellness app, a kiosk, a check-up. Nobody sells the system. Olynixx built it: the UAE's first complete prevention system on the corporate floor. Measure, stratify, intervene, verify, one governed loop.",
+    "This market mostly sells pieces: a screening, a wellness app, a kiosk, a check-up. Olynixx built the whole loop: the UAE's first complete prevention system on the corporate floor. Complete means four steps in one governed cycle: measure, stratify, intervene, verify.",
   monitoringBody:
     "Your watch monitors. It counts what happened. Complete physiological testing measures what your body can do next. Capacity, not history. That difference is where prevention lives: we see the problem while it is still a lifestyle decision.",
   monitoringLine:
-    "Your watch counts yesterday. We measure what your body can deliver today. And from this season, we read the nervous system itself: directly, at the source, every morning.",
+    "Your watch counts yesterday. We measure what your body can deliver today. And next, we read the nervous system itself: directly, at the source, every morning.",
   monitoringLineDc:
     "Your watch counts yesterday. Olynixx measures what your body can deliver today, including the first DC-potential readiness measurement in the Gulf: the nervous system, read directly, every morning.",
   offerEyebrow: "Start with an event",
@@ -68,9 +68,6 @@ export const HOME = {
     "Not ready for a twelve-week pilot? Bring the kiosk to your next company event. Test 25 people or more and we build your anonymised Load and Risk dashboards free of charge. Yours to keep.",
   offerCta: "Bring Olynixx to your next event",
   proofEyebrow: "What a first cycle produces",
-  proofTitle: "146 employees. One 12-week cycle.",
-  proofBody:
-    "146 employees tested in a 300-participant programme. Every result banded, reported to the individual within ten minutes, and rolled into an anonymised leadership view. Where readiness sat on day one, and where it sat at the retest.",
   seanEyebrow: "Ambassador",
   seanTitle: "Recover like a world champion. Measured.",
   seanBody:

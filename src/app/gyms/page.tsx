@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/seo";
 import { PageHero } from "@/components/sections/PageHero";
 import { Section, Prose } from "@/components/sections/Section";
 import { CardGrid } from "@/components/sections/CardGrid";
@@ -14,10 +15,10 @@ import { GYMS } from "@/content/gyms";
 import { contactHref } from "@/lib/cta";
 import { publishBest } from "@/lib/site-config";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: GYMS.metaTitle },
   description: GYMS.metaDescription,
-};
+}, "/gyms");
 
 export default function GymsPage() {
   const named = (text: string) =>

@@ -115,10 +115,8 @@ export const CORPORATES = {
   pureHealthTitle: "Rollout at national scale",
   pureHealthBody:
     "Olynixx is partnering with PureHealth, the region's largest healthcare group, to roll out preventive workforce health inside companies across the UAE. Connecting corporate readiness programmes with the wider healthcare ecosystem, from insurance to diagnostics. Prevention runs in your company; care stands ready behind it.",
-  /* HOLD: do not render until written permission + scale explanation are on file. */
+  /* Cycle 1 numbers cleared by Louis for public use. Never name the client. */
   resultsTitle: "What a first cycle produces",
-  resultsBody:
-    "146 employees tested in a 300-participant programme. Every result banded, reported to the individual within ten minutes, and rolled into an anonymised leadership view. Where readiness sat on day one, and where it sat at the retest.",
   closeTitle: "Ready to see your workforce differently?",
   closeStandfirst: "Twelve weeks, KPIs agreed up front, and a straight answer at the end.",
   proof: [
@@ -126,7 +124,24 @@ export const CORPORATES = {
     { value: "12 wks", label: "Test–coach–retest" },
     { value: "300", label: "Participant programme delivered" },
     { value: "UAE", label: "Data hosted" },
+    { value: "1 in 7", label: "Low recovery capacity at baseline" },
   ],
+} as const;
+
+/** Cycle 1 baseline, cleared for public use. Retest results publish when Cycle 2 closes. */
+export const CYCLE1 = {
+  headline: "Cycle 1 baseline. 146 employees, one public-sector workforce.",
+  average: "Average readiness 371 / 500, range 296–425.",
+  bands: [
+    { key: "moderate", label: "Moderate", count: 57 },
+    { key: "good", label: "Good", count: 87 },
+    { key: "excellent", label: "Excellent", count: 2 },
+  ],
+  lowRecovery: {
+    stat: "1 in 7",
+    body: "20 people (1 in 7) with low recovery capacity: visible to themselves within ten minutes, anonymous to leadership.",
+  },
+  retestNote: "Retest results publish here when Cycle 2 closes.",
 } as const;
 
 export const EVENTS = {
@@ -189,20 +204,9 @@ export const GOVERNMENT = {
     { title: "Annual plan", body: "When the numbers earn it." },
     { title: "Full system", body: "Tier 1, 2 and 3." },
   ],
-  layers: [
-    {
-      title: "Tier 1. The floor system. The backbone of prevention, on your work floor.",
-      body: "The MS Fit kiosk stands where your people work. Each employee tests in minutes and gets a personal readiness report. Where they stand today, and the concrete actionables that move it. From the same test moment, leadership's Load & Risk dashboards update: where the workforce is carrying load, where risk is building, where to act first. Fully anonymised, by design. Tier 1 runs continuously. It is the system; everything above it is added when the numbers ask for it.",
-    },
-    {
-      title: "Tier 2. Deeper diagnostics.",
-      body: "Cognitive testing (reaction speed, memory, decision speed) and MuscleLab performance diagnostics, for the teams and roles that need deeper insight.",
-    },
-    {
-      title: "Tier 3. Intervention.",
-      body: "Coaching on the personal decision dashboard, Olynixx recovery systems, and Oxyterra altitude training. Steered by the test results, to actually move the numbers.",
-    },
-  ],
+  tiersSummary:
+    "The full system runs in three tiers: the Tier 1 floor system with anonymised leadership dashboards, Tier 2 deeper diagnostics, and Tier 3 intervention steered by the test results.",
+  tiersLink: "See the full system",
   close: "Twelve weeks to prove it. Twelve months to change it.",
   governanceTitle: "Governance & data",
   governanceBody:

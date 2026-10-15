@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { withSocial } from "@/lib/seo";
+import Image from "next/image";
 import { PageHero } from "@/components/sections/PageHero";
 import { Section } from "@/components/sections/Section";
 import { CardGrid } from "@/components/sections/CardGrid";
@@ -10,13 +12,14 @@ import { JsonLd } from "@/components/sections/JsonLd";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { ABOUT } from "@/content/about";
+import { FOUNDER_PHOTOS } from "@/content/photos";
 import { contactHref } from "@/lib/cta";
 import { bookJsonLd, breadcrumbJsonLd } from "@/lib/json-ld";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: { absolute: "Twenty-two years of readiness testing | Olynixx" },
   description: ABOUT.heroLead,
-};
+}, "/about");
 
 const crumbs = [
   { href: "/", label: "Home" },
@@ -50,6 +53,7 @@ export default function AboutPage() {
           <Reveal stagger={0.1} className="space-y-5">
             <p className="eyebrow">In print</p>
             <h2 className="text-[clamp(1.8125rem,3.4vw,2.5rem)] leading-[1.1]">{ABOUT.bookTitle}</h2>
+            <p className="font-display text-xl italic text-gold-dark">{ABOUT.bookAuthorLine}</p>
             <p className="max-w-[60ch] text-cream/85">{ABOUT.bookBody}</p>
             <div className="pt-3">
               <Button href={contactHref("chapter-download", "about-book")} variant="secondary">
@@ -57,13 +61,26 @@ export default function AboutPage() {
               </Button>
             </div>
           </Reveal>
-          <BookCover name={ABOUT.bookName} year={ABOUT.bookYear} />
+          <div className="space-y-8">
+            <BookCover name={ABOUT.bookName} year={ABOUT.bookYear} />
+            <figure className="mx-auto max-w-[300px]">
+              <Image
+                src={FOUNDER_PHOTOS.headshot.src}
+                alt={FOUNDER_PHOTOS.headshot.alt}
+                width={FOUNDER_PHOTOS.headshot.width}
+                height={FOUNDER_PHOTOS.headshot.height}
+                sizes="300px"
+                loading="lazy"
+                className="aspect-[4/5] w-full object-cover object-[50%_25%]"
+              />
+              <figcaption className="mt-3 text-sm text-cream/75">{ABOUT.founderCaption}</figcaption>
+            </figure>
+          </div>
         </div>
       </Section>
 
       <Section theme="light" narrow eyebrow="The team" title={ABOUT.behindTitle}>
         <p className="text-ink-muted">{ABOUT.behindBody}</p>
-        {/* Founder line is a removable fragment. Do not add personal names until written clearance. */}
       </Section>
 
       <Section theme="light" narrow className="!pt-0">

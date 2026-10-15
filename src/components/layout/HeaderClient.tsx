@@ -66,6 +66,14 @@ export function HeaderClient({ items, ctaHref, contact, socials }: Props) {
     };
   }, []);
 
+  // The drawer is for tablet and phone. Growing past 1024px swaps it for the inline nav.
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const onChange = () => mq.matches && setOpenAt(null);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
   // Scroll lock and Escape while open.
   useEffect(() => {
     document.documentElement.classList.toggle("lenis-stopped", open);
@@ -146,7 +154,48 @@ export function HeaderClient({ items, ctaHref, contact, socials }: Props) {
             />
           </Link>
 
-          <div ref={btnWrap} className="relative z-10">
+          <nav aria-label="Primary" className="hidden items-center gap-5 lg:flex xl:gap-8">
+            {items
+              .filter((item) => item.href !== "/")
+              .map((item) => {
+                const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
+                return (
+                  <div key={item.href} className="group relative">
+                    <Link
+                      href={item.href}
+                      aria-current={active ? "page" : undefined}
+                      className={`inline-flex items-center py-6 text-[13px] tracking-[0.02em] transition-colors hover:text-gold-dark xl:text-sm ${
+                        active ? "text-gold-dark" : ""
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                    {item.children && (
+                      <ul className="invisible absolute left-0 top-full min-w-[16rem] border border-cream/15 bg-green-deep py-2 opacity-0 shadow-xl transition-opacity duration-200 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+                        {item.children.map((c) => (
+                          <li key={c.href + c.label}>
+                            <Link
+                              href={c.href}
+                              className="block px-5 py-2.5 text-sm text-cream/85 transition-colors hover:bg-cream/[0.06] hover:text-gold-dark"
+                            >
+                              {c.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                );
+              })}
+            <Link
+              href="/contact"
+              className="inline-flex min-h-[44px] items-center whitespace-nowrap bg-gold px-5 text-[13px] font-medium text-ink transition hover:brightness-110 xl:text-sm"
+            >
+              Book a conversation
+            </Link>
+          </nav>
+
+          <div ref={btnWrap} className="relative z-10 lg:hidden">
             <button
               ref={btn}
               type="button"
@@ -183,18 +232,18 @@ export function HeaderClient({ items, ctaHref, contact, socials }: Props) {
         aria-label="Site menu"
         aria-hidden={!open}
         data-lenis-prevent
-        className="surface-dark invisible fixed inset-0 z-[49] overflow-y-auto pt-[72px] lg:overflow-y-hidden"
+        className="surface-dark invisible fixed inset-0 z-[49] overflow-y-auto pt-[72px] lg:hidden"
         style={{ clipPath: "circle(0px at 100% 0)" }}
       >
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_20%,rgba(79,192,166,0.14),transparent_55%)]" />
-        <div className="container-ol relative grid min-h-[calc(100svh-72px)] gap-12 py-10 lg:h-[calc(100svh-72px)] lg:grid-cols-[1.5fr_1fr] lg:gap-8 lg:py-[3vh]">
+        <div className="container-ol relative grid min-h-[calc(100svh-72px)] gap-12 py-10 lg:grid-cols-[1.5fr_1fr] lg:py-14">
           <nav aria-label="Site" className="self-center">
             <ul onMouseLeave={() => setHover(null)}>
               {items.map((item, i) => (
                 <li
                   key={item.label}
                   onMouseEnter={() => setHover(i)}
-                  className={`border-b border-cream/10 py-3 transition-opacity duration-300 sm:py-4 lg:py-[1.3vh] ${
+                  className={`border-b border-cream/10 py-3 transition-opacity duration-300 sm:py-4 ${
                     hover !== null && hover !== i ? "opacity-35" : "opacity-100"
                   }`}
                 >
@@ -205,7 +254,7 @@ export function HeaderClient({ items, ctaHref, contact, socials }: Props) {
                         data-line
                         href={item.href}
                         tabIndex={open ? 0 : -1}
-                        className="group/link inline-flex items-center gap-3 font-display text-[clamp(2.1rem,6vw,4.5rem)] lg:text-[clamp(1.75rem,min(5vw,7.2vh),4.5rem)] leading-[1.05] tracking-[-0.02em] transition-colors duration-300 hover:text-gold-dark"
+                        className="group/link inline-flex items-center gap-3 font-display text-[clamp(2.1rem,6vw,4.5rem)] leading-[1.05] tracking-[-0.02em] transition-colors duration-300 hover:text-gold-dark"
                       >
                         {item.label}
                         <ArrowUpRight className="h-[0.5em] w-[0.5em] -translate-x-2 opacity-0 transition-all duration-300 group-hover/link:translate-x-0 group-hover/link:opacity-100" />
@@ -232,7 +281,7 @@ export function HeaderClient({ items, ctaHref, contact, socials }: Props) {
             </ul>
           </nav>
 
-          <aside className="flex flex-col justify-end gap-10 self-end pb-2 lg:gap-[3.5vh]">
+          <aside className="flex flex-col justify-end gap-10 self-end pb-2">
             <div data-side>
               <p className="eyebrow">Start here</p>
               <Link
