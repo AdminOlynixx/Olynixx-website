@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { track } from "@vercel/analytics";
 import { AlertCircle } from "lucide-react";
 import { CONTACT } from "@/content/contact";
 import { CONTACT_AUDIENCES, audienceFromSource, isCtaSource, trackCta } from "@/lib/cta";
@@ -82,6 +83,7 @@ export function ContactForm() {
         }),
       });
       if (!res.ok) throw new Error("send failed");
+      track("form_submit", { source });
       router.push("/contact/thank-you");
     } catch {
       setFailed(true);

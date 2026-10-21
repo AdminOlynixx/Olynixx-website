@@ -16,7 +16,9 @@ export default function NotFound() {
             The Olynixx site is small on purpose. Four doors. One engine. Start where you belong.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button href="/corporates">Corporates</Button>
+            <Button href="/">Home</Button>
+            <Button href="/contact" variant="secondary">Contact</Button>
+            <Button href="/corporates" variant="secondary">Corporates</Button>
             <Button href="/gyms" variant="secondary">Gyms &amp; Spas</Button>
             <Button href="/individuals" variant="secondary">Individuals</Button>
             <Button href="/praxis" variant="secondary">Certification</Button>

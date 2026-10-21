@@ -1,7 +1,7 @@
 /** Build Pack V2. Individuals hub and three door pages. */
 
 export const HUB = {
-  metaTitle: "Personal readiness testing and coaching, Dubai. Olynixx",
+  metaTitle: "Personal readiness testing and coaching in the UAE. Olynixx",
   metaDescription:
     "A measured journey built on your own physiology. Choose your route and start with a free intake call. Non-medical.",
   eyebrow: "For individuals",
@@ -15,7 +15,7 @@ export const HUB = {
     "~8,000 individual assessments",
     "Non-medical. We do not treat patients",
     "Nothing on the WADA Prohibited List",
-    "Testing in Dubai and Ajman",
+    "Testing across the UAE",
   ],
   argumentEyebrow: "Why this is different",
   argumentTitle: "It is not a motivation problem. It is a measurement problem.",
@@ -35,7 +35,7 @@ export const HUB = {
     {
       title: "The Sport Athlete",
       href: "/individuals/sport-athlete",
-      body: "You already train hard. The question is whether your body is absorbing it. Readiness before the session, performance diagnostics behind the programme, and nothing we use is on the WADA Prohibited List.",
+      body: "You already train hard. The question is whether your body is absorbing it. Readiness before the session, performance testing behind the programme, and nothing we use is on the WADA Prohibited List.",
       cta: "See the sport athlete route",
     },
     {
@@ -77,7 +77,7 @@ export const HUB = {
     },
     {
       title: "Level II. Daily Readiness",
-      body: "Around 24 weeks. This is where measurement moves into your morning: a three-minute daily reading of brain, heart and recovery state with the Olynixx Sensor, and the full team behind it: health coach, mental coach, nutritionist and trainer. Built for people with higher goals, professional or leisure, where readiness is a decisive piece of the puzzle. Opens with the sensor launch.",
+      body: "Around 24 weeks. This is where measurement moves into your morning: a three-minute daily reading of brain, heart and recovery state with the Olynixx Sensor, and the full team behind it: health coach, mental coach, nutritionist and trainer. Built for people with higher goals, professional or leisure, where readiness is a decisive piece of the puzzle. Opens in 2027 with the Olynixx Sensor. Join the waitlist.",
       price: "",
     },
     {
@@ -119,7 +119,7 @@ export const CORPORATE_ATHLETE = {
   readTitle: "One minute, four technologies, one answer",
   read: [
     "A readiness test takes about a minute, across four technologies, and resolves into one functional status: how much your body can absorb today, and which system is the constraint. Nervous, cardiovascular or metabolic.",
-    "From there the coaching is specific rather than general. Not “sleep more”: this week, your constraint is recovery, so the 6am session comes out and the 9pm screen goes with it. Not “manage stress”: your load tolerance is down 14% on your baseline, so the difficult conversation moves to Tuesday morning.",
+    "From there the coaching is specific rather than general. Not “sleep more”: this week, your constraint is recovery, so the 6am session comes out and the 9pm inbox check goes with it. Not “manage stress”: your load tolerance is down 14% on your baseline, so the difficult conversation moves to Tuesday morning.",
     "That is what changes: the decisions get made with a number in front of them.",
   ],
   runEyebrow: "How it runs",
@@ -131,7 +131,7 @@ export const CORPORATE_ATHLETE = {
     "The retest. Where the number moved, and where it did not. The plan changes when the line stalls. That is the whole discipline.",
   ],
   runNote:
-    "Most corporate athletes start at Level I and move to Level II when they want the morning reading. Level III is the full year, and it is the one leaders choose when they want the complete arsenal. Readiness, cognitive testing, performance diagnostics and our training systems, including altitude. In one protocol.",
+    "Most corporate athletes start at Level I and move to Level II when they want the morning reading. Level III is the full year, and it is the one leaders choose when they want the complete arsenal. Readiness, cognitive testing, performance testing and our training systems, including altitude. In one protocol.",
   privacyEyebrow: "Your data",
   privacyTitle: "Your results are yours",
   privacy:
@@ -149,7 +149,7 @@ export const CORPORATE_ATHLETE = {
 export const SPORT_ATHLETE = {
   metaTitle: "Readiness and performance testing for athletes, UAE. Olynixx",
   metaDescription:
-    "Training only counts if your body absorbs it. Readiness before the session, performance diagnostics behind the programme, nothing on the WADA Prohibited List. Free intake call.",
+    "Training only counts if your body absorbs it. Readiness before the session, performance testing behind the programme, nothing on the WADA Prohibited List. Free intake call.",
   eyebrow: "The Sport Athlete",
   heroTitle: "Training you do not absorb is training you did not do.",
   standfirst:
@@ -158,7 +158,7 @@ export const SPORT_ATHLETE = {
   secondaryCta: "See the performance lab",
   trust: [
     "22 years in the field",
-    "World champions in three sports",
+    "Olympic athletes and world champions",
     "~8,000 individual assessments",
     "Nothing on the WADA Prohibited List",
     "Non-medical",
@@ -177,7 +177,7 @@ export const SPORT_ATHLETE = {
       body: "Daily or per session. Four technologies resolved into one status: what your system can absorb today, and which system is the constraint. Green does not mean “go hard”; it means the load you planned is the load your body can convert.",
     },
     {
-      title: "Performance diagnostics",
+      title: "Performance testing",
       body: "MuscleLab. Jump mechanics and power profiling, dynamic and isometric strength, speed, acceleration and ground-contact timing. Where most programmes estimate, we measure. So a strength block is judged on its output, not on how it felt.",
     },
     {
@@ -196,7 +196,7 @@ export const SPORT_ATHLETE = {
   runTitle: "Around your season, not around ours",
   run: [
     "Level I suits an athlete in a stable block: testing monthly or bi-monthly, coaching between tests, load adjusted to what the last test showed.",
-    "Level II is the competitive default: around 24 weeks, a three-minute daily reading with the Olynixx Sensor, and the full team: health coach, mental coach, nutritionist, trainer. Opens with the sensor launch.",
+    "Level II is the competitive default: around 24 weeks, a three-minute daily reading with the Olynixx Sensor, and the full team: health coach, mental coach, nutritionist, trainer. Opens in 2027 with the Olynixx Sensor. Join the waitlist.",
     "Level III is the full year, everything integrated, for an athlete building toward something specific.",
   ],
   runNote:

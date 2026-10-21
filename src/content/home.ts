@@ -50,7 +50,7 @@ export const HOME = {
     },
     {
       title: "Elite sport",
-      body: "The same measurement layer used with professional and high-performance athletes. Unnamed here until a name is cleared.",
+      body: "The same measurement layer used with Olympic athletes, world champions in three sports and professional teams.",
     },
   ],
   monitoringTitle: "Monitoring is not testing",
@@ -59,7 +59,7 @@ export const HOME = {
   monitoringBody:
     "Your watch monitors. It counts what happened. Complete physiological testing measures what your body can do next. Capacity, not history. That difference is where prevention lives: we see the problem while it is still a lifestyle decision.",
   monitoringLine:
-    "Your watch counts yesterday. We measure what your body can deliver today. And next, we read the nervous system itself: directly, at the source, every morning.",
+    "Your watch counts yesterday. We measure what your body can deliver today. From 2027, we read the nervous system itself: directly, at the source, every morning.",
   monitoringLineDc:
     "Your watch counts yesterday. Olynixx measures what your body can deliver today, including the first DC-potential readiness measurement in the Gulf: the nervous system, read directly, every morning.",
   offerEyebrow: "Start with an event",

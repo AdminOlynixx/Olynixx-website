@@ -73,7 +73,6 @@ export default function AboutPage() {
                 loading="lazy"
                 className="aspect-[4/5] w-full object-cover object-[50%_25%]"
               />
-              <figcaption className="mt-3 text-sm text-cream/75">{ABOUT.founderCaption}</figcaption>
             </figure>
           </div>
         </div>

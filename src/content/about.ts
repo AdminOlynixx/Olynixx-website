@@ -36,7 +36,7 @@ export const ABOUT = {
     },
     {
       era: "Along the way",
-      body: "World champions in snowboard, freestyle football and trial bike. Red Bull athletes and their academy. CEOs and business owners who compete just as hard, in suits.",
+      body: "Olympic athletes. World champions in snowboard, freestyle football and trial bike. Red Bull athletes and their academy. CEOs and business owners who compete just as hard, in suits.",
     },
     {
       era: "Since 2019",
@@ -67,12 +67,11 @@ export const ABOUT = {
   bookName: "Rest Is the New Sport",
   bookYear: "2015",
   bookAuthorLine: "Rest Is the New Sport — Jef Louis Geys",
-  founderCaption: "Jef Louis Geys, founder of Olynixx and author of Rest Is the New Sport.",
   bookBody:
     "Rest Is the New Sport puts the whole argument in your hands: why recovery is the source of performance, not its reward. It anchors every keynote, every programme, and every page of this site.",
   behindTitle: "Behind Olynixx",
   behindBody:
-    "Olynixx is carried by a team: health coaches, mental coaches, nutritionists and trainers, working from the same method and the same numbers. The method was built by a former elite endurance athlete and sport physiotherapist, through first-division football, world-class athletes and Belgian special forces, and brought to the UAE in 2019. The team makes sure it scales beyond any one person.",
+    "Olynixx is carried by a team: health coaches, mental coaches, nutritionists and trainers, working from the same method and the same numbers. The method was built by a former elite endurance athlete trained in sport physiotherapy in Belgium, through first-division football, world-class athletes and Belgian special forces, and brought to the UAE in 2019. The team makes sure it scales beyond any one person.",
   cta: "The method is in the book. The proof is in the test.",
   ctaButton: "Test your readiness",
 } as const;

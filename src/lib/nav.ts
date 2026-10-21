@@ -27,9 +27,6 @@ export const PRIMARY_NAV = [
 
 export const SOCIAL_LINKS = [
   { href: "https://www.linkedin.com/company/olynixx", label: "LinkedIn" },
-  { href: "https://www.instagram.com/olynixx", label: "Instagram" },
-  { href: "https://x.com/olynixx", label: "X" },
-  { href: "https://www.youtube.com/@olynixx", label: "YouTube" },
 ] as const;
 
 export const FOOTER_NAV = {

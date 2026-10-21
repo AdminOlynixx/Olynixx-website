@@ -255,7 +255,7 @@ export function HeaderClient({ items, ctaHref, contact, socials }: Props) {
                   {contact.phone}
                 </a>
               </p>
-              <p className="text-cream/60">Dubai, UAE</p>
+              <p className="text-cream/60">UAE</p>
             </div>
             <ul data-side className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
               {socials.map((s) => (

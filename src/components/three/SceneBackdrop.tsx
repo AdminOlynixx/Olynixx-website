@@ -9,13 +9,14 @@ const GlobeCanvas = dynamic(() => import("./GlobeCanvas"), { ssr: false });
 
 /**
  * One fixed full-screen canvas for the whole site: a dotted 3D Earth that drifts across the
- * page and turns as you scroll from start to finish. Full strength over the hero, quieter
- * further down so body copy stays readable. Reduced motion or no WebGL: nothing mounts.
+ * page and turns as you scroll. It is visible only over the Hero and the final CTA band
+ * (sections marked data-globe) and fades out everywhere else, so it never sits behind copy. Reduced motion or no WebGL: nothing mounts.
  */
 export function SceneBackdrop() {
   const [mode, setMode] = useState<"off" | "low" | "full">("off");
   const box = useRef<HTMLDivElement>(null);
-  const onContact = usePathname() === "/contact";
+  const pathname = usePathname();
+  const onContact = pathname === "/contact";
 
   useEffect(() => {
     if (prefersReducedMotion()) return;
@@ -28,31 +29,42 @@ export function SceneBackdrop() {
     return () => cancelAnimationFrame(id);
   }, [onContact]);
 
+  // The globe shows in two places only: the Hero and the final call-to-action band.
   useEffect(() => {
     if (mode === "off") return;
-    let raf = 0;
-    const update = () => {
-      raf = 0;
-      const el = box.current;
-      if (!el) return;
-      const f = Math.min(1, window.scrollY / (window.innerHeight * 0.8));
-      // On /contact the globe stays in the hero and drops to 15% once the form is in view.
-      el.style.opacity = String(onContact ? 1 - f * 0.85 : 1 - f * (mode === "low" ? 0.7 : 0.45));
+    const el = box.current;
+    if (!el) return;
+    const level: Record<string, number> = { hero: 1, cta: 0.6 };
+    const seen = new Map<Element, number>();
+    const apply = () => {
+      let best = 0;
+      seen.forEach((v) => (best = Math.max(best, v)));
+      el.style.opacity = String(best);
     };
-    const onScroll = () => {
-      if (!raf) raf = requestAnimationFrame(update);
-    };
-    update();
-    window.addEventListener("scroll", onScroll, { passive: true });
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) seen.set(e.target, level[(e.target as HTMLElement).dataset.globe ?? ""] ?? 0);
+          else seen.delete(e.target);
+        });
+        apply();
+      },
+      { threshold: 0.25 },
+    );
+    // Wait a frame so the new page's sections exist after a route change.
+    const raf = requestAnimationFrame(() => {
+      document.querySelectorAll("[data-globe]").forEach((n) => io.observe(n));
+    });
     return () => {
-      window.removeEventListener("scroll", onScroll);
       cancelAnimationFrame(raf);
+      io.disconnect();
+      el.style.opacity = "0";
     };
-  }, [mode, onContact]);
+  }, [mode, pathname]);
 
   if (mode === "off") return null;
   return (
-    <div ref={box} className="pointer-events-none fixed inset-0 z-[5]" aria-hidden>
+    <div ref={box} className="pointer-events-none fixed inset-0 z-[5] opacity-0 transition-opacity duration-500" aria-hidden>
       <GlobeCanvas low={mode === "low"} />
     </div>
   );

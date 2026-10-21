@@ -37,9 +37,9 @@ export const TECHNOLOGY = {
   ownBody:
     "Oxyterra altitude systems are available through Olynixx for clubs, companies and private homes. Further systems join this page as their agreements are signed. Always with installation, training and a measurement protocol around them. Tell us the floor it is for, and we bring the numbers that prove it earns its place.",
   sensorName: "The Olynixx Sensor: daily readiness",
-  sensorStatus: "Launching",
+  sensorStatus: "Coming 2027",
   sensorBody:
-    "A three-minute morning measurement of the two command systems of performance: brain and heart. The sensor reads the central nervous system directly, DC potential, the deep electrical baseline of readiness, alongside heart-rate variability. Not steps, not sleep scores: the state of the systems that decide what today's training, work and recovery should be. Launching inside Olynixx programmes. Ask about the first cohort.",
+    "A three-minute morning measurement of the two command systems of performance: brain and heart. The sensor reads the central nervous system directly, DC potential, the deep electrical baseline of readiness, alongside heart-rate variability. Not steps, not sleep scores: the state of the systems that decide what today's training, work and recovery should be. Coming 2027 inside Olynixx programmes. Join the waitlist.",
   firstGulfTitle: "First in the Gulf.",
   firstGulfBody:
     "Direct measurement of the nervous system, DC potential, has guided Olympic sport and special forces preparation for decades. It has never been offered in the Gulf. Olynixx brings it here first, as exclusive agent for the region, not to sell boxes, but to put deeper numbers under every programme and system we deliver.",
@@ -72,7 +72,7 @@ export const TECHNOLOGY = {
       status: "Operating",
     },
     {
-      name: "MuscleLab performance diagnostics",
+      name: "MuscleLab performance testing",
       role: "Where most facilities estimate performance, we measure it.",
       bullets: [
         "Jump mechanics, dynamic and isometric strength.",

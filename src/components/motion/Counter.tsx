@@ -15,7 +15,7 @@ export function Counter({ value }: { value: string }) {
       const state = { n: 0 };
       const fmt = (n: number) =>
         value.replace(m[0], m[0].includes(",") ? Math.round(n).toLocaleString("en-US") : String(Math.round(n)));
-      ref.current.textContent = fmt(0);
+      // The server-rendered final value stays in place. It only counts up once it enters the viewport.
       gsap.to(state, {
         n: end,
         duration: 1.8,
@@ -23,7 +23,14 @@ export function Counter({ value }: { value: string }) {
         onUpdate: () => {
           if (ref.current) ref.current.textContent = fmt(state.n);
         },
-        scrollTrigger: { trigger: ref.current, start: "top 90%", once: true },
+        scrollTrigger: {
+          trigger: ref.current,
+          start: "top 96%",
+          once: true,
+          onEnter: () => {
+            if (ref.current) ref.current.textContent = fmt(0);
+          },
+        },
       });
     },
     { scope: ref, dependencies: [value] },

@@ -121,14 +121,15 @@ export type PublicContact = {
 
 export function publicContact(): PublicContact {
   return {
-    email: envOr("SITE_CONTACT_EMAIL", "olynixx@outlook.com"),
+    // Locked go-live decision (20 Oct 2026): one public address, not overridable by env.
+    email: "info@olynixx.com",
     phone: envOr("SITE_CONTACT_PHONE", "058 599 7620"),
     whatsapp: envOr("SITE_CONTACT_WHATSAPP", "058 599 7620"),
     address: envOr("SITE_CONTACT_ADDRESS"),
     mapUrl: envOr("SITE_CONTACT_MAP"),
     sla: envOr("SITE_CONTACT_SLA"),
     calendar: envOr("SITE_CONTACT_CALENDAR"),
-    location: "Dubai, UAE",
+    location: "UAE",
   };
 }
 

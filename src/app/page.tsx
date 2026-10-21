@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section data-theme="dark" className="surface-dark relative flex min-h-[calc(100svh-72px)] items-center overflow-hidden">
+      <section data-theme="dark" data-globe="hero" className="surface-dark relative flex min-h-[calc(100svh-72px)] items-center overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_50%,rgba(79,192,166,0.18),transparent_60%)]" />
         <div className="container-ol relative z-10 py-20 lg:py-24">
           <div>
@@ -156,7 +156,7 @@ export default function Home() {
       {/* Book */}
       <section data-theme="light" className="py-24">
         <Reveal stagger={0.1} className="container-ol flex flex-col items-center gap-5 text-center">
-          <Image src="/brand/olynixx-divider-on-light.svg" alt="" width={160} height={12} />
+          <Image src="/brand/olynixx-divider-on-light.svg" alt="" aria-hidden="true" width={160} height={12} />
           <h2 className="font-display text-[clamp(2rem,4vw,3rem)] italic">{HOME.bookTitle}</h2>
           <p className="max-w-lg text-ink-muted">{HOME.bookBody}</p>
           <Button href="/about#book" variant="secondary">

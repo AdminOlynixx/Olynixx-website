@@ -21,7 +21,7 @@ export function BookCover({ name, year }: { name: string; year: string }) {
       <div
         ref={ref}
         role="img"
-        aria-label={`${name}, ${year}`}
+        aria-label={`${name}, book cover`}
         className="surface-dark relative mx-auto flex aspect-[3/4] w-full max-w-[300px] flex-col justify-between border border-gold p-7 will-change-transform [transform-style:preserve-3d]"
       >
         <span aria-hidden className="absolute inset-3 border border-gold/40" />

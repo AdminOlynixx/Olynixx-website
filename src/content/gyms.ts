@@ -66,7 +66,7 @@ export const GYMS = {
     },
     {
       title: "Compression",
-      body: "Steered toward after high training volume, for venous return and lymphatic flush.",
+      body: "Steered toward after high training volume, when the readings show recovery is lagging.",
     },
     {
       title: "Massage",
@@ -86,7 +86,7 @@ export const GYMS = {
     },
     {
       title: "You earn on",
-      body: "Paid readiness screens for walk-ins and members, readiness-steered personal training, structured twelve-week programmes, recovery packages that finally have a reason behind them, and guest or day-spa testing as a fourth line. Testing does not replace a membership. It sits on top of one.",
+      body: "Paid readiness checks for walk-ins and members, readiness-steered personal training, structured twelve-week programmes, recovery packages that finally have a reason behind them, and guest or day-spa testing as a fourth line. Testing does not replace a membership. It sits on top of one.",
     },
   ],
   licenceCta: "Talk to us about a licence",
@@ -102,13 +102,13 @@ export const GYMS = {
   measuredTitle: "Results stop being a claim and start being a record",
   measured:
     "From the first test to every retest, the training and the recovery are both measured. That is the promise, and it is not a wellness nice-to-have: members who can see their numbers move are members who stay, and members who stay, pay.",
-  labEyebrow: "Advanced diagnostics",
+  labEyebrow: "Advanced testing",
   labTitle: "The performance lab",
-  lab: "For clubs that want the whole thing, we install the full protocol: MuscleLab diagnostics for jump, strength, speed and ground-contact analysis, plus cognitive modules for reaction speed, working memory and decision speed under fatigue. Body and brain, measured on the same floor. Your club stops estimating performance and starts measuring it.",
+  lab: "For clubs that want the whole thing, we install the full protocol: MuscleLab testing for jump, strength, speed and ground-contact analysis, plus cognitive modules for reaction speed, working memory and decision speed under fatigue. Body and brain, measured on the same floor. Your club stops estimating performance and starts measuring it.",
   firstClubEyebrow: "First testing club",
   firstClubTitle: "Karwan Health Club, Ajman",
   firstClub:
-    "The first Olynixx testing club: readiness kiosk on the floor, performance diagnostics, structured twelve-week programmes, run by certified coaches.",
+    "The first Olynixx testing club: readiness kiosk on the floor, performance testing, structured twelve-week programmes, run by certified coaches.",
   proof: [
     { value: "1st", label: "Testing club live in Ajman" },
     { value: "2", label: "Income streams on one loop" },
@@ -125,7 +125,7 @@ export const GYMS = {
     "A spa sells recovery. Most of it is still guessed: heat because it is on the menu, cold because it is fashionable, a protocol written for a typical guest who does not exist. A one-minute readiness reading before the treatment steers the hour you already staffed, and turns a nice visit into a measured one.",
   spaCards: [
     {
-      title: "Guest screening",
+      title: "Arrival check",
       body: "A quiet kiosk at arrival. One minute. The guest walks into the treatment with a status, not a preference card.",
     },
     {

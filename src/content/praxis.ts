@@ -3,17 +3,17 @@
 export const PRAXIS = {
   heroTitle: "Renew your credentials. Upgrade your craft.",
   heroLead:
-    "Olynixx Praxis is continuing education for the UAE's health professionals. Personal trainers, health coaches, nutritionists, mental coaches. Collect CPD toward the credentials your renewal requires, and walk out with a skill your clients will pay for.",
+    "Olynixx Praxis is continuing education for the UAE's health professionals. Personal trainers, health coaches, nutritionists, mental coaches. Work toward the renewal your certification requires, and walk out with a skill your clients will pay for. CPD recognition in progress.",
   programmeName: "RiseUp Academy",
   programmeNote:
     "RiseUp Academy is the programme name inside Olynixx Praxis. The page title stays Olynixx Praxis.",
   renewalTitle: "The renewal problem",
   renewalBody:
-    "Every certified professional faces the same clock: your base certification expires, renewal credits are due, and most courses on offer are something you sit through, not something you use. Praxis was built to flip that. You collect your renewal credentials by learning a system you can deliver the very next day. Physiological readiness testing, and the coaching that turns a number into a decision.",
+    "Every certified professional faces the same clock: your base certification expires, renewal credits are due, and most courses on offer are something you sit through, not something you use. Praxis was built to flip that. You work toward renewal by learning a system you can deliver the very next day. Physiological readiness testing, and the coaching that turns a number into a decision.",
   walkAwayTitle: "What you walk away with",
   walkAway: [
     "A registered Olynixx Praxis certificate. Recognised inside the entire Olynixx network of clubs and corporate programmes.",
-    "Credential hours toward renewing your base certification as a personal trainer, health coach, nutritionist or mental coach.",
+    "Course hours documented for your renewal file as a personal trainer, health coach, nutritionist or mental coach. CPD recognition in progress.",
     "A billable new service: readiness testing and readiness-steered coaching, learned on the same equipment you will use with clients.",
   ],
   learnTitle: "What you learn",
@@ -34,7 +34,7 @@ export const PRAXIS = {
   pathway: [
     { step: "1", title: "Train", body: "Instructor-led course." },
     { step: "2", title: "Examine", body: "Written and practical exam." },
-    { step: "3", title: "Certify", body: "Registered certificate number + renewal credentials." },
+    { step: "3", title: "Certify", body: "Registered certificate number. Renewal credits once CPD recognition is confirmed." },
     { step: "4", title: "Deliver", body: "Work live inside the Olynixx system, with ongoing quality review." },
   ],
   cta: "Reserve your seat. Renew smarter.",
@@ -55,7 +55,7 @@ export const PRAXIS = {
   },
   proof: [
     { value: "22 yrs", label: "Field record behind the course" },
-    { value: "CPD", label: "Hours toward credential renewal" },
+    { value: "CPD", label: "Recognition in progress" },
     { value: "Exam", label: "Earned, not attended" },
     { value: "UAE", label: "First market" },
   ],

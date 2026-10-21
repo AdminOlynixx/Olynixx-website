@@ -14,6 +14,7 @@ export const CTA_SOURCES = [
   "systems",
   "sean",
   "chapter-download",
+  "sensor-waitlist",
 ] as const;
 
 export type CtaSource = (typeof CTA_SOURCES)[number];
@@ -45,6 +46,7 @@ const SOURCE_TO_AUDIENCE: Record<CtaSource, ContactAudience> = {
   systems: "systems",
   sean: "individual",
   "chapter-download": "individual",
+  "sensor-waitlist": "individual",
 };
 
 export function isCtaSource(value: string | null | undefined): value is CtaSource {

@@ -61,7 +61,13 @@ export default function TechnologyPage() {
       <Section theme="dark">
         <Reveal stagger={0.12} className="grid gap-5 md:grid-cols-2">
           <DeviceCard theme="dark" status={msFit.status} name={msFit.name} role={msFit.role} bullets={msFit.bullets} where={msFit.where} image={FOUNDER_PHOTOS.msfit} />
-          <DeviceCard theme="dark" status={TECHNOLOGY.sensorStatus} name={TECHNOLOGY.sensorName} role={TECHNOLOGY.sensorBody} />
+          <DeviceCard theme="dark" status={TECHNOLOGY.sensorStatus} name={TECHNOLOGY.sensorName} role={TECHNOLOGY.sensorBody}>
+            <div className="mt-6">
+              <Button href={contactHref("sensor-waitlist", "tech-sensor")} variant="secondary">
+                Join the waitlist
+              </Button>
+            </div>
+          </DeviceCard>
         </Reveal>
         {publishDc() ? (
           <Reveal stagger={0.1} className="mt-14 max-w-[68ch] space-y-4">

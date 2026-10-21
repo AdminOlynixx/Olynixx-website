@@ -99,8 +99,9 @@ h3 {
   outline-offset: 2px;
 }
 
-/* Hidden only once JS is confirmed running; no-JS and reduced motion see everything. */
-html.js .js-reveal {
+/* Only the first screen is pre-hidden (so it does not flash before it animates in).
+   Everything else renders with its final content; animation is an enhancement. */
+html.js [data-globe="hero"] .js-reveal {
   opacity: 0;
 }
 @media (prefers-reduced-motion: reduce) {

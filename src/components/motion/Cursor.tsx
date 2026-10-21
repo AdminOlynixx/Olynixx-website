@@ -23,7 +23,13 @@ export function Cursor() {
     const rx = gsap.quickTo(ring.current, "x", { duration: 0.45, ease: "power3" });
     const ry = gsap.quickTo(ring.current, "y", { duration: 0.45, ease: "power3" });
 
+    let seen = false;
     const move = (e: MouseEvent) => {
+      if (!seen) {
+        seen = true;
+        gsap.set(ring.current, { x: e.clientX, y: e.clientY, opacity: 0.6 });
+        gsap.set(dot.current, { x: e.clientX, y: e.clientY, opacity: 1 });
+      }
       dx(e.clientX);
       dy(e.clientY);
       rx(e.clientX);
@@ -52,13 +58,14 @@ export function Cursor() {
       <div
         ref={ring}
         aria-hidden
-        className="pointer-events-none fixed left-0 top-0 z-[100] -ml-5 -mt-5 h-10 w-10 rounded-full border border-gold opacity-0 mix-blend-difference"
-        style={{ opacity: 0.6 }}
+        className="pointer-events-none fixed left-0 top-0 z-[100] -ml-5 -mt-5 h-10 w-10 rounded-full border border-gold mix-blend-difference"
+        style={{ opacity: 0 }}
       />
       <div
         ref={dot}
         aria-hidden
         className="pointer-events-none fixed left-0 top-0 z-[100] -ml-1 -mt-1 h-2 w-2 rounded-full bg-gold"
+        style={{ opacity: 0 }}
       />
     </>
   );

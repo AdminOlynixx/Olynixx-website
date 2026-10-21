@@ -28,8 +28,9 @@ export function Reveal({
     () => {
       if (prefersReducedMotion() || !ref.current) return;
       const targets = stagger ? Array.from(ref.current.children) : ref.current;
-      // The wrapper carries the pre-hide CSS; when children animate instead, show the wrapper.
-      if (stagger) gsap.set(ref.current, { opacity: 1 });
+      // Final content is in the server HTML. Animation is an enhancement, never a gate.
+      gsap.set(ref.current, { opacity: 1 });
+      const inView = ref.current.getBoundingClientRect().top < window.innerHeight * 0.95;
       gsap.fromTo(
         targets,
         { autoAlpha: 0, y },
@@ -40,7 +41,9 @@ export function Reveal({
           delay,
           ease: "power3.out",
           stagger: stagger ?? 0,
-          scrollTrigger: { trigger: ref.current, start: "top 85%", once: true },
+          // Below the fold the from-state is applied only when the block scrolls in, so nothing sits faded.
+          immediateRender: inView,
+          scrollTrigger: { trigger: ref.current, start: "top 95%", once: true },
         },
       );
       return () => ScrollTrigger.refresh();

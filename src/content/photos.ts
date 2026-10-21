@@ -3,7 +3,7 @@
 export const FOUNDER_PHOTOS = {
   headshot: {
     src: "/images/founder/founder-headshot.webp",
-    alt: "Jef Louis Geys, founder of Olynixx",
+    alt: "Olynixx founder",
     width: 1149,
     height: 1369,
   },

@@ -12,7 +12,7 @@ export const READINESS_HUB = {
     },
     {
       title: "Advanced",
-      body: "Base, plus MuscleLab performance diagnostics and cognitive modules: reaction, working memory, decision speed under fatigue.",
+      body: "Base, plus MuscleLab performance testing and cognitive modules: reaction, working memory, decision speed under fatigue.",
     },
     {
       title: "Complete",

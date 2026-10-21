@@ -57,8 +57,8 @@ export const CORPORATES = {
       body: "The MS Fit kiosk stands where your people work. Each employee tests in minutes and gets a personal readiness report. Where they stand today, and the concrete actionables that move it. From the same test moment, leadership's Load & Risk dashboards update: where the workforce is carrying load, where risk is building, where to act first. Fully anonymised, by design. Tier 1 runs continuously. It is the system; everything above it is added when the numbers ask for it.",
     },
     {
-      title: "Tier 2. Deeper diagnostics.",
-      body: "Cognitive testing (reaction speed, memory, decision speed) and MuscleLab performance diagnostics, for the teams and roles that need deeper insight.",
+      title: "Tier 2. Deeper testing.",
+      body: "Cognitive testing (reaction speed, memory, decision speed) and MuscleLab performance testing, for the teams and roles that need deeper insight.",
     },
     {
       title: "Tier 3. Intervention.",
@@ -114,7 +114,7 @@ export const CORPORATES = {
   /* HOLD: do not render until PUBLISH_PUREHEALTH=true. */
   pureHealthTitle: "Rollout at national scale",
   pureHealthBody:
-    "Olynixx is partnering with PureHealth, the region's largest healthcare group, to roll out preventive workforce health inside companies across the UAE. Connecting corporate readiness programmes with the wider healthcare ecosystem, from insurance to diagnostics. Prevention runs in your company; care stands ready behind it.",
+    "Olynixx is partnering with PureHealth, the region's largest healthcare group, to roll out preventive workforce health inside companies across the UAE. Connecting corporate readiness programmes with the wider healthcare ecosystem, from insurance to testing. Prevention runs in your company; care stands ready behind it.",
   /* Cycle 1 numbers cleared by Louis for public use. Never name the client. */
   resultsTitle: "What a first cycle produces",
   closeTitle: "Ready to see your workforce differently?",
@@ -153,7 +153,7 @@ export const EVENTS = {
     "A readiness testing kiosk at your event. Each participant tests in minutes and walks away with a personal snapshot. Energy, stress load, recovery. Every result is a conversation your people start themselves.",
   keynoteTitle: "Keynote: Rest is the New Sport",
   keynoteBody: [
-    "Built on the book and 22 years in the field. From special forces units to elite sport to the boardroom. Why identical twins with identical talent end up in different places. What fatigue actually is, and the four types your team is cycling through. What burnout costs, in days and in money. And why recovery is not the reward for performance. It is the source of it.",
+    "Built on the book and 22 years in the field. From special forces units to Olympic athletes to the boardroom. Why identical twins with identical talent end up in different places. What fatigue actually is, and the four types your team is cycling through. What burnout costs, in days and in money. And why recovery is not the reward for performance. It is the source of it.",
     "Every attendee can leave with the book: you can read it tonight, you can be measured tomorrow.",
   ],
   workshopsTitle: "Workshops",
@@ -173,7 +173,7 @@ export const EVENTS = {
   ctaStation: "Book the station",
   ctaKeynote: "Book the keynote",
   speakerLine:
-    "The keynote is built on the book and twenty-two years in the field. From special forces units to elite sport to the boardroom.",
+    "The keynote is built on the book and twenty-two years in the field. From special forces units to Olympic athletes to the boardroom.",
   seanStation:
     "For launches and flagship events, the station can come with the ambassador. Ask.",
   practicalEyebrow: "Practicalities",
@@ -205,7 +205,7 @@ export const GOVERNMENT = {
     { title: "Full system", body: "Tier 1, 2 and 3." },
   ],
   tiersSummary:
-    "The full system runs in three tiers: the Tier 1 floor system with anonymised leadership dashboards, Tier 2 deeper diagnostics, and Tier 3 intervention steered by the test results.",
+    "The full system runs in three tiers: the Tier 1 floor system with anonymised leadership dashboards, Tier 2 deeper testing, and Tier 3 intervention steered by the test results.",
   tiersLink: "See the full system",
   close: "Twelve weeks to prove it. Twelve months to change it.",
   governanceTitle: "Governance & data",

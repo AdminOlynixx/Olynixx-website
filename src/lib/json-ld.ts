@@ -5,7 +5,7 @@ import { HUB } from "@/content/individuals";
 import { PRAXIS } from "@/content/praxis";
 import { ISO_SHORT, NON_MEDICAL_DISCLAIMER } from "@/lib/legal-copy";
 import { SOCIAL_LINKS } from "@/lib/nav";
-import { siteUrl } from "@/lib/site-config";
+import { publicContact, siteUrl } from "@/lib/site-config";
 
 export function organizationJsonLd() {
   const url = siteUrl();
@@ -17,6 +17,8 @@ export function organizationJsonLd() {
     logo: `${url}/brand/olynixx-lockup-horizontal-on-dark.svg`,
     description: HOME.standfirst,
     areaServed: "AE",
+    email: publicContact().email,
+    telephone: "+971585997620",
     sameAs: SOCIAL_LINKS.map((item) => item.href),
   };
 }

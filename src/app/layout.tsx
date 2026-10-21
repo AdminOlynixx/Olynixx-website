@@ -7,7 +7,9 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SceneBackdrop } from "@/components/three/SceneBackdrop";
 import { PageTransition } from "@/components/motion/PageTransition";
+import { Analytics } from "@vercel/analytics/next";
 import { OrgJsonLd } from "@/components/layout/OrgJsonLd";
+import { AnalyticsEvents } from "@/components/layout/AnalyticsEvents";
 import { noIndexPublicSite, siteUrl } from "@/lib/site-config";
 import { OG_IMAGE } from "@/lib/seo";
 
@@ -81,6 +83,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         <main id="content">{children}</main>
         <Footer />
+        <Analytics />
+        <AnalyticsEvents />
       </body>
     </html>
   );
