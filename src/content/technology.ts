@@ -44,10 +44,6 @@ export const TECHNOLOGY = {
   firstGulfBody:
     "Direct measurement of the nervous system, DC potential, has guided Olympic sport and special forces preparation for decades. It has never been offered in the Gulf. Olynixx brings it here first, as exclusive agent for the region, not to sell boxes, but to put deeper numbers under every programme and system we deliver.",
   poweredBy: "",
-  bestName: "B-E-St microcurrent recovery",
-  bestStatus: "from Q4",
-  bestBody:
-    "Professional bio-energy stimulation technology, used by international sports teams. The recovery half of the readiness equation, delivered as hardware. Prescribed inside Olynixx programmes from each person's test results. On the corporate floor, in the gym recovery zone, in the travel bag. Testing decides the dose; the retest verifies it. Available through Olynixx in the Gulf region: inside programmes, as rentals, and as systems.",
   devices: [
     {
       name: "MS Fit readiness kiosks",
@@ -94,15 +90,15 @@ export const TECHNOLOGY = {
       status: "Operating",
     },
     {
-      name: "Microcurrent",
-      role: "In evaluation against the method. Recovery and readiness support only. No condition names, no therapy claims.",
+      name: "B-E-St microcurrent",
+      role: "Handheld microcurrent programmes for recovery after load, stress regulation and winding down before sleep. Small enough to use at home, at work, in the club or in the field. It runs inside the Olynixx method: readiness is measured before and retested after, so the response is verified, not assumed. Olynixx is the B-E-St agent for the UAE. Clubs, companies and individuals can acquire it through Olynixx. Recovery support only, not a medical treatment.",
       bullets: [
-        "Trialled where the method asks for a recovery input we can retest.",
-        "Status stays in evaluation until it earns its place with numbers.",
-        "Not offered as a medical treatment.",
+        "Handheld: home, office, club or field.",
+        "Readiness measured before and after every block.",
+        "Recovery support only, not a medical treatment.",
       ],
-      where: "Evaluation sites only",
-      status: "In evaluation",
+      where: "Programmes, clubs, companies and private homes",
+      status: "Operating",
     },
   ] satisfies readonly Device[],
   dataEyebrow: "Data",

@@ -13,7 +13,7 @@ import { TECHNOLOGY } from "@/content/technology";
 import { NON_MEDICAL_STATEMENT } from "@/lib/legal-copy";
 import { contactHref } from "@/lib/cta";
 import { breadcrumbJsonLd } from "@/lib/json-ld";
-import { publishBest, publishDc } from "@/lib/site-config";
+import { publishDc } from "@/lib/site-config";
 import { FOUNDER_PHOTOS } from "@/content/photos";
 
 export const metadata: Metadata = withSocial({
@@ -24,7 +24,8 @@ export const metadata: Metadata = withSocial({
 export default function TechnologyPage() {
   const msFit = TECHNOLOGY.devices[0];
   const oxyterra = TECHNOLOGY.devices[1];
-  const rest = TECHNOLOGY.devices.slice(2).filter((d) => !(publishBest() && d.name === "Microcurrent"));
+  const microcurrent = TECHNOLOGY.devices[4];
+  const rest = TECHNOLOGY.devices.slice(2, 4);
 
   return (
     <>
@@ -83,11 +84,9 @@ export default function TechnologyPage() {
           <div className="md:col-span-2">
             <DeviceCard status={oxyterra.status} name={oxyterra.name} role={oxyterra.role} bullets={oxyterra.bullets} where={oxyterra.where} image={FOUNDER_PHOTOS.oxyterra} imageSide />
           </div>
-          {publishBest() ? (
-            <div className="md:col-span-2">
-              <DeviceCard status={TECHNOLOGY.bestStatus} name={TECHNOLOGY.bestName} role={TECHNOLOGY.bestBody} />
-            </div>
-          ) : null}
+          <div className="md:col-span-2">
+            <DeviceCard status={microcurrent.status} name={microcurrent.name} role={microcurrent.role} bullets={microcurrent.bullets} where={microcurrent.where} />
+          </div>
           {rest.map((d) => (
             <DeviceCard key={d.name} status={d.status} name={d.name} role={d.role} bullets={d.bullets} where={d.where} />
           ))}

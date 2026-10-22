@@ -49,7 +49,7 @@ export default function IndividualsHub() {
         <RouteCards doors={doors} />
       </Section>
 
-      <Section theme="dark" narrow eyebrow={HUB.lineEyebrow} title={HUB.lineTitle}>
+      <Section theme="dark" narrow>
         <Prose theme="dark">
           {HUB.lineBody.map((p) => (
             <p key={p.slice(0, 24)}>{p}</p>
