@@ -1,12 +1,12 @@
-/** Part 2 teal copy. Page title stays “Olynixx Praxis”; RiseUp Academy is the programme name inside the page. */
+/** Part 2 teal copy. Page title stays “Olynixx Praxis”; Olynixx Academy is the programme name inside the page. */
 
 export const PRAXIS = {
   heroTitle: "Renew your credentials. Upgrade your craft.",
   heroLead:
     "Olynixx Praxis is continuing education for the UAE's health professionals. Personal trainers, health coaches, nutritionists, mental coaches. Work toward the renewal your certification requires, and walk out with a skill your clients will pay for. CPD recognition in progress.",
-  programmeName: "RiseUp Academy",
+  programmeName: "Olynixx Academy",
   programmeNote:
-    "RiseUp Academy is the programme name inside Olynixx Praxis. The page title stays Olynixx Praxis.",
+    "Olynixx Academy is the programme name inside Olynixx Praxis. The page title stays Olynixx Praxis.",
   renewalTitle: "The renewal problem",
   renewalBody:
     "Every certified professional faces the same clock: your base certification expires, renewal credits are due, and most courses on offer are something you sit through, not something you use. Praxis was built to flip that. You work toward renewal by learning a system you can deliver the very next day. Physiological readiness testing, and the coaching that turns a number into a decision.",
