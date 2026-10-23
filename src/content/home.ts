@@ -4,14 +4,18 @@ export const HOME = {
   spineAlt: "Readiness + Recovery = Perform",
   heroTitle: "Measure what your people can actually deliver today.",
   standfirst:
-    "Olynixx is a preventive readiness system for workforces, clubs and individuals. A one-minute test, a decision the same day, and a retest that says whether it moved. Care activates. Prevention runs.",
+    "Olynixx is a preventive readiness system for workforces, clubs and individuals. A one-minute test, a personal report the same day, and a retest that shows whether it moved.",
   proofLine: "Tested, not guessed. Verified by retest.",
   primaryCta: "Book a pilot conversation",
   secondaryCta: "For individuals",
-  actuallyEyebrow: "What this actually is",
-  actuallyTitle: "A measurement discipline. Not a clinic, not a wearable, not a wellness app.",
-  actually:
-    "Olynixx measures what a body can absorb today: nervous, cardiovascular, metabolic. Then it coaches the next decision from that number. The same engine runs in a company, a club and a private programme: test, act on the weakest link, verify the change. We operate in non-medical settings only. Nothing here is a diagnosis.",
+  readinessEyebrow: "The readiness principle",
+  readinessTitle: "A well-rested body is the base of good health.",
+  readiness: [
+    "Health is not built in the gym or the boardroom. It is built in recovery. When the body recovers well, it adapts, performs and stays healthy. When recovery falls behind the load of work, training and life, decline starts quietly, long before it shows up anywhere else.",
+    "Readiness is the measure of that balance: how much your body can absorb today. We measure it, act on what holds it back, and measure again.",
+  ],
+  readinessSteps: ["Load", "Recovery", "Readiness"],
+  readinessClose: "Rest is not the opposite of performance. It is where performance is built.",
   doorsEyebrow: "One engine, four doors",
   doorsIntro:
     "One engine behind everything we do: measure readiness, act on the weakest link, verify the change. The door you walk through depends on who you are.",
@@ -19,7 +23,7 @@ export const HOME = {
     {
       title: "Corporates",
       href: "/corporates",
-      body: "A preventive health system for your workforce. Care activates. Prevention runs.",
+      body: "A preventive health system for your workforce. Find the risk while it is still a lifestyle decision.",
     },
     {
       title: "Gyms, Clubs & Spas",
@@ -29,7 +33,7 @@ export const HOME = {
     {
       title: "Individuals",
       href: "/individuals",
-      body: "Corporate athlete or sport athlete. A user guide to your body, built on your data.",
+      body: "For everyone who wants more from their body: everyday health, corporate athletes, sport athletes. A plan built on your own data.",
     },
     {
       title: "Certification",
@@ -50,7 +54,7 @@ export const HOME = {
     },
     {
       title: "Elite sport",
-      body: "The same measurement layer used with Olympic athletes, world champions in three sports and professional teams.",
+      body: "The same method used with Olympic athletes, world champions in three sports and professional teams.",
     },
   ],
   monitoringTitle: "Monitoring is not testing",
@@ -58,8 +62,7 @@ export const HOME = {
     "This market mostly sells pieces: a screening, a wellness app, a kiosk, a check-up. Olynixx built the whole loop: the UAE's first complete prevention system on the corporate floor. Complete means four steps in one governed cycle: measure, stratify, intervene, verify.",
   monitoringBody:
     "Your watch monitors. It counts what happened. Complete physiological testing measures what your body can do next. Capacity, not history. That difference is where prevention lives: we see the problem while it is still a lifestyle decision.",
-  monitoringLine:
-    "Your watch counts yesterday. We measure what your body can deliver today. From 2027, we read the nervous system itself: directly, at the source, every morning.",
+  monitoringLine: "Your watch counts yesterday. We measure what your body can deliver today.",
   monitoringLineDc:
     "Your watch counts yesterday. Olynixx measures what your body can deliver today, including the first DC-potential readiness measurement in the Gulf: the nervous system, read directly, every morning.",
   offerEyebrow: "Start with an event",
@@ -77,10 +80,10 @@ export const HOME = {
   proof: [
     { value: "22 yrs", label: "In the field since 2004" },
     { value: "~8,000", label: "Individual assessments" },
-    { value: "Non\u2011medical", label: "Throughout" },
-    { value: "One", label: "Method" },
+    { value: "300", label: "Participants in one workforce programme" },
+    { value: "12 wks", label: "Pilot, KPIs agreed before the first test" },
   ],
   bookTitle: "Rest Is the New Sport",
-  bookBody: "The book behind the system. You can read it tonight. You can be measured tomorrow.",
+  bookBody: "The book behind the readiness principle. Read it tonight. Get measured tomorrow.",
   closing: "Stop guessing. Get measured.",
 } as const;

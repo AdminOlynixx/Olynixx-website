@@ -6,7 +6,7 @@ import { Section, Prose } from "@/components/sections/Section";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { CardGrid } from "@/components/sections/CardGrid";
 import { ProofStrip } from "@/components/sections/ProofStrip";
-import { CycleResults } from "@/components/sections/CycleResults";
+import { FirstTwelveWeeks } from "@/components/sections/FirstTwelveWeeks";
 import { SectionSubNav } from "@/components/sections/SectionSubNav";
 import { IsoShortLine } from "@/components/sections/IsoShortLine";
 import { PageJsonLd } from "@/components/sections/PageJsonLd";
@@ -122,8 +122,8 @@ export default function CorporatesPage() {
 
       <ProofStrip items={CORPORATES.proof} />
 
-      <Section theme="light" id="cycle-1" eyebrow={CORPORATES.resultsTitle}>
-        <CycleResults />
+      <Section theme="light" id="first-12-weeks" eyebrow={CORPORATES.resultsTitle}>
+        <FirstTwelveWeeks position="corporates-first-12" />
       </Section>
 
       <Section theme="dark" eyebrow={CORPORATES.dashEyebrow} title={CORPORATES.dashTitle}>

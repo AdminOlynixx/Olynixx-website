@@ -3,7 +3,7 @@
 export const CORPORATES = {
   metaTitle: "Workforce readiness testing for UAE companies. Olynixx",
   metaDescription:
-    "Measure your workforce's readiness on site, act on what it shows, verify the change. A 12-week pilot with KPIs agreed before the first test. Non-medical, anonymised by design.",
+    "Measure your workforce's readiness on site, act on what it shows, verify the change. A 12-week pilot with KPIs agreed before the first test. Anonymised by design.",
   eyebrow: "For corporates · Care activates. Prevention runs.",
   heroTitle: "Your workforce's readiness, measured on your own floor.",
   standfirst:
@@ -124,24 +124,20 @@ export const CORPORATES = {
     { value: "12 wks", label: "Test–coach–retest" },
     { value: "300", label: "Participant programme delivered" },
     { value: "UAE", label: "Data hosted" },
-    { value: "1 in 7", label: "Low recovery capacity at baseline" },
   ],
 } as const;
 
-/** Cycle 1 baseline, cleared for public use. Retest results publish when Cycle 2 closes. */
-export const CYCLE1 = {
-  headline: "Cycle 1 baseline. 146 employees, one public-sector workforce.",
-  average: "Average readiness 371 / 500, range 296–425.",
-  bands: [
-    { key: "moderate", label: "Moderate", count: 57 },
-    { key: "good", label: "Good", count: 87 },
-    { key: "excellent", label: "Excellent", count: 2 },
+/** What a first 12-week cycle delivers. Outputs only: no client numbers on a public page. */
+export const FIRST_12 = {
+  eyebrow: "What a first cycle produces",
+  title: "What your first 12 weeks deliver.",
+  items: [
+    { who: "For every employee", what: "a personal readiness report within ten minutes of the test, with clear next actions." },
+    { who: "For leadership", what: "anonymised Load & Risk dashboards. The workforce in readiness bands, no names." },
+    { who: "For both", what: "a retest at week 12, measured against KPIs agreed before the first test." },
   ],
-  lowRecovery: {
-    stat: "1 in 7",
-    body: "20 people (1 in 7) with low recovery capacity: visible to themselves within ten minutes, anonymous to leadership.",
-  },
-  retestNote: "Retest results publish here when Cycle 2 closes.",
+  note: "Results from running programmes are shared in a pilot conversation, not on a public page.",
+  cta: "Book a pilot conversation",
 } as const;
 
 export const EVENTS = {
@@ -189,7 +185,7 @@ export const EVENTS = {
 export const GOVERNMENT = {
   heroTitle: "Workforce readiness for the public sector.",
   heroLead:
-    "Olynixx operates readiness programmes for government workforces and senior government leadership in the UAE. Delivered on site, fully anonymised at cohort level, non-medical by design.",
+    "Olynixx operates readiness programmes for government workforces and senior government leadership in the UAE. Delivered on site and fully anonymised at cohort level.",
   deliveredTitle: "What has been delivered",
   delivered: [
     "A 300-participant workforce readiness programme on a 12-week test–coach–retest cycle.",

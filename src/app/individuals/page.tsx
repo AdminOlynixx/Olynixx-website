@@ -22,7 +22,7 @@ export const metadata: Metadata = withSocial({
 export default function IndividualsHub() {
   const longevityLive = publishLongevity();
   const doors = longevityLive ? HUB.doors : HUB.doors.filter((d) => d.href !== "/individuals/longevity");
-  const doorsTitle = longevityLive ? HUB.doorsTitle : "Two routes. One method.";
+  const doorsTitle = longevityLive ? HUB.doorsTitle : "Three routes. One method.";
   const shop = shopHref("/shop", "individuals", "bridge");
 
   return (

@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/corporates/government",
     "/gyms",
     "/individuals",
+    "/individuals/everyday-health",
     "/individuals/corporate-athlete",
     "/individuals/sport-athlete",
     ...(publishLongevity() ? ["/individuals/longevity"] : []),

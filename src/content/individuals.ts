@@ -3,7 +3,7 @@
 export const HUB = {
   metaTitle: "Personal readiness testing and coaching in the UAE. Olynixx",
   metaDescription:
-    "A measured journey built on your own physiology. Choose your route and start with a free intake call. Non-medical.",
+    "A measured journey built on your own physiology. Choose your route and start with a free intake call.",
   eyebrow: "For individuals",
   heroTitle: "A user guide to your own body.",
   standfirst:
@@ -13,7 +13,6 @@ export const HUB = {
   trust: [
     "22 years in the field, since 2004",
     "~8,000 individual assessments",
-    "Non-medical. We do not treat patients",
     "Nothing on the WADA Prohibited List",
     "Testing across the UAE",
   ],
@@ -24,8 +23,14 @@ export const HUB = {
     "For 22 years this method has been used by people who cannot afford to guess: in elite sport, in high-consequence operational environments, and in boardrooms. The engine is the same for you. Measure what your body can actually deliver. Act on the weakest link. Verify the change.",
   ],
   doorsEyebrow: "Find your route",
-  doorsTitle: "Three routes. One method.",
+  doorsTitle: "Four routes. One method.",
   doors: [
+    {
+      title: "Everyday health",
+      href: "/individuals/everyday-health",
+      body: "Tired, want to lose weight, or just want to feel better? Start with one test and a plan that fits your life.",
+      cta: "See the everyday health route",
+    },
     {
       title: "The Corporate Athlete",
       href: "/individuals/corporate-athlete",
@@ -91,6 +96,39 @@ export const HUB = {
     "A free intake call with a coach. Your goal, your situation, and a straight answer on whether we are the right thing for it.",
 } as const;
 
+export const EVERYDAY_HEALTH = {
+  metaTitle: "Everyday health: one test and a plan that fits your life. Olynixx",
+  metaDescription:
+    "Tired, want to lose weight, or just want to feel better? Start with one test and a plan that fits your life.",
+  eyebrow: "Everyday health",
+  heroTitle: "You know something has to change. We show you where to start.",
+  intro:
+    "Tired by mid-afternoon. A few kilos you can't shift. Good intentions, but no idea what to focus on first. You don't need to be an athlete to be measured. A one-minute test shows how your body is coping today, and a coach turns that into three or four simple steps that fit your life.",
+  primaryCta: "Book your free intake talk",
+  isThisYouTitle: "Is this you?",
+  isThisYou: [
+    { title: "Always tired.", body: "You sleep, but you don't wake up rested." },
+    { title: "Want to lose weight.", body: "You've tried diets. You want to know what your body actually needs." },
+    { title: "Want to feel better, don't know how.", body: "Too much advice online, no plan that is yours." },
+  ],
+  howTitle: "How it works",
+  how: [
+    { title: "Free intake talk.", body: "20 minutes with a coach. Your goals, your routine, no pressure." },
+    { title: "Your first test.", body: "One minute at the kiosk. A personal report in your inbox the same day." },
+    { title: "Your plan.", body: "Sleep, movement, food and stress: the few things that matter most for you, nothing more." },
+    { title: "Retest.", body: "Every month or two. You see in numbers what is improving." },
+  ],
+  getTitle: "What you get (12 weeks minimum)",
+  get: [
+    "Regular readiness tests",
+    "Online coaching with a certified health coach",
+    "A clear plan you can follow at home and at work",
+    "Proof of progress at every retest",
+  ],
+  readinessLink: "A well-rested body is the base of good health. We start there.",
+  disclaimer: "We do not treat patients. If your results suggest you should see a doctor, we tell you.",
+} as const;
+
 export const CORPORATE_ATHLETE = {
   metaTitle: "The Corporate Athlete. Executive performance, measured. Olynixx",
   metaDescription:
@@ -104,7 +142,6 @@ export const CORPORATE_ATHLETE = {
   trust: [
     "22 years in the field",
     "Boardroom, elite sport and high-consequence operational environments",
-    "Non-medical",
     "Private by default. Your results are yours",
   ],
   loadEyebrow: "The real load",
@@ -116,7 +153,7 @@ export const CORPORATE_ATHLETE = {
   readEyebrow: "What we read",
   readTitle: "One minute, four technologies, one answer",
   read: [
-    "A readiness test takes about a minute, across four technologies, and resolves into one functional status: how much your body can absorb today, and which system is the constraint. Nervous, cardiovascular or metabolic.",
+    "A readiness test takes about a minute, across four technologies, and resolves into one functional status: how much your body can absorb today, and what is holding it back.",
     "From there the coaching is specific rather than general. Not “sleep more”: this week, your constraint is recovery, so the 6am session comes out and the 9pm inbox check goes with it. Not “manage stress”: your load tolerance is down 14% on your baseline, so the difficult conversation moves to Tuesday morning.",
     "That is what changes: the decisions get made with a number in front of them.",
   ],
@@ -159,7 +196,6 @@ export const SPORT_ATHLETE = {
     "Olympic athletes and world champions",
     "~8,000 individual assessments",
     "Nothing on the WADA Prohibited List",
-    "Non-medical",
   ],
   gapEyebrow: "The gap in your programme",
   gapTitle: "Your programme is written in advance. Your body is not.",
@@ -198,7 +234,7 @@ export const SPORT_ATHLETE = {
     "Level III is the full year, everything integrated, for an athlete building toward something specific.",
   ],
   runNote:
-    "Whichever level, the sequence is the same: baseline, act on the weakest link, retest. We work with your existing coach where you have one. We are the measurement layer, not a replacement for the person who writes your programme.",
+    "Whichever level, the sequence is the same: baseline, act on the weakest link, retest. We work with your existing coach where you have one. We bring the measurement, not a replacement for the person who writes your programme.",
   closeTitle: "Find out what your body is actually absorbing.",
   clubCta: "Talk to the club",
 } as const;

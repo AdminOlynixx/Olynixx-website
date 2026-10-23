@@ -51,7 +51,7 @@ export default function CorporateAthletePage() {
               <p key={p.slice(0, 28)}>{p}</p>
             ))}
           </Prose>
-          <ReadinessDiagram constraints={["Nervous", "Cardiovascular", "Metabolic"]} />
+          <ReadinessDiagram />
         </div>
       </Section>
 

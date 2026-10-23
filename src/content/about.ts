@@ -46,7 +46,7 @@ export const ABOUT = {
   methodTitle: "The method",
   methodBody: [
     "The body pays for every performance. Our method. Sharpened in the field since 2004. Reads a full physiological picture and resolves it into one functional status, then strengthens the weakest link, because the weakest link sets the ceiling. The same result can be delivered at a high or a low internal price; we train people to deliver it at the low one. That is biological cost, and lowering it is the entire job.",
-    "Today that reading runs on four levels. Physiological, biochemical, genetic and epigenetic. Delivered entirely non-medically.",
+    "Today that reading runs on four levels. Physiological, biochemical, genetic and epigenetic.",
   ],
   standTitle: "What we stand for",
   stand: [

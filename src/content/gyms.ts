@@ -3,7 +3,7 @@
 export const GYMS = {
   metaTitle: "Licence the Olynixx testing system. For gyms, clubs and spas",
   metaDescription:
-    "Members train and recover on their own numbers. A one-minute readiness check before the session, steered recovery after it, and a new revenue line for the club. Non-medical.",
+    "Members train and recover on their own numbers. A one-minute readiness check before the session, steered recovery after it, and a new revenue line for the club.",
   eyebrow: "For gyms, clubs & spas",
   heroTitle: "Turn your club into a testing club.",
   standfirst:
@@ -14,7 +14,6 @@ export const GYMS = {
     "First testing club live in Ajman",
     "22 years in the field",
     "~8,000 assessments",
-    "Non-medical devices throughout",
   ],
   safetyEyebrow: "Load & capacity",
   safetyTitle: "Know before they load",
@@ -138,7 +137,7 @@ export const GYMS = {
     },
     {
       title: "Staff, briefed",
-      body: "Therapists work from the same status the guest sees. No new medical role. Lifestyle guidance, on the treatment floor.",
+      body: "Therapists work from the same status the guest sees. Lifestyle guidance, on the treatment floor.",
     },
   ],
 } as const;

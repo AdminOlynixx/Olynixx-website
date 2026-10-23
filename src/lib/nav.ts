@@ -15,6 +15,7 @@ export const PRIMARY_NAV = [
     label: "Individuals",
     children: [
       { href: "/individuals", label: "Overview" },
+      { href: "/individuals/everyday-health", label: "Everyday health" },
       { href: "/individuals/corporate-athlete", label: "Corporate athlete" },
       { href: "/individuals/sport-athlete", label: "Sport athlete" },
       { href: "/individuals/longevity", label: "Longevity" },
@@ -39,6 +40,7 @@ export const FOOTER_NAV = {
   ],
   individuals: [
     { href: "/individuals", label: "Overview" },
+    { href: "/individuals/everyday-health", label: "Everyday health" },
     { href: "/individuals/corporate-athlete", label: "Corporate athlete" },
     { href: "/individuals/sport-athlete", label: "Sport athlete" },
     { href: "/individuals/longevity", label: "Longevity" },
@@ -60,6 +62,7 @@ export const CORP_SUBNAV = [
 ] as const;
 
 export const INDIVIDUAL_DOORS = [
+  { href: "/individuals/everyday-health", label: "Everyday health" },
   { href: "/individuals/corporate-athlete", label: "Corporate athlete" },
   { href: "/individuals/sport-athlete", label: "Sport athlete" },
   { href: "/individuals/longevity", label: "Longevity" },
