@@ -78,7 +78,7 @@ export function Footer() {
           <p>{NON_MEDICAL_DISCLAIMER}</p>
           <p>{ISO_SHORT}</p>
           <p className="flex flex-wrap items-center gap-x-5 gap-y-1">
-            <span>© {new Date().getFullYear()} Olynixx, a brand of Rise Up Lifestyle Coaching L.L.C, Dubai, UAE. All rights reserved.</span>
+            <span>© {new Date().getFullYear()} Olynixx. All rights reserved.</span>
             <Link href="/privacy" className="hover:text-gold-dark">Privacy</Link>
             <Link href="/terms" className="hover:text-gold-dark">Terms</Link>
           </p>

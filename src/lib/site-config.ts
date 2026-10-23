@@ -33,7 +33,7 @@ export function publishIsoBadges(): boolean {
   return process.env.PUBLISH_ISO_BADGES === "true";
 }
 
-/** Rise Up Lifestyle Coaching L.L.C. fronts the site until the Olynixx entity at rebrand. Off only when set false. */
+/** Olynixx is the public entity name. Off only when set false. */
 export function publishEntity(): boolean {
   return process.env.PUBLISH_ENTITY !== "false";
 }
@@ -90,7 +90,8 @@ const EMPTY_ENTITY: EntityIdentity = {
 
 function readEntityIdentity(): EntityIdentity {
   return {
-    legalName: envOr("SITE_ENTITY_NAME", "Rise Up Lifestyle Coaching L.L.C."),
+    // Fixed (not env-overridable): the public name is Olynixx everywhere.
+    legalName: "Olynixx",
     licence: envOr("SITE_ENTITY_LICENCE", "860518"),
     licenceIssuer: envOr("SITE_ENTITY_LICENCE_ISSUER", "DED-Dubai"),
     trn: envOr("SITE_ENTITY_TRN", "100547489300003"),
@@ -99,7 +100,7 @@ function readEntityIdentity(): EntityIdentity {
       "Office F28, Commercial-8, Saih Shuaib 2, Dubai Industrial City, Dubai, United Arab Emirates",
     ),
     jurisdiction: envOr("SITE_ENTITY_JURISDICTION", "Dubai, United Arab Emirates"),
-    dataController: envOr("SITE_ENTITY_DATA_CONTROLLER", "Rise Up Lifestyle Coaching L.L.C."),
+    dataController: "Olynixx",
   };
 }
 

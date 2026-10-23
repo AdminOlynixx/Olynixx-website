@@ -7,7 +7,7 @@ export const PRIVACY = {
     {
       title: "This notice",
       body: [
-        "This website is operated by Rise Up Lifestyle Coaching L.L.C (trade licence 860518, Dubai, UAE), which trades as Olynixx. We process personal data in line with UAE Federal Decree-Law No. 45 of 2021 on the Protection of Personal Data.",
+        "This website is operated by Olynixx (trade licence 860518, Dubai, UAE). We process personal data in line with UAE Federal Decree-Law No. 45 of 2021 on the Protection of Personal Data.",
         "This page covers the public Olynixx website and the contact form on it. Testing programmes, club licences and corporate pilots are contracted separately, with the same architecture described below.",
         "Olynixx provides lifestyle guidance based on non-medical data. Nothing here is a diagnosis, a treatment, or a clinical record.",
       ],
@@ -54,7 +54,7 @@ export const TERMS = {
     {
       title: "What this site is",
       body: [
-        "This website is operated by Rise Up Lifestyle Coaching L.L.C, Dubai, UAE, trading as Olynixx.",
+        "This website is operated by Olynixx, Dubai, UAE.",
         "These pages describe Olynixx programmes. They are not medical advice, not a diagnosis, and not an offer that becomes binding when you send the form. A programme starts only when both sides have agreed it in writing.",
       ],
     },
