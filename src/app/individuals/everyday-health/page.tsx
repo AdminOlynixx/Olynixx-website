@@ -4,6 +4,8 @@ import { EVERYDAY_HEALTH as COPY } from "@/content/individuals";
 import { SITE_PHOTOS } from "@/content/photos";
 import { contactHref } from "@/lib/cta";
 import { breadcrumbJsonLd } from "@/lib/json-ld";
+import { Faq } from "@/components/sections/Faq";
+import { FAQ } from "@/content/faq";
 import { PageHero } from "@/components/sections/PageHero";
 import { Section } from "@/components/sections/Section";
 import { CardGrid } from "@/components/sections/CardGrid";
@@ -65,6 +67,12 @@ export default function EverydayHealthPage() {
           <p className="text-sm text-ink-muted">{COPY.disclaimer}</p>
         </Reveal>
       </Section>
+
+      {FAQ.everydayHealth.length > 0 && (
+        <Section theme="light">
+          <Faq items={FAQ.everydayHealth} />
+        </Section>
+      )}
 
       <CtaBand
         title={COPY.heroTitle}

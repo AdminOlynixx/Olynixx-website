@@ -6,6 +6,8 @@ import { Section, Prose } from "@/components/sections/Section";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { CardGrid } from "@/components/sections/CardGrid";
 import { ProofStrip } from "@/components/sections/ProofStrip";
+import { Faq } from "@/components/sections/Faq";
+import { FAQ } from "@/content/faq";
 import { FirstTwelveWeeks } from "@/components/sections/FirstTwelveWeeks";
 import { SectionSubNav } from "@/components/sections/SectionSubNav";
 import { IsoShortLine } from "@/components/sections/IsoShortLine";
@@ -173,6 +175,12 @@ export default function CorporatesPage() {
           </div>
         )}
       </Section>
+
+      {FAQ.corporates.length > 0 && (
+        <Section theme="light">
+          <Faq items={FAQ.corporates} />
+        </Section>
+      )}
 
       <CtaBand
         title={CORPORATES.closeTitle}

@@ -12,6 +12,8 @@ import { ProofStrip } from "@/components/sections/ProofStrip";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { PinnedCycle } from "@/components/sections/PinnedCycle";
 import { Marquee } from "@/components/sections/Marquee";
+import { Faq } from "@/components/sections/Faq";
+import { FAQ } from "@/content/faq";
 import { FirstTwelveWeeks } from "@/components/sections/FirstTwelveWeeks";
 import { PhotoSlot } from "@/components/sections/PhotoSlot";
 import { SITE_PHOTOS } from "@/content/photos";
@@ -199,6 +201,14 @@ export default function Home() {
           </Button>
         </Reveal>
       </section>
+
+      {FAQ.home.length > 0 && (
+        <section data-theme="light" className="py-24">
+          <div className="container-ol">
+            <Faq items={FAQ.home} />
+          </div>
+        </section>
+      )}
 
       <CtaBand
         title={HOME.closing}
