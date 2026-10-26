@@ -39,11 +39,12 @@ export default function EverydayHealthPage() {
         title={COPY.heroTitle}
         lead={COPY.intro}
         primary={{ href: contactHref("individual-intake", "everyday-health-hero"), label: COPY.primaryCta }}
-      />
+      >
+        <PhotoSlot photo={SITE_PHOTOS.everyday} sizes="(min-width: 1024px) 896px, 100vw" priority className="mt-12 max-w-4xl" />
+      </PageHero>
 
       <Section theme="light" title={COPY.isThisYouTitle}>
         <CardGrid items={COPY.isThisYou} cols={3} />
-        <PhotoSlot photo={SITE_PHOTOS.everyday} className="mt-12 max-h-[480px]" />
       </Section>
 
       <Section theme="dark" title={COPY.howTitle}>

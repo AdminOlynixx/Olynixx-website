@@ -1,7 +1,11 @@
 import Image from "next/image";
 import type { SitePhoto } from "@/content/photos";
 
-/** Renders a site photo, or nothing at all while the slot is still empty. */
+/**
+ * Renders a site photo at its slot crop (3:2 hero or 4:3 card). The file may still be the flat
+ * cream placeholder; swapping the file under the same name needs no code change.
+ * Below-the-fold images lazy-load; pass `priority` for the hero.
+ */
 export function PhotoSlot({
   photo,
   className = "",
@@ -23,6 +27,7 @@ export function PhotoSlot({
       sizes={sizes}
       priority={priority}
       loading={priority ? undefined : "lazy"}
+      style={{ aspectRatio: photo.ratio.replace("/", " / ") }}
       className={`h-auto w-full object-cover ${className}`}
     />
   );

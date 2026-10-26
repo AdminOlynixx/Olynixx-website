@@ -22,33 +22,74 @@ export const FOUNDER_PHOTOS = {
 } as const;
 
 /**
- * Site photography slots from the homepage brief (22 Oct 2026). Louis supplies the files.
- * A slot set to null renders nothing and leaves no gap, so pages look right before the photos arrive.
- * To place one: put the WebP in /public/images, then fill in { src, alt, width, height } here.
- * Specs: WebP, under 300 KB, 2400px wide for full-width slots, 1200px for cards, alt text on every image.
- * Never use stethoscopes, white coats, hospital rooms, blood tests or medical charts.
+ * Site photography slots (Louis's tasks doc, 25 Oct 2026).
+ *
+ * Every slot points at a FIXED file name in /public/images. Today most of those files are flat cream
+ * placeholders at the final crop. To go live with a real photo, replace the file with the real WebP
+ * under the same name: no code change. Keep the same pixel size.
+ *
+ * Crops: "hero" slots 3:2 at 2400 x 1600, "card" slots 4:3 at 1200 x 900. WebP, under 300 KB.
+ * Only images Louis sends for this brief. No stock photos, no logos or readable signage, no client data,
+ * no medical imagery. The kiosk must be the Olynixx device.
  */
-export type SitePhoto = { src: string; alt: string; width: number; height: number };
+export type SitePhoto = { src: string; alt: string; width: number; height: number; ratio: "3/2" | "4/3" };
 
-export const SITE_PHOTOS: Record<
-  | "hero" // right side of the hero, 2400 wide: employee at the MS Fit kiosk in an office lobby, mid-test. Real office, business clothes, face can be side-on.
-  | "readiness" // 1200 wide: calm recovery moment, person resting in morning light. No beds, no hospital, no white coats.
-  | "steps" // 2400 wide: phone showing the readiness report + laptop showing the Load & Risk dashboard. Demo data only.
-  | "fieldGovernment" // 1200 wide: kiosk set-up on site. No faces, no logos, no government branding without approval.
-  | "fieldClub" // 1200 wide: Karwan Ajman floor with the kiosk.
-  | "fieldElite" // 1200 wide: athlete during testing.
-  | "event" // 1200 wide: kiosk at a company event, people queuing. Shows "we come to you".
-  | "book" // 1200 wide: book cover mock-up of Rest Is the New Sport (cover file from Louis).
-  | "everyday", // 1200 wide: ordinary adult, 35-55, everyday clothes, at the kiosk or walking outside in the morning. Not sporty, not gym, not clinical.
-  SitePhoto | null
-> = {
-  hero: null,
-  readiness: null,
-  steps: null,
-  fieldGovernment: null,
-  fieldClub: null,
-  fieldElite: null,
-  event: null,
-  book: null,
-  everyday: null,
-};
+const HERO = { width: 2400, height: 1600, ratio: "3/2" } as const;
+const CARD = { width: 1200, height: 900, ratio: "4/3" } as const;
+
+export const SITE_PHOTOS = {
+  // 1. Home hero, right side (replaces the globe)
+  hero: {
+    src: "/images/hero-kiosk-office.webp",
+    alt: "Employee taking a one-minute readiness test at an Olynixx kiosk in an office lobby",
+    ...HERO,
+  },
+  // 2. Home section 3, The Readiness Principle
+  readiness: {
+    src: "/images/readiness-recovery.webp",
+    alt: "Person resting by a window in morning light",
+    ...CARD,
+  },
+  // 3. Home section 5, Four steps. One loop.
+  steps: {
+    src: "/images/four-steps-phone-laptop.webp",
+    alt: "Readiness report on a phone and Load & Risk dashboard on a laptop",
+    ...CARD,
+  },
+  // 4. Home section 7, field card: Government
+  fieldGovernment: {
+    src: "/images/field-government.webp",
+    alt: "Olynixx kiosk set up in a government building foyer",
+    ...CARD,
+  },
+  // 5. Home section 7, field card: Testing club
+  fieldClub: {
+    src: "/images/field-karwan.webp",
+    alt: "Olynixx kiosk on the gym floor at Karwan Health Club, Ajman",
+    ...CARD,
+  },
+  // 6. Home section 7, field card: Elite sport
+  fieldElite: {
+    src: "/images/field-elite-sport.webp",
+    alt: "Athlete during readiness testing with Olynixx coach",
+    ...CARD,
+  },
+  // 7. Home section 6, 25 tests event offer
+  event: {
+    src: "/images/event-kiosk.webp",
+    alt: "Employees queuing for readiness tests at a company event",
+    ...CARD,
+  },
+  // 8. /individuals/everyday-health, hero
+  everyday: {
+    src: "/images/everyday-health-hero.webp",
+    alt: "Adult walking outside in the early morning",
+    ...HERO,
+  },
+  // 9. Home section 11 and About: Rest Is the New Sport. LIVE (real image, do not crop further).
+  book: {
+    src: "/images/book-rest-is-the-new-sport.webp",
+    alt: "Rest Is the New Sport by Jef Louis Geys",
+    ...CARD,
+  },
+} satisfies Record<string, SitePhoto>;

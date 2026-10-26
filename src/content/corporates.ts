@@ -4,7 +4,7 @@ export const CORPORATES = {
   metaTitle: "Workforce readiness testing for UAE companies. Olynixx",
   metaDescription:
     "Measure your workforce's readiness on site, act on what it shows, verify the change. A 12-week pilot with KPIs agreed before the first test. Anonymised by design.",
-  eyebrow: "For corporates · Care activates. Prevention runs.",
+  eyebrow: "For corporates",
   heroTitle: "Your workforce's readiness, measured on your own floor.",
   standfirst:
     "Healthcare starts when someone becomes a patient. We run earlier: a one-minute test at a kiosk in your building, a report in the employee's inbox within ten minutes, and an anonymised readiness picture for leadership. Twelve weeks, KPIs agreed before the first test, and a retest that says whether it moved.",
@@ -120,7 +120,6 @@ export const CORPORATES = {
   closeTitle: "Ready to see your workforce differently?",
   closeStandfirst: "Twelve weeks, KPIs agreed up front, and a straight answer at the end.",
   proof: [
-    { value: "146", label: "Employees tested in one cycle" },
     { value: "12 wks", label: "Test–coach–retest" },
     { value: "300", label: "Participant programme delivered" },
     { value: "UAE", label: "Data hosted" },

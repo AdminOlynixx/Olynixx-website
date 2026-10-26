@@ -6,13 +6,13 @@ import { Section } from "@/components/sections/Section";
 import { CardGrid } from "@/components/sections/CardGrid";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { AboutTimeline } from "@/components/sections/AboutTimeline";
-import { BookCover } from "@/components/sections/BookCover";
+import { PhotoSlot } from "@/components/sections/PhotoSlot";
 import { IsoShort } from "@/components/sections/IsoBlock";
 import { JsonLd } from "@/components/sections/JsonLd";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { ABOUT } from "@/content/about";
-import { FOUNDER_PHOTOS } from "@/content/photos";
+import { FOUNDER_PHOTOS, SITE_PHOTOS } from "@/content/photos";
 import { contactHref } from "@/lib/cta";
 import { bookJsonLd, breadcrumbJsonLd } from "@/lib/json-ld";
 
@@ -62,7 +62,7 @@ export default function AboutPage() {
             </div>
           </Reveal>
           <div className="space-y-8">
-            <BookCover name={ABOUT.bookName} year={ABOUT.bookYear} />
+            <PhotoSlot photo={SITE_PHOTOS.book} sizes="(min-width: 768px) 380px, 90vw" className="mx-auto max-w-[380px]" />
             <figure className="mx-auto max-w-[300px]">
               <Image
                 src={FOUNDER_PHOTOS.headshot.src}

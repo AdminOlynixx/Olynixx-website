@@ -50,9 +50,11 @@ export const HUB = {
       cta: "See the longevity route",
     },
   ],
+  lineEyebrow: "One thing first",
+  lineTitle: "We do not treat patients.",
   lineBody: [
-    "We work in health optimisation and performance - tailor made just for you.  We measure how your body is coping, put an intelligence layer on that data, and turn it into decisions you can act on: train, adjust or recover. Then we retest, so the result is proven, not assumed.",
-    "What you get is guidance, not a diagnosis. If your numbers ever point to something a doctor should see, we tell you straight.",
+    "We are not a clinic and nothing we do is medical. We work with healthy people who want more from their body. Every device we use is non-medical, and everything we give you is lifestyle guidance, not a diagnosis. If your numbers ever suggest you need medical attention, we say exactly that: see a doctor.",
+    "That is not a legal footnote. It is the reason the guidance you get here can be honest about what it is.",
   ],
   methodEyebrow: "The method",
   methodTitle: "Test. Act. Verify.",

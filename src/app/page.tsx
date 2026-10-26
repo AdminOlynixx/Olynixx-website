@@ -31,14 +31,9 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section data-theme="dark" data-globe="hero" className="surface-dark relative flex min-h-[calc(100svh-72px)] items-center overflow-hidden">
+      <section data-theme="dark" className="surface-dark relative flex min-h-[calc(100svh-72px)] items-center overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_50%,rgba(79,192,166,0.18),transparent_60%)]" />
-        {SITE_PHOTOS.hero && (
-          <div className="absolute inset-y-0 right-0 hidden w-[42%] lg:block">
-            <PhotoSlot photo={SITE_PHOTOS.hero} sizes="42vw" priority className="h-full" />
-          </div>
-        )}
-        <div className="container-ol relative z-10 py-20 lg:py-24">
+        <div className="container-ol relative z-10 grid items-center gap-12 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:py-24">
           <div>
           <p className="eyebrow mb-6">{HOME.spineAlt}</p>
           <SplitHeading
@@ -58,6 +53,7 @@ export default function Home() {
             </div>
           </Reveal>
           </div>
+          <PhotoSlot photo={SITE_PHOTOS.hero} sizes="(min-width: 1024px) 45vw, 100vw" priority />
         </div>
       </section>
 
@@ -108,6 +104,12 @@ export default function Home() {
       </section>
 
       <PinnedCycle eyebrow="One cycle" title="Four steps. One loop." steps={CORPORATES.system} />
+
+      <section data-theme="light" className="pt-24">
+        <Reveal className="container-ol">
+          <PhotoSlot photo={SITE_PHOTOS.steps} sizes="(min-width: 768px) 640px, 100vw" className="mx-auto max-w-[640px]" />
+        </Reveal>
+      </section>
 
       {/* Offer */}
       <section data-theme="light" className="py-24">
@@ -192,7 +194,7 @@ export default function Home() {
       {/* Book */}
       <section data-theme="light" className="py-24">
         <Reveal stagger={0.1} className="container-ol flex flex-col items-center gap-5 text-center">
-          <PhotoSlot photo={SITE_PHOTOS.book} sizes="(min-width: 768px) 320px, 80vw" className="max-w-[320px]" />
+          <PhotoSlot photo={SITE_PHOTOS.book} sizes="(min-width: 768px) 560px, 90vw" className="max-w-[560px]" />
           <Image src="/brand/olynixx-divider-on-light.svg" alt="" aria-hidden="true" width={160} height={12} />
           <h2 className="font-display text-[clamp(2rem,4vw,3rem)] italic">{HOME.bookTitle}</h2>
           <p className="max-w-lg text-ink-muted">{HOME.bookBody}</p>
