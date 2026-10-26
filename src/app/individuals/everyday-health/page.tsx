@@ -3,6 +3,7 @@ import { withSocial } from "@/lib/seo";
 import { EVERYDAY_HEALTH as COPY } from "@/content/individuals";
 import { SITE_PHOTOS } from "@/content/photos";
 import { contactHref } from "@/lib/cta";
+import { publicContact, whatsappHref } from "@/lib/site-config";
 import { breadcrumbJsonLd } from "@/lib/json-ld";
 import { Faq } from "@/components/sections/Faq";
 import { FAQ } from "@/content/faq";
@@ -28,7 +29,7 @@ const CRUMBS = [
   { href: "/individuals/everyday-health", label: "Everyday health" },
 ];
 
-/** Third Individuals route, for non-athletes. Entry is Level I only; the main button goes to the free intake talk. */
+/** Third Individuals route, for non-athletes. Entry is Level I only; the main button goes to the free intake call. */
 export default function EverydayHealthPage() {
   return (
     <>
@@ -39,6 +40,7 @@ export default function EverydayHealthPage() {
         title={COPY.heroTitle}
         lead={COPY.intro}
         primary={{ href: contactHref("individual-intake", "everyday-health-hero"), label: COPY.primaryCta }}
+        secondary={{ href: whatsappHref(publicContact().whatsapp), label: "Message us on WhatsApp" }}
       >
         <PhotoSlot photo={SITE_PHOTOS.everyday} sizes="(min-width: 1024px) 896px, 100vw" priority className="mt-12 max-w-4xl" />
       </PageHero>

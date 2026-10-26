@@ -27,7 +27,7 @@ export function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <section data-theme="dark" data-globe="hero" className="surface-dark relative overflow-hidden pb-20 pt-24 md:pb-28 md:pt-32">
+    <section data-theme="dark" className="surface-dark relative overflow-hidden pb-20 pt-24 md:pb-28 md:pt-32">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_40%,rgba(79,192,166,0.16),transparent_60%)]" />
       <div className="container-ol">
         {breadcrumb && (
@@ -49,7 +49,7 @@ export function PageHero({
           delay={0.15}
           className="max-w-4xl text-[clamp(2.375rem,5.2vw,4rem)] leading-[1.05] tracking-[-0.02em]"
         />
-        <Reveal stagger={0.12} delay={0.6} className="mt-8 max-w-2xl space-y-6">
+        <Reveal stagger={0.06} delay={0.15} className="mt-8 max-w-2xl space-y-6">
           {lead && <p className="text-[clamp(1.1875rem,1.6vw,1.3125rem)] text-cream/85">{lead}</p>}
           {(primary || secondary) && (
             <div className="flex flex-wrap gap-4 pt-2">
@@ -63,7 +63,7 @@ export function PageHero({
           )}
         </Reveal>
         {trust && trust.length > 0 && (
-          <Reveal stagger={0.08} delay={0.9} className="mt-14 flex flex-wrap gap-x-8 gap-y-3 border-t border-cream/15 pt-6">
+          <Reveal stagger={0.05} delay={0.2} className="mt-14 flex flex-wrap gap-x-8 gap-y-3 border-t border-cream/15 pt-6">
             {trust.map((t) => (
               <p key={t} className="font-mono text-xs uppercase tracking-[0.08em] text-cream/70">
                 {t}

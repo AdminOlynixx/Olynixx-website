@@ -21,12 +21,12 @@ export type CtaSource = (typeof CTA_SOURCES)[number];
 
 export const CONTACT_AUDIENCES = [
   { value: "individual", label: "Individual" },
-  { value: "club-licence", label: "Gym or club" },
-  { value: "corporate-pilot", label: "Corporate" },
+  { value: "corporate-pilot", label: "Company" },
   { value: "government", label: "Government" },
-  { value: "praxis-certification", label: "Coach–certification" },
-  { value: "event", label: "Event" },
-  { value: "systems", label: "Systems" },
+  { value: "club-licence", label: "Gym, club or spa" },
+  { value: "event", label: "Event or keynote" },
+  { value: "praxis-certification", label: "Coach (Praxis)" },
+  { value: "systems", label: "Recovery systems" },
 ] as const;
 
 export type ContactAudience = (typeof CONTACT_AUDIENCES)[number]["value"];

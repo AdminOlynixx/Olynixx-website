@@ -8,7 +8,7 @@ export const READINESS_HUB = {
   tiers: [
     {
       title: "Base",
-      body: "MS Fit readiness testing on your floor. One-minute tests, individual reports, anonymised leadership view for companies. The measurement backbone.",
+      body: "MS Fit readiness testing on your floor. One-minute tests and a personal report for every member. The measurement backbone.",
     },
     {
       title: "Advanced",
@@ -16,7 +16,7 @@ export const READINESS_HUB = {
     },
     {
       title: "Complete",
-      body: "Advanced, plus altitude training, steered recovery systems, and certified coaches delivering the cycle on site.",
+      body: "Advanced, plus altitude training, guided recovery systems, and certified coaches delivering the cycle on site.",
     },
   ],
 } as const;

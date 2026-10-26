@@ -4,7 +4,7 @@ export const HOME = {
   spineAlt: "Readiness + Recovery = Perform",
   heroTitle: "Measure what your people can actually deliver today.",
   standfirst:
-    "Olynixx is a preventive readiness system for workforces, clubs and individuals. A one-minute test, a personal report the same day, and a retest that shows whether it moved.",
+    "Olynixx is a preventive readiness system for workforces, clubs and individuals. A one-minute test, a personal report within ten minutes, and a retest that shows whether it moved.",
   proofLine: "Tested, not guessed. Verified by retest.",
   primaryCta: "Book a pilot conversation",
   secondaryCta: "For individuals",
@@ -18,7 +18,7 @@ export const HOME = {
   readinessClose: "Rest is not the opposite of performance. It is where performance is built.",
   doorsEyebrow: "One engine, four doors",
   doorsIntro:
-    "One engine behind everything we do: measure readiness, act on the weakest link, verify the change. The door you walk through depends on who you are.",
+    "Every programme runs the same way: we measure readiness, fix what holds it back, and retest to prove the change. Choose the door that fits you.",
   doors: [
     {
       title: "Corporates",
@@ -36,9 +36,9 @@ export const HOME = {
       body: "For everyone who wants more from their body: everyday health, corporate athletes, sport athletes. A plan built on your own data.",
     },
     {
-      title: "Certification",
+      title: "Olynixx Praxis",
       href: "/praxis",
-      body: "Learn the method. Get certified. Deliver it.",
+      body: "For coaches and health professionals. Learn the method, get certified, deliver it.",
     },
   ],
   runningEyebrow: "Where the system is already running",
@@ -50,7 +50,7 @@ export const HOME = {
     },
     {
       title: "Testing clubs",
-      body: "The first licensed testing club is live in Ajman: kiosk on the floor, steered recovery, certified coaches.",
+      body: "The first licensed testing club is live in Ajman: kiosk on the floor, guided recovery, certified coaches.",
     },
     {
       title: "Elite sport",
@@ -59,16 +59,16 @@ export const HOME = {
   ],
   monitoringTitle: "Monitoring is not testing",
   firstClaim:
-    "This market mostly sells pieces: a screening, a wellness app, a kiosk, a check-up. Olynixx built the whole loop: the UAE's first complete prevention system on the corporate floor. Complete means four steps in one governed cycle: measure, stratify, intervene, verify.",
+    "This market mostly sells pieces: a screening, a wellness app, a kiosk, a check-up. Olynixx built the whole loop: the UAE's first complete prevention system on the corporate floor. Complete means all four steps in one cycle: measure, map, act, verify.",
   monitoringBody:
-    "Your watch monitors. It counts what happened. Complete physiological testing measures what your body can do next. Capacity, not history. That difference is where prevention lives: we see the problem while it is still a lifestyle decision.",
+    "A watch monitors: it counts what already happened. A full physiological test measures what your body can handle next. That is where prevention works: we see the problem while it is still a lifestyle decision.",
   monitoringLine: "Your watch counts yesterday. We measure what your body can deliver today.",
   monitoringLineDc:
     "Your watch counts yesterday. Olynixx measures what your body can deliver today, including the first DC-potential readiness measurement in the Gulf: the nervous system, read directly, every morning.",
   offerEyebrow: "Start with an event",
-  offerTitle: "25 tests. Complimentary Load & Risk dashboards.",
+  offerTitle: "Test 25 people. Get your Load & Risk dashboard free.",
   offerBody:
-    "Not ready for a twelve-week pilot? Bring the kiosk to your next company event. Test 25 people or more and we build your anonymised Load and Risk dashboards free of charge. Yours to keep.",
+    "Not ready for a 12-week pilot? Bring the kiosk to your next company event. Test 25 people or more and we build your anonymised Load & Risk dashboard free of charge. Yours to keep. New clients only.",
   offerCta: "Bring Olynixx to your next event",
   proofEyebrow: "What a first cycle produces",
   seanEyebrow: "Ambassador",

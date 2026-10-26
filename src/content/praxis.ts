@@ -1,12 +1,9 @@
-/** Part 2 teal copy. Page title stays “Olynixx Praxis”; Olynixx Academy is the programme name inside the page. */
+/** Part 2 teal copy. Page title stays “Olynixx Praxis”; */
 
 export const PRAXIS = {
   heroTitle: "Renew your credentials. Upgrade your craft.",
   heroLead:
     "Olynixx Praxis is continuing education for the UAE's health professionals. Personal trainers, health coaches, nutritionists, mental coaches. Work toward the renewal your certification requires, and walk out with a skill your clients will pay for. CPD recognition in progress.",
-  programmeName: "Olynixx Academy",
-  programmeNote:
-    "Olynixx Academy is the programme name inside Olynixx Praxis. The page title stays Olynixx Praxis.",
   renewalTitle: "The renewal problem",
   renewalBody:
     "Every certified professional faces the same clock: your base certification expires, renewal credits are due, and most courses on offer are something you sit through, not something you use. Praxis was built to flip that. You work toward renewal by learning a system you can deliver the very next day. Physiological readiness testing, and the coaching that turns a number into a decision.",
@@ -18,7 +15,7 @@ export const PRAXIS = {
   ],
   learnTitle: "What you learn",
   learn: [
-    "How the body pays for performance: one functional status from a full readiness reading, and why the weakest link sets the ceiling.",
+    "How the body pays for performance: one clear status from a full readiness reading, and why the weakest link sets the ceiling.",
     "Kiosk-based readiness testing: running the test, reading the result, explaining it in plain language.",
     "Coaching the decision: turning a readiness score into today's training, recovery and lifestyle choices.",
     "Retest discipline: one test is a snapshot, two is a direction.",
@@ -29,7 +26,7 @@ export const PRAXIS = {
     "Personal trainers · health coaches · nutritionists · mental coaches · recovery specialists. Any certified health professional in the UAE whose credentials need renewing, and who would rather grow than just comply. (UAE first; further regions to follow.)",
   whyTitle: "Why professionals choose Praxis",
   whyBody:
-    "Because it is taught from a 22-year field record. Special forces, elite sport, corporate leadership. Not from a slide pack. Because you test real physiology on real equipment during the course. And because certification is earned, not attended: candidates fail this exam, which is exactly why the certificate means something to the clubs and companies that hire from our network.",
+    "Because it is taught from a 22-year field record. Special forces, elite sport, corporate leadership. Not from a slide pack. Because you test real physiology on real equipment during the course. And because the certificate is earned, not attended: not every candidate passes, which is exactly why clubs and companies trust it when they hire from our network.",
   pathwayTitle: "The certification pathway",
   pathway: [
     { step: "1", title: "Train", body: "Instructor-led course." },

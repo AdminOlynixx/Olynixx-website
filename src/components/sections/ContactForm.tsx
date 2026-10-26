@@ -210,6 +210,7 @@ export function ContactForm() {
       >
         {isSubmitting ? CONTACT.fields.sending : CONTACT.fields.submit}
       </button>
+      <p className="text-sm text-ink-muted">{CONTACT.replyPromise}</p>
 
       {failed ? (
         <p role="alert" className={err}>

@@ -12,7 +12,7 @@ import { breadcrumbJsonLd } from "@/lib/json-ld";
 
 export const metadata: Metadata = withSocial({
   title: { absolute: "Governance | Olynixx" },
-  description: GOVERNANCE.lead,
+  description: "ISO 27001, 45001 and 45003 certification in progress with an accredited body. Data hosted in the UAE.",
 }, "/governance");
 
 const crumbs = [
@@ -29,7 +29,6 @@ export default function GovernancePage() {
       <Section theme="light" narrow>
         <Reveal stagger={0.1} className="space-y-6">
           <p className="border-l-2 border-gold pl-5 font-display text-xl text-ink">{GOVERNANCE.status}</p>
-          <p className="text-ink-muted">{GOVERNANCE.body}</p>
           <ul className="divide-y divide-rule border-y border-rule">
             {ISO_LONG.items.map((item) => (
               <li key={item} className="flex flex-wrap items-center justify-between gap-2 py-4 text-[15px]">
@@ -38,7 +37,6 @@ export default function GovernancePage() {
               </li>
             ))}
           </ul>
-          <p className="text-sm text-ink-muted">Certificate numbers, scope and issue dates: not yet issued.</p>
         </Reveal>
       </Section>
 

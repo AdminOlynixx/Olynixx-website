@@ -28,7 +28,7 @@ export function PinnedCycle({
         const items = gsap.utils.toArray<HTMLElement>("[data-step]", root.current);
         const big = gsap.utils.toArray<HTMLElement>("[data-big]", root.current);
         const line = root.current!.querySelector<HTMLElement>("[data-line]");
-        gsap.set(items, { opacity: 0.25 });
+        gsap.set(items, { opacity: 0.7 });
         gsap.set(big, { autoAlpha: 0, yPercent: 40 });
         gsap.set(items[0], { opacity: 1 });
         gsap.set(big[0], { autoAlpha: 1, yPercent: 0 });
@@ -46,7 +46,7 @@ export function PinnedCycle({
         tl.fromTo(line, { scaleY: 0 }, { scaleY: 1, ease: "none", duration: steps.length }, 0);
         steps.forEach((_, i) => {
           if (i === 0) return;
-          tl.to(items[i - 1], { opacity: 0.25, duration: 0.3 }, i - 0.3)
+          tl.to(items[i - 1], { opacity: 0.7, duration: 0.3 }, i - 0.3)
             .to(big[i - 1], { autoAlpha: 0, yPercent: -40, duration: 0.4 }, i - 0.4)
             .to(items[i], { opacity: 1, duration: 0.3 }, i - 0.1)
             .to(big[i], { autoAlpha: 1, yPercent: 0, duration: 0.4 }, i - 0.1);

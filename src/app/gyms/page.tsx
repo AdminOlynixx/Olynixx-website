@@ -40,7 +40,7 @@ export default function GymsPage() {
         <ul className="container-ol flex gap-2 py-2">
           {[
             { href: "#gyms-track", label: GYMS.selectorGyms },
-            { href: "#spa-track", label: GYMS.selectorSpas },
+            { href: "/spas", label: GYMS.selectorSpas },
           ].map((l) => (
             <li key={l.href}>
               <a
@@ -116,10 +116,6 @@ export default function GymsPage() {
           </Button>
         </Reveal>
         <CardGrid items={GYMS.steered} cols={4} numbered />
-      </Section>
-
-      <Section theme="dark" id="spa-track" eyebrow={GYMS.spaEyebrow} title={GYMS.spaTitle} lead={GYMS.spa}>
-        <CardGrid items={GYMS.spaCards} theme="dark" cols={4} numbered />
       </Section>
 
       <Section theme="light" id="licence" eyebrow={GYMS.licenceEyebrow} title={GYMS.licenceTitle}>

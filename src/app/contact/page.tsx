@@ -75,7 +75,6 @@ export default function ContactPage() {
                 <iframe title="Book a conversation" src={details.calendar} loading="lazy" className="h-full w-full" />
               </div>
             ) : null}
-            <p className="pt-2 text-sm text-ink-muted">{CONTACT.directNote}</p>
           </Reveal>
         </div>
       </Section>

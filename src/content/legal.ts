@@ -87,9 +87,8 @@ export const TERMS = {
 
 export const GOVERNANCE = {
   title: "Governance",
-  lead: "Certificate numbers, scope and issue dates will live on this page when the certificates are issued.",
+  lead: "Certificate numbers, scope and issue dates will be published here when the certificates are issued.",
   status: "ISO 27001 · 45001 · 45003. Certification in progress with an accredited body. Not yet certified.",
-  body: "Certificate numbers, scope and issue dates will be published on this page when the certificates are issued. One place for a procurement reader to check.",
 } as const;
 
 export const THANK_YOU = {

@@ -33,13 +33,13 @@ export function Reveal({
       const inView = ref.current.getBoundingClientRect().top < window.innerHeight * 0.95;
       gsap.fromTo(
         targets,
-        { autoAlpha: 0, y },
+        { autoAlpha: 0.65, y: Math.min(y, 14) },
         {
           autoAlpha: 1,
           y: 0,
-          duration: 0.9,
+          duration: 0.28,
           delay,
-          ease: "power3.out",
+          ease: "power2.out",
           stagger: stagger ?? 0,
           // Below the fold the from-state is applied only when the block scrolls in, so nothing sits faded.
           immediateRender: inView,

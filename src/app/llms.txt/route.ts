@@ -18,6 +18,7 @@ ${page("/corporates", "Corporates", "Workforce readiness testing on site, with a
 ${page("/corporates/events", "Events and keynotes", "A readiness testing kiosk and the Rest Is the New Sport keynote at company events.")}
 ${page("/corporates/government", "Government and public sector", "Readiness programmes for public-sector workforces, anonymised at cohort level.")}
 ${page("/gyms", "Gyms, clubs and spas", "Licensed testing system for clubs and recovery facilities.")}
+${page("/spas", "Spas", "Guest readiness testing at arrival for spas and recovery facilities.")}
 ${page("/individuals", "Individuals", "Personal readiness testing and coaching, with a free intake call.")}
 ${page("/individuals/everyday-health", "Everyday health", "One test and a simple plan for people who are tired, want to lose weight or want to feel better.")}
 ${page("/individuals/corporate-athlete", "Corporate athlete", "Readiness testing for professionals and leaders under work load.")}

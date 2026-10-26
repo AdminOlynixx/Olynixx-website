@@ -1,9 +1,8 @@
 /** Build Pack V2 §12. Load-versus-capacity only. Recovery is always “steered toward”. */
 
 export const GYMS = {
-  metaTitle: "Licence the Olynixx testing system. For gyms, clubs and spas",
-  metaDescription:
-    "Members train and recover on their own numbers. A one-minute readiness check before the session, steered recovery after it, and a new revenue line for the club.",
+  metaTitle: "Testing-club licence for gyms, clubs and spas | Olynixx",
+  metaDescription: "A one-minute readiness check before the session, guided recovery after it, and a new revenue line for your club.",
   eyebrow: "For gyms, clubs & spas",
   heroTitle: "Turn your club into a testing club.",
   standfirst:
@@ -18,7 +17,7 @@ export const GYMS = {
   safetyEyebrow: "Load & capacity",
   safetyTitle: "Know before they load",
   safety: [
-    "Every session is a stressor the body has to absorb, and the same body absorbs a different amount on a Tuesday than it did on a Friday. The question on your floor was never “is the programme hard enough?” It is: can this body adapt to this load today?",
+    "Every session is a stressor the body has to absorb, and the same body absorbs a different amount on a Tuesday than it did on a Friday. The question on your floor was never “Is the programme hard enough?” It is: “Can this body adapt to this load today?”",
     "Our answer is a readiness check at the MS Fit kiosk before the session. One minute, no needles, no appointment. The member and the coach both see which load the body can adapt to today, and which stressor is better left for tomorrow. Matching load to capacity, every session, on every floor.",
   ],
   safetyNote:
@@ -32,7 +31,7 @@ export const GYMS = {
   models: [
     {
       title: "The whiteboard model",
-      body: "One programme, prescribed identically to every member, whatever their sleep debt, stress load or nervous-system fatigue.",
+      body: "One programme, prescribed the same way to every member, whatever their sleep, stress or fatigue.",
     },
     {
       title: "The testing club",
@@ -42,7 +41,7 @@ export const GYMS = {
   recoveryEyebrow: "The loop",
   recoveryTitle: "Test before. Train. Recover, guided. Test after.",
   recovery: [
-    "The kiosk on your floor tells every member what their body can adapt to before the session. That is safety, and training that fits the day. But the result is decided after the session: adaptability after training is the difference between getting better and just getting tired. So we take care of that part too. Olynixx recovery systems on your floor, dosed per member from their numbers. And a check that shows the session landed. The loop closes: readiness before, recovery after, progress you can prove.",
+    "The kiosk tells every member what their body can handle before the session: safer training that fits the day. But progress is decided after the session, in recovery. So we take care of that too: Olynixx recovery systems on your floor, dosed per member from their numbers, and a check that shows the session landed. Readiness before, recovery after, progress you can prove.",
   ],
   recoveryZoneEyebrow: "Your recovery zone",
   recoveryZoneTitle: "Your recovery zone, finally earning.",
@@ -57,11 +56,11 @@ export const GYMS = {
   steered: [
     {
       title: "Infrared heat",
-      body: "Steered toward when the readings point to circulation and parasympathetic recovery.",
+      body: "Recommended when the readings show circulation and relaxation need support.",
     },
     {
       title: "Cold immersion",
-      body: "Steered toward when the readings point to a nervous-system reset.",
+      body: "Recommended when the readings show the body needs to calm down after high stress.",
     },
     {
       title: "Compression",
@@ -77,7 +76,7 @@ export const GYMS = {
   licence: [
     {
       title: "You get",
-      body: "The readiness kiosk installed on your floor, the testing protocol, the reporting the member receives, the coach-facing interpretation layer, staff training, and the Olynixx testing-club standard your marketing can stand behind.",
+      body: "The MS Fit kiosk installed on your floor, the testing protocol, member reports, coach training to read them, and the Olynixx testing-club standard your marketing can stand behind.",
     },
     {
       title: "You provide",
@@ -107,7 +106,7 @@ export const GYMS = {
   firstClubEyebrow: "First testing club",
   firstClubTitle: "Karwan Health Club, Ajman",
   firstClub:
-    "The first Olynixx testing club: readiness kiosk on the floor, performance testing, structured twelve-week programmes, run by certified coaches.",
+    "The first Olynixx testing club: MS Fit kiosk on the floor, performance testing, structured twelve-week programmes, run by certified coaches.",
   proof: [
     { value: "1st", label: "Testing club live in Ajman" },
     { value: "2", label: "Income streams on one loop" },
@@ -128,7 +127,7 @@ export const GYMS = {
       body: "A quiet kiosk at arrival. One minute. The guest walks into the treatment with a status, not a preference card.",
     },
     {
-      title: "Steered recovery",
+      title: "Guided recovery",
       body: "Heat, cold, compression, rest. Chosen for today's reading, not for the package that sold last month.",
     },
     {

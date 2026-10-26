@@ -103,7 +103,7 @@ export function ReadinessDiagram({ constraints }: { constraints?: readonly strin
         })}
         <rect data-hub x={312} y={CY - 8} width={16} height={16} fill="var(--color-gold)" />
         <line x1={330} y1={CY} x2={CX - 90} y2={CY} stroke="var(--color-gold-dark)" strokeOpacity={0.6} strokeWidth={1.5} />
-        <Gauge label="ONE FUNCTIONAL STATUS" />
+        <Gauge label="ONE CLEAR STATUS" />
       </svg>
       {constraints && constraints.length > 0 && (
         <ul className="mt-4 flex flex-wrap gap-3" aria-label="The constraint is one of three systems">

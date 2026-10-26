@@ -18,7 +18,7 @@ import { bookJsonLd, breadcrumbJsonLd } from "@/lib/json-ld";
 
 export const metadata: Metadata = withSocial({
   title: { absolute: "Twenty-two years of readiness testing | Olynixx" },
-  description: ABOUT.heroLead,
+  description: "22 years of readiness testing, from elite sport and special forces to boardrooms. One method, now running across the UAE.",
 }, "/about");
 
 const crumbs = [
@@ -36,7 +36,7 @@ export default function AboutPage() {
         <AboutTimeline entries={ABOUT.timeline} />
       </Section>
 
-      <Section theme="dark" narrow eyebrow="One functional status" title={ABOUT.methodTitle}>
+      <Section theme="dark" narrow eyebrow="One clear status" title={ABOUT.methodTitle}>
         <Reveal stagger={0.1} className="space-y-5 text-cream/85">
           {ABOUT.methodBody.map((para) => (
             <p key={para.slice(0, 24)}>{para}</p>

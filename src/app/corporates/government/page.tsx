@@ -14,11 +14,10 @@ import { GOVERNMENT } from "@/content/corporates";
 import { CORP_SUBNAV } from "@/lib/nav";
 import { contactHref } from "@/lib/cta";
 import { breadcrumbJsonLd } from "@/lib/json-ld";
-import { entityIdentity } from "@/lib/site-config";
 
 export const metadata: Metadata = withSocial({
   title: { absolute: "Government workforce readiness testing | Olynixx" },
-  description: GOVERNMENT.heroLead,
+  description: "Readiness programmes for UAE government workforces and senior leadership. Delivered on site, fully anonymised at cohort level.",
 }, "/corporates/government");
 
 const crumbs = [
@@ -28,12 +27,7 @@ const crumbs = [
 ];
 
 export default function GovernmentPage() {
-  const entity = entityIdentity();
-  const contract = GOVERNMENT.contract.map((item, index) =>
-    index === 0 && entity.legalName
-      ? `The trading entity for a UAE contract is ${entity.legalName.replace(/\.$/, "")}.`
-      : item,
-  );
+  const contract = GOVERNMENT.contract;
   return (
     <>
       <PageJsonLd data={breadcrumbJsonLd(crumbs)} />
@@ -44,7 +38,7 @@ export default function GovernmentPage() {
         <TextCards items={GOVERNMENT.delivered} cols={3} />
       </Section>
 
-      <Section theme="dark" eyebrow="Pilot first, always" title={GOVERNMENT.engageTitle} lead={GOVERNMENT.engageIntro}>
+      <Section theme="dark" eyebrow="How we engage" title={GOVERNMENT.engageTitle} lead={GOVERNMENT.engageIntro}>
         <ScrollTimeline theme="dark">
           {GOVERNMENT.steps.map((s, i) => (
             <TimelineItem key={s.title} theme="dark" kicker={String(i + 1).padStart(2, "0")} title={s.title}>

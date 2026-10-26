@@ -71,22 +71,6 @@ export function LevelLadder({
 
   return (
     <div ref={ref}>
-      <div className="relative mb-8 flex items-center justify-between" aria-hidden>
-        <div className={`absolute inset-x-4 top-1/2 h-px -translate-y-1/2 ${dark ? "bg-cream/20" : "bg-rule"}`}>
-          <span data-fill className="block h-full w-full bg-gold" />
-        </div>
-        {levels.map((l) => (
-          <span
-            key={l.title}
-            data-mark
-            className={`relative z-10 flex size-9 items-center justify-center border border-gold bg-gold font-mono text-xs text-ink ${
-              dark ? "" : ""
-            }`}
-          >
-            {splitTitle(l.title).kicker.replace("Level ", "") || "·"}
-          </span>
-        ))}
-      </div>
       <div className="grid gap-5 md:grid-cols-3">
         {levels.map((l) => {
           const { kicker, name } = splitTitle(l.title);

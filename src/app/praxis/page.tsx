@@ -13,8 +13,8 @@ import { PraxisCourseFacts } from "@/components/sections/PraxisCourseFacts";
 import { ScrubSteps } from "@/components/sections/ScrubSteps";
 
 export const metadata: Metadata = withSocial({
-  title: { absolute: "Olynixx Praxis" },
-  description: PRAXIS.heroLead,
+  title: { absolute: "Olynixx Praxis: CPD and certification for UAE health professionals" },
+  description: "Continuing education for UAE trainers, health coaches and nutritionists. Learn readiness testing, earn your certificate, deliver it.",
 }, "/praxis");
 
 const CRUMBS = [
@@ -42,7 +42,6 @@ export default function PraxisPage() {
             height={48}
             className="h-auto w-[min(420px,100%)]"
           />
-          <p className="text-sm text-cream/65">{PRAXIS.programmeName} is the programme delivered inside Olynixx Praxis.</p>
         </div>
       </PageHero>
 

@@ -18,7 +18,7 @@ export function Counter({ value }: { value: string }) {
       // The server-rendered final value stays in place. It only counts up once it enters the viewport.
       gsap.to(state, {
         n: end,
-        duration: 1.8,
+        duration: 0.8,
         ease: "power2.out",
         onUpdate: () => {
           if (ref.current) ref.current.textContent = fmt(state.n);

@@ -44,7 +44,6 @@ export default function EventsPage() {
 
       <Section theme="dark" narrow eyebrow="The talk" title={EVENTS.keynoteTitle}>
         <Prose theme="dark">
-          <p className="text-sm text-cream/70">{EVENTS.speakerLine}</p>
           {EVENTS.keynoteBody.map((p) => (
             <p key={p.slice(0, 24)}>{p}</p>
           ))}

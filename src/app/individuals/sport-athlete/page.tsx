@@ -76,7 +76,6 @@ export default function SportAthletePage() {
         title={COPY.closeTitle}
         href={contactHref("sport-athlete", "sport-athlete-close")}
         label={COPY.primaryCta}
-        secondary={{ href: contactHref("athlete-referral", "sport-athlete-club"), label: COPY.clubCta }}
       />
     </>
   );

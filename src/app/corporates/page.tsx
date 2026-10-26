@@ -4,7 +4,6 @@ import Image from "next/image";
 import { PageHero } from "@/components/sections/PageHero";
 import { Section, Prose } from "@/components/sections/Section";
 import { CtaBand } from "@/components/sections/CtaBand";
-import { CardGrid } from "@/components/sections/CardGrid";
 import { ProofStrip } from "@/components/sections/ProofStrip";
 import { Faq } from "@/components/sections/Faq";
 import { FAQ } from "@/content/faq";
@@ -14,7 +13,6 @@ import { IsoShortLine } from "@/components/sections/IsoShortLine";
 import { PageJsonLd } from "@/components/sections/PageJsonLd";
 import { ScrollTimeline } from "@/components/sections/ScrollTimeline";
 import { TimelineItem } from "@/components/sections/TimelineItem";
-import { CycleLoop } from "@/components/sections/CycleLoop";
 import { TiltCard } from "@/components/sections/TiltCard";
 import { PersonalDashMock, LeadershipDashMock } from "@/components/sections/DashboardMocks";
 import { Reveal } from "@/components/motion/Reveal";
@@ -58,14 +56,6 @@ export default function CorporatesPage() {
         </Reveal>
       </Section>
 
-      <Section theme="dark" eyebrow={CORPORATES.eventBandEyebrow} title={CORPORATES.eventBandTitle} lead={CORPORATES.eventBandBody}>
-        <Reveal>
-          <Button href={contactHref("event", "corporates-event-band")} variant="secondary">
-            {CORPORATES.eventsCta}
-          </Button>
-        </Reveal>
-      </Section>
-
       <Section theme="light" narrow eyebrow={CORPORATES.gapEyebrow} title={CORPORATES.gapTitle}>
         <Prose>
           {CORPORATES.gap.map((p) => (
@@ -85,13 +75,6 @@ export default function CorporatesPage() {
         <Reveal className="mt-12">
           <Button href={contactHref("corporate-pilot", "corporates-pilot")}>{CORPORATES.primaryCta}</Button>
         </Reveal>
-      </Section>
-
-      <Section theme="light" eyebrow={CORPORATES.systemEyebrow} title={CORPORATES.systemTitle}>
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          <CycleLoop theme="light" labels={CORPORATES.system.map((s) => s.title)} />
-          <CardGrid items={CORPORATES.system} cols={2} numbered />
-        </div>
       </Section>
 
       <Section theme="dark" id="system" eyebrow={CORPORATES.tiersEyebrow} title={CORPORATES.tiersTitle}>

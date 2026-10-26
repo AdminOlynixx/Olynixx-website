@@ -1,13 +1,13 @@
 /** Build Pack V2. Individuals hub and three door pages. */
 
 export const HUB = {
-  metaTitle: "Personal readiness testing and coaching in the UAE. Olynixx",
+  metaTitle: "Personal readiness testing and coaching in the UAE | Olynixx",
   metaDescription:
     "A measured journey built on your own physiology. Choose your route and start with a free intake call.",
   eyebrow: "For individuals",
   heroTitle: "A user guide to your own body.",
   standfirst:
-    "Not a boot camp. Not a detox. Not another app. A measured journey built on your own physiology, guided by a team that reads your numbers instead of the trends. It starts with a free intake call.",
+    "Not a boot camp. Not a detox. Not another app. A plan built on your own body's data, guided by a team that reads your numbers, not the trends. It starts with a free intake call.",
   primaryCta: "Book your free intake call",
   secondaryCta: "Find your route",
   trust: [
@@ -32,13 +32,13 @@ export const HUB = {
       cta: "See the everyday health route",
     },
     {
-      title: "The Corporate Athlete",
+      title: "Corporate athlete",
       href: "/individuals/corporate-athlete",
       body: "You perform in meetings, not on start lines, and the load is real. Energy that holds through the afternoon, a head that still works at six, and a body that stops paying for the week on the weekend.",
       cta: "See the corporate athlete route",
     },
     {
-      title: "The Sport Athlete",
+      title: "Sport athlete",
       href: "/individuals/sport-athlete",
       body: "You already train hard. The question is whether your body is absorbing it. Readiness before the session, performance testing behind the programme, and nothing we use is on the WADA Prohibited List.",
       cta: "See the sport athlete route",
@@ -53,15 +53,15 @@ export const HUB = {
   lineEyebrow: "One thing first",
   lineTitle: "We do not treat patients.",
   lineBody: [
-    "We are not a clinic and nothing we do is medical. We work with healthy people who want more from their body. Every device we use is non-medical, and everything we give you is lifestyle guidance, not a diagnosis. If your numbers ever suggest you need medical attention, we say exactly that: see a doctor.",
-    "That is not a legal footnote. It is the reason the guidance you get here can be honest about what it is.",
+    "Everything is built around you. We measure how your body is coping, make sense of the data, and turn it into clear decisions: train, adjust or recover. Then we retest, so the result is proven, not assumed.",
+    "What you get is guidance, not a diagnosis. If your numbers ever point to something a doctor should see, we tell you straight.",
   ],
   methodEyebrow: "The method",
   methodTitle: "Test. Act. Verify.",
   method: [
     {
       title: "Test",
-      body: "A readiness test in about a minute, four technologies, resolved into one functional status: what your body can absorb today.",
+      body: "A one-minute readiness test that shows how much your body can absorb today.",
     },
     {
       title: "Act",
@@ -73,7 +73,8 @@ export const HUB = {
     },
   ],
   levelsEyebrow: "The ladder",
-  levelsTitle: "Three levels, whichever route you take",
+  levelsTitle: "Three levels",
+  levelsLead: "Everyday health starts at Level I. Levels II and III are for corporate and sport athletes.",
   levels: [
     {
       title: "Level I. Test & Guide",
@@ -82,7 +83,7 @@ export const HUB = {
     },
     {
       title: "Level II. Daily Readiness",
-      body: "Around 24 weeks. This is where measurement moves into your morning: a three-minute daily reading of brain, heart and recovery state with the Olynixx Sensor, and the full team behind it: health coach, mental coach, nutritionist and trainer. Built for people with higher goals, professional or leisure, where readiness is a decisive piece of the puzzle. Opens in 2027 with the Olynixx Sensor. Join the waitlist.",
+      body: "Around 24 weeks. Measurement moves into your morning: a three-minute daily reading with the Olynixx Sensor, and the full team behind it: health coach, mental coach, nutritionist and trainer. For people with higher goals, professional or personal. Opens in 2027. Join the waitlist.",
       price: "",
     },
     {
@@ -99,14 +100,14 @@ export const HUB = {
 } as const;
 
 export const EVERYDAY_HEALTH = {
-  metaTitle: "Everyday health: one test and a plan that fits your life. Olynixx",
+  metaTitle: "Everyday health: one test, a plan that fits your life | Olynixx",
   metaDescription:
     "Tired, want to lose weight, or just want to feel better? Start with one test and a plan that fits your life.",
   eyebrow: "Everyday health",
   heroTitle: "You know something has to change. We show you where to start.",
   intro:
     "Tired by mid-afternoon. A few kilos you can't shift. Good intentions, but no idea what to focus on first. You don't need to be an athlete to be measured. A one-minute test shows how your body is coping today, and a coach turns that into three or four simple steps that fit your life.",
-  primaryCta: "Book your free intake talk",
+  primaryCta: "Book your free intake call",
   isThisYouTitle: "Is this you?",
   isThisYou: [
     { title: "Always tired.", body: "You sleep, but you don't wake up rested." },
@@ -115,7 +116,7 @@ export const EVERYDAY_HEALTH = {
   ],
   howTitle: "How it works",
   how: [
-    { title: "Free intake talk.", body: "20 minutes with a coach. Your goals, your routine, no pressure." },
+    { title: "Free intake call.", body: "20 minutes with a coach. Your goals, your routine, no pressure." },
     { title: "Your first test.", body: "One minute at the kiosk. A personal report in your inbox the same day." },
     { title: "Your plan.", body: "Sleep, movement, food and stress: the few things that matter most for you, nothing more." },
     { title: "Retest.", body: "Every month or two. You see in numbers what is improving." },
@@ -132,9 +133,9 @@ export const EVERYDAY_HEALTH = {
 } as const;
 
 export const CORPORATE_ATHLETE = {
-  metaTitle: "The Corporate Athlete. Executive performance, measured. Olynixx",
+  metaTitle: "Corporate athlete: executive performance, measured | Olynixx",
   metaDescription:
-    "Energy that holds through the afternoon, a head that still works at six, and a body that stops paying for the week on the weekend. Measured, not guessed. Free intake call.",
+    "Energy that holds through the afternoon, a head that still works at six. Executive readiness, measured, not guessed. Free intake call.",
   eyebrow: "The Corporate Athlete",
   heroTitle: "You train for a job nobody trains for.",
   standfirst:
@@ -150,25 +151,25 @@ export const CORPORATE_ATHLETE = {
   loadTitle: "The performance you are paid for is physiological",
   load: [
     "Nobody schedules recovery into an executive calendar, because nothing in the calendar looks like training. But sustained cognitive load, travel, disrupted sleep and permanent low-grade urgency are stressors, and the body pays for them on the same account it uses for a hard training week.",
-    "The bill arrives quietly: the afternoon that costs more than it used to, the sleep that no longer repairs the day, the weekend that goes on repair instead of life. None of that is a character flaw and none of it is fixed by another productivity system. It is capacity, and capacity is measurable.",
+    "The bill arrives quietly: the afternoon that costs more than it used to, the sleep that no longer repairs the day, the weekend spent recovering instead of living. None of that is a character flaw, and no productivity system fixes it. It is capacity, and capacity is measurable.",
   ],
   readEyebrow: "What we read",
-  readTitle: "One minute, four technologies, one answer",
+  readTitle: "One minute. One clear answer.",
   read: [
-    "A readiness test takes about a minute, across four technologies, and resolves into one functional status: how much your body can absorb today, and what is holding it back.",
+    "A readiness test takes about a minute and gives one clear status: how much your body can absorb today, and what is holding it back.",
     "From there the coaching is specific rather than general. Not “sleep more”: this week, your constraint is recovery, so the 6am session comes out and the 9pm inbox check goes with it. Not “manage stress”: your load tolerance is down 14% on your baseline, so the difficult conversation moves to Tuesday morning.",
     "That is what changes: the decisions get made with a number in front of them.",
   ],
   runEyebrow: "How it runs",
   runTitle: "Built around a diary that does not bend",
   run: [
-    "The intake call. Free, 30 minutes, with a coach. Your goal, your real schedule, your history. Out of it comes the level, the testing rhythm and the team.",
+    "The intake call. Free, 20 minutes, with a coach. Your goal, your real schedule, your history. Out of it come the level, the testing rhythm and the team.",
     "The baseline. Your first full test, and the report that explains it in plain language. No jargon, no dashboard you need training to read.",
     "The week. Coaching that fits an executive diary: short, specific, decision-shaped. Testing monthly, bi-monthly or daily, depending on the level.",
     "The retest. Where the number moved, and where it did not. The plan changes when the line stalls. That is the whole discipline.",
   ],
   runNote:
-    "Most corporate athletes start at Level I and move to Level II when they want the morning reading. Level III is the full year, and it is the one leaders choose when they want the complete arsenal. Readiness, cognitive testing, performance testing and our training systems, including altitude. In one protocol.",
+    "Most corporate athletes start at Level I and move to Level II when they want the daily morning reading. Level III is the full year: readiness, cognitive and performance testing, and our training systems, including altitude, in one protocol.",
   privacyEyebrow: "Your data",
   privacyTitle: "Your results are yours",
   privacy:
@@ -184,9 +185,9 @@ export const CORPORATE_ATHLETE = {
 } as const;
 
 export const SPORT_ATHLETE = {
-  metaTitle: "Readiness and performance testing for athletes, UAE. Olynixx",
+  metaTitle: "Readiness and performance testing for athletes | Olynixx",
   metaDescription:
-    "Training only counts if your body absorbs it. Readiness before the session, performance testing behind the programme, nothing on the WADA Prohibited List. Free intake call.",
+    "Training only counts if your body absorbs it. Readiness before the session, performance testing behind the programme. Free intake call.",
   eyebrow: "The Sport Athlete",
   heroTitle: "Training you do not absorb is training you did not do.",
   standfirst:
@@ -210,7 +211,7 @@ export const SPORT_ATHLETE = {
   measure: [
     {
       title: "Readiness",
-      body: "Daily or per session. Four technologies resolved into one status: what your system can absorb today, and which system is the constraint. Green does not mean “go hard”; it means the load you planned is the load your body can convert.",
+      body: "Daily or per session. One status: how much your body can absorb today, and what is holding it back. Green does not mean “go hard”. It means the load you planned is the load your body can convert.",
     },
     {
       title: "Performance testing",

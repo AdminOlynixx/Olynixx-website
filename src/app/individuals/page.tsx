@@ -61,7 +61,7 @@ export default function IndividualsHub() {
         <ScrubSteps steps={HUB.method.map((s, i) => ({ label: `0${i + 1}`, title: s.title, body: s.body }))} />
       </Section>
 
-      <Section theme="dark" eyebrow={HUB.levelsEyebrow} title={HUB.levelsTitle}>
+      <Section theme="dark" eyebrow={HUB.levelsEyebrow} title={HUB.levelsTitle} lead={HUB.levelsLead}>
         <LevelLadder levels={HUB.levels} priceNote={HUB.levelsPriceNote} note={HUB.levelsNote} theme="dark" />
       </Section>
 
@@ -69,7 +69,7 @@ export default function IndividualsHub() {
         <Section theme="light" narrow title="Start tonight, or start with a conversation.">
           <Prose>
             <p>
-              Some journeys need an intake talk first. The three levels above all do. Some you can start tonight: defined readiness programmes (device, protocol and guidance in one) are in the Olynixx shop. The book is there too. Either way, the first step is measured.
+              Some journeys need an intake call first. The three levels above all do. Some you can start tonight: defined readiness programmes (device, protocol and guidance in one) are in the Olynixx shop. The book is there too. Either way, the first step is measured.
             </p>
           </Prose>
           <Reveal className="mt-8 flex flex-wrap gap-4">
@@ -78,7 +78,7 @@ export default function IndividualsHub() {
                 Browse readiness programmes
               </Button>
             ) : null}
-            <Button href={contactHref("individual-intake", "individuals-bridge")}>Book your free intake talk</Button>
+            <Button href={contactHref("individual-intake", "individuals-bridge")}>Book your free intake call</Button>
           </Reveal>
         </Section>
       ) : null}

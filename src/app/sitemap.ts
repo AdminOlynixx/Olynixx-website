@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/corporates/events",
     "/corporates/government",
     "/gyms",
+    "/spas",
     "/individuals",
     "/individuals/everyday-health",
     "/individuals/corporate-athlete",

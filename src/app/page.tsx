@@ -21,7 +21,7 @@ import { CORPORATES, FIRST_12 } from "@/content/corporates";
 
 export const metadata: Metadata = withSocial({
   title: { absolute: "Workforce readiness testing in the UAE | Olynixx" },
-  description: HOME.standfirst,
+  description: "A preventive readiness system for workforces, clubs and individuals. A one-minute test, a personal report, and a retest that shows whether it moved.",
 }, "/");
 
 export default function Home() {
@@ -42,7 +42,7 @@ export default function Home() {
             delay={0.2}
             className="max-w-3xl text-[clamp(2.375rem,4.6vw,4.25rem)] leading-[1.04] tracking-[-0.02em]"
           />
-          <Reveal stagger={0.12} delay={0.8} className="mt-8 max-w-xl space-y-6">
+          <Reveal stagger={0.06} delay={0.15} className="mt-8 max-w-xl space-y-6">
             <p className="text-[clamp(1.1875rem,1.6vw,1.3125rem)] text-cream/85">{HOME.standfirst}</p>
             <p className="font-display text-xl italic text-gold-dark">{HOME.proofLine}</p>
             <div className="flex flex-wrap gap-4 pt-2">
@@ -199,7 +199,7 @@ export default function Home() {
           <h2 className="font-display text-[clamp(2rem,4vw,3rem)] italic">{HOME.bookTitle}</h2>
           <p className="max-w-lg text-ink-muted">{HOME.bookBody}</p>
           <Button href="/about#book" variant="secondary">
-            Read the argument
+            About the book
           </Button>
         </Reveal>
       </section>
