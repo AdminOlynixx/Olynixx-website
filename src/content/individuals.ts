@@ -117,7 +117,7 @@ export const EVERYDAY_HEALTH = {
   howTitle: "How it works",
   how: [
     { title: "Free intake call.", body: "20 minutes with a coach. Your goals, your routine, no pressure." },
-    { title: "Your first test.", body: "One minute at the kiosk. A personal report in your inbox the same day." },
+    { title: "Your first test.", body: "One minute at the kiosk. A personal report in your inbox within ten minutes." },
     { title: "Your plan.", body: "Sleep, movement, food and stress: the few things that matter most for you, nothing more." },
     { title: "Retest.", body: "Every month or two. You see in numbers what is improving." },
   ],

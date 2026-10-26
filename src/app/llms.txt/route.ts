@@ -9,7 +9,7 @@ export function GET() {
 
   const body = `# Olynixx
 
-> Olynixx is a preventive readiness system for workforces, clubs and individuals in the UAE. A one-minute test, a personal report the same day, and a retest that shows whether it moved. Readiness + Recovery = Perform.
+> Olynixx is a preventive readiness system for workforces, clubs and individuals in the UAE. A one-minute test, a personal report within ten minutes, and a retest that shows whether it moved. Readiness + Recovery = Perform.
 
 Olynixx measures how much the body can absorb today, acts on what holds it back, and measures again. It gives lifestyle guidance, not a diagnosis or treatment. Data is hosted in the UAE. ISO 27001, 45001 and 45003 certification is in progress and not yet certified.
 
