@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { withSocial } from "@/lib/seo";
 import { PageHero } from "@/components/sections/PageHero";
+import { PhotoSlot } from "@/components/sections/PhotoSlot";
+import { GYMS_PHOTOS } from "@/content/photos";
 import { Section, Prose } from "@/components/sections/Section";
 import { CardGrid } from "@/components/sections/CardGrid";
 import { CtaBand } from "@/components/sections/CtaBand";
@@ -34,6 +36,14 @@ export default function GymsPage() {
         primary={{ href: contactHref("club-licence", "gyms-hero"), label: GYMS.primaryCta }}
         secondary={{ href: "/praxis", label: GYMS.secondaryCta }}
         trust={GYMS.trust}
+        media={
+          <PhotoSlot
+            photo={GYMS_PHOTOS.hero}
+            priority
+            sizes="(min-width: 1024px) 45vw, 100vw"
+            className="border border-cream/15"
+          />
+        }
       />
 
       <nav aria-label="Gyms or spas" data-theme="light" className="relative z-10 border-b border-rule bg-cream/90 backdrop-blur">
@@ -68,6 +78,10 @@ export default function GymsPage() {
           </div>
           <LoadCapacityMock caption={GYMS.safetyTitle} />
         </div>
+        <Reveal className="mt-12 grid gap-5 sm:grid-cols-2">
+          <PhotoSlot photo={GYMS_PHOTOS.loadHand} ratio="4 / 3" sizes="(min-width: 640px) 50vw, 100vw" />
+          <PhotoSlot photo={GYMS_PHOTOS.loadFoot} ratio="4 / 3" sizes="(min-width: 640px) 50vw, 100vw" />
+        </Reveal>
       </Section>
 
       <Section theme="dark" eyebrow={GYMS.personalEyebrow} title={GYMS.personalTitle}>
@@ -75,7 +89,7 @@ export default function GymsPage() {
           <p>{GYMS.personal}</p>
           <p>{GYMS.personalClose}</p>
         </Prose>
-        <Reveal stagger={0.12} className="mt-12 grid gap-5 md:grid-cols-2">
+        <Reveal stagger={0.12} className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {GYMS.models.map((m, i) => (
             <TiltCard
               key={m.title}
@@ -86,6 +100,9 @@ export default function GymsPage() {
               <p className="mt-3 text-[15px] text-cream/75">{m.body}</p>
             </TiltCard>
           ))}
+          <div className="md:col-span-2 lg:col-span-1">
+            <PhotoSlot photo={GYMS_PHOTOS.person} ratio="4 / 3" sizes="(min-width: 1024px) 33vw, 100vw" />
+          </div>
         </Reveal>
       </Section>
 
@@ -98,6 +115,21 @@ export default function GymsPage() {
           </Prose>
           <CycleLoop theme="light" labels={loopLabels} />
         </div>
+        <Reveal as="ol" stagger={0.08} className="mt-14 grid grid-cols-2 gap-5 lg:grid-cols-4">
+          {[
+            { photo: GYMS_PHOTOS.loopTest, label: "Test before" },
+            { photo: GYMS_PHOTOS.loopJump, label: "Train" },
+            { photo: GYMS_PHOTOS.loopLift, label: "Train" },
+            { photo: GYMS_PHOTOS.loopAfter, label: "Test after" },
+          ].map((step, i) => (
+            <li key={step.photo.src}>
+              <PhotoSlot photo={step.photo} ratio="4 / 3" sizes="(min-width: 1024px) 25vw, 50vw" />
+              <p className="mt-3 font-mono text-xs uppercase tracking-[0.1em] text-ink-muted">
+                {String(i + 1).padStart(2, "0")} · {step.label}
+              </p>
+            </li>
+          ))}
+        </Reveal>
       </Section>
 
       <Section theme="dark" narrow eyebrow={GYMS.recoveryZoneEyebrow} title={GYMS.recoveryZoneTitle}>
@@ -120,6 +152,10 @@ export default function GymsPage() {
 
       <Section theme="light" id="licence" eyebrow={GYMS.licenceEyebrow} title={GYMS.licenceTitle}>
         <CardGrid items={GYMS.licence} cols={3} numbered />
+        <Reveal className="mt-10 grid gap-5 sm:grid-cols-2">
+          <PhotoSlot photo={GYMS_PHOTOS.clubKit} ratio="4 / 3" className="object-top" sizes="(min-width: 640px) 50vw, 100vw" />
+          <PhotoSlot photo={GYMS_PHOTOS.clubSensor} ratio="4 / 3" sizes="(min-width: 640px) 50vw, 100vw" />
+        </Reveal>
         <Reveal className="mt-10">
           <Button href={contactHref("club-licence", "gyms-licence")}>{GYMS.licenceCta}</Button>
         </Reveal>

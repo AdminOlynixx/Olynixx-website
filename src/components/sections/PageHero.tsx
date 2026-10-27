@@ -15,6 +15,7 @@ export function PageHero({
   secondary,
   trust,
   breadcrumb,
+  media,
   children,
 }: {
   eyebrow?: string;
@@ -24,12 +25,17 @@ export function PageHero({
   secondary?: Cta;
   trust?: readonly string[];
   breadcrumb?: { href: string; label: string }[];
+  /** Optional image or visual shown beside the headline on large screens (contained split layout). */
+  media?: ReactNode;
   children?: ReactNode;
 }) {
   return (
     <section data-theme="dark" className="surface-dark relative overflow-hidden pb-20 pt-24 md:pb-28 md:pt-32">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_40%,rgba(79,192,166,0.16),transparent_60%)]" />
       <div className="container-ol">
+        {media ? (
+          <div className="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+            <div>
         {breadcrumb && (
           <nav aria-label="Breadcrumb" className="mb-6 font-mono text-xs uppercase tracking-[0.1em] text-cream/60">
             {breadcrumb.map((b, i) => (
@@ -62,6 +68,45 @@ export function PageHero({
             </div>
           )}
         </Reveal>
+            </div>
+            <div>{media}</div>
+          </div>
+        ) : (
+          <>
+        {breadcrumb && (
+          <nav aria-label="Breadcrumb" className="mb-6 font-mono text-xs uppercase tracking-[0.1em] text-cream/60">
+            {breadcrumb.map((b, i) => (
+              <span key={b.href}>
+                {i > 0 && " / "}
+                <Link href={b.href} className="hover:text-gold-dark">
+                  {b.label}
+                </Link>
+              </span>
+            ))}
+          </nav>
+        )}
+        {eyebrow && <p className="eyebrow mb-5">{eyebrow}</p>}
+        <SplitHeading
+          as="h1"
+          text={title}
+          delay={0.15}
+          className="max-w-4xl text-[clamp(2.375rem,5.2vw,4rem)] leading-[1.05] tracking-[-0.02em]"
+        />
+        <Reveal stagger={0.06} delay={0.15} className="mt-8 max-w-2xl space-y-6">
+          {lead && <p className="text-[clamp(1.1875rem,1.6vw,1.3125rem)] text-cream/85">{lead}</p>}
+          {(primary || secondary) && (
+            <div className="flex flex-wrap gap-4 pt-2">
+              {primary && <Button href={primary.href}>{primary.label}</Button>}
+              {secondary && (
+                <Button href={secondary.href} variant="secondary">
+                  {secondary.label}
+                </Button>
+              )}
+            </div>
+          )}
+        </Reveal>
+          </>
+        )}
         {trust && trust.length > 0 && (
           <Reveal stagger={0.05} delay={0.2} className="mt-14 flex flex-wrap gap-x-8 gap-y-3 border-t border-cream/15 pt-6">
             {trust.map((t) => (

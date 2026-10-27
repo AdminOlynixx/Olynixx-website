@@ -32,7 +32,7 @@ export const FOUNDER_PHOTOS = {
  * Only images Louis sends for this brief. No stock photos, no logos or readable signage, no client data,
  * no medical imagery. The kiosk must be the Olynixx device.
  */
-export type SitePhoto = { src: string; alt: string; width: number; height: number; ratio: "3/2" | "4/3" };
+export type SitePhoto = { src: string; alt: string; width: number; height: number; ratio: "3/2" | "4/3" | "16/9" | "4/5" };
 
 const HERO = { width: 2400, height: 1600, ratio: "3/2" } as const;
 const CARD = { width: 1200, height: 900, ratio: "4/3" } as const;
@@ -92,4 +92,24 @@ export const SITE_PHOTOS = {
     alt: "Rest Is the New Sport by Jef Louis Geys",
     ...CARD,
   },
+} satisfies Record<string, SitePhoto>;
+
+/**
+ * /gyms image pack (Louis, 27 Oct 2026). 1152 px wide frames, so they sit in sections and cards, never full-bleed.
+ * WebP, lazy-loaded except the hero, under 150 KB each. Alt text describes the action and names no gym.
+ */
+const WIDE = { width: 1152, height: 648, ratio: "16/9" } as const;
+const TALL = { width: 656, height: 820, ratio: "4/5" } as const;
+
+export const GYMS_PHOTOS = {
+  hero: { src: "/images/gyms/01-hero-kiosk-on-gym-floor.webp", alt: "Olynixx readiness kiosk standing on a gym floor", ...WIDE },
+  loadHand: { src: "/images/gyms/02-know-before-they-load-hand-test.webp", alt: "Member placing both hands on the kiosk hand sensors for a readiness test", ...WIDE },
+  loadFoot: { src: "/images/gyms/03-know-before-they-load-foot-plate.webp", alt: "Member stepping barefoot onto the kiosk foot plates", ...WIDE },
+  person: { src: "/images/gyms/04-whiteboard-to-person-coach-explains.webp", alt: "Coach showing a member their readiness result on the kiosk screen", ...WIDE },
+  loopTest: { src: "/images/gyms/05-loop-test-kiosk-readout.webp", alt: "Kiosk screen showing a member's readiness readout before training", ...TALL },
+  loopJump: { src: "/images/gyms/06-loop-train-jump-on-contact-grid.webp", alt: "Member squatting on a measurement mat during a jump test", ...WIDE },
+  loopLift: { src: "/images/gyms/07-loop-train-deadlift-tracked.webp", alt: "Member performing a barbell deadlift while the lift is tracked", ...WIDE },
+  loopAfter: { src: "/images/gyms/08-loop-test-after-data-on-laptop.webp", alt: "Laptop showing power and velocity data after the session", ...WIDE },
+  clubKit: { src: "/images/gyms/09-club-gets-musclelab-kit.webp", alt: "Coach opening a performance-testing equipment case on the gym floor", ...TALL },
+  clubSensor: { src: "/images/gyms/10-musclelab-contact-grid-detail.webp", alt: "Close-up of a handheld contact sensor used for performance testing", ...WIDE },
 } satisfies Record<string, SitePhoto>;

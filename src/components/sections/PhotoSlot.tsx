@@ -11,11 +11,14 @@ export function PhotoSlot({
   className = "",
   sizes = "(min-width: 1024px) 50vw, 100vw",
   priority = false,
+  ratio,
 }: {
   photo: SitePhoto | null;
   className?: string;
   sizes?: string;
   priority?: boolean;
+  /** Override the crop, for example "4 / 3" to fit a mixed set into one grid. */
+  ratio?: string;
 }) {
   if (!photo) return null;
   return (
@@ -27,7 +30,7 @@ export function PhotoSlot({
       sizes={sizes}
       priority={priority}
       loading={priority ? undefined : "lazy"}
-      style={{ aspectRatio: photo.ratio.replace("/", " / ") }}
+      style={{ aspectRatio: ratio ?? photo.ratio.replace("/", " / ") }}
       className={`h-auto w-full object-cover ${className}`}
     />
   );
