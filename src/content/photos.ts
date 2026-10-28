@@ -92,6 +92,14 @@ export const SITE_PHOTOS = {
     alt: "Rest Is the New Sport by Jef Louis Geys",
     ...CARD,
   },
+  // 10. /corporates/events, "The talk". Louis on stage, cropped to drop partner logos and other faces (480 x 600, source was a 960 px WhatsApp image).
+  keynote: {
+    src: "/images/events-keynote.webp",
+    alt: "Jef Louis Geys giving a keynote on stress management to a corporate audience",
+    width: 480,
+    height: 600,
+    ratio: "4/5",
+  },
 } satisfies Record<string, SitePhoto>;
 
 /**

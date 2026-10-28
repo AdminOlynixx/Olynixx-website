@@ -7,6 +7,8 @@ import { SectionSubNav } from "@/components/sections/SectionSubNav";
 import { PageJsonLd } from "@/components/sections/PageJsonLd";
 import { HeartbeatLine } from "@/components/sections/HeartbeatLine";
 import { TiltCard } from "@/components/sections/TiltCard";
+import { PhotoSlot } from "@/components/sections/PhotoSlot";
+import { SITE_PHOTOS } from "@/content/photos";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { EVENTS } from "@/content/corporates";
@@ -42,12 +44,15 @@ export default function EventsPage() {
         </Prose>
       </Section>
 
-      <Section theme="dark" narrow eyebrow="The talk" title={EVENTS.keynoteTitle}>
-        <Prose theme="dark">
-          {EVENTS.keynoteBody.map((p) => (
-            <p key={p.slice(0, 24)}>{p}</p>
-          ))}
-        </Prose>
+      <Section theme="dark" eyebrow="The talk" title={EVENTS.keynoteTitle}>
+        <div className="grid items-start gap-10 lg:grid-cols-[1fr_320px] lg:gap-16">
+          <Prose theme="dark">
+            {EVENTS.keynoteBody.map((p) => (
+              <p key={p.slice(0, 24)}>{p}</p>
+            ))}
+          </Prose>
+          <PhotoSlot photo={SITE_PHOTOS.keynote} sizes="(min-width: 1024px) 320px, 100vw" className="max-w-xs lg:max-w-none" />
+        </div>
       </Section>
 
       <Section theme="light" narrow eyebrow="Teams" title={EVENTS.workshopsTitle}>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { withSocial } from "@/lib/seo";
 import { EVERYDAY_HEALTH as COPY } from "@/content/individuals";
-import { SITE_PHOTOS } from "@/content/photos";
+// import { SITE_PHOTOS } from "@/content/photos";
 import { contactHref } from "@/lib/cta";
 import { publicContact, whatsappHref } from "@/lib/site-config";
 import { breadcrumbJsonLd } from "@/lib/json-ld";
@@ -11,7 +11,7 @@ import { PageHero } from "@/components/sections/PageHero";
 import { Section } from "@/components/sections/Section";
 import { CardGrid } from "@/components/sections/CardGrid";
 import { CtaBand } from "@/components/sections/CtaBand";
-import { PhotoSlot } from "@/components/sections/PhotoSlot";
+// import { PhotoSlot } from "@/components/sections/PhotoSlot";
 import { ScrubSteps } from "@/components/sections/ScrubSteps";
 import { Reveal } from "@/components/motion/Reveal";
 
@@ -42,7 +42,9 @@ export default function EverydayHealthPage() {
         primary={{ href: contactHref("individual-intake", "everyday-health-hero"), label: COPY.primaryCta }}
         secondary={{ href: whatsappHref(publicContact().whatsapp), label: "Message us on WhatsApp" }}
       >
+        {/* Hero photo, waiting on Louis (public/images/everyday-health-hero.webp). Also restore the two imports above.
         <PhotoSlot photo={SITE_PHOTOS.everyday} sizes="(min-width: 1024px) 896px, 100vw" priority className="mt-12 max-w-4xl" />
+        */}
       </PageHero>
 
       <Section theme="light" title={COPY.isThisYouTitle}>

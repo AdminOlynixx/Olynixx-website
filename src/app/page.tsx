@@ -33,7 +33,8 @@ export default function Home() {
       {/* Hero */}
       <section data-theme="dark" className="surface-dark relative flex min-h-[calc(100svh-72px)] items-center overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_50%,rgba(79,192,166,0.18),transparent_60%)]" />
-        <div className="container-ol relative z-10 grid items-center gap-12 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 lg:py-24">
+        {/* Two-column layout for when the hero photo arrives: grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 */}
+        <div className="container-ol relative z-10 py-20 lg:py-24">
           <div>
           <p className="eyebrow mb-6">{HOME.spineAlt}</p>
           <SplitHeading
@@ -53,7 +54,9 @@ export default function Home() {
             </div>
           </Reveal>
           </div>
+          {/* Hero photo, waiting on Louis (public/images/hero-kiosk-office.webp):
           <PhotoSlot photo={SITE_PHOTOS.hero} sizes="(min-width: 1024px) 45vw, 100vw" priority />
+          */}
         </div>
       </section>
 
@@ -61,7 +64,8 @@ export default function Home() {
 
       {/* The readiness principle */}
       <section data-theme="light" className="py-24">
-        <div className="container-ol grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+        {/* Two-column layout for when the readiness photo arrives: grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr] */}
+        <div className="container-ol">
           <Reveal stagger={0.1} className="max-w-[780px]">
             <p className="eyebrow">{HOME.readinessEyebrow}</p>
             <h2 className="mt-3 text-[clamp(1.8125rem,3.4vw,2.5rem)]">{HOME.readinessTitle}</h2>
@@ -84,7 +88,9 @@ export default function Home() {
             </ol>
             <p className="mt-8 font-display text-2xl italic text-gold-text">{HOME.readinessClose}</p>
           </Reveal>
+          {/* Readiness photo, waiting on Louis (public/images/readiness-recovery.webp):
           <PhotoSlot photo={SITE_PHOTOS.readiness} />
+          */}
         </div>
       </section>
 
@@ -105,11 +111,13 @@ export default function Home() {
 
       <PinnedCycle eyebrow="One cycle" title="Four steps. One loop." steps={CORPORATES.system} />
 
+      {/* Four steps phone and laptop mockup, waiting on the dashboard screenshots (public/images/four-steps-phone-laptop.webp):
       <section data-theme="light" className="pt-24">
         <Reveal className="container-ol">
           <PhotoSlot photo={SITE_PHOTOS.steps} sizes="(min-width: 768px) 640px, 100vw" className="mx-auto max-w-[640px]" />
         </Reveal>
       </section>
+      */}
 
       {/* Offer */}
       <section data-theme="light" className="py-24">
@@ -120,7 +128,9 @@ export default function Home() {
             <p className="mt-4 max-w-[68ch] text-ink-muted">{HOME.offerBody}</p>
           </div>
           <div className="space-y-6">
+            {/* Event photo, waiting on Louis (public/images/event-kiosk.webp):
             <PhotoSlot photo={SITE_PHOTOS.event} sizes="(min-width: 768px) 40vw, 100vw" />
+            */}
             <Button href={contactHref("event", "home-offer")}>{HOME.offerCta}</Button>
           </div>
         </Reveal>
@@ -135,13 +145,15 @@ export default function Home() {
             <h2 className="mt-3 text-[clamp(1.8125rem,3.4vw,2.5rem)]">{HOME.runningTitle}</h2>
           </Reveal>
           <Reveal stagger={0.12} className="grid gap-5 md:grid-cols-3">
-            {HOME.running.map((r, i) => (
+            {HOME.running.map((r /* , i: index for the field card photos below */) => (
               <article key={r.title} className="border border-rule bg-paper p-7">
+                {/* Field card photos (government, club, elite sport), waiting on Louis:
                 <PhotoSlot
                   photo={[SITE_PHOTOS.fieldGovernment, SITE_PHOTOS.fieldClub, SITE_PHOTOS.fieldElite][i] ?? null}
                   sizes="(min-width: 768px) 33vw, 100vw"
                   className="mb-5 aspect-[4/3]"
                 />
+                */}
                 <h3 className="font-display text-2xl">{r.title}</h3>
                 <p className="mt-3 text-[15px] text-ink-muted">{r.body}</p>
               </article>
