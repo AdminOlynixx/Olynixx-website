@@ -109,6 +109,13 @@ export const SITE_PHOTOS = {
 const WIDE = { width: 1152, height: 648, ratio: "16/9" } as const;
 const TALL = { width: 656, height: 820, ratio: "4/5" } as const;
 
+/**
+ * Optional video for the /gyms hero, played over the hero photo. Set to the file path once Louis
+ * sends an original he has permission to publish (MP4, muted-friendly, under 3 MB), for example
+ * "/videos/gyms-hero.mp4" with the file in public/videos. Null keeps the photo only.
+ */
+export const GYMS_HERO_VIDEO: string | null = "/videos/gyms-hero.mp4";
+
 export const GYMS_PHOTOS = {
   hero: { src: "/images/gyms/01-hero-kiosk-on-gym-floor.webp", alt: "Olynixx readiness kiosk standing on a gym floor", ...WIDE },
   loadHand: { src: "/images/gyms/02-know-before-they-load-hand-test.webp", alt: "Member placing both hands on the kiosk hand sensors for a readiness test", ...WIDE },

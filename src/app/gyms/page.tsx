@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { withSocial } from "@/lib/seo";
 import { PageHero } from "@/components/sections/PageHero";
 import { PhotoSlot } from "@/components/sections/PhotoSlot";
-import { GYMS_PHOTOS } from "@/content/photos";
+import { VideoSlot } from "@/components/sections/VideoSlot";
+import { GYMS_HERO_VIDEO, GYMS_PHOTOS } from "@/content/photos";
 import { Section, Prose } from "@/components/sections/Section";
 import { CardGrid } from "@/components/sections/CardGrid";
 import { CtaBand } from "@/components/sections/CtaBand";
@@ -37,8 +38,10 @@ export default function GymsPage() {
         secondary={{ href: "/praxis", label: GYMS.secondaryCta }}
         trust={GYMS.trust}
         media={
-          <PhotoSlot
+          <VideoSlot
             photo={GYMS_PHOTOS.hero}
+            video={GYMS_HERO_VIDEO}
+            videoRatio="5 / 4"
             priority
             sizes="(min-width: 1024px) 45vw, 100vw"
             className="border border-cream/15"
