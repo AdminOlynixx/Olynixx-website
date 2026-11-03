@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button";
 
 type Cta = { href: string; label: string };
 
-/** Dark hero used by every inner page. The persistent star shows through behind it. */
+/** Dark hero used by every inner page. The globe shows through behind it, except when a photo or video sits beside the headline (media). */
 export function PageHero({
   eyebrow,
   title,
@@ -30,7 +30,7 @@ export function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <section data-theme="dark" className="surface-dark relative overflow-hidden pb-20 pt-24 md:pb-28 md:pt-32">
+    <section data-theme="dark" data-globe={media ? undefined : "hero"} className="surface-dark relative overflow-hidden pb-20 pt-24 md:pb-28 md:pt-32">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_40%,rgba(79,192,166,0.16),transparent_60%)]" />
       <div className="container-ol">
         {media ? (

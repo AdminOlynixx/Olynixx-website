@@ -31,7 +31,8 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section data-theme="dark" className="surface-dark relative flex min-h-[calc(100svh-72px)] items-center overflow-hidden">
+      {/* Remove data-globe when the hero photo goes back in: the globe and the photo should not share the hero. */}
+      <section data-theme="dark" data-globe="hero" className="surface-dark relative flex min-h-[calc(100svh-72px)] items-center overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_50%,rgba(79,192,166,0.18),transparent_60%)]" />
         {/* Two-column layout for when the hero photo arrives: grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14 */}
         <div className="container-ol relative z-10 py-20 lg:py-24">
