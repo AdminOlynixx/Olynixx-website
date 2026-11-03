@@ -208,7 +208,7 @@ export default function Home() {
       <section data-theme="light" className="py-24">
         <Reveal stagger={0.1} className="container-ol flex flex-col items-center gap-5 text-center">
           <PhotoSlot photo={SITE_PHOTOS.book} sizes="(min-width: 768px) 560px, 90vw" className="max-w-[560px]" />
-          <Image src="/brand/olynixx-divider-on-light.svg" alt="" aria-hidden="true" width={160} height={12} />
+          <Image src="/brand/olynixx-divider-on-light.svg" alt="" aria-hidden="true" width={720} height={24} className="h-auto w-40" />
           <h2 className="font-display text-[clamp(2rem,4vw,3rem)] italic">{HOME.bookTitle}</h2>
           <p className="max-w-lg text-ink-muted">{HOME.bookBody}</p>
           <Button href="/about#book" variant="secondary">

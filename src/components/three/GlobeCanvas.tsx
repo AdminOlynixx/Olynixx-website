@@ -219,6 +219,17 @@ function Scene({ low }: { low: boolean }) {
   );
 }
 
+// @react-three/fiber 9.x still creates a THREE.Clock, which three 0.18x warns about on every mount.
+// Drop only that message (once) until R3F moves to THREE.Timer; remove this when it does.
+if (typeof window !== "undefined" && !(window as { __clockWarnMuted?: boolean }).__clockWarnMuted) {
+  (window as { __clockWarnMuted?: boolean }).__clockWarnMuted = true;
+  const warn = console.warn.bind(console);
+  console.warn = (...args: unknown[]) => {
+    if (typeof args[0] === "string" && args[0].includes("THREE.Clock")) return;
+    warn(...args);
+  };
+}
+
 export default function GlobeCanvas({ low }: { low: boolean }) {
   return (
     <Canvas

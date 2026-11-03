@@ -139,8 +139,8 @@ export function HeaderClient({ items, ctaHref, contact, socials }: Props) {
             <Image
               src="/brand/olynixx-lockup-horizontal-on-dark.svg"
               alt="Olynixx"
-              width={128}
-              height={40}
+              width={410}
+              height={128}
               priority
               className="h-8 w-auto sm:h-10"
             />

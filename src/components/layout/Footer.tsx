@@ -32,17 +32,17 @@ export function Footer() {
           <Image
             src="/brand/olynixx-lockup-horizontal-on-dark.svg"
             alt="Olynixx"
-            width={102}
-            height={32}
+            width={410}
+            height={128}
             className="h-8 w-auto"
           />
           <Image
             src="/brand/olynixx-spine-on-dark.svg"
             alt=""
             aria-hidden="true"
-            width={220}
-            height={60}
-            className="mt-6 w-[220px]"
+            width={1148}
+            height={95}
+            className="mt-6 h-auto w-[220px]"
           />
           <p className="mt-6 text-sm text-cream/80">
             <Link href="/about#book" className="font-display text-lg italic hover:text-gold-dark">
